@@ -19,6 +19,7 @@
 
     <!-- ========== MAIN CONTENT ========== -->
     <main id="content" role="main">
+
       <!-- Hero Section -->
       <div class="d-lg-flex position-relative">
         <div class="container d-lg-flex align-items-lg-center space-top-2 space-lg-0 min-vh-lg-100">
@@ -71,6 +72,208 @@
         </div>
       </div>
       <!-- End Hero Section -->
+
+    <!-- Features Section -->
+    <div class="bg-dark rounded-lg mx-3 mx-xl-12" style="background-image: url(assets/svg/components/abstract-shapes-20.svg);">
+      <div class="container-xl container-fluid space-1 space-md-2 px-4 px-md-8 px-lg-10">
+        <div class="px-3">
+          <!-- Title -->
+          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+            <h2 class="text-white">SEVEN’S INGENIEROS S.A.C se  caracteriza por tener</h2>
+          </div>
+          <!-- End Title -->
+
+          <!-- Slick Carousel -->
+          <div class="js-slick-carousel slick slick-equal-height ie-slick-equal-height slick-gutters-3"
+              data-hs-slick-carousel-options='{
+                 "prevArrow": "<span class=\"fas fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left slick-arrow-centered-y shadow-soft rounded-circle ml-n2\"></span>",
+                 "nextArrow": "<span class=\"fas fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right slick-arrow-centered-y shadow-soft rounded-circle mr-n2\"></span>",
+                 "slidesToShow": 3,
+                 "infinite": true,
+                 "dots": true,
+                 "dotsClass": "slick-pagination slick-pagination-white d-none mt-5",
+                 "responsive": [{
+                   "breakpoint": 992,
+                   "settings": {
+                     "slidesToShow": 2
+                     }
+                   }, {
+                   "breakpoint": 768,
+                   "settings": {
+                     "slidesToShow": 2
+                     }
+                   }, {
+                   "breakpoint": 554,
+                   "settings": {
+                     "slidesToShow": 1
+                   }
+                 }]
+               }'>
+            <div class="js-slide mb-4">
+              <!-- Card Info -->
+              <div class="card h-100">
+                <img class="card-img-top" src="assets/img/imgs_slide/calidad.jpg" alt="Image Description">
+                <div class="card-body">
+                  <div class="media align-items-center">
+                    <div class="min-w-8rem mr-2">
+                      <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="mb-0">CALIDAD</h4>
+                      <small class="d-block"></small>
+                    </div>
+                  </div>
+                  <p class="mb-0" style="text-align: justify;">La empresa admin seven´s cuenta con un Departamento de Calidad, el que se ocupa de prevenir las fallas en los procesos constructivos.</p>
+                </div>
+              </div>
+              <!-- End Card Info -->
+            </div>
+
+            <div class="js-slide mb-4">
+              <!-- Card Info -->
+              <div class="card h-100">
+                <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
+                <div class="card-body">
+                  <div class="media align-items-center">
+                    <div class="min-w-8rem mr-2">
+                      <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="mb-0">DISEÑO</h4>
+                      <small class="d-block"></small>
+                    </div>
+                  </div>
+                  <p class="mb-0" style="text-align: justify;">Implementamos mejoras en el diseño constructivo y en la búsqueda de nuevos materiales orientados a las necesidades del cliente.</p>
+                </div>
+              </div>
+              <!-- End Card Info -->
+            </div>
+
+            <div class="js-slide mb-4">
+              <!-- Card Info -->
+              <div class="card h-100">
+                <img class="card-img-top" src="assets/img/imgs_slide/obras.png" alt="Image Description">
+                <div class="card-body">
+                  <div class="media align-items-center">
+                    <div class="min-w-8rem mr-2">
+                      <img class="img-fluid" src="assets/svg/logos/icon-03.png" alt="Logo">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="mb-0">OBRAS</h4>
+                      <small class="d-block"></small>
+                    </div>
+                  </div>
+                  <p class="mb-0" style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales calificados (Autocontrol) y sistemas de control calidad estandarizados.</p>
+                </div>
+              </div>
+              <!-- End Card Info -->
+            </div>
+
+          </div>
+          <!-- End Slick Carousel -->
+        </div>
+      </div>
+    </div>
+    <!-- End Features Section -->
+
+      <!-- Features Section -->
+      <div id="featuresSection" class="container space-2 space-lg-3">
+        <div class="row justify-content-lg-between align-items-lg-center">
+          <div class="col-lg-5 mb-9 mb-lg-0">
+            <div class="mb-3">
+              <h4 style=" color: #1e2022; font-size: 23px;" >MISIÓN</h4>
+            </div>
+            <p style="text-align: justify;" >Somos una empresa constructora dedicada a la construcción de proyectos de Arquitectura y 
+            obra civil, en el ámbito público y privado, cuya misión es satisfacer las necesidades de nuestros clientes antes, durante
+             y después de finalizado el proyecto. Dando cumplimiento a los estándares de calidad y plazos fijados por éste, 
+             satisfaciendo a nuestros clientes por medio de la exigencia en el control de calidad de nuestros productos terminados.</p>
+            <div class="mb-3">
+              <h4 style=" color: #1e2022; font-size: 23px;">VISIÓN</h4>
+            </div>
+            <p style="text-align: justify;" >Ser la empresa constructora de referencia a nivel regional, liderando el mercado por medio 
+            de la responsabilidad, y eficiencia, cumpliendo a tiempo con todos y cada uno de los trabajos encomendados, lograr que todo 
+            nuestro personal se sienta motivado y orgulloso de pertenecer a nuestra organización, fomentando el control y la calidad 
+            en el servicio, buscando siempre dar mas de si mismos y con esto lograr la satisfacción del cliente. Una empresa diversificada 
+            e integrada, comprometida y admirada por su capacidad de crear valor y de innovar para dar respuesta a las nuevas necesidades sociales.</p>
+          </div>
+
+          <div class="col-lg-6 col-xl-5">
+            <!-- SVG Element -->
+            <div class="position-relative min-h-500rem mx-auto" style="max-width: 28rem;">
+              <figure class="position-absolute top-0 right-0 z-index-2 mr-11" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 450" width="165" height="165">
+                  <g>
+                    <defs>
+                      <path id="circleImgID2" d="M225,448.7L225,448.7C101.4,448.7,1.3,348.5,1.3,225l0,0C1.2,101.4,101.4,1.3,225,1.3l0,0
+                        c123.6,0,223.7,100.2,223.7,223.7l0,0C448.7,348.6,348.5,448.7,225,448.7z"/>
+                    </defs>
+                    <clipPath id="circleImgID1">
+                      <use xlink:href="#circleImgID2"/>
+                    </clipPath>
+                    <g clip-path="url(#circleImgID1)">
+                      <image width="450" height="450" xlink:href="assets/img/450x450/img1.jpg" ></image>
+                    </g>
+                  </g>
+                </svg>
+              </figure>
+
+              <figure class="position-absolute top-0 left-0" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="120" height="120">
+                  <circle fill="none" stroke="#377DFF" stroke-width="75" cx="167.6" cy="167.6" r="130.1"/>
+                </svg>
+              </figure>
+
+              <figure class="d-none d-sm-block position-absolute top-0 left-0 mt-11" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 515 515" width="200" height="200">
+                  <g>
+                    <defs>
+                      <path id="circleImgID4" d="M260,515h-5C114.2,515,0,400.8,0,260v-5C0,114.2,114.2,0,255,0h5c140.8,0,255,114.2,255,255v5
+                        C515,400.9,400.8,515,260,515z"/>
+                    </defs>
+                    <clipPath id="circleImgID3">
+                      <use xlink:href="#circleImgID4"/>
+                    </clipPath>
+                    <g clip-path="url(#circleImgID3)">
+                      <image width="515" height="515" xlink:href="assets/img/515x515/img1.jpg" transform="matrix(1 0 0 1 1.639390e-02 2.880859e-02)"></image>
+                    </g>
+                  </g>
+                </svg>
+              </figure>
+
+              <figure class="position-absolute top-0 right-0" style="margin-top: 11rem; margin-right: 13rem;" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 67 67" width="25" height="25">
+                  <circle fill="#00C9A7" cx="33.5" cy="33.5" r="33.5"/>
+                </svg>
+              </figure>
+
+              <figure class="position-absolute top-0 right-0 mr-3" style="margin-top: 8rem;" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 141 141" width="50" height="50">
+                  <circle fill="#FFC107" cx="70.5" cy="70.5" r="70.5"/>
+                </svg>
+              </figure>
+
+              <figure class="position-absolute bottom-0 right-0" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 770.4 770.4" width="280" height="280">
+                  <g>
+                    <defs>
+                      <path id="circleImgID6" d="M385.2,770.4L385.2,770.4c212.7,0,385.2-172.5,385.2-385.2l0,0C770.4,172.5,597.9,0,385.2,0l0,0
+                        C172.5,0,0,172.5,0,385.2l0,0C0,597.9,172.4,770.4,385.2,770.4z"/>
+                    </defs>
+                    <clipPath id="circleImgID5">
+                      <use xlink:href="#circleImgID6"/>
+                    </clipPath>
+                    <g clip-path="url(#circleImgID5)">
+                      <image width="900" height="900" xlink:href="assets/img/900x900/img2.jpg" transform="matrix(1 0 0 1 -64.8123 -64.8055)"></image>
+                    </g>
+                  </g>
+                </svg>
+              </figure>
+            </div>
+            <!-- End SVG Element -->
+          </div>
+        </div>
+      </div>
+      <!-- End Features Section -->
 
       <!-- Articles Section -->
       <div class="container space-2 space-top-xl-3 space-bottom-lg-3">
@@ -142,76 +345,6 @@
       </div>
       <!-- End Articles Section -->
 
-      <!-- Testimonials Section -->
-      <div class="bg-light rounded-lg mx-3 mx-md-11">
-        <div class="container space-1 space-md-2">
-          <div class="card bg-transparent shadow-none">
-            <div class="row">
-              <div class="col-lg-3 d-none d-lg-block">
-                <div class="dzsparallaxer auto-init height-is-based-on-content use-loading mode-scroll bg-light" data-options='{direction: "reverse"}' style="overflow: visible;">
-                  <div data-parallaxanimation='[{property: "transform", value:" translate3d(0,{{val}}rem,0)", initial:"4", mid:"0", final:"-4"}]'>
-                    <img class="img-fluid rounded-lg shadow-lg" src="assets/img/400x500/img31.jpg" alt="Image Description">
-
-                    <!-- SVG Shapes -->
-                    <figure class="max-w-15rem w-100 position-absolute bottom-0 left-0 z-index-n1">
-                      <div class="mb-n7 ml-n7">
-                        <img class="img-fluid" src="assets/svg/components/dots-5.svg" alt="Image Description">
-                      </div>
-                    </figure>
-                    <!-- End SVG Shapes -->
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-9">
-                <!-- Card Body -->
-                <div class="card-body h-100 rounded-lg p-0 p-md-4">
-                  <!-- SVG Quote -->
-                  <figure class="mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="36" height="36" viewBox="0 0 8 8">
-                      <path fill="#377DFF" d="M3,1.3C2,1.7,1.2,2.7,1.2,3.6c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5
-                        C1.4,6.9,1,6.6,0.7,6.1C0.4,5.6,0.3,4.9,0.3,4.5c0-1.6,0.8-2.9,2.5-3.7L3,1.3z M7.1,1.3c-1,0.4-1.8,1.4-1.8,2.3
-                        c0,0.2,0,0.4,0.1,0.5c0.2-0.2,0.5-0.3,0.9-0.3c0.8,0,1.5,0.6,1.5,1.5c0,0.9-0.7,1.5-1.5,1.5c-0.7,0-1.1-0.3-1.4-0.8
-                        C4.4,5.6,4.4,4.9,4.4,4.5c0-1.6,0.8-2.9,2.5-3.7L7.1,1.3z"/>
-                    </svg>
-                  </figure>
-                  <!-- End SVG Quote -->
-
-                  <div class="row">
-                    <div class="col-lg-8 mb-3 mb-lg-0">
-                      <div class="pr-lg-5">
-                        <blockquote class="h3 font-weight-normal mb-4">I'm absolutely floored by the level of care and attention to detail the team at Htmlstream have put into this theme and for one can guarantee that I will be a return customer.</blockquote>
-                        <div class="media">
-                          <div class="avatar avatar-xs avatar-circle d-lg-none mr-2">
-                            <img class="avatar-img" src="assets/img/100x100/img19.jpg" alt="Image Description">
-                          </div>
-                          <div class="media-body">
-                            <span class="text-dark font-weight-bold">Lewis</span>
-                            <span class="font-size-1">&mdash; happy customer</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4 column-divider-lg">
-                      <hr class="d-lg-none">
-
-                      <div class="pl-lg-5">
-                        <span class="h1 text-primary">3,500+</span>
-                        <p class="font-size-1">Leaders use Front to build a startup, ecommerce, portfolio and many more websites.</p>
-                        <a class="font-size-1 text-nowrap" href="#">Read the case studies <i class="fas fa-angle-right fa-sm ml-1"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- End Card Body -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Testimonials Section -->
-
       <!-- Features Section -->
       <div class="container space-2 space-lg-3">
         <div class="row justify-content-lg-between">
@@ -267,1853 +400,41 @@
       </div>
       <!-- End Features Section -->
 
-      <!-- Demo Examples Section -->
-      <div id="demoExamplesSection" class="bg-light overflow-hidden">
-        <div class="container-fluid space-2 space-lg-3 px-lg-5">
-          <!-- Title -->
-          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-            <h2>Front in action</h2>
-            <p>All examples you find below are included in the download package.</p>
-          </div>
-          <!-- End Title -->
-
-          <div class="row">
-            <div id="stickyBlockStartPoint" class="col-lg-3 pr-xl-5 mb-5 mb-lg-0">
-              <!-- Filter -->
-              <div id="cbpStickyFilter" class="js-sticky-block card p-4"
-                  data-hs-sticky-block-options='{
-                    "parentSelector": "#stickyBlockStartPoint",
-                    "targetSelector": "#logoAndNav",
-                    "breakpoint": "lg",
-                    "startPoint": "#stickyBlockStartPoint",
-                    "endPoint": "#stickyBlockEndPoint",
-                    "stickyOffsetTop": 16
-                  }'>
-                <div id="filterControls" class="nav nav-sm nav-x-0 flex-lg-column">
-                  <div class="cbp-filter-scrollbar">
-                    <a class="cbp-filter-item cbp-filter d-flex justify-content-between align-items-center-item-active nav-link mx-2 mx-lg-0" href="javascript:;" data-filter=".landings">
-                      Landings
-                      <span class="badge border badge-pill ml-2">14</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".onepages">
-                      Landing Onepages
-                      <span class="badge border badge-pill ml-2">2</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".account">
-                      Account pages <span class="badge badge-success ml-2">New</span>
-                      <span class="badge border badge-pill ml-auto">9</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".portfolio">
-                      Portfolio
-                      <span class="badge border badge-pill ml-2">8</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".blogs">
-                      Blogs
-                      <span class="badge border badge-pill ml-2">5</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".pages">
-                      Supporting Pages
-                      <span class="badge border badge-pill ml-2">19</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".authentication">
-                      Account Authentications
-                      <span class="badge border badge-pill ml-2">6</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".shop">
-                      Shop
-                      <span class="badge border badge-pill ml-2">10</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".course">
-                      Course
-                      <span class="badge border badge-pill ml-2">4</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".app-marketplace">
-                      App Marketplace
-                      <span class="badge border badge-pill ml-2">4</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex justify-content-between align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".help-desk">
-                      Help Desk
-                      <span class="badge border badge-pill ml-2">3</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".real-estate">
-                      Real Estate <span class="badge badge-success ml-2">New</span>
-                      <span class="badge border badge-pill ml-auto">5</span>
-                    </a>
-                    <a class="cbp-filter-item nav-link d-flex align-items-center mx-2 mx-lg-0" href="javascript:;" data-filter=".jobs">
-                      Jobs <span class="badge badge-success ml-2">New</span>
-                      <span class="badge border badge-pill ml-auto">9</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <!-- End Filter -->
-            </div>
-
-            <div class="col-lg-9 pl-xl-0">
-              <div class="cbp mt-n3 mx-n3"
-                  data-hs-cbp-options='{
-                    "defaultFilter": ".landings",
-                    "animationType": "fadeOut",
-                    "caption": "zoom",
-                    "gapHorizontal": 0,
-                    "gapVertical": 0,
-                    "mediaQueries": [
-                      {"width": 1500, "cols": 3},
-                      {"width": 1100, "cols": 3},
-                      {"width": 800, "cols": 3},
-                      {"width": 480, "cols": 2},
-                      {"width": 380, "cols": 1}
-                    ]
-                  }'>
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img1.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Agency <span class="small text-body">(Current page)</span></span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-analytics.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img3.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Analytics</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-studio.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img2.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Studio</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-marketing.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img5.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Marketing</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-advertisement.html" target="_blank">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img6.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Advertisement</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-consulting.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img7.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Consulting</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-portfolio.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img8.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Portfolio</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-software.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img9.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Software</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-classic-business.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img4.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Business</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-app-ui-kit.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img10.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">UI Kit</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-app-saas.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img11.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">SaaS</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-app-tool.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img14.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Tool</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item onepages">
-                  <a class="cbp-caption" href="landing-onepage-saas.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img16.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">SaaS</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-app-payment.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img13.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Payment</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item onepages">
-                  <a class="cbp-caption" href="landing-onepage-corporate.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img15.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Corporate</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item landings">
-                  <a class="cbp-caption" href="landing-app-workflow.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img12.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Workflow</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-grid.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img32.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Grid</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-masonry.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img33.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Masonry</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-modern.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img34.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Modern</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-case-studies-branding.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img35.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Case Studies Branding</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-case-studies-product.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img36.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Case Studies Product</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-single-page-list.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img37.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Single Page List</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-single-page-grid.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img38.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Single Page Grid</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item portfolio">
-                  <a class="cbp-caption" href="portfolio-single-page-masonry.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img39.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Single Page Masonry</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item blogs">
-                  <a class="cbp-caption" href="blog-journal.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img40.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Journal</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item blogs">
-                  <a class="cbp-caption" href="blog-metro.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img41.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Metro</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item blogs">
-                  <a class="cbp-caption" href="blog-newsroom.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img42.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Newsroom</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item blogs">
-                  <a class="cbp-caption" href="blog-profile.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img43.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Blog profile</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item blogs">
-                  <a class="cbp-caption" href="blog-single-article.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img44.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Single article</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-about-agency.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img80.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">About Agency</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-services-agency.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img81.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Services Agency</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-customers.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img82.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Customers</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-customer-story.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img83.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Customer story</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-careers.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img84.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Careers</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-careers-single.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img85.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Careers single</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-hire-us.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img86.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Hire us</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-contacts-agency.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img87.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Contacts Agency</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-contacts-start-up.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img88.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Contacts Start-up</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-pricing.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img89.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Pricing</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-faq.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img90.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">FAQ</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-terms.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img91.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Terms &amp; conditions</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-privacy.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img92.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Privacy &amp; policy</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-status.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img93.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Status</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-invoice.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img94.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Invoice</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-cover-page.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img95.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Cover page</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-coming-soon.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img96.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Coming soon</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-maintenance-mode.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img97.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Maintenance mode</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item pages">
-                  <a class="cbp-caption" href="page-error-404.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img98.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Error 404</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-login.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img45.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Login</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-signup.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img46.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Signup</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-recover-account.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img47.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Recover account</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-login-simple.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img48.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Login</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-signup-simple.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img49.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Signup</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item authentication">
-                  <a class="cbp-caption" href="page-recover-account-simple.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img50.jpg" width="373" height="185" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Recover account</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-classic.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img51.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Classic</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-categories.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img52.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Categories</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-categories-sidebar.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img53.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Categories sidebar</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-products-grid.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img54.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Products grid</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-products-list.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img41.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Products list</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-single-product.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img56.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Single product</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-empty-cart.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img57.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Empty cart</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-cart.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img58.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Cart</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-checkout.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img59.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Checkout</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item shop">
-                  <a class="cbp-caption" href="shop-order-completed.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img60.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Order completed</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item course">
-                  <a class="cbp-caption" href="demo-course/index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img61.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Main page</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item course">
-                  <a class="cbp-caption" href="demo-course/listing.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img62.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Courses</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item course">
-                  <a class="cbp-caption" href="demo-course/description.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img63.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Course description</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item course">
-                  <a class="cbp-caption" href="demo-course/author.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img64.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Author</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item app-marketplace">
-                  <a class="cbp-caption" href="demo-app-marketplace/index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img65.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Apps</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item app-marketplace">
-                  <a class="cbp-caption" href="demo-app-marketplace/app-description.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img66.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">App description</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item app-marketplace">
-                  <a class="cbp-caption" href="demo-app-marketplace/app-description.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img67.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Search results</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item app-marketplace">
-                  <a class="cbp-caption" href="demo-app-marketplace/submit-app.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img22.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Submit app</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item help-desk">
-                  <a class="cbp-caption" href="demo-help-desk/index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img68.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Help page</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item help-desk">
-                  <a class="cbp-caption" href="demo-help-desk/listing.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img69.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Listing</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item help-desk">
-                  <a class="cbp-caption" href="demo-help-desk/article-description.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img70.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Article description</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-overview.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img71.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Personal info</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-login-and-security.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img72.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Login &amp; security</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-notifications.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img73.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Notifications</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-preferences.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img74.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Preferences</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-orders.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img75.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Orders</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-wishlist.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img76.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Wishlist</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-billing.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img77.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Plans &amp; payment</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-address.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img78.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Address</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item account">
-                  <a class="cbp-caption" href="account-teams.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img79.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Teams</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item real-estate">
-                  <a class="cbp-caption" href="demo-real-estate/index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img17.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Main page</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item real-estate">
-                  <a class="cbp-caption" href="demo-real-estate/property-list.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img18.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Listing</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item real-estate">
-                  <a class="cbp-caption" href="demo-real-estate/property-grid.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img19.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Listing (Grid)</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item real-estate">
-                  <a class="cbp-caption" href="demo-real-estate/property-description.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img20.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Property description</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item real-estate">
-                  <a class="cbp-caption" href="demo-real-estate/property-seller.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img21.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Seller</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/index.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img23.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Main page</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/job-list.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img24.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Listing</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/job-grid.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img25.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Listing (Grid)</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/job-overview.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img26.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Job Overview</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/apply-for-job.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img27.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Apply for Job</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/employee.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img28.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Employee (Applicant)</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/employer.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img29.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Employer (Company)</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/upload-resume.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img30.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Upload Resume</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-
-                <!-- Item -->
-                <div class="cbp-item jobs">
-                  <a class="cbp-caption" href="demo-jobs/post-job.html">
-                    <div class="bg-white shadow-sm rounded-lg overflow-hidden p-1 m-3">
-                      <div class="cbp-caption-defaultWrap">
-                        <img src="data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-cbp-src="./assets/img/750x600/img31.jpg" width="373" height="298" alt="Image Description">
-                      </div>
-                    </div>
-                    <div class="text-center p-3">
-                      <span class="d-block h4 mb-0">Post a Job</span>
-                    </div>
-                  </a>
-                </div>
-                <!-- End Item -->
-              </div>
-            </div>
-          </div>
-
-          <!-- Sticky Block End Point -->
-          <div id="stickyBlockEndPoint"></div>
-        </div>
-      </div>
-      <!-- End Demo Examples Section -->
-
-      <!-- Pricing Section -->
-      <div class="container space-top-2 space-top-lg-3">
-        <!-- Title -->
-        <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Simple, transparent pricing</h2>
-          <p>Everything you need to continuously build, connect, and ship award-winning cross-browser websites.</p>
-        </div>
-        <!-- End Title -->
-
-        <div class="w-xl-80 mx-xl-auto">
-          <!-- Pricing -->
-          <div class="card p-4 mb-3 mb-md-1" data-aos="fade-up">
-            <div class="row align-items-sm-center">
-              <div class="col">
-                <div class="media align-items-center">
-                  <div class="min-w-8rem mr-2">
-                    <figure class="text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 160 160">
-                        <circle fill="#377DFF" opacity=".85" cx="80" cy="80" r="48"/>
-                      </svg>
-                    </figure>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="mb-0">Standard</h4>
-                    <small class="d-block">Single site</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-7 col-md-5">
-                <span class="font-size-1">Ideal for corporate, portfolio, blog, shop and many more.</span>
-              </div>
-              <div class="col-12 col-md col-lg-4 col-xl-3 text-lg-right mt-3 mt-lg-0">
-                <a class="btn btn-block btn-outline-primary border transition-3d-hover" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Purchase for $49</a>
-              </div>
-            </div>
-          </div>
-          <!-- End Pricing -->
-
-          <!-- Pricing -->
-          <div class="card p-4 mb-3 mb-md-1" data-aos="fade-up" data-aos-delay="150">
-            <div class="row align-items-sm-center">
-              <div class="col">
-                <div class="media align-items-center">
-                  <div class="min-w-8rem mr-2">
-                    <figure class="text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 160 160">
-                        <circle fill="#377DFF" opacity=".85" cx="48" cy="53" r="48"/>
-                        <circle fill="#377DFF" opacity=".85" cx="112" cy="53" r="48"/>
-                        <circle fill="#377DFF" opacity=".85" cx="81" cy="107" r="48"/>
-                      </svg>
-                    </figure>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="mb-0">Multisite</h4>
-                    <small class="d-block">Unlimited sites</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-7 col-md-5">
-                <span class="font-size-1">All the same examples as the Standard License, but you could build all of them with a single Multisite license.</span>
-              </div>
-              <div class="col-12 col-md col-lg-4 col-xl-3 text-lg-right mt-3 mt-lg-0">
-                <a class="btn btn-block btn-outline-primary border transition-3d-hover" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Purchase for $149</a>
-              </div>
-            </div>
-          </div>
-          <!-- End Pricing -->
-
-          <!-- Pricing -->
-          <div class="card p-4 mb-3 mb-md-1" data-aos="fade-up" data-aos-delay="200">
-            <div class="row align-items-sm-center">
-              <div class="col">
-                <div class="media align-items-center">
-                  <div class="min-w-8rem mr-2">
-                    <figure class="text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="56" height="56" viewBox="0 0 160 160">
-                        <circle fill="#377DFF" opacity=".85" cx="80" cy="80" r="48"/>
-                      </svg>
-                    </figure>
-                  </div>
-                  <div class="media-body">
-                    <h4 class="mb-0">Extended</h4>
-                    <small class="d-block">For paying users</small>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-7 col-md-5">
-                <span class="font-size-1">Best suited for "paid subscribers" and SaaS analytics applications.</span>
-              </div>
-              <div class="col-12 col-md col-lg-4 col-xl-3 text-lg-right mt-3 mt-lg-0">
-                <a class="btn btn-block btn-outline-primary border transition-3d-hover" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Purchase for $599</a>
-              </div>
-            </div>
-          </div>
-          <!-- End Pricing -->
-        </div>
-      </div>
-      <!-- End Pricing Section -->
-
       <!-- Tools Section -->
       <div class="position-relative gradient-y-gray">
-        <div class="container space-2 space-top-lg-3 space-bottom-sm-3 space-bottom-lg-4">
-          <!-- Title -->
-          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-            <h2>Build tools and full documention</h2>
-            <p>Components, plugins, and build tools are all thoroughly documented with live examples and markup for easier use and customization.</p>
-          </div>
-          <!-- End Title -->
+        
+        <div class="container space-2 space-top-lg-3 pt-pb space-bottom-sm-3 space-bottom-lg-4">
+          <div class="row align-items-center justify-content-center">
+             <div class="wow slideInLeft col-12 col-xl-6 pb-4" style="visibility: visible; animation-name: slideInLeft;">
+                <div class="row">
 
-          <div class="w-md-80 w-lg-50 mx-md-auto mb-5 mb-md-9">
-            <!-- Code Sample -->
-            <div class="card bg-dark mb-5">
-              <div class="card-body text-monospace font-size-1 p-6">
-                <div class="mb-6">
-                  <span class="d-block text-white-70">> $ npm install</span>
-                  <span class="d-block h4 text-success font-weight-normal">Everything installed!</span>
+                  <div class="col-12 content-title-description ">
+                      <i class="icon-constructora color-icons"></i>
+                      <h3 class="titles-big ">SEVEN’S <span class="title-orange-clear">INGENIEROS S.A.C</span> </h3>
+                  </div>
+
+                  <div class="col-12 col-xl-11 content-p-description ">
+
+                      <div class="col-12 col-xl-11 content-p-description ">
+
+                          <p class="p-internas">El 2 de noviembre del año 1981 se constituyó lo que hoy es Constructora Malaga. Desde ese momento, esta empresa originada en Lima - Perú, inició sus actividades en el rubro de la construcción siendo 100% de capital peruano.</p>
+
+                          <p class="p-internas">La gran trayectoria y experiencia adquirida a lo largo de casi cuatro décadas ha permitido que Constructora Malaga abarque distintas especialidades de la construcción, como lo son: la infraestructura vial, edificaciones públicas y privadas, saneamiento, aeropuertos, minería e infraestructura de riego.</p>
+
+                          <p class="p-internas">La presencia de Constructora Malaga a lo largo del Perú, es reflejo del compromiso y dedicación de la calidad de profesionales que la componen. Su experiencia y trabajo no solo ha logrado posicionarla como una de las compañías más importantes del país, si no que, además, ha logrado internacionalizarla.</p>
+                        
+                      </div>
+                  </div>
+
                 </div>
-                <div class="mb-6">
-                  <span class="d-block text-white-70">> $ gulp</span>
-                  <span class="d-block h4 text-success font-weight-normal">scss watching</span>
-                  <span class="d-block h4 text-success font-weight-normal">LiveReload started</span>
-                  <span class="d-block h4 text-success font-weight-normal">Opening localhost:3000</span>
+            </div>
+            <div class="content-diamond-us col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                <div class="wrapper-diamond-us d-flex justify-content-center align-items-center">
+                    <div class="content-diamond-us wow zoomIn" style="visibility: visible; animation-name: zoomIn;">
+                        <div id="romboArriba" class="diamond-us" style="background-image: url(assets/img/imgs_slide/calidad.jpg);"></div>
+                    </div>
                 </div>
-                <div class="mb-0">
-                  <span class="d-block text-white-70">> $ that's it?!</span>
-                  <span class="d-block h4 text-success font-weight-normal">Yup, that's it.</span>
-                </div>
-              </div>
             </div>
-            <!-- End Code Sample -->
-
-            <!-- Info -->
-            <div class="text-center mb-7">
-              <p>Not comfortable diving that deep? No worries, you just use the compiled CSS and examples pages! <a class="font-weight-bold" href="documentation/gulp.html">Learn more <span class="fas fa-angle-right ml-1"></span></a></p>
-            </div>
-            <!-- End Info -->
-
-            <!-- Clients -->
-            <div class="row justify-content-center">
-              <div class="col-4 col-sm-3 my-2">
-                <!-- Logo -->
-                <figure>
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 226.3 88">
-                    <path fill="#bdc5d1" d="M70.1,76.7c0,6.3,5.1,11.4,11.4,11.4H147c6.3,0,11.4-5.1,11.4-11.4V11.2c0-6.3-5.1-11.4-11.4-11.4H81.4
-                      c-6.3,0-11.4,5.1-11.4,11.4V76.7L70.1,76.7z"/>
-                    <path fill="#fff" d="M106.7,38.9V26.4h11c1,0,2.1,0.1,3,0.3c1,0.2,1.8,0.5,2.6,0.9c0.7,0.4,1.3,1.1,1.8,1.9c0.4,0.8,0.7,1.8,0.7,3.1
-                      c0,2.2-0.7,3.9-2,4.9c-1.3,1-3.1,1.5-5.2,1.5L106.7,38.9L106.7,38.9z M94.9,17.2v53.4h25.9c2.4,0,4.7-0.3,7-0.9s4.3-1.5,6.1-2.8
-                      c1.8-1.2,3.2-2.9,4.2-4.8c1-2,1.6-4.3,1.6-7c0-3.3-0.8-6.2-2.4-8.6c-1.6-2.4-4.1-4-7.4-5c2.4-1.1,4.2-2.6,5.4-4.4
-                      c1.2-1.8,1.8-4,1.8-6.7c0-2.5-0.4-4.6-1.2-6.3c-0.8-1.7-2-3.1-3.5-4.1c-1.5-1-3.3-1.8-5.4-2.2c-2.1-0.4-4.4-0.7-7-0.7H94.9
-                      L94.9,17.2z M106.7,61.5V46.9h12.8c2.5,0,4.6,0.6,6.1,1.8c1.5,1.2,2.3,3.1,2.3,5.9c0,1.4-0.2,2.5-0.7,3.4s-1.1,1.6-1.9,2.1
-                      c-0.8,0.5-1.7,0.9-2.8,1.1c-1,0.2-2.1,0.3-3.3,0.3H106.7L106.7,61.5z"/>
-                  </svg>
-                </figure>
-                <!-- End Logo -->
-              </div>
-
-              <div class="col-4 col-sm-3 my-2">
-                <!-- Logo -->
-                <figure>
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 226.3 88">
-                    <path fill="#bdc5d1" d="M155.1,50.7c-4.1,0-7.6,1-10.6,2.4c-1.1-2.2-2.2-4.1-2.4-5.5C142,46,141.7,45,142,43c0.3-2,1.4-4.7,1.4-5
-                      c0-0.2-0.3-1.2-2.6-1.2c-2.3,0-4.4,0.4-4.6,1.1c-0.2,0.6-0.7,2-1,3.5c-0.4,2.1-4.7,9.7-7.1,13.7c-0.8-1.6-1.5-2.9-1.6-4
-                      c-0.2-1.6-0.5-2.6-0.2-4.6c0.3-2,1.4-4.7,1.4-5c0-0.2-0.3-1.2-2.6-1.2c-2.3,0-4.4,0.4-4.6,1.1c-0.2,0.6-0.5,2.1-1,3.5
-                      c-0.5,1.4-6.2,14.1-7.7,17.4c-0.8,1.7-1.4,3-1.9,3.9c0,0,0,0.1-0.1,0.2c-0.4,0.8-0.6,1.2-0.6,1.2s0,0,0,0c-0.3,0.6-0.7,1.1-0.8,1.1
-                      c-0.1,0-0.4-1.5,0-3.6c0.9-4.4,2.9-11.3,2.9-11.5c0-0.1,0.4-1.3-1.3-1.9c-1.7-0.6-2.3,0.4-2.4,0.4c-0.1,0-0.3,0.4-0.3,0.4
-                      s1.9-7.7-3.5-7.7c-3.4,0-8,3.7-10.3,7c-1.4,0.8-4.5,2.5-7.8,4.3c-1.3,0.7-2.6,1.4-3.8,2.1c-0.1-0.1-0.2-0.2-0.3-0.3
-                      C75,50.8,63,45.8,63.5,36.5c0.2-3.4,1.4-12.3,23.1-23.2c17.9-8.8,32.2-6.4,34.7-1c3.5,7.8-7.6,22.1-26.2,24.2
-                      c-7.1,0.8-10.8-1.9-11.7-3c-1-1.1-1.1-1.1-1.5-0.9c-0.6,0.3-0.2,1.3,0,1.8c0.6,1.4,2.8,4,6.7,5.3c3.4,1.1,11.7,1.7,21.7-2.2
-                      c11.2-4.3,20-16.4,17.4-26.5C125.2,0.8,108.1-2.5,92,3.2C82.4,6.6,72,12,64.6,18.9c-8.9,8.3-10.3,15.5-9.7,18.5
-                      c2.1,10.7,16.9,17.7,22.8,22.9c-0.3,0.2-0.6,0.3-0.8,0.4c-3,1.5-14.2,7.4-17.1,13.6c-3.2,7.1,0.5,12.1,3,12.8
-                      c7.6,2.1,15.4-1.7,19.6-7.9c4.2-6.3,3.7-14.4,1.7-18.1c0,0,0-0.1-0.1-0.1c0.8-0.4,1.6-0.9,2.3-1.4c1.5-0.9,3-1.7,4.3-2.4
-                      c-0.7,2-1.3,4.3-1.5,7.8c-0.3,4,1.3,9.2,3.5,11.2c1,0.9,2.1,0.9,2.8,0.9c2.5,0,3.6-2.1,4.9-4.6c1.5-3,2.9-6.5,2.9-6.5
-                      s-1.7,9.5,3,9.5c1.7,0,3.4-2.2,4.2-3.3c0,0,0,0,0,0s0-0.1,0.1-0.2c0.2-0.3,0.3-0.4,0.3-0.4s0,0,0,0c0.7-1.2,2.2-3.9,4.5-8.4
-                      c2.9-5.8,5.8-13,5.8-13s0.3,1.8,1.1,4.7c0.5,1.7,1.6,3.6,2.4,5.5c-0.7,1-1.1,1.5-1.1,1.5s0,0,0,0c-0.6,0.7-1.1,1.5-1.8,2.3
-                      c-2.3,2.8-5.1,5.9-5.5,6.9c-0.4,1.1-0.3,1.9,0.5,2.5c0.6,0.5,1.7,0.5,2.9,0.5c2.1-0.1,3.6-0.7,4.3-1c1.1-0.4,2.4-1,3.7-1.9
-                      c2.3-1.7,3.7-4.1,3.5-7.3c-0.1-1.7-0.6-3.5-1.3-5.1c0.2-0.3,0.4-0.6,0.6-0.9c3.6-5.3,6.4-11,6.4-11s0.3,1.8,1.1,4.7
-                      c0.4,1.5,1.3,3.1,2.1,4.7c-3.4,2.7-5.5,5.9-6.2,8c-1.3,3.9-0.3,5.6,1.7,6c0.9,0.2,2.2-0.2,3.1-0.6c1.2-0.4,2.6-1,3.9-2
-                      c2.3-1.7,4.5-4,4.3-7.2c-0.1-1.4-0.4-2.9-1-4.3c2.9-1.2,6.6-1.9,11.3-1.3c10.1,1.2,12.1,7.5,11.8,10.2c-0.4,2.7-2.5,4.1-3.2,4.6
-                      c-0.7,0.4-0.9,0.6-0.9,0.9c0.1,0.5,0.4,0.4,1,0.4c0.8-0.1,5.3-2.2,5.5-7C171.6,57.4,165.7,50.6,155.1,50.7z M76.9,77
-                      c-3.4,3.7-8,5-10.1,3.9c-2.2-1.3-1.3-6.7,2.8-10.5c2.5-2.4,5.7-4.6,7.9-5.9c0.5-0.3,1.2-0.7,2.1-1.3c0.1-0.1,0.2-0.1,0.2-0.1
-                      c0.2-0.1,0.3-0.2,0.5-0.3C81.9,68.3,80.5,73.2,76.9,77z M101.4,60.4c-1.2,2.9-3.6,10.2-5.1,9.8c-1.3-0.3-2.1-5.9-0.3-11.3
-                      c0.9-2.7,2.9-6,4-7.3c1.8-2,3.9-2.7,4.3-1.9C105,50.7,102.1,58.6,101.4,60.4z M121.6,70c-0.5,0.3-1,0.4-1.2,0.3
-                      c-0.1-0.1,0.2-0.4,0.2-0.4s2.5-2.7,3.5-4c0.6-0.7,1.3-1.6,2-2.5c0,0.1,0,0.2,0,0.3C126.2,66.9,123,69.1,121.6,70z M137.2,66.5
-                      c-0.4-0.3-0.3-1.1,0.9-3.8c0.5-1,1.6-2.8,3.5-4.5c0.2,0.7,0.4,1.3,0.3,2C141.9,64.3,139,65.8,137.2,66.5z"/>
-                  </svg>
-                </figure>
-                <!-- End Logo -->
-              </div>
-
-              <div class="col-4 col-sm-3 my-2">
-                <!-- Logo -->
-                <figure>
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 226.3 88">
-                    <path fill="#bdc5d1" d="M78.6,45.8c-0.1,0.2-0.3,0.6-0.6,1.4c-0.3,0.8-0.6,1.8-1,3c-0.4,1.2-0.8,2.5-1.2,4c-0.4,1.5-0.9,3-1.4,4.5
-                      c-0.5,1.5-0.9,3.1-1.3,4.5c-0.4,1.5-0.8,2.8-1.2,4c-0.3,1.2-0.6,2.2-0.9,3c-0.2,0.8-0.4,1.3-0.4,1.4c-0.1,0.5-0.3,1-0.6,1.6
-                      c-0.3,0.6-0.6,1.1-1,1.7c-0.4,0.5-0.8,1-1.3,1.3s-0.9,0.5-1.4,0.5c-0.8,0-1.4-0.3-1.8-0.8c-0.4-0.5-0.6-1.5-0.6-3v-0.6
-                      c0-0.2,0-0.4,0-0.7c0-0.5,0.2-1.4,0.6-2.7c0.4-1.3,0.8-2.8,1.3-4.5c0.5-1.7,1-3.4,1.6-5.2c0.6-1.8,1.1-3.4,1.5-4.8
-                      c-1.3,1.5-2.8,3-4.4,4.5c-1.6,1.5-3.2,2.8-4.8,4c-1.6,1.2-3.3,2.2-5,2.9c-1.7,0.7-3.3,1.1-4.8,1.1c-1.8,0-3.3-0.4-4.6-1.2
-                      c-1.3-0.8-2.3-1.8-3.2-3.1s-1.5-2.7-1.9-4.3C40.2,57,40,55.4,40,53.8v-0.6c0-0.2,0-0.4,0-0.5c0.2-2.9,0.6-5.8,1.2-8.9
-                      c0.7-3,1.5-6,2.6-9c1.1-3,2.3-5.9,3.8-8.8c1.4-2.9,3-5.6,4.7-8.1c1.7-2.5,3.5-4.9,5.4-7c1.9-2.1,3.8-4,5.8-5.5c2-1.5,4-2.7,6-3.6
-                      c2-0.9,4.1-1.3,6-1.3c2.3,0,4.5,0.6,6.7,1.9c2.1,1.3,4.2,3.3,6,6.1c0.4,0.6,0.7,1.3,0.8,1.9s0.2,1.3,0.2,1.8c0,1.3-0.3,2.4-1,3.2
-                      c-0.6,0.8-1.4,1.2-2.3,1.2c-0.8,0-1.6-0.4-2.3-1.3c-0.7-0.9-1.5-2.1-2.3-3.7c-0.8-1.4-1.7-2.5-2.7-3.1c-1-0.6-2-1-3.2-1
-                      c-1.8,0-3.7,0.7-5.7,2.2s-4,3.4-6,5.8c-2,2.4-3.9,5.2-5.7,8.3c-1.8,3.1-3.4,6.3-4.8,9.5c-1.4,3.2-2.5,6.5-3.3,9.6
-                      c-0.8,3.2-1.2,6-1.2,8.5c0,0.8,0.1,1.7,0.2,2.6s0.3,1.7,0.6,2.4c0.3,0.7,0.7,1.3,1.3,1.8c0.5,0.5,1.2,0.7,2.1,0.7
-                      c0.9,0,2-0.3,3.2-0.9c1.2-0.6,2.4-1.5,3.7-2.5c1.3-1,2.6-2.2,3.9-3.5c1.3-1.3,2.5-2.6,3.6-3.9c1.1-1.3,2.1-2.6,3-3.8
-                      c0.9-1.2,1.5-2.3,1.9-3.2l3.5-10.6c0.4-1.1,1-1.9,1.7-2.4c0.7-0.5,1.4-0.7,2.1-0.7c0.4,0,0.7,0.1,1.1,0.2c0.4,0.1,0.7,0.3,0.9,0.6
-                      c0.3,0.3,0.5,0.6,0.7,1s0.2,0.9,0.2,1.4c0,1.4-0.1,2.8-0.4,4c-0.3,1.3-0.6,2.5-1,3.7c-0.4,1.2-0.8,2.4-1.3,3.6
-                      C79.5,43.2,79.1,44.4,78.6,45.8L78.6,45.8z M126.5,54.6c-1.1,1.5-2.4,3-3.9,4.4c-1.5,1.4-3,2.7-4.6,3.8s-3.1,2-4.6,2.7
-                      c-1.5,0.7-2.9,1-4.1,1s-2.2-0.4-3-1.2c-0.8-0.8-1.1-2.2-1.1-4.1c0-1.4,0.2-3,0.6-4.8c-0.7,1.2-1.5,2.4-2.5,3.5
-                      c-1,1.2-2.1,2.3-3.4,3.3c-1.3,1-2.7,1.8-4.2,2.4c-1.6,0.6-3.3,0.9-5.1,0.9c-0.8,0-1.6-0.1-2.4-0.3c-0.8-0.2-1.4-0.6-2-1.1
-                      s-1-1.2-1.4-2c-0.4-0.9-0.5-1.9-0.5-3.2c0,0,0.1-0.5,0.2-1.4c0.1-0.9,0.4-2.3,1-4.2c0.5-1.9,1.4-4.4,2.5-7.4c1.1-3,2.7-6.7,4.8-11
-                      c0.5-1.1,1.1-2,1.8-2.4c0.7-0.5,1.4-0.7,2.3-0.7c0.4,0,0.7,0.1,1.1,0.2c0.4,0.1,0.7,0.3,1.1,0.5c0.3,0.2,0.6,0.5,0.8,0.9
-                      c0.2,0.3,0.3,0.7,0.3,1.2c0,0.3,0,0.6-0.1,0.9c-0.1,0.5-0.4,1.2-0.8,2C98.7,39,98.2,40,97.6,41c-0.6,1.1-1.1,2.2-1.8,3.4
-                      c-0.6,1.2-1.2,2.5-1.7,3.8c-0.5,1.3-1,2.7-1.4,4c-0.4,1.4-0.6,2.7-0.6,4c0,0.5,0.1,1,0.4,1.5c0.3,0.4,0.7,0.7,1.3,0.7
-                      c1.6,0,3.2-0.5,4.7-1.6c1.5-1.1,2.9-2.4,4.1-4c1.3-1.6,2.4-3.3,3.4-5.2c1-1.8,1.9-3.5,2.6-5.1c0.5-1,0.9-2.1,1.3-3.3
-                      s0.8-2.2,1.2-3.2c0.4-1,0.9-1.8,1.5-2.5c0.6-0.7,1.3-1,2.1-1c0.9,0,1.6,0.3,2.2,1s0.8,1.5,0.8,2.5c0,0.5-0.2,1.3-0.5,2.2
-                      s-0.8,2-1.3,3.2c-0.5,1.2-1.1,2.5-1.7,3.9c-0.6,1.4-1.2,2.8-1.7,4.2c-0.5,1.4-0.9,2.8-1.3,4.2c-0.3,1.4-0.5,2.6-0.5,3.8
-                      c0,1.1,0.6,1.6,1.7,1.6c0.8,0,1.8-0.3,2.9-0.8c1.2-0.5,2.4-1.3,3.7-2.3c1.3-1,2.6-2.1,3.8-3.4c1.3-1.3,2.4-2.7,3.4-4.3L126.5,54.6
-                      L126.5,54.6z"/>
-                    <path fill="#bdc5d1" d="M127.6,52.3c-0.3,0.7-0.6,1.5-0.8,2.4c-0.3,0.9-0.4,1.7-0.4,2.4c0,0.4,0.1,0.8,0.2,1.1s0.4,0.4,0.9,0.4
-                      c0.5,0,1.2-0.2,2-0.6c0.8-0.4,1.7-0.9,2.6-1.5c0.9-0.6,1.9-1.3,2.9-2.1c1-0.8,2-1.6,3-2.5c1-0.9,1.9-1.7,2.8-2.6
-                      c0.9-0.9,1.7-1.6,2.4-2.4c0.2-0.2,0.4-0.4,0.7-0.4c0.3-0.1,0.5-0.1,0.7-0.1c0.5,0,0.9,0.2,1.3,0.6c0.3,0.4,0.5,1,0.5,1.7
-                      c0,0.6-0.2,1.3-0.5,2.1c-0.4,0.8-1,1.5-1.9,2.3c-1.6,1.8-3.2,3.4-4.9,5c-1.6,1.6-3.3,3-4.9,4.2c-1.6,1.2-3.2,2.2-4.9,2.9
-                      c-1.6,0.7-3.2,1.1-4.7,1.1c-1,0-1.9-0.2-2.6-0.5c-0.7-0.3-1.3-0.8-1.7-1.3c-0.4-0.6-0.7-1.2-0.9-2c-0.2-0.8-0.3-1.6-0.3-2.5
-                      c0-1.5,0.2-3,0.6-4.5c0.4-1.5,0.8-3,1.3-4.2c0.9-2.3,1.8-4.7,2.7-7c0.9-2.3,1.7-4.4,2.5-6.3l11.5-29c0.5-1.2,1.1-2,1.8-2.5
-                      c0.8-0.5,1.5-0.7,2.3-0.7s1.5,0.3,2.1,0.8c0.6,0.5,1,1.3,1,2.5c0,0.5-0.1,1.1-0.3,1.7c-0.2,0.6-0.5,1.2-0.8,1.9
-                      c-0.6,1.4-1.4,3.1-2.3,5.2c-0.9,2-1.8,4.3-2.8,6.6s-2,4.9-3.1,7.5c-1,2.6-2.1,5.1-3.1,7.6c-1,2.5-1.9,4.8-2.8,7
-                      C129,48.8,128.3,50.7,127.6,52.3L127.6,52.3z"/>
-                    <path fill="#bdc5d1" d="M181.4,44.2c0.4-0.2,0.7-0.4,1-0.6c0.3-0.2,0.6-0.2,0.9-0.2c0.6,0,1,0.2,1.3,0.7c0.3,0.5,0.4,1.1,0.4,1.8
-                      c0,0.8-0.2,1.6-0.5,2.4c-0.3,0.8-0.9,1.5-1.5,2c-2.7,2.4-5.1,4.6-7.2,6.6c-2.1,2-4.1,3.7-6,5.1c-1.9,1.4-3.7,2.5-5.5,3.3
-                      c-1.8,0.8-3.7,1.2-5.8,1.2c-1.9,0-3.4-0.4-4.5-1.3c-1-0.8-1.6-2-1.6-3.5v-0.3c0-0.1,0-0.2,0-0.4c0.1-0.9,0.5-1.9,1.2-3.1
-                      c0.7-1.2,1.5-2.4,2.5-3.6s2-2.5,3.1-3.8c1.1-1.3,2.1-2.5,3-3.7c0.9-1.2,1.7-2.2,2.3-3.2c0.6-1,0.9-1.7,0.9-2.3
-                      c0-0.4-0.1-0.6-0.4-0.9c-0.3-0.2-0.7-0.3-1.3-0.3c-1,0-2.1,0.3-3.1,0.8s-2.1,1.2-3.2,2.1c-1,0.9-2.1,1.9-3.1,3s-1.9,2.3-2.8,3.5
-                      c-0.9,1.2-1.7,2.5-2.4,3.7c-0.7,1.2-1.3,2.4-1.8,3.4c-0.2,0.3-0.4,0.8-0.6,1.4c-0.3,0.6-0.6,1.3-0.9,2c-0.3,0.7-0.7,1.5-1,2.3
-                      c-0.4,0.8-0.7,1.5-1,2.2c-0.3,0.7-0.6,1.3-0.8,1.9c-0.2,0.6-0.4,0.9-0.5,1.1c-0.1,0.3-0.3,0.8-0.6,1.5s-0.6,1.6-1,2.6
-                      c-0.4,1-0.8,2.1-1.2,3.2c-0.4,1.1-0.8,2.2-1.2,3.1c-0.4,1-0.7,1.9-1,2.6c-0.3,0.7-0.5,1.3-0.5,1.5c-0.3,0.8-0.6,1.5-0.9,2.2
-                      c-0.3,0.7-0.7,1.3-1.2,1.8c-0.4,0.5-0.9,0.9-1.5,1.3c-0.6,0.3-1.2,0.5-1.9,0.5c-0.9,0-1.7-0.2-2.3-0.6c-0.6-0.4-0.9-1.3-0.9-2.5
-                      c0-0.6,0.1-1.2,0.2-1.8c0.2-0.6,0.3-1.3,0.6-1.9c0.2-0.6,0.5-1.2,0.7-1.8c0.2-0.6,0.5-1.1,0.7-1.7c1.4-3,2.8-6,4.2-9
-                      c1.4-3,2.8-6,4.1-8.9c1.3-2.9,2.5-5.8,3.6-8.7c1.1-2.8,2-5.6,2.8-8.2c0.2-0.5,0.5-1.3,0.8-2.3c0.4-1,0.8-2,1.2-2.9
-                      c0.5-1,1-1.8,1.5-2.5c0.6-0.7,1.2-1.1,1.8-1.1c1,0,1.7,0.2,2.2,0.7c0.5,0.5,0.7,1.1,0.7,2c0,0.2,0,0.5-0.1,0.9S153,38.6,153,39
-                      c-0.1,0.4-0.2,0.8-0.2,1.2c-0.1,0.4-0.2,0.7-0.2,0.9c0.9-1,1.9-2,3-3c1.1-1,2.2-1.9,3.4-2.7c1.2-0.8,2.3-1.5,3.6-2
-                      c1.2-0.5,2.4-0.8,3.6-0.8c0.8,0,1.7,0.1,2.5,0.4c0.8,0.2,1.6,0.6,2.2,1.1c0.6,0.5,1.2,1,1.6,1.8c0.4,0.7,0.6,1.5,0.6,2.4
-                      c0,1.2-0.3,2.5-0.9,3.9c-0.6,1.4-1.4,2.8-2.3,4.2c-0.9,1.4-1.9,2.8-3,4.1c-1.1,1.3-2.1,2.5-3.1,3.6c-0.9,1.1-1.7,2-2.4,2.8
-                      c-0.6,0.8-1,1.3-1,1.5c0,0.4,0.1,0.6,0.3,0.9c0.2,0.2,0.6,0.3,1.1,0.3c0.4,0,1.1-0.2,1.9-0.7c0.8-0.5,2-1.3,3.5-2.5s3.4-2.8,5.7-4.8
-                      C175.1,49.7,178,47.2,181.4,44.2L181.4,44.2z"/>
-                  </svg>
-                </figure>
-                <!-- End Logo -->
-              </div>
-
-              <div class="col-4 col-sm-3 my-2">
-                <!-- Logo -->
-                <figure>
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 226.3 88">
-                    <path fill="#bdc5d1" d="M16.3,6.3h193.6v64.5h-96.8v10.7H70.2V70.9H16.3V6.3z M27.1,60.1h21.5V27.9h10.7v32.3h10.7V17.1H27.1V60.1z
-                      M80.9,17.1v53.8h21.5V60.1h21.5v-43H80.9z M102.4,27.9h10.7v21.5h-10.7V27.9z M134.7,17.1v43h21.5V27.9h10.7v32.3h10.7V27.9h10.7
-                      v32.3h10.7V17.1H134.7z"/>
-                    <polygon fill="none" points="31.8,59.2 52.1,59.2 52.1,28.8 62.3,28.8 62.3,59.2 72.5,59.2 72.5,18.5 31.8,18.5 "/>
-                    <path fill="none" d="M82.7,18.5v50.8H103V59.2h20.3V18.5H82.7z M113.1,49.1H103V28.8h10.1V49.1z"/>
-                    <polygon fill="none" points="133.5,18.5 133.5,59.2 153.8,59.2 153.8,28.8 164,28.8 164,59.2 174.1,59.2 174.1,28.8 184.3,28.8184.3,59.2 194.4,59.2 194.4,18.5 "/>
-                  </svg>
-                </figure>
-                <!-- End Logo -->
-              </div>
-            </div>
-            <!-- End Clients -->
-          </div>
-
-          <div class="text-center">
-            <a class="btn btn-primary transition-3d-hover px-lg-7" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Get a License for $49</a>
           </div>
         </div>
 
@@ -2126,112 +447,52 @@
         <!-- End SVG Bottom Shape -->
       </div>
       <!-- End Tools Section -->
-
-      <!-- Stats Section -->
-      <div class="container space-top-1 space-top-md-2 space-bottom-2 space-bottom-lg-3">
-        <div class="row justify-content-lg-center">
-          <div class="col-md-4 mb-7 mb-lg-0">
-            <div data-aos="fade-up" data-aos-delay="100">
-              <!-- Stats -->
-              <div class="text-center px-md-3 px-lg-7">
-                <figure class="mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 71.7 64" width="71" height="64">
-                    <path fill="#FFC107" d="M36.8,14.6L42,25.3c0,0.2,0.2,0.2,0.3,0.3L54,27.2c0.3,0,0.5,0.5,0.3,0.8l-8.5,8.2c-0.2,0.2-0.2,0.3-0.2,0.5
-                      l2,11.7c0,0.3-0.3,0.7-0.7,0.5l-10.5-5.6c-0.2,0-0.3,0-0.5,0l-10.5,5.6c-0.3,0.2-0.8-0.2-0.7-0.5l2-11.7c0-0.2,0-0.3-0.2-0.5
-                      L18,28.1c-0.3-0.3-0.2-0.8,0.3-0.8L30,25.6c0.2,0,0.3-0.2,0.3-0.3l5.3-10.7C36.1,14.2,36.6,14.2,36.8,14.6z"/>
-                    <path opacity=".25" fill="#FFC107" d="M56,5.9l1.5,2.8c0,0,0,0,0.2,0l3.1,0.5c0.2,0,0.2,0.2,0,0.2l-2.3,2.3c0,0,0,0,0,0.2l0.5,3.1
-                      c0,0.2-0.2,0.2-0.2,0.2L56,13.6h-0.2L53,15.1c-0.2,0-0.2,0-0.2-0.2l0.5-3.1v-0.2l-2.3-2.3V9.2l3.1-0.5c0,0,0,0,0.2,0l1.5-2.8
-                      C55.8,5.7,55.8,5.7,56,5.9z"/>
-                    <path opacity=".25" fill="#FFC107" d="M12.3,0.3l1.3,2.8c0,0,0,0,0.2,0l3,0.5c0.2,0,0.2,0.2,0,0.2l-2.1,2.1c0,0,0,0,0,0.2l0.5,3
-                      c0,0.2-0.2,0.2-0.2,0.2l-2.6-1.5c0,0,0,0-0.2,0L9.5,9.2c-0.2,0-0.2,0-0.2-0.2l0.5-3c0,0,0,0,0-0.2L7.5,3.7V3.6l3-0.5c0,0,0,0,0.2,0
-                      l1.3-2.8C12.1,0.3,12.3,0.3,12.3,0.3z"/>
-                    <path opacity=".25" fill="#FFC107" d="M13.9,49.9l1.5,2.8c0,0,0,0,0.2,0l3.1,0.5c0.2,0,0.2,0.2,0,0.2l-2.3,2.3c0,0,0,0,0,0.2l0.5,3.1
-                      c0,0.2-0.2,0.2-0.2,0.2l-2.8-1.5h-0.2L11,59.1c-0.2,0-0.2,0-0.2-0.2l0.5-3.1v-0.2L9,53.4v-0.2l3.1-0.5c0,0,0,0,0.2,0l1.3-2.8
-                      C13.8,49.8,13.9,49.8,13.9,49.9z"/>
-                    <path opacity=".25" fill="#FFC107" d="M60.8,53.5l1.6,3.1c0,0,0,0,0.2,0l3.5,0.5c0.2,0,0.2,0.2,0,0.3l-2.5,2.5c0,0,0,0,0,0.2l0.7,3.5
-                      c0,0.2-0.2,0.2-0.2,0.2l-3.1-1.6h-0.2l-3.1,1.6c-0.2,0-0.2,0-0.2-0.2l0.7-3.5v-0.2l-2.5-2.5c-0.2-0.2,0-0.2,0-0.3l3.5-0.5h0.2
-                      l1.6-3.1C60.4,53.4,60.6,53.4,60.8,53.5z"/>
-                  </svg>
-                </figure>
-                <p class="mb-0"><span class="text-dark font-weight-bold">4.83 out of 5 starts</span> from 53 reviews</p>
-              </div>
-              <!-- End Stats -->
-            </div>
-          </div>
-
-          <div class="col-md-4 mb-7 mb-lg-0">
-            <div data-aos="fade-up">
-              <!-- Stats -->
-              <div class="text-center column-divider-md column-divider-20deg px-md-3 px-lg-7">
-                <figure class="mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 71.7 64" width="71" height="64">
-                    <defs>
-                      <circle id="SVGID_1_" cx="50.9" cy="43.1" r="18.9"/>
-                    </defs>
-                    <clipPath id="SVGID_2_">
-                      <use xlink:href="#SVGID_1_"/>
-                    </clipPath>
-                    <g transform="matrix(1 0 0 1 0 1.907349e-06)" style="clip-path:url(#SVGID_2_);">
-                      <image width="100" height="100" xlink:href="assets/img/100x100/img10.jpg" transform="matrix(0.36 0 0 0.36 32.8571 25.1429)"></image>
-                    </g>
-                    <use xlink:href="#SVGID_1_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-                    <defs>
-                      <circle id="SVGID_3_" cx="34.6" cy="20.9" r="18.9"/>
-                    </defs>
-                    <clipPath id="SVGID_4_">
-                      <use xlink:href="#SVGID_3_"/>
-                    </clipPath>
-                    <g style="clip-path:url(#SVGID_4_);">
-                      <image width="100" height="100" xlink:href="assets/img/100x100/img3.jpg" transform="matrix(0.36 0 0 0.36 16.5714 2.8571)"></image>
-                    </g>
-                    <use xlink:href="#SVGID_3_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-                    <defs>
-                      <circle id="SVGID_5_" cx="20.9" cy="43.1" r="18.9"/>
-                    </defs>
-                    <clipPath id="SVGID_6_">
-                      <use xlink:href="#SVGID_5_"/>
-                    </clipPath>
-                    <g style="clip-path:url(#SVGID_6_);">
-                      <image width="100" height="100" xlink:href="assets/img/100x100/img2.jpg" transform="matrix(0.3771 0 0 0.3771 2 24.2857)"></image>
-                    </g>
-                    <use xlink:href="#SVGID_5_" fill="none" stroke="#FFFFFF" stroke-width="4"/>
-                  </svg>
-                </figure>
-                <p class=" mb-0">Over <span class="text-dark font-weight-bold">500</span> support questions have been closed</p>
-              </div>
-              <!-- End Stats -->
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div data-aos="fade-up" data-aos-delay="100">
-              <!-- Stats -->
-              <div class="text-center column-divider-md column-divider-20deg px-md-3 px-lg-7">
-                <figure class="mb-3">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="71" height="64" viewBox="0 0 71.7 64">
-                    <path fill="none" stroke="#21325b" stroke-width="2" d="M47.9,1.3H20.1c-2,0-3.5,1.5-3.5,3.5v51.4c0,2,1.5,3.5,3.5,3.5h36.5c2,0,3.5-1.5,3.5-3.5v-8.6V21.2v-7.5
-                      L47.9,1.3z"/>
-                    <path fill="#21325b" d="M49.1,14.7c-1.1,0-1.8-0.9-1.8-1.8V2L60,14.7H49.1z"/>
-                    <line fill="none" stroke="#21325b" stroke-width="2" stroke-linecap="round" x1="48.2" y1="21" x2="28" y2="21"/>
-                    <line fill="none" stroke="#21325b" stroke-width="2" stroke-linecap="round" x1="48.2" y1="27.9" x2="28" y2="27.9"/>
-                    <line fill="none" stroke="#21325b" stroke-width="2" stroke-linecap="round" x1="48.2" y1="34.8" x2="28" y2="34.8"/>
-                    <line fill="none" stroke="#21325b" stroke-width="2" stroke-linecap="round" x1="48.2" y1="42" x2="28" y2="42"/>
-                    <path opacity=".2" fill="#21325b" d="M17.1,56V10.2c0-1.4-1.1-2.5-2.5-2.5h-0.5c-1.4,0-2.5,1.1-2.5,2.5v51.1c0,1.4,1.1,2.5,2.5,2.5h2.9h34.7
-                      c1.4,0,2.5-1.1,2.5-2.5v-0.5c0-1.4-1.1-2.5-2.5-2.5H19.5C18.1,58.4,17.1,57.4,17.1,56z"/>
-                  </svg>
-                </figure>
-                <p class="mb-0"><span class="text-dark font-weight-bold">3,700</span> Front copies have been purchased</p>
-              </div>
-              <!-- End Stats -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Stats Section -->
     </main>
 
     <!-- ========== FOOTER ========== -->
     <?php require 'footer.php'; ?>
+
+    <style>
+      .wrapper-diamond-us .content-diamond-us:first-child .diamond-us {
+          background-image: url(assets/img/imgs_slide/calidad.jpg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          
+      }
+      .wrapper-diamond-us .content-diamond-us .diamond-us {
+          width: 21em;
+          height: 21em;
+          -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      }
+      @media (min-width: 1200px) and (max-width: 1400px){
+      .wrapper-diamond-us .content-diamond-us .diamond-us {
+          width: 33em;
+          height: 33em;
+      }
+      .p-internas {
+        color: #8b8888;
+        margin-bottom: 1.15rem;
+        font-size: 0.95em;
+        text-align: justify;
+      }
+      .titles-big {
+          font-family: "Conv_Gotham-Black";
+          text-transform: uppercase;
+          color: #6c6c6c;
+          font-size: 1.6em;
+      }
+      .title-orange-clear {
+          color: #f39100;
+      }
+      .pt-pb{
+        padding-top: 3rem !important;
+        padding-bottom: 4rem !important;
+      }
+
+    }
+    </style>
 
     <!-- ========== SECONDARY CONTENTS ========== -->
     <!-- Sign Up Modal -->
@@ -2507,6 +768,13 @@
         // =======================================================
         $('.js-animation-link').each(function () {
           var showAnimation = new HSShowAnimation($(this)).init();
+        });
+
+  
+        // INITIALIZATION OF SLICK CAROUSEL
+        // =======================================================
+        $('.js-slick-carousel').each(function() {
+          var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
         });
 
 
