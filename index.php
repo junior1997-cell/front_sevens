@@ -73,111 +73,222 @@
       </div>
       <!-- End Hero Section -->
 
-    <!-- Features Section -->
-    <div class="bg-dark rounded-lg mx-3 mx-xl-12" style="background-image: url(assets/svg/components/abstract-shapes-20.svg);">
-      <div class="container-xl container-fluid space-1 space-md-2 px-4 px-md-8 px-lg-10">
-        <div class="px-3">
-          <!-- Title -->
-          <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-            <h2 class="text-white">SEVEN’S INGENIEROS S.A.C se  caracteriza por tener</h2>
+      <!-- calidad-diseño-obras -->
+      <div class="position-relative">
+        <div class="container space-lg-3 mt-3 mb-3">
+          <div class="row align-items-center">
+            <div class="col-12 col-lg-9 mb-7 mb-md-0">
+              <div class="w-md-60 mb-7">
+                 <h3 class="titles-big ">Contamos con una <span class="title-orange-clear"> experiencia</span> </h3>
+                 <p>consolidada en obras y en todos los servicios que brindamos 
+                  abarcando las tres regiones Sierra  Costa y Selva del Perú y nuestras obras se ven reflejadas en </p>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <!-- Card -->
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <figure class="max-w-8rem mb-3">
+                        <img class="img-fluid" src="assets/svg/logos/icon-01.png" alt="SVG">
+                      </figure>
+                      <h4>CALIDAD</h4>
+                      <p style="text-align: justify;">La empresa admin seven´s cuenta con un Departamento de Calidad, 
+                        el que se ocupa de prevenir las fallas en los procesos constructivos.</p>
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+
+                <div class="col-md-4 mb-3 mb-md-0">
+                  <!-- Card -->
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <figure class="max-w-8rem mb-3">
+                        <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="SVG">
+                      </figure>
+                      <h4>DISEÑO</h4>
+                      <p style="text-align: justify;">Implementamos mejoras en el diseño constructivo y en la búsqueda 
+                      de nuevos materiales orientados a las necesidades del cliente.</p>
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+
+                <div class="col-md-4">
+                  <!-- Card -->
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <figure class="max-w-8rem mb-3">
+                        <img class="img-fluid" src="assets/svg/logos/icon-03.png" alt="SVG">
+                      </figure>
+                      <h4>OBRAS</h4>
+                      <p style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales 
+                      calificados (Autocontrol) y sistemas de control calidad estandarizados.</p>
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <!-- End Row -->
+            </div>
           </div>
-          <!-- End Title -->
+          <!-- End Row -->
+        </div>
 
-          <!-- Slick Carousel -->
-          <div class="js-slick-carousel slick slick-equal-height ie-slick-equal-height slick-gutters-3"
-              data-hs-slick-carousel-options='{
-                 "prevArrow": "<span class=\"fas fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left slick-arrow-centered-y shadow-soft rounded-circle ml-n2\"></span>",
-                 "nextArrow": "<span class=\"fas fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right slick-arrow-centered-y shadow-soft rounded-circle mr-n2\"></span>",
-                 "slidesToShow": 3,
-                 "infinite": true,
-                 "dots": true,
-                 "dotsClass": "slick-pagination slick-pagination-white d-none mt-5",
-                 "responsive": [{
-                   "breakpoint": 992,
-                   "settings": {
-                     "slidesToShow": 2
-                     }
-                   }, {
-                   "breakpoint": 768,
-                   "settings": {
-                     "slidesToShow": 2
-                     }
-                   }, {
-                   "breakpoint": 554,
-                   "settings": {
-                     "slidesToShow": 1
-                   }
-                 }]
-               }'>
-            <div class="js-slide mb-4">
-              <!-- Card Info -->
-              <div class="card h-100">
-                <img class="card-img-top" src="assets/img/imgs_slide/calidad.jpg" alt="Image Description">
-                <div class="card-body">
-                  <div class="media align-items-center">
-                    <div class="min-w-8rem mr-2">
-                      <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+        <div class="hero-v1 d-none d-md-block" style="background-image: url(assets/img/900x900/img22.jpg);"></div>
+      </div>
+      <!-- End calidad-diseño-obras -->
+
+      <!-- slide obras -->
+      <div class="bg-dark rounded-lg mx-3 mx-xl-12" style="background-image: url(assets/svg/components/abstract-shapes-20.svg); background-color: rgb(140 152 164 / 13%) !important;">
+        <div class="container-xl container-fluid space-1 space-md-2 px-4 px-md-8 px-lg-10">
+          <div class="px-3">
+            <!-- Title -->
+            <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+              <h2 class="text-black">Algunas de nuestras obras realizadas </h2>
+            </div>
+            <!-- End Title -->
+
+            <!-- Slick Carousel -->
+            <div class="js-slick-carousel slick slick-equal-height ie-slick-equal-height slick-gutters-3"
+                data-hs-slick-carousel-options='{
+                  "prevArrow": "<span class=\"fas fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left slick-arrow-centered-y shadow-soft rounded-circle ml-n2\"></span>",
+                  "nextArrow": "<span class=\"fas fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right slick-arrow-centered-y shadow-soft rounded-circle mr-n2\"></span>",
+                  "slidesToShow": 3,
+                  "infinite": true,
+                  "dots": true,
+                  "dotsClass": "slick-pagination slick-pagination-white d-none mt-5",
+                  "responsive": [{
+                    "breakpoint": 992,
+                    "settings": {
+                      "slidesToShow": 2
+                      }
+                    }, {
+                    "breakpoint": 768,
+                    "settings": {
+                      "slidesToShow": 2
+                      }
+                    }, {
+                    "breakpoint": 554,
+                    "settings": {
+                      "slidesToShow": 1
+                    }
+                  }]
+                }'>
+              <div class="js-slide mb-4">
+                <!-- Card Info -->
+                <div class="card h-100">
+                  <img class="card-img-top" src="assets/img/imgs_slide/calidad.jpg" alt="Image Description">
+                  <div class="card-body">
+                      <div class="media align-items-center">
+                        <div class="min-w-8rem mr-2">
+                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                        </div>
+                        <div class="media-body">
+                          <h4 class="mb-0">MISION TARAPOTO</h4>
+                          <small class="d-block"></small>
+                        </div>
+                      </div>
+                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros actualmente se encuetra desarrollando 
+                      CONSTRUCCIÓN DE LA SEDE MISIÓN NOR ORIENTAL TARAPOTO.</p>
+                      <div style="text-align: center;">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                          Ver más
+                        </a>
+                      </div>
+                  </div>
+                </div>
+                <!-- End Card Info -->
+              </div>
+
+              <div class="js-slide mb-4">
+                <!-- Card Info -->
+                <div class="card h-100">
+                  <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
+                  <div class="card-body">
+                      <div class="media align-items-center">
+                        <div class="min-w-8rem mr-2">
+                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                        </div>
+                        <div class="media-body">
+                          <h4 class="mb-0">CERCO UPEU</h4>
+                          <small class="d-block"></small>
+                        </div>
+                      </div>
+                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la CONSTRUCCION DEL CERCO PERIMÉTRICO ETAPA 2 en la 
+                      UNIVERSIDAD PERUANA UNION </p>
+                      <div style="text-align: center;">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                          Ver más
+                        </a>
+                      </div>
+                  </div>
+                </div>
+                <!-- End Card Info -->
+              </div>
+
+              <div class="js-slide mb-4">
+                <!-- Card Info -->
+                <div class="card h-100">
+                  <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
+                  <div class="card-body">
+                      <div class="media align-items-center">
+                        <div class="min-w-8rem mr-2">
+                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                        </div>
+                        <div class="media-body">
+                          <h4 class="mb-0">ESCALERAS C Y D</h4>
+                          <small class="d-block"></small>
+                        </div>
+                      </div>
+                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la 	CONSTRUCCIÓN DE ESCALERAS EN EL PABELLON C Y D DE LA UNIVERSIDAD PERUANA UNIÓN
+                      en la UNIVERSIDAD PERUANA UNION </p>
+                     <div style="text-align: center;">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                          Ver más
+                        </a>
+                      </div>
+                  </div>
+                </div>
+                <!-- End Card Info -->
+              </div>
+
+              <div class="js-slide mb-4">
+                <!-- Card Info -->
+                <div class="card h-100">
+                  <img class="card-img-top" src="assets/img/imgs_slide/obras.png" alt="Image Description">
+                  <div class="card-body">
+                    <div class="media align-items-center">
+                      <div class="min-w-8rem mr-2">
+                        <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
+                      </div>
+                      <div class="media-body">
+                        <h4 class="mb-0">OBRAS</h4>
+                        <small class="d-block"></small>
+                      </div>
                     </div>
-                    <div class="media-body">
-                      <h4 class="mb-0">CALIDAD</h4>
-                      <small class="d-block"></small>
+                    <p class="mb-0" style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales calificados 
+                    (Autocontrol) y sistemas de control calidad estandarizados.</p>
+                    <div style="text-align: center;">
+                      <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                        Ver más
+                      </a>
                     </div>
                   </div>
-                  <p class="mb-0" style="text-align: justify;">La empresa admin seven´s cuenta con un Departamento de Calidad, el que se ocupa de prevenir las fallas en los procesos constructivos.</p>
                 </div>
+                <!-- End Card Info -->
               </div>
-              <!-- End Card Info -->
-            </div>
 
-            <div class="js-slide mb-4">
-              <!-- Card Info -->
-              <div class="card h-100">
-                <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
-                <div class="card-body">
-                  <div class="media align-items-center">
-                    <div class="min-w-8rem mr-2">
-                      <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
-                    </div>
-                    <div class="media-body">
-                      <h4 class="mb-0">DISEÑO</h4>
-                      <small class="d-block"></small>
-                    </div>
-                  </div>
-                  <p class="mb-0" style="text-align: justify;">Implementamos mejoras en el diseño constructivo y en la búsqueda de nuevos materiales orientados a las necesidades del cliente.</p>
-                </div>
-              </div>
-              <!-- End Card Info -->
             </div>
-
-            <div class="js-slide mb-4">
-              <!-- Card Info -->
-              <div class="card h-100">
-                <img class="card-img-top" src="assets/img/imgs_slide/obras.png" alt="Image Description">
-                <div class="card-body">
-                  <div class="media align-items-center">
-                    <div class="min-w-8rem mr-2">
-                      <img class="img-fluid" src="assets/svg/logos/icon-03.png" alt="Logo">
-                    </div>
-                    <div class="media-body">
-                      <h4 class="mb-0">OBRAS</h4>
-                      <small class="d-block"></small>
-                    </div>
-                  </div>
-                  <p class="mb-0" style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales calificados (Autocontrol) y sistemas de control calidad estandarizados.</p>
-                </div>
-              </div>
-              <!-- End Card Info -->
-            </div>
-
+            <!-- End Slick Carousel -->
           </div>
-          <!-- End Slick Carousel -->
         </div>
       </div>
-    </div>
-    <!-- End Features Section -->
+      <!-- End slide obras -->
 
-      <!-- Features Section -->
-      <div id="featuresSection" class="container space-2 space-lg-3">
+      <!-- mision y vision -->
+      <div id="featuresSection" class="container space-2 space-lg-3" style="padding-bottom: 2rem !important;">
         <div class="row justify-content-lg-between align-items-lg-center">
           <div class="col-lg-5 mb-9 mb-lg-0">
             <div class="mb-3">
@@ -200,7 +311,7 @@
           <div class="col-lg-6 col-xl-5">
             <!-- SVG Element -->
             <div class="position-relative min-h-500rem mx-auto" style="max-width: 28rem;">
-              <figure class="position-absolute top-0 right-0 z-index-2 mr-11" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="position-absolute top-0 right-0 z-index-2 mr-11">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 450" width="165" height="165">
                   <g>
                     <defs>
@@ -217,13 +328,13 @@
                 </svg>
               </figure>
 
-              <figure class="position-absolute top-0 left-0" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="position-absolute top-0 left-0">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="120" height="120">
                   <circle fill="none" stroke="#377DFF" stroke-width="75" cx="167.6" cy="167.6" r="130.1"/>
                 </svg>
               </figure>
 
-              <figure class="d-none d-sm-block position-absolute top-0 left-0 mt-11" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="d-none d-sm-block position-absolute top-0 left-0 mt-11">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 515 515" width="200" height="200">
                   <g>
                     <defs>
@@ -240,19 +351,19 @@
                 </svg>
               </figure>
 
-              <figure class="position-absolute top-0 right-0" style="margin-top: 11rem; margin-right: 13rem;" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="position-absolute top-0 right-0" style="margin-top: 11rem; margin-right: 13rem;">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 67 67" width="25" height="25">
                   <circle fill="#00C9A7" cx="33.5" cy="33.5" r="33.5"/>
                 </svg>
               </figure>
 
-              <figure class="position-absolute top-0 right-0 mr-3" style="margin-top: 8rem;" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="position-absolute top-0 right-0 mr-3" style="margin-top: 8rem;">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 141 141" width="50" height="50">
                   <circle fill="#FFC107" cx="70.5" cy="70.5" r="70.5"/>
                 </svg>
               </figure>
 
-              <figure class="position-absolute bottom-0 right-0" data-aos="fade-up" data-aos-offset="1" data-aos-delay="30">
+              <figure class="position-absolute bottom-0 right-0">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 770.4 770.4" width="280" height="280">
                   <g>
                     <defs>
@@ -273,77 +384,76 @@
           </div>
         </div>
       </div>
-      <!-- End Features Section -->
-
-      <!-- Articles Section -->
-      <div class="container space-2 space-top-xl-3 space-bottom-lg-3">
-        <!-- Title -->
-        <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Learn to develop sites with components and design systems</h2>
-        </div>
-        <!-- End Title -->
-
-        <div class="row mx-n2 mx-lg-n3">
-          <div class="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0" data-aos="fade-up">
-            <!-- Card -->
-            <a class="card bg-primary text-left h-100 transition-3d-hover" href="documentation/index.html">
-              <div class="card-body">
-                <div class="mb-5">
-                  <h3 class="text-white">Documentation</h3>
-                  <p class="text-white">Discover how to build and maintain coding systems using our documentation.</p>
-                </div>
-                <img class="img-fluid w-100" src="assets/svg/illustrations/docs-frame.svg" alt="Image Description">
+      <!-- End mision y vision -->
+      
+      <!-- valores -->
+      <div class="container space-top-2 space-top-lg-3" style="padding-top: 2rem !important;">
+        <div class="row justify-content-lg-center">
+        <div class="col-md-12 col-lg-12 mb-3 mb-md-7 text-center"> <h2>VALORES</h2></div>
+          <div class="col-md-6 col-lg-5 mb-3 mb-md-7">
+            <!-- Icon Blocks -->
+            <div class="media pr-lg-5">
+              <figure class="w-100 max-w-8rem mr-4">
+                <img class="img-fluid" src="assets/svg/logos/integrity.png" alt="SVG">
+              </figure>
+              <div class="media-body">
+                <h4>Integridad</h4>
+                <p style="text-align: justify;">Ser muy consecuente con lo que se pueda decir o con lo que se pueda considera 
+                  que es correcto, en cualquier circunstancia.</p>
               </div>
-              <div class="card-footer border-0 bg-transparent pt-0">
-                <span class="font-size-1 text-white font-weight-bold">Learn more <i class="fas fa-angle-right fa-sm ml-1"></i></span>
-              </div>
-            </a>
-            <!-- End Card -->
+            </div>
+            <!-- End Icon Blocks -->
           </div>
 
-          <div class="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0" data-aos="fade-up" data-aos-delay="150">
-            <!-- Card -->
-            <a class="card bg-dark text-left h-100 transition-3d-hover" href="snippets/index.html">
-              <div class="card-body">
-                <div class="mb-5">
-                  <h3 class="text-white">Snippets</h3>
-                  <p class="text-white">Start browsing our snippets pages with copy-to-clipboard snippets to match Bootstrap's level of quality.</p>
-                </div>
-                <img class="img-fluid w-100" src="assets/svg/illustrations/snippets-frame.svg" alt="Image Description">
+          <div class="col-md-6 col-lg-5 mb-3 mb-md-7">
+            <!-- Icon Blocks -->
+            <div class="media pl-lg-5">
+              <figure class="w-100 max-w-8rem mr-4">
+                <img class="img-fluid" src="assets/svg/logos/compromiso.png" alt="SVG">
+              </figure>
+              <div class="media-body">
+                <h4>Compromiso</h4>
+                <p style="text-align: justify;">Cumplir con las obligaciones contraídas, buscando el mejor resultado,
+                  respetando las normas legales aplicables vigentes y desempeñando con dedicación</p>
               </div>
-              <div class="card-footer border-0 bg-transparent pt-0">
-                <span class="font-size-1 text-white font-weight-bold">Start building <i class="fas fa-angle-right fa-sm ml-1"></i></span>
-              </div>
-            </a>
-            <!-- End Card -->
+            </div>
+            <!-- End Icon Blocks -->
           </div>
 
-          <div class="col-sm-6 col-lg-4 px-2 px-lg-3" data-aos="fade-up" data-aos-delay="200">
-            <!-- Card -->
-            <a class="js-go-to card bg-warning text-left h-100 transition-3d-hover" href="javascript:;"
-              data-hs-go-to-options='{
-                "targetSelector": "#demoExamplesSection",
-                "offsetTop": 0,
-                "position": null,
-                "animationIn": false,
-                "animationOut": false
-              }'>
-              <div class="card-body">
-                <div class="mb-5">
-                  <h3 class="text-white">Layout options</h3>
-                  <p class="text-white">Apart from 70+ HTML-pages, the theme comes with 3 ready-to-use and stand-alone demo options.</p>
-                </div>
-                <img class="img-fluid w-100" src="assets/svg/illustrations/layouts-frame.svg" alt="Image Description">
+          <div class="w-100"></div>
+
+          <div class="col-md-6 col-lg-5 mb-3 mb-md-7 mb-lg-0">
+            <!-- Icon Blocks -->
+            <div class="media pr-lg-5">
+              <figure class="w-100 max-w-8rem mr-4">
+                <img class="img-fluid" src="assets/svg/logos/perseverancia.png" alt="SVG">
+              </figure>
+              <div class="media-body">
+                <h4>Perseverancia</h4>
+                <p style="text-align: justify;">Actitud que marca el rumbo de la empresa con acciones concretas, logrando superar 
+                  obstáculos y enfocándose a cumplir los objetivos y metas propuestas.</p>
               </div>
-              <div class="card-footer border-0 bg-transparent pt-0">
-                <span class="font-size-1 text-white font-weight-bold">View examples <i class="fas fa-angle-right fa-sm ml-1"></i></span>
+            </div>
+            <!-- End Icon Blocks -->
+          </div>
+
+          <div class="col-md-6 col-lg-5">
+            <!-- Icon Blocks -->
+            <div class="media pl-lg-5">
+              <figure class="w-100 max-w-8rem mr-4">
+                <img class="img-fluid" src="assets/svg/logos/liderazgo.png" alt="SVG">
+              </figure>
+              <div class="media-body">
+                <h4>Liderazgo</h4>
+                <p style="text-align: justify;">Capacidad para motivar y dirigir, creando un ambiente de empatía, colaboración y respeto, 
+                  para lograr que estas contribuyan de forma efectiva y adecuada a la consecución de los objetivos.</p>
               </div>
-            </a>
-            <!-- End Card -->
+            </div>
+            <!-- End Icon Blocks -->
           </div>
         </div>
       </div>
-      <!-- End Articles Section -->
+      <!-- End valores -->
 
       <!-- Features Section -->
       <div class="container space-2 space-lg-3">
@@ -716,21 +826,32 @@
     <!-- ========== SCRIPT ========== -->
     <?php require 'script.php'; ?>
 
+      <!-- Go to Top -->
+      <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
+        data-hs-go-to-options='{
+          "offsetTop": 700,
+          "position": {
+            "init": {
+              "right": 15
+            },
+            "show": {
+              "bottom": 15
+            },
+            "hide": {
+              "bottom": -15
+            }
+          }
+        }'>
+        <i class="fas fa-angle-up"></i>
+      </a>
+      <!-- End Go to Top -->
+
     <!-- ========== JS Plugins Init. ========== -->
     <script>
       $(document).on('ready', function () {
         // INITIALIZATION OF HEADER
         // =======================================================
         var header = new HSHeader($('#header')).init();
-
-
-        // INITIALIZATION OF MEGA MENU
-        // =======================================================
-        var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
-          desktop: {
-            position: 'left'
-          }
-        }).init();
 
 
         // INITIALIZATION OF UNFOLD
@@ -789,6 +910,11 @@
         // =======================================================
         var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
 
+        // INITIALIZATION OF SLICK CAROUSEL
+        // =======================================================
+        $('.js-slick-carousel').each(function() {
+          var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
+        });
 
         // INITIALIZATION OF CUBEPORTFOLIO
         // =======================================================
