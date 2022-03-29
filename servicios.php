@@ -4,7 +4,7 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Home | Seven's Ingenieros</title>
+    <title>Servicios | Seven's Ingenieros</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -412,11 +412,7 @@
   <!-- ========== FOOTER ========== -->
   <?php require 'footer.php'; ?>
   <!-- ==========END FOOTER ========== -->
-<style>
-  .max-w-8rem_modif {
-    max-width: 9.5rem;
-}
-</style>
+<style>.max-w-8rem_modif {max-width: 9.5rem;}</style>
   <!-- ========== SCRIPT ========== -->
   <?php require 'script.php'; ?>
 
@@ -440,29 +436,12 @@
   </a>
   <!-- End Go to Top -->
 
-
-  <!-- JS Implementing Plugins -->
-  <script src="assets/js/vendor.min.js"></script>
-
-  <!-- JS Front -->
-  <script src="assets/js/theme.min.js"></script>
-
   <!-- JS Plugins Init. -->
   <script>
     $(document).on('ready', function () {
       // INITIALIZATION OF HEADER
       // =======================================================
       var header = new HSHeader($('#header')).init();
-
-
-      // INITIALIZATION OF MEGA MENU
-      // =======================================================
-      var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
-        desktop: {
-          position: 'left'
-        }
-      }).init();
-
 
       // INITIALIZATION OF UNFOLD
       // =======================================================

@@ -192,7 +192,9 @@
                       </div>
                       <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros actualmente se encuetra desarrollando 
                       CONSTRUCCIÓN DE LA SEDE MISIÓN NOR ORIENTAL TARAPOTO.</p>
-                      <div style="text-align: center;">
+                  </div>
+                  <div class="card-footer">
+                    <div style="text-align: center;">
                         <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
                           Ver más
                         </a>
@@ -218,7 +220,9 @@
                       </div>
                       <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la CONSTRUCCION DEL CERCO PERIMÉTRICO ETAPA 2 en la 
                       UNIVERSIDAD PERUANA UNION </p>
-                      <div style="text-align: center;">
+                  </div>
+                  <div class="card-footer">
+                    <div style="text-align: center;">
                         <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
                           Ver más
                         </a>
@@ -244,7 +248,9 @@
                       </div>
                       <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la 	CONSTRUCCIÓN DE ESCALERAS EN EL PABELLON C Y D DE LA UNIVERSIDAD PERUANA UNIÓN
                       en la UNIVERSIDAD PERUANA UNION </p>
-                     <div style="text-align: center;">
+                  </div>
+                  <div class="card-footer">
+                    <div style="text-align: center;">
                         <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
                           Ver más
                         </a>
@@ -270,11 +276,13 @@
                     </div>
                     <p class="mb-0" style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales calificados 
                     (Autocontrol) y sistemas de control calidad estandarizados.</p>
+                  </div>
+                  <div class="card-footer">
                     <div style="text-align: center;">
-                      <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
-                        Ver más
-                      </a>
-                    </div>
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                          Ver más
+                        </a>
+                      </div>
                   </div>
                 </div>
                 <!-- End Card Info -->
@@ -916,30 +924,6 @@
           var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
         });
 
-        // INITIALIZATION OF CUBEPORTFOLIO
-        // =======================================================
-        $('.cbp').each(function () {
-          var cbp = $.HSCore.components.HSCubeportfolio.init($(this), {
-            layoutMode: 'grid',
-            filters: '#filterControls',
-            displayTypeSpeed: 0
-          });
-        });
-
-        $('.cbp').on('initComplete.cbp', function() {
-          // update sticky block
-          cbpStickyFilter.update();
-        });
-
-        $('.cbp').on('filterComplete.cbp', function() {
-          // update sticky block
-          cbpStickyFilter.update();
-        });
-
-        $('.cbp').on('pluginResize.cbp', function() {
-          // update sticky block
-          cbpStickyFilter.update();
-        });
 
         // animated scroll to cbp container
         $('#cbpStickyFilter').on('click', '.cbp-filter-item', function (e) {
