@@ -27,7 +27,7 @@
         <!-- Nav -->
         <nav class="js-mega-menu navbar navbar-expand-lg">
           <!-- Logo -->
-          <a class="navbar-brand" href="index.html" aria-label="Front">
+          <a class="navbar-brand" href="index.php" aria-label="Front">
             <img src="assets/svg/logos/logo-rectangulo.svg" alt="Logo">
           </a>
           <!-- End Logo -->
@@ -75,7 +75,7 @@
 
                 <!-- Nuestras obras -->
                 <li class="hs-has-mega-menu navbar-nav-item" data-hs-mega-menu-item-options='{ "desktop": { "position": "right", "maxWidth": "440px" } }'>
-                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="index.html" aria-haspopup="true" aria-expanded="false">Nuestras obras</a>
+                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="nuestras_obras.php" aria-haspopup="true" aria-expanded="false">Nuestras obras</a>
                 </li>
                 <!-- End Nuestras obras -->
                 <!-- Nuestras obras -->
@@ -85,7 +85,7 @@
                 <!-- End Nuestras obras -->
                 <!-- Nuestras obras -->
                 <li class="hs-has-mega-menu navbar-nav-item" data-hs-mega-menu-item-options='{ "desktop": { "position": "right", "maxWidth": "440px" } }'>
-                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="index.html" aria-haspopup="true" aria-expanded="false"><span class="fab fa-whatsapp mt-1 mr-2"></span></a>
+                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="https://wa.me/51954201310" target="_blank" aria-haspopup="true" aria-expanded="false"><span class="fab fa-whatsapp mt-1 mr-2"></span></a>
                 </li>
                 <!-- End Nuestras obras -->
               </ul>

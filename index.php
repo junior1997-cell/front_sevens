@@ -31,7 +31,7 @@
                   <h1 class="display-4 mb-3">
                     Convierta sus ideas en
 
-                    <span class="text-primary text-highlight-warning">
+                    <span class="text-warning text-highlight-warning">
                       <span class="js-text-animation"
                             data-hs-typed-options='{
                               "strings": ["una casa.", "un edificio.", "una mansión."],
@@ -45,8 +45,8 @@
                   <p class="lead"><b>Sevens Ingenieros SAC</b> se compromete a realizar tus sueños en construcción.</p>
                 </div>
 
-                <a class="btn btn-primary btn-wide transition-3d-hover" href="page-login-simple.html">Ver precios</a>
-                <a class="btn btn-link btn-wide" href="#"><i class="fab fa-whatsapp"></i> WhatsApp <i class="fas fa-angle-right fa-sm ml-1"></i></a>
+                <a class="btn btn_bacg-warning btn-wide transition-3d-hover" href="page-pricing.html">Ver precios</a>
+                <a class="btn btn-link btn-wide text-warning" href="https://wa.me/51954201310" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp <i class="fas fa-angle-right fa-sm ml-1"></i></a>
               </div>
             </div>
           </div>
@@ -190,12 +190,12 @@
                           <small class="d-block"></small>
                         </div>
                       </div>
-                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros actualmente se encuetra desarrollando 
+                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros actualmente se encuentra desarrollando 
                       CONSTRUCCIÓN DE LA SEDE MISIÓN NOR ORIENTAL TARAPOTO.</p>
                   </div>
                   <div class="card-footer">
                     <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
                           Ver más
                         </a>
                       </div>
@@ -223,7 +223,7 @@
                   </div>
                   <div class="card-footer">
                     <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
                           Ver más
                         </a>
                       </div>
@@ -251,7 +251,7 @@
                   </div>
                   <div class="card-footer">
                     <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
                           Ver más
                         </a>
                       </div>
@@ -279,7 +279,7 @@
                   </div>
                   <div class="card-footer">
                     <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" href="#">
+                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
                           Ver más
                         </a>
                       </div>
@@ -585,31 +585,39 @@
           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
       }
       @media (min-width: 1200px) and (max-width: 1400px){
-      .wrapper-diamond-us .content-diamond-us .diamond-us {
-          width: 33em;
-          height: 33em;
+        .wrapper-diamond-us .content-diamond-us .diamond-us {
+            width: 33em;
+            height: 33em;
+        }
       }
       .p-internas {
-        color: #8b8888;
-        margin-bottom: 1.15rem;
-        font-size: 0.95em;
-        text-align: justify;
+          color: #8b8888;
+          margin-bottom: 1.15rem;
+          font-size: 0.95em;
+          text-align: justify;
+        }
+        .titles-big {
+            font-family: "Conv_Gotham-Black";
+            text-transform: uppercase;
+            color: #6c6c6c;
+            font-size: 1.6em;
+        }
+        .title-orange-clear {
+            color: #f39100;
+        }
+        .pt-pb{
+          padding-top: 3rem !important;
+          padding-bottom: 4rem !important;
+        }
+      .btn_bacg-warning{
+          background-color: #f39100;
+          color: white;
+        }
+      .btn_bacg-warning:hover {
+        color: #000000;
+        text-decoration: none;
       }
-      .titles-big {
-          font-family: "Conv_Gotham-Black";
-          text-transform: uppercase;
-          color: #6c6c6c;
-          font-size: 1.6em;
-      }
-      .title-orange-clear {
-          color: #f39100;
-      }
-      .pt-pb{
-        padding-top: 3rem !important;
-        padding-bottom: 4rem !important;
-      }
-
-    }
+    
     </style>
 
     <!-- ========== SECONDARY CONTENTS ========== -->
@@ -628,202 +636,17 @@
           <!-- End Header -->
 
           <!-- Body -->
-          <div class="modal-body p-sm-5">
-            <form class="js-validate">
-              <!-- Sign in -->
-              <div id="signinModalForm">
-                <div class="text-center mb-5">
-                  <h2>Sign in</h2>
-                  <p>Don't have an account yet?
-                    <a class="js-animation-link" href="javascript:;"
-                      data-hs-show-animation-options='{
-                          "targetSelector": "#signupModalForm",
-                          "groupName": "idForm"
-                        }'>Sign up here</a>
-                  </p>
-                </div>
-
-                <a class="btn btn-block btn-white mb-2" href="#">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <img class="avatar avatar-xss mr-2" src="assets/svg/brands/google.svg" alt="Image Description">
-                      Sign in with Google
-                    </span>
-                </a>
-
-                <a class="js-animation-link btn btn-block btn-primary mb-2" href="#"
-                  data-hs-show-animation-options='{
-                      "targetSelector": "#signinWithEmailModalForm",
-                      "groupName": "idForm"
-                    }'>Sign in with Email</a>
-              </div>
-              <!-- End Sign in -->
-
-              <!-- Sign in with Modal -->
-              <div id="signinWithEmailModalForm" style="display: none; opacity: 0;">
-                <div class="text-center mb-5">
-                  <h2>Sign in</h2>
-                  <p>Don't have an account yet?
-                    <a class="js-animation-link" href="javascript:;"
-                      data-hs-show-animation-options='{
-                          "targetSelector": "#signupModalForm",
-                          "groupName": "idForm"
-                        }'>Sign up here</a>
-                  </p>
-                </div>
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="signinModalFormSrEmail">Your email</label>
-                  <input type="email" class="form-control" name="email" id="signinModalFormSrEmail" placeholder="email@address.com" aria-label="email@address.com" required data-msg="Please enter a valid email address.">
-                </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="signinModalFormSrPassword">
-                      <span class="d-flex justify-content-between align-items-center">
-                        Password
-                        <a class="js-animation-link link text-muted" href="javascript:;"
-                          data-hs-show-animation-options='{
-                            "targetSelector": "#forgotPasswordModalForm",
-                            "groupName": "idForm"
-                          }'>Forgot Password?</a>
-                      </span>
-                  </label>
-                  <input type="password" class="form-control" name="password" id="signinModalFormSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Your password is invalid. Please try again.">
-                </div>
-                <!-- End Form Group -->
-
-                <button type="submit" class="btn btn-block btn-primary">Sign in</button>
-              </div>
-              <!-- End Sign in with Modal -->
-
-              <!-- Sign up -->
-              <div id="signupModalForm" style="display: none; opacity: 0;">
-                <div class="text-center mb-5">
-                  <h2>Sign up</h2>
-                  <p>Already have an account?
-                    <a class="js-animation-link" href="javascript:;"
-                      data-hs-show-animation-options='{
-                          "targetSelector": "#signinModalForm",
-                          "groupName": "idForm"
-                        }'>Sign in here</a>
-                  </p>
-                </div>
-
-                <a class="btn btn-block btn-white mb-2" href="#">
-                    <span class="d-flex justify-content-center align-items-center">
-                      <img class="avatar avatar-xss mr-2" src="assets/svg/brands/google.svg" alt="Image Description">
-                      Sign up with Google
-                    </span>
-                </a>
-
-                <a class="js-animation-link btn btn-block btn-primary mb-2" href="#"
-                  data-hs-show-animation-options='{
-                      "targetSelector": "#signupWithEmailModalForm",
-                      "groupName": "idForm"
-                    }'>Sign up with Email</a>
-
-                <div class="text-center mt-3">
-                  <p class="font-size-1 mb-0">By continuing you agree to our <a href="#">Terms and Conditions</a></p>
-                </div>
-              </div>
-              <!-- End Sign up -->
-
-              <!-- Sign up with Modal -->
-              <div id="signupWithEmailModalForm" style="display: none; opacity: 0;">
-                <div class="text-center mb-5">
-                  <h2>Sign up</h2>
-                  <p>Already have an account?
-                    <a class="js-animation-link" href="javascript:;"
-                      data-hs-show-animation-options='{
-                          "targetSelector": "#signinModalForm",
-                          "groupName": "idForm"
-                        }'>Sign in here</a>
-                  </p>
-                </div>
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="signupModalFormSrEmail">Your email</label>
-                  <input type="email" class="form-control" name="email" id="signupModalFormSrEmail" placeholder="email@address.com" aria-label="email@address.com" required data-msg="Please enter a valid email address.">
-                </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="signupModalFormSrPassword">Password</label>
-                  <input type="password" class="form-control" name="password" id="signupModalFormSrPassword" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Your password is invalid. Please try again.">
-                </div>
-                <!-- End Form Group -->
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="signupModalFormSrConfirmPassword">Confirm password</label>
-                  <input type="password" class="form-control" name="confirmPassword" id="signupModalFormSrConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required data-msg="Password does not match the confirm password.">
-                </div>
-                <!-- End Form Group -->
-
-                <button type="submit" class="btn btn-block btn-primary">Sign up</button>
-
-                <div class="text-center mt-3">
-                  <p class="font-size-1 mb-0">By continuing you agree to our <a href="#">Terms and Conditions</a></p>
-                </div>
-              </div>
-              <!-- End Sign up with Modal -->
-
-              <!-- Forgot Password -->
-              <div id="forgotPasswordModalForm" style="display: none; opacity: 0;">
-                <div class="text-center mb-5">
-                  <h2>Forgot password?</h2>
-                  <p>Enter the email address you used when you joined and we'll send you instructions to reset your password.</p>
-                </div>
-
-                <!-- Form Group -->
-                <div class="js-form-message form-group">
-                  <label class="input-label" for="resetPasswordSrEmail" tabindex="0">
-                    <span class="d-flex justify-content-between align-items-center">
-                      Your email
-                      <a class="js-animation-link d-flex align-items-center link text-muted" href="javascript:;"
-                        data-hs-show-animation-options='{
-                          "targetSelector": "#signinModalForm",
-                          "groupName": "idForm"
-                        }'>
-                        <i class="fas fa-angle-left mr-2"></i> Back to Sign in
-                      </a>
-                    </span>
-                  </label>
-                  <input type="email" class="form-control" name="email" id="resetPasswordSrEmail" tabindex="1" placeholder="Enter your email address" aria-label="Enter your email address" required data-msg="Please enter a valid email address.">
-                </div>
-                <!-- End Form Group -->
-
-                <button type="submit" class="btn btn-block btn-primary">Submit</button>
-              </div>
-              <!-- End Forgot Password -->
-            </form>
+          <div class="modal-body p-sm-5 text-center">
+            <div id="signinModalForm">
+              <div class="text-center mb-5"> <h2>Detalles de la obra</h2> </div>
+              <i class="fas fa-spinner fa-pulse fa-sm fa-2x"></i>
+            </div>
           </div>
           <!-- End Body -->
 
           <!-- Footer -->
           <div class="modal-footer d-block text-center py-sm-5">
-            <small class="text-cap mb-4">Trusted by the world's best teams</small>
-
-            <div class="w-85 mx-auto">
-              <div class="row justify-content-between">
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/gitlab-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/fitbit-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
-                </div>
-                <div class="col">
-                  <img class="img-fluid" src="assets/svg/brands/layar-gray.svg" alt="Image Description">
-                </div>
-              </div>
-            </div>
+            <small class="text-cap mb-4"> Esperando detalles </small>
           </div>
           <!-- End Footer -->
         </div>

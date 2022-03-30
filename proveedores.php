@@ -93,14 +93,15 @@
     <!-- End Clients Section -->
 
     <!-- Stories Section -->
-    <div class="container space-2 space-lg-3">
+    <div class="container space-2 space-lg-3" >
       <!-- Title -->
-      <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2>Algunos de nuestros  PROVEEDORES más requeridos.</h2>
-      </div>
+        <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+          <h2>Algunos de nuestros  PROVEEDORES más requeridos.</h2>
+        </div>
       <!-- End Title -->
 
-      <div class="row">
+      <div class="row"style="background-image: linear-gradient(to bottom, rgb(241 241 241 / 0%) 0%,rgb(168 172 170 / 38%) 100%), url(assets/svg/components/abstract-shapes-5.svg);
+    border-radius: 10px;">
 
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
@@ -180,20 +181,10 @@
           <!-- End Card Info -->
         </div>
 
+      </div>
 
     </div>
     <!-- End Stories Section -->
-
-    <!-- CTA Section -->
-    <div class="bg-primary text-center bg-img-hero" style="background-image: url(assets/svg/components/abstract-shapes-5.svg);">
-      <div class="container space-2">
-        <div class="mb-5">
-          <h2 class="text-white">Start your demo with Front today</h2>
-        </div>
-        <a class="btn btn-light transition-3d-hover" href="#">Schedule a Demo</a>
-      </div>
-    </div>
-    <!-- End CTA Section -->
   </main>
   <!-- ========== END MAIN ========== -->
   
