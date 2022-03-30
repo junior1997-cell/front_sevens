@@ -80,7 +80,7 @@
                 <!-- End Nuestras obras -->
                 <!-- Nuestras obras -->
                 <li class="hs-has-mega-menu navbar-nav-item" data-hs-mega-menu-item-options='{ "desktop": { "position": "right", "maxWidth": "440px" } }'>
-                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="index.html" aria-haspopup="true" aria-expanded="false">Contactos</a>
+                  <a id="shopMegaMenu" class="hs-mega-menu-invoker nav-link " href="contactanos.php" aria-haspopup="true" aria-expanded="false">Contactos</a>
                 </li>
                 <!-- End Nuestras obras -->
                 <!-- Nuestras obras -->
