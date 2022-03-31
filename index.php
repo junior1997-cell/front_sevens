@@ -736,18 +736,6 @@
           var counter = new HSCounter($(this)).init();
         });
 
-
-        // INITIALIZATION OF STICKY BLOCK
-        // =======================================================
-        var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
-
-        // INITIALIZATION OF SLICK CAROUSEL
-        // =======================================================
-        $('.js-slick-carousel').each(function() {
-          var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
-        });
-
-
         // animated scroll to cbp container
         $('#cbpStickyFilter').on('click', '.cbp-filter-item', function (e) {
           $('html, body').stop().animate({
@@ -768,7 +756,13 @@
     <script>
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
+        
+    <!-- JS consultas -->
+    <script src="assets/scripts/consultas.js"></script>
+
   </body>
 
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:16:49 GMT -->
 </html>
+<!-- JS -->
+

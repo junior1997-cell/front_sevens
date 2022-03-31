@@ -106,7 +106,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/480x320/img13.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/480x320/img13.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://perumype.com/central-del-acero-srl-20505982097">CENTRAL DEL ACERO S.R.L.</a>
               <p class="mb-0 text-justify">Venta al por mayor de materiales de contracción, artículos de 
@@ -119,7 +119,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://www.conselva.com">COMERCIAL SELVA NOR PERUANA S.A.</a>
               <p class="mb-0 text-justify">Venta al por mayor de materiales de contracción, artículos de 
@@ -132,7 +132,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://compuempresa.com/info/precon-telecom-sac-20602453589">PRECON TELECOM S.A.C.</a>
               <p class="mb-0 text-justify">PRECON TELECOM SAC especializada en FABRICACIÓN DE ARTÍCULOS DE HORMIGÓN, 
@@ -145,7 +145,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://www.conselva.com">MADERA TRIPLAYERA & FERRETERIA ALCANTARA E.I.R.L.</a>
               <p class="mb-0 text-justify">Especializada en venta al por menor de artículos de ferretería, pinturas y productos 
@@ -158,7 +158,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://acconcretos.com.pe/index.html">AC CONCRETO SAC</a>
               <p class="mb-0 text-justify">Empresa dedicada a la venta de concreto premezclado y derivados de éste,
@@ -171,7 +171,7 @@
         <div class="col-sm-6 col-md-4 mb-5">
           <!-- Card Info -->
           <div class="card h-100">
-            <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description">
+            <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://consycon.com/">CONSTRUCCION Y CONCRETO SOCIEDAD ANONIMA</a>
               <p class="mb-0 text-justify">CONSYCON es una empresa de profesionales y técnicos con amplia experiencia 
