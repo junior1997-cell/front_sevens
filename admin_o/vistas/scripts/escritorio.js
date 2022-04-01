@@ -1,0 +1,1 @@
+$(".mescritorio").addClass("active");

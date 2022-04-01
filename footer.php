@@ -105,15 +105,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link media" href="#">
-                  <span class="media">
-                   <span class="fab fa-whatsapp mt-1 mr-2"></span>
-                    <span class="media-body"> +51 954 201 310 </span>
-                  </span>
+              <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark text-white" href="admin/index.php">
+                  <i class="fas fa-user-circle"></i>
               </a>
             </li>
           </ul>
           <!-- End Nav Link -->
+
         </div>
       </div>
     </div>
