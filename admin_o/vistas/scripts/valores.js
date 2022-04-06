@@ -19,7 +19,7 @@ function doc1_eliminar() {
 
 	$("#doc1").val("");
 
-	$("#doc1_ver").html('<img src="../dist/svg/pdf_trasnparent.svg" alt="" width="50%" >');
+	$("#doc1_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 
 	$("#doc1_nombre").html("");
 }
@@ -40,6 +40,8 @@ function limpiar() {
 
 //Función Listar
 function listar() {
+  $(".tabla").hide();
+  $(".cargando").show();
 
   tabla=$('#tabla-valores').dataTable({
     "responsive": true,
@@ -47,7 +49,7 @@ function listar() {
     "aProcessing": true,//Activamos el procesamiento del datatables
     "aServerSide": true,//Paginación y filtrado realizados por el servidor
     dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
-    buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5','pdf', "colvis"],
+    buttons: ['excelHtml5','pdf'],
     "ajax":{
         url: '../ajax/valores.php?op=listar',
         type : "get",
@@ -58,8 +60,12 @@ function listar() {
       },
       createdRow: function (row, data, ixdex) {
         // columna: #
-        if (data[4] != '') {
-          $("td", row).eq(4).addClass('text-nowrap');
+        if (data[1] != '') {
+          $("td", row).eq(1).addClass('text-center');
+        }
+        // columna: #
+        if (data[2] != '') {
+          $("td", row).eq(2).addClass('text-nowrap');
         }
       },
     "language": {
@@ -77,6 +83,8 @@ function listar() {
     "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
   }).DataTable();
   
+  $(".tabla").show();
+  $(".cargando").hide();
 }
 
 //ver ficha tecnica
@@ -140,27 +148,28 @@ function guardaryeditar(e) {
   });
 }
 
-function mostrar(idtransporte) {
+function mostrar(idvalores) {
   limpiar();
+  $("#modal-agregar-valores").modal("show");
   //$("#proveedor").val("").trigger("change"); 
   $("#cargando-1-fomulario").hide();
   $("#cargando-2-fomulario").show();
 
-  $.post("../ajax/valores.php?op=mostrar", { idtransporte: idtransporte }, function (data, status) {
+  $.post("../ajax/valores.php?op=mostrar_valor", { idvalores: idvalores }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
-
-    precio_p=parseFloat(data.precio_parcial);
 
     $("#cargando-1-fomulario").show();
     $("#cargando-2-fomulario").hide();
 
-    $("#idtransporte").val(data.idtransporte);
+    $("#idvalores").val(data.data.idvalores);
+    $("#nombre").val(data.data.nombre_valor);
+    $("#descripcion").val(data.data.descripcion);
 
     /**-------------------------*/
-    if (data.comprobante == "" || data.comprobante == null  ) {
+    if (data.data.img_perfil == "" || data.data.img_perfil == null  ) {
 
-      $("#doc1_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
+      $("#doc1_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 
       $("#doc1_nombre").html('');
 
@@ -168,23 +177,23 @@ function mostrar(idtransporte) {
 
     } else {
 
-      $("#doc_old_1").val(data.comprobante); 
+      $("#doc_old_1").val(data.data.img_perfil); 
 
-      $("#doc1_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(data.comprobante)}</i></div></div>`);
+      $("#doc1_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(data.data.img_perfil)}</i></div></div>`);
       
       // cargamos la imagen adecuada par el archivo
-      if ( extrae_extencion(data.comprobante) == "pdf" ) {
+      if ( extrae_extencion(data.data.img_perfil) == "pdf" ) {
 
-        $("#doc1_ver").html('<iframe src="../dist/img/valores/imagen_perfil/'+data.comprobante+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
+        $("#doc1_ver").html('<iframe src="../dist/img/valores/imagen_perfil/'+data.data.img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
 
       }else{
         if (
-          extrae_extencion(data.comprobante) == "jpeg" || extrae_extencion(data.comprobante) == "jpg" || extrae_extencion(data.comprobante) == "jpe" ||
-          extrae_extencion(data.comprobante) == "jfif" || extrae_extencion(data.comprobante) == "gif" || extrae_extencion(data.comprobante) == "png" ||
-          extrae_extencion(data.comprobante) == "tiff" || extrae_extencion(data.comprobante) == "tif" || extrae_extencion(data.comprobante) == "webp" ||
-          extrae_extencion(data.comprobante) == "bmp" || extrae_extencion(data.comprobante) == "svg" ) {
+          extrae_extencion(data.data.img_perfil) == "jpeg" || extrae_extencion(data.data.img_perfil) == "jpg" || extrae_extencion(data.data.img_perfil) == "jpe" ||
+          extrae_extencion(data.data.img_perfil) == "jfif" || extrae_extencion(data.data.img_perfil) == "gif" || extrae_extencion(data.data.img_perfil) == "png" ||
+          extrae_extencion(data.data.img_perfil) == "tiff" || extrae_extencion(data.data.img_perfil) == "tif" || extrae_extencion(data.data.img_perfil) == "webp" ||
+          extrae_extencion(data.data.img_perfil) == "bmp" || extrae_extencion(data.data.img_perfil) == "svg" ) {
 
-          $("#doc1_ver").html(`<img src="../dist/img/valores/imagen_perfil/${data.comprobante}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+          $("#doc1_ver").html(`<img src="../dist/img/valores/imagen_perfil/${data.data.img_perfil}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
           
         } else {
           $("#doc1_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
@@ -192,52 +201,30 @@ function mostrar(idtransporte) {
       }      
     }
 
-  });
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
 
-//Función para desactivar registros
-function eliminar(idtransporte) {
+//Función para eliminar registros
+function eliminar(idvalores) {
   Swal.fire({
-
-    title: "!Elija una opción¡",
-    html: "En <b>papelera</b> encontrará este registro! <br> Al <b>eliminar</b> no tendrá acceso a recuperar este registro!",
+    title: "¿Está Seguro de  Eliminar el registro?",
+    text: "",
     icon: "warning",
     showCancelButton: true,
-    showDenyButton: true,
-    confirmButtonColor: "#17a2b8",
-    denyButtonColor: "#d33",
-    cancelButtonColor: "#6c757d",    
-    confirmButtonText: `<i class="fas fa-times"></i> Papelera`,
-    denyButtonText: `<i class="fas fa-skull-crossbones"></i> Eliminar`,
-
+    confirmButtonColor: "#28a745",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Eliminar!",
   }).then((result) => {
-
     if (result.isConfirmed) {
-
-	  //Desactivar
-    $.post("../ajax/valores.php?op=desactivar", { idtransporte: idtransporte }, function (e) {
-
-      Swal.fire("Desactivado!", "Tu registro ha sido desactivado.", "success");
-  
-      tabla.ajax.reload();
-      
-
-    });  
-
-    }else if (result.isDenied) {
-
-      // Eliminar
-      $.post("../ajax/valores.php?op=eliminar", { idtransporte: idtransporte }, function (e) {
+      $.post("../ajax/valores.php?op=eliminar", { idvalores: idvalores }, function (e) {
 
         Swal.fire("Eliminado!", "Tu registro ha sido Eliminado.", "success");
     
         tabla.ajax.reload();
-        
-      });
-
+        total();
+      });      
     }
-
-  });  
+  });   
 }
 
 init();
@@ -324,7 +311,7 @@ function addDocs(e,id) {
         timer: 1500
       });
 
-      $("#"+id+"_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >'); 
+      $("#"+id+"_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >'); 
 
 		}else{
 
@@ -391,7 +378,7 @@ function addDocs(e,id) {
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: `El documento: ${file.name.toUpperCase()} es aceptado.`,
+            title: `La imagen: ${file.name.toUpperCase()} es aceptado.`,
             showConfirmButton: false,
             timer: 1500
           });
@@ -403,12 +390,12 @@ function addDocs(e,id) {
         Swal.fire({
           position: 'top-end',
           icon: 'warning',
-          title: `El documento: ${file.name.toUpperCase()} es muy pesado.`,
+          title: `La imagen: ${file.name.toUpperCase()} es muy pesado.`,
           showConfirmButton: false,
           timer: 1500
         })
 
-        $("#"+id+"_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
+        $("#"+id+"_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
         $("#"+id+"_nombre").html("");
 				$("#"+id).val("");
 			}
@@ -422,7 +409,7 @@ function addDocs(e,id) {
       timer: 1500
     })
 		 
-    $("#"+id+"_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
+    $("#"+id+"_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 		$("#"+id+"_nombre").html("");
     $("#"+id).val("");
 	}	
@@ -449,7 +436,7 @@ function re_visualizacion(id, carpeta) {
         timer: 1500
       })
 
-      $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
+      $("#doc"+id+"_ver").html('<img src="./dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 
 		  $("#doc"+id+"_nombre").html("");
 
@@ -463,7 +450,7 @@ function re_visualizacion(id, carpeta) {
           toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
         } else {
           if ( extrae_extencion(antiguopdf) == "pdf" ) { 
-            $("#doc"+id+"_ver").html(`<iframe src="../dist/docs/transporte/${carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
+            $("#doc"+id+"_ver").html(`<iframe src="../dist/dist/img/valores/${carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
             toastr.success('Documento vizualizado correctamente!!!')
           } else {
             if ( extrae_extencion(antiguopdf) == "csv" ) {
@@ -488,7 +475,7 @@ function re_visualizacion(id, carpeta) {
                       extrae_extencion(antiguopdf) == "tiff" || extrae_extencion(antiguopdf) == "tif" || extrae_extencion(antiguopdf) == "webp" ||
                       extrae_extencion(antiguopdf) == "bmp" || extrae_extencion(antiguopdf) == "svg" ) {
   
-                      $("#doc"+id+"_ver").html(`<img src="../dist/docs/transporte/${carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
+                      $("#doc"+id+"_ver").html(`<img src="../dist/img/valores/${carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
                       toastr.success('Documento vizualizado correctamente!!!');
                     } else {
                       $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');

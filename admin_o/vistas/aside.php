@@ -41,10 +41,7 @@
           <!-- List -->
           <ul class="nav nav-sub nav-sm nav-tabs nav-list-y-2 mb-4">
             <li class="nav-item">
-              <a class="nav-link" href="account-orders.html"> <i class="fas fa-shopping-basket nav-icon"></i> Servicios </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="account-orders.html"> <i class="fas fa-coins nav-icon"></i> Caracteristicas </a>
+              <a class="nav-link mservicios" href="servicio.php"> <i class="fas fa-shopping-basket nav-icon"></i> Servicios </a>
             </li>
           </ul>
           <!-- End List -->

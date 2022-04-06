@@ -8,18 +8,18 @@ $("#frmAcceso").on('submit',function(e) {
           
          data = JSON.parse(data); console.log(data);
  
-         if (data.status){
+        if (data.status){
 
-            $(document).Toasts('create', {
+            /*$(document).Toasts('create', {
                 class: 'bg-success',
                 title: 'Bienvenido al sistema "Admin Sevens"',
                 subtitle: 'cerrar',
                 body: 'Se inicio sesion correctamente. Te hemos extrañado, estamos muy contentos de tenerte de vuelta.'
-            });
-
+            });*/
+            toastr.success('Se inicio sesion correctamente. Te hemos extrañado, estamos muy contentos de tenerte de vuelta.!!!')
             $(location).attr("href","escritorio.php");   
 
-         } else {
+        } else {
 
             $(document).Toasts('create', {
                 class: 'bg-danger',
@@ -28,6 +28,6 @@ $("#frmAcceso").on('submit',function(e) {
                 body: 'Ingrese sus credenciales correctamente, o pida al administrador de sistema restablecer sus credenciales.'
             })
   
-         }
-     });
+        }
+     }).fail( function(e) { console.log(e); ver_errores(e); } );
  })

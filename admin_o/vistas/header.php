@@ -16,7 +16,7 @@
 
           <div class="col-auto">
             <div class="d-none d-lg-block">
-              <a class="btn btn-sm btn-soft-light" href="#">Cerrar sesión</a>
+              <a class="btn btn-sm btn-soft-light" href="../ajax/usuario.php?op=salir">Cerrar sesión</a>
             </div>
 
             <!-- Responsive Toggle Button -->

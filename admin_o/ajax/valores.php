@@ -27,10 +27,10 @@ if (!isset($_SESSION["nombre"])) {
 
             if (!file_exists($_FILES['doc1']['tmp_name']) || !is_uploaded_file($_FILES['doc1']['tmp_name'])) {
               $imagen_perfil = $_POST["doc_old_1"];
-              $flat_ficha1 = false;
+              $flat_img = false;
             } else {
               $ext1 = explode(".", $_FILES["doc1"]["name"]);
-              $flat_ficha1 = true;
+              $flat_img = true;
 
               $imagen_perfil = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
 
@@ -42,15 +42,22 @@ if (!isset($_SESSION["nombre"])) {
               $rspta = $valores->insertar($nombre,$descripcion,$imagen_perfil);
               echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
             } else {
-              //validamos si existe imagen_perfil para eliminarlo
-              if ($flat_ficha1 == true) {
-                $datos_ficha1 = $valores->ficha_tec($idvalores);
+              //validamos si existe comprobante para eliminarlo
+              if ($flat_img == true) {
 
-                $ficha1_ant = $datos_ficha1->fetch_object()->imagen_perfil;
+                $datos_ficha1 = $valores->reg_img($idvalores);
 
-                if ($ficha1_ant != "") {
-                  unlink("../dist/img/valores/imagen_perfil/" . $ficha1_ant);
+                if ( $datos_ficha1['status'] ) {
+          
+                  $ficha1_ant = $datos_ficha1['data']['img_perfil'];
+            
+                  if ($ficha1_ant != "") {
+
+                    unlink("../dist/img/valores/imagen_perfil/" . $ficha1_ant);
+                  }
+
                 }
+
               }
 
               $rspta = $valores->editar($idvalores,$nombre,$descripcion,$imagen_perfil);
@@ -59,65 +66,17 @@ if (!isset($_SESSION["nombre"])) {
             }
         break;
 
-      case 'desactivar':
-        if (!isset($_SESSION["nombre"])) {
-          header("Location: ../vistas/login.html"); //Validamos el acceso solo a los materials logueados al sistema.
-        } else {
-          //Validamos el acceso solo al  logueado y autorizado.
-          if ($_SESSION['viatico'] == 1) {
-            $rspta = $valores->desactivar($idvalores);
-            echo $rspta ? " Desactivado" : "No se puede desactivar";
-            //Fin de las validaciones de acceso
-          } else {
-            require 'noacceso.php';
-          }
-        }
-        break;
-
-      case 'activar':
-        if (!isset($_SESSION["nombre"])) {
-          header("Location: ../vistas/login.html");
-        } else {
-          if ($_SESSION['viatico'] == 1) {
-            $rspta = $valores->activar($idvalores);
-            echo $rspta ? "Activado" : "No se puede activar";
-            //Fin de las validaciones de acceso
-          } else {
-            require 'noacceso.php';
-          }
-        }
-        break;
-
-      case 'eliminar':
-        if (!isset($_SESSION["nombre"])) {
-          header("Location: ../vistas/login.html"); //Validamos el acceso solo a los materials logueados al sistema.
-        } else {
-          //Validamos el acceso solo al  logueado y autorizado.
-          if ($_SESSION['viatico'] == 1) {
+        case 'eliminar':
             $rspta = $valores->eliminar($idvalores);
             echo $rspta ? " Eliminado" : "No se puede Eliminar";
             //Fin de las validaciones de acceso
-          } else {
-            require 'noacceso.php';
-          }
-        }
         break;
 
-      case 'mostrar':
-        if (!isset($_SESSION["nombre"])) {
-          header("Location: ../vistas/login.html"); //Validamos el acceso solo a logueados al sistema.
-        } else {
-          //Validamos el acceso solo al material logueado y autorizado.
-          if ($_SESSION['viatico'] == 1) {
-            //$idvalores='1';
+        case 'mostrar_valor':
             $rspta = $valores->mostrar($idvalores);
             //Codificar el resultado utilizando json
-            echo json_encode($rspta);
+            echo json_encode($rspta, true);
             //Fin de las validaciones de acceso
-          } else {
-            require 'noacceso.php';
-          }
-        }
         break;
       case 'verdatos':
         if (!isset($_SESSION["nombre"])) {
@@ -158,24 +117,40 @@ if (!isset($_SESSION["nombre"])) {
           $data = [];
           $comprobante = '';
           $cont = 1;
-          while ($reg = $rspta->fetch_object()) {
+          $imagen_error = "this.src='../dist/svg/defaul_valor.png'";
+          if ($rspta['status']) {
 
-            $data[] = [
-              "0" => $cont++,
-              "1" => '<button class="btn btn-warning btn-xs" onclick="mostrar(' .$reg->idvalores .')"><i class="fas fa-pencil-alt"></i></button>' .
-                  ' <button class="btn btn-danger  btn-xs" onclick="eliminar(' .$reg->idvalores .')"><i class="fas fa-skull-crossbones"></i> </button>',
-              "2" => $reg->nombre_valor,
-              "3" => $reg->img_perfil,
-              "4" => '<textarea cols="30" rows="1" class="textarea_datatable" readonly="">' . $reg->descripcion . '</textarea>'
+            while ($reg = $rspta['data']->fetch_object()) {
+
+              $data[] = [
+                "0" => '<button class="btn btn-warning btn-xs" onclick="mostrar(' .$reg->idvalores .')" style="margin-top: 25%;"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger btn-xs" onclick="eliminar(' .$reg->idvalores .')" style="margin-top: 25%;"><i class="far fa-trash-alt"></i></button>',
+                "1" =>  '<div class="row">
+                          <div class="col-lg-5 p-0">
+                            <div class="d-none d-lg-block text-center ">
+                              <div class="avatar avatar-xl avatar-circle">
+                                <img class="avatar-img" src="../dist/img/valores/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-7 p-0" style="margin-top: 15%;">
+                            <h4 class="card-text">'. $reg->nombre_valor .'</h4>
+                          </div>
+                        </div>',
+                "2" =>'<textarea cols="30" rows="3" class="textarea_datatable" readonly="">' . $reg->descripcion . '</textarea>'
+              ];
+            }
+            $results = [
+              "sEcho" => 1, //Información para el datatables
+              "iTotalRecords" => count($data), //enviamos el total registros al datatable
+              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+              "data" => $data,
             ];
+            echo json_encode($results,true);
+
+          } else {
+            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
           }
-          $results = [
-            "sEcho" => 1, //Información para el datatables
-            "iTotalRecords" => count($data), //enviamos el total registros al datatable
-            "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-            "data" => $data,
-          ];
-          echo json_encode($results);
 
         break;
 

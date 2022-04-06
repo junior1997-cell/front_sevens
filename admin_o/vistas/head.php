@@ -1,5 +1,5 @@
 <!-- Favicon -->
-<link rel="shortcut icon" href="assets/svg/logos/logo-short.svg">
+<link rel="shortcut icon" href="../assets/svg/logos/logo-short.svg">
 
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
@@ -20,3 +20,6 @@
 
 <!-- Toastr -->
 <link rel="stylesheet" href="../plugins/toastr/toastr.min.css">
+
+<!-- summernote -->
+<link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">

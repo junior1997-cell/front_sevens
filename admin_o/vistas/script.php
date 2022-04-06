@@ -37,7 +37,6 @@
 <script src="../plugins/datatables2/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../plugins/datatables2/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-
 <!-- sweetalert2 -->
 <script src="../plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
@@ -46,3 +45,12 @@
 
 <!-- Toastr -->
 <script src="../plugins/toastr/toastr.min.js"></script>
+
+<!-- Summernote -->
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+
+<script src="scritps/funcion_crud.js"></script>
+
+<!-- jquery-validation funcion_crud.js
+<script src="../plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="../plugins/jquery-validation/additional-methods.min.js"></script>-->

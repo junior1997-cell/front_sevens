@@ -52,19 +52,25 @@ function mostrar() {
   $.post("../ajax/contacto.php?op=mostrar", {}, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
+    if (data.status){
 
-    $("#cargando-1-fomulario").show();
-    $("#cargando-2-fomulario").hide();
+      $("#cargando-1-fomulario").show();
+      $("#cargando-2-fomulario").hide();
 
-    $("#id").val(data.idcontacto);
-    $("#direcccion").val(data.direccion);
-    $("#celular").val(data.celular);
-    $("#telefono").val(data.telefono_fijo);
-    $("#latitud").val(data.latitud);
-    $("#longuitud").val(data.longitud);
-    $("#correo").val(data.correo);
-    $("#horario").val(data.horario);
-  });
+      $("#id").val(data.data.idcontacto);
+      $("#direcccion").val(data.data.direccion);
+      $("#celular").val(data.data.celular);
+      $("#telefono").val(data.data.telefono_fijo);
+      $("#latitud").val(data.data.latitud);
+      $("#longuitud").val(data.data.longitud);
+      $("#correo").val(data.data.correo);
+      $("#horario").val(data.data.horario);
+      
+    }else{
+      ver_errores(e);
+    }
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
 
 function actualizar_datos_generales(e) {

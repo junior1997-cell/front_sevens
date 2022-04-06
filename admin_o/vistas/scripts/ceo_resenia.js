@@ -4,34 +4,13 @@ function init() {
 
   $(".mceo_resena").addClass("active");
 
-  $("#actualizar_registro").on("click", function (e) { $("#submit-form-actualizar-registro").submit(); });
+  $("#actualizar_registro").on("click", function (e) { $("#submit-form-actualizar-registro").submit();  });
+  $("#form-palabrasceo-resenia").on("submit", function (e) { actualizar_ceo_resenia(e) });
 
-  mostrar();
   
-}
-
-function activar_editar(estado) {
-
-  if (estado=="1") {
-
-    $(".editar").hide();
-    $(".actualizar").show();
-
-    $(".palabras_ceo").removeAttr("readonly");
-    $(".resenia_h").removeAttr("readonly");
-    toastr.success('Campos habiliados para editar!!!')
-
-  }
-  if (estado=="2") {
-
-    $(".editar").show();
-    $(".actualizar").hide();
-    $(".palabras_ceo").attr('readonly','true');
-    $(".resenia_h").attr('readonly','true');
-
-  }
 
 }
+
 function mostrar() {
 
   $("#cargando-1-fomulario").hide();
@@ -40,19 +19,29 @@ function mostrar() {
   $.post("../ajax/contacto.php?op=mostrar", {}, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
+    if (data.status){
+      $("#cargando-1-fomulario").show();
+      $("#cargando-2-fomulario").hide();
 
-    $("#cargando-1-fomulario").show();
-    $("#cargando-2-fomulario").hide();
+      $("#id").val(data.data.idcontacto);
+      $(".p_ceo").html(data.data.palabras_ceo);
+      $(".r_hist").html(data.data.reseña_historica); 
 
-    $("#id").val(data.idcontacto);
-    $("#palabras_ceo").val(data.palabras_ceo);
-    $("#resenia_h").val(data.reseña_historica);
-  });
+      $("#palabras_ceo").val(data.data.palabras_ceo);
+      $("#resenia_h").val(data.data.reseña_historica);
+
+    }else{
+      ver_errores(e);
+    }
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
 
 function actualizar_ceo_resenia(e) {
-  // e.preventDefault(); //No se activará la acción predeterminada del evento
-  var formData = new FormData($("#form-palabrasceo-reseña")[0]);
+  e.preventDefault(); //No se activará la acción predeterminada del evento
+  $("#palabras_ceo").val($(".p_ceo").html());
+  $("#resenia_h").val($(".r_hist").html());
+  var formData = new FormData($("#form-palabrasceo-resenia")[0]);
 
   $.ajax({
     url: "../ajax/contacto.php?op=actualizar_ceo_resenia",
@@ -65,7 +54,7 @@ function actualizar_ceo_resenia(e) {
       if (datos == "ok") {
         Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
 
-        mostrar(); activar_editar(2);
+        mostrar(); 
 
 
       } else {
@@ -109,7 +98,7 @@ function l_m() {
 init();
 
 
-$(function () {
+/*$(function () {
   
   $.validator.setDefaults({ submitHandler: function (e) { actualizar_ceo_resenia(e) },  });
 
@@ -146,4 +135,4 @@ $(function () {
 
   });
 
-});
+});*/

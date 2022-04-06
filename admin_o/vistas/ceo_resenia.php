@@ -12,62 +12,104 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Datos-generales | Seven's Ingenieros</title>
+    <title>Datos generales | Seven's Ingenieros</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <?php $title = "Mision y visión"; require 'head.php'; ?>
+    <?php $title = "Datos generales"; require 'head.php'; ?>
   </head>
 
   <body>
+
     <!-- ========== MAIN ========== -->
     <main id="content" role="main" class="bg-light">
-      <?php
+      <?php if ($_SESSION['escritorio']==1){ ?>
 
-    if ($_SESSION['escritorio']==1){
-    //require 'enmantenimiento.php';
-  ?>
       <!-- header -->
       <?php require 'header.php'; ?>
       <!-- fin  header -->
+
       <!-- Content Section -->
       <div class="container space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
         <div class="row">
-          <div class="col-lg-3"><?php require 'aside.php'; ?></div>
+          <div class="col-lg-3">
+            <!-- Navbar -->
+              <?php require 'aside.php'; ?>
+            <!-- End Navbar -->
+          </div>
 
           <div class="col-lg-9">
             <!-- Card -->
-            <div class="card mb-3 mb-lg-5 card-primary card-outline">
+            <div class="card mb-3 mb-lg-5">
               <div class="card-header">
-                <h5 class="card-title"> <b>Datos generales </b> </h5>
+                <h5 class="card-title">Basic info</h5>
               </div>
 
               <!-- Body -->
               <div class="card-body">
-                 <!-- form start -->
-                <form id="form-palabrasceo-reseña" name="form-palabrasceo-reseña" method="POST">
+                <form id="form-palabrasceo-resenia" name="form-palabrasceo-resenia" method="POST">
+                  <div class="row" id="cargando-1-fomulario">
 
-                  <div class="row"  id="cargando-1-fomulario">
-                   <!-- id -->
-                   <input type="hidden" name="id" id="id">
-                    <!-- Palabras del CEO -->
-                    <div class="col-lg-12">
+                    <!-- id -->
+                    <input type="hidden" name="id" id="id" />
+
+                    <!-- Form Group Palabras ceo -->
+                    <div class="col-lg-12 col-sm-12">
+                      <label class="col-sm-3 col-form-label input-label">Palabras CEO</label>
                       <div class="form-group">
-                        <label for="palabras_ceo"  style=" font-weight: bold; color: #fe9404; font-size: 20px;">Palabras del CEO</label> <br />
-                        <textarea  class="form-control palabras_ceo text-justify" name="palabras_ceo" id="palabras_ceo"  rows="6" readonly></textarea>
+                        <!-- Quill -->
+                        <div class="quill-custom">
+                          <div
+                            class="js-quill"
+                            style="min-height: 15rem;"
+                            data-hs-quill-options='{
+                              "placeholder": "Type your message...",
+                                "modules": {
+                                  "toolbar": [
+                                    ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                                  ]
+                                }
+                              }'
+                          >
+                          <i class="fas fa-spinner fa-pulse fa-1x"></i>
+                          </div>
+                        </div>
+                        <!-- End Quill -->
+                        <textarea class="d-none" name="palabras_ceo" id="palabras_ceo" cols="30" rows="10"></textarea>
                       </div>
                     </div>
-                     <!-- Reseña Historica -->
-                    <div class="col-lg-12">
+
+                    <!-- Form Group reseña historica -->
+                    <div class="col-lg-12 col-sm-12">
+                      <label class="col-sm-3 col-form-label input-label">Reseña Historica</label>
                       <div class="form-group">
-                        <label for="resenia_h" style=" font-weight: bold; color: #fe9404; font-size: 20px;" >Reseña Historica</label> <br />
-                        <textarea  class="form-control resenia_h text-justify" name="resenia_h" id="resenia_h" rows="6" readonly></textarea>
+                        <!-- Quill -->
+                        <div class="quill-custom">
+                          <div
+                            class="js-quill-2"
+                            style="min-height: 15rem;"
+                            data-hs-quill-options='{
+                              "placeholder": "Type your message...",
+                                "modules": {
+                                  "toolbar": [
+                                    ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                                  ]
+                                }
+                              }'
+                          >
+                          <i class="fas fa-spinner fa-pulse fa-1x"></i>
+                          </div>
+                        </div>
+                        <!-- End Quill -->
+                        <textarea class="d-none" name="resenia_h" id="resenia_h" cols="30" rows="10"></textarea>
                       </div>
+                      
                     </div>
-                    
+
                     <button type="submit" style="display: none;" id="submit-form-actualizar-registro">Submit</button>
+
                     <!-- barprogress -->
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
                       <div class="progress" id="div_barra_progress2">
@@ -76,8 +118,10 @@
                         </div>
                       </div>
                     </div>
+
                   </div>
 
+                  <!--Cargando-->
                   <div class="row" id="cargando-2-fomulario" style="display: none;">
                     <div class="col-lg-12 text-center">
                       <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
@@ -87,11 +131,12 @@
                   </div>
 
                 </form>
+
               </div>
               <!-- End Body -->
               <div class="modal-footer justify-content-end">
-                <button class="btn btn-warning editar" onclick="activar_editar(1);">Editar</button>
-                <button type="submit" class="btn btn-success actualizar" style="display: none;" id="actualizar_registro">Actualizar</button><!-- -->
+                <button type="submit" class="btn btn-success actualizar" id="actualizar_registro">Actualizar</button>
+                <!-- -->
               </div>
             </div>
             <!-- End Card -->
@@ -100,12 +145,13 @@
         <!-- End Row -->
       </div>
       <!-- End Content Section -->
+
       <?php
-            }else{
-              require 'noacceso.php';
-            }
-            require 'footer.php';
-          ?>
+        }else{
+          require 'noacceso.php';
+        }
+        require 'footer.php';
+      ?>
     </main>
     <!-- ========== END MAIN ========== -->
 
@@ -206,6 +252,21 @@
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         var quill = $.HSCore.components.HSQuill.init(".js-quill");
+        var quill_2;
+       // $(".js-quill .ql-editor").addClass('p_ceo');
+        $(quill).ready(function() {
+
+          $(".js-quill .ql-editor").addClass('p_ceo');
+
+          quill_2 = $.HSCore.components.HSQuill.init(".js-quill-2");
+
+        });
+        
+        //$(".js-quill-2 .ql-editor").addClass('r_hist');
+        $(quill_2).ready(function() { 
+          $(".js-quill-2 .ql-editor").addClass('r_hist'); 
+          mostrar(); 
+        });
 
         // INITIALIZATION OF GO TO
         // =======================================================
@@ -214,13 +275,14 @@
         });
       });
     </script>
-
+    <script src="scripts/ceo_resenia.js"></script>
     <!-- IE Support -->
     <script>
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
     <!-- JS script -->
-    <script src="scripts/ceo_resenia.js"></script>
+
+
   </body>
 
   <!-- Mirrored from htmlstream.com/front/account-overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:19:48 GMT -->

@@ -52,17 +52,57 @@
                    <!-- id -->
                    <input type="hidden" name="id" id="id">
                    <!-- form start -->
-                    <div class="col-lg-6">
+                    <!-- Form Group Palabras ceo -->
+                    <div class="col-lg-12 col-sm-12">
+                      <label class="col-sm-3 col-form-label input-label">Misión</label>
                       <div class="form-group">
-                        <label for="mision"  style=" font-weight: bold; color: #fe9404; font-size: 20px;">Misión</label> <br />
-                        <textarea  class="form-control mision text-justify" name="mision" id="mision"  rows="12" readonly></textarea>
+                        <!-- Quill -->
+                        <div class="quill-custom">
+                          <div
+                            class="js-quill"
+                            style="min-height: 15rem;"
+                            data-hs-quill-options='{
+                              "placeholder": "Type your message...",
+                                "modules": {
+                                  "toolbar": [
+                                    ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                                  ]
+                                }
+                              }'
+                          >
+                          <i class="fas fa-spinner fa-pulse fa-1x"></i>
+                          </div>
+                        </div>
+                        <!-- End Quill -->
+                        <textarea class="d-none" name="mision" id="mision" cols="30" rows="10"></textarea>
                       </div>
                     </div>
-                    <div class="col-lg-6">
+
+                    <!-- Form Group reseña historica -->
+                    <div class="col-lg-12 col-sm-12">
+                      <label class="col-sm-3 col-form-label input-label">Visión</label>
                       <div class="form-group">
-                        <label for="vision" style=" font-weight: bold; color: #fe9404; font-size: 20px;" >Visión</label> <br />
-                        <textarea  class="form-control vision text-justify" name="vision" id="vision" rows="12" readonly></textarea>
+                        <!-- Quill -->
+                        <div class="quill-custom">
+                          <div
+                            class="js-quill-2"
+                            style="min-height: 15rem;"
+                            data-hs-quill-options='{
+                              "placeholder": "Type your message...",
+                                "modules": {
+                                  "toolbar": [
+                                    ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                                  ]
+                                }
+                              }'
+                          >
+                          <i class="fas fa-spinner fa-pulse fa-1x"></i>
+                          </div>
+                        </div>
+                        <!-- End Quill -->
+                        <textarea class="d-none" name="vision" id="vision" cols="30" rows="10"></textarea>
                       </div>
+                      
                     </div>
                     
                     <button type="submit" style="display: none;" id="submit-form-actualizar-registro">Submit</button>
@@ -88,8 +128,7 @@
               </div>
               <!-- End Body -->
               <div class="modal-footer justify-content-end">
-                <button class="btn btn-warning editar" onclick="activar_editar(1);">Editar</button>
-                <button type="submit" class="btn btn-success actualizar" style="display: none;" id="actualizar_registro">Actualizar</button><!-- -->
+                <button type="submit" class="btn btn-success" id="actualizar_registro">Actualizar</button><!-- -->
               </div>
             </div>
             <!-- End Card -->
@@ -204,6 +243,21 @@
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         var quill = $.HSCore.components.HSQuill.init(".js-quill");
+        var quill_2;
+        // $(".js-quill .ql-editor").addClass('p_ceo');
+        $(quill).ready(function() {
+
+          $(".js-quill .ql-editor").addClass('clss_mision');
+
+          quill_2 = $.HSCore.components.HSQuill.init(".js-quill-2");
+
+        });
+
+        //$(".js-quill-2 .ql-editor").addClass('r_hist');
+        $(quill_2).ready(function() { 
+          $(".js-quill-2 .ql-editor").addClass('clss_vision'); 
+          mostrar_m_v(); 
+        });
 
         // INITIALIZATION OF GO TO
         // =======================================================

@@ -40,9 +40,9 @@ Class Valores
 	}
 
 	//Implementamos un método para desactivar categorías
-	public function eliminar($idvalores )
+	public function eliminar($idvalores)
 	{
-		$sql="UPDATE valores SET estado_delete='0' WHERE idvalores ='$idvalores'";
+		$sql="DELETE FROM valores WHERE idvalores ='$idvalores';";
 		return ejecutarConsulta($sql);
 	}
 	
@@ -79,10 +79,10 @@ Class Valores
 	
 
 	//Seleccionar un comprobante
-	public function ficha_tec($idvalores)
+	public function reg_img($idvalores)
 	{
-		$sql="SELECT comprobante FROM valores WHERE idvalores='$idvalores'";
-		return ejecutarConsulta($sql);		
+		$sql="SELECT img_perfil FROM valores WHERE idvalores='$idvalores'";
+		return ejecutarConsultaSimpleFila($sql);		
 	}
 	//total
 	public function total($idproyecto){
