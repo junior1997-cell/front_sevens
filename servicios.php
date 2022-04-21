@@ -49,11 +49,12 @@
         <h4>Contamos con un equipo altamente calificado con capacidad para atenderle en cualquier aspecto relacionado con los proyectos de construcción</h4>
       </div>
       <!-- End Title -->
-      <div class="row">
-
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
+      <div class="cargando_serv"> <p class="text-center"><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p></div>
+      <div class="row" id="servicios">
+       
+        <!-- <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">-->
           <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover">
+          <!-- <a class="card text-center h-100 transition-3d-hover">
             <div class="card-body p-lg-5">
               <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
                 <img class="img-fluid" src="assets/img/servicios/servicio.png" alt="SVG">
@@ -63,87 +64,9 @@
                 para ofrecer la mejor ejecución de obras y otros proyectos de construcción.</p>
             </div>
             <div class="card-footer font-weight-bold py-3 px-lg-5"> EJECUCIÓN DE OBRAS </div>
-          </a>
+          </a> -->
           <!-- End Card -->
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
-          <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover">
-            <div class="card-body p-lg-5">
-              <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                <img class="img-fluid" src="assets/img/servicios/consultoria.png" alt="SVG">
-              </figure>
-              <h3 class="h4">CONSULTORÍAS EN CONSTRUCCIÓN</h3>
-              <p class="text-body text-justify mb-0">Brindamos asesoramiento en todo lo que se refiere a proyectos arquitectónicos, 
-                civiles y de remodelación en general.</p>
-            </div>
-            <div class="card-footer font-weight-bold py-3 px-lg-5"> CONSULTORÍAS EN CONSTRUCCIÓN </div>
-          </a>
-          <!-- End Card -->
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
-          <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover" href="#">
-            <div class="card-body p-lg-5">
-              <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                <img class="img-fluid" src="assets/img/servicios/arquitectonico.png" alt="SVG">
-              </figure>
-              <h3 class="h4">EJECUCIÓN DE PROYECTOS ARQUITECTÓNICOS</h3>
-              <p class="text-body text-justify mb-0">Contamos con capacitadad necesaria para ofrecer el mejor servicio en ejecución de proyectos arquitectónicos.</p>
-            </div>
-            <div class="card-footer font-weight-bold py-3 px-lg-5"> EJECUCIÓN DE PROYECTOS ARQUITECTÓNICOS </div>
-          </a>
-          <!-- End Card -->
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
-          <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover" href="#">
-            <div class="card-body p-lg-5">
-              <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                <img class="img-fluid" src="assets/img/servicios/elaboracion.png" alt="SVG">
-              </figure>
-              <h3 class="h4">ELABORACIÓN DE PROYECTOS</h3>
-              <p class="text-body text-justify mb-0">Nuestro equipo de ingenieros cuentan con conocimientos y experiencia para 
-                ofrecer un óptimo servicio de elaboración de proyectos.</p>
-            </div>
-            <div class="card-footer font-weight-bold py-3 px-lg-5"> ELABORACIÓN DE PROYECTOS </div>
-          </a>
-          <!-- End Card -->
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
-          <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover" href="#">
-            <div class="card-body p-lg-5">
-              <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                <img class="img-fluid" src="assets/img/servicios/fotorealismo.png" alt="SVG">
-              </figure>
-              <h3 class="h4">FOTORREALISMO 3D</h3>
-              <p class="text-body text-justify mb-0">Contamos con un equipo de profesionales del 
-                diseño altamente calificados y con las herramientas óptimas.</p>
-            </div>
-            <div class="card-footer font-weight-bold py-3 px-lg-5"> FOTORREALISMO 3D </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        
-        <div class="col-md-4 mb-3 mb-md-0 mb-md-n11">
-          <!-- Card -->
-          <a class="card text-center h-100 transition-3d-hover" href="#">
-            <div class="card-body p-lg-5">
-              <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                <img class="img-fluid" src="assets/img/servicios/vivienda.png" alt="SVG">
-              </figure>
-              <h3 class="h4">DISEÑO Y CONSTRUCCIÓN DE VIVIENDAS</h3>
-              <p class="text-body text-justify mb-0">Contamos con el mejor equipo de profesionales para diseñar y construir tu vivienda.</p>
-            </div>
-            <div class="card-footer font-weight-bold py-3 px-lg-5">DISEÑO Y CONSTRUCCIÓN DE VIVIENDAS</div>
-          </a>
-          <!-- End Card se tu unos de nuestros clientes felices por el buel servicio que brindamo para todo los necesite -->
-        </div>
+        <!-- </div> -->
 
       </div>
     </div>
@@ -487,6 +410,8 @@
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
   </script>
+  <!-- JS script 
+  <script src="scripts_web/servicios.js"></script>-->
 </body>
 
 <!-- Mirrored from htmlstream.com/front/page-services-agency.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:20:02 GMT -->

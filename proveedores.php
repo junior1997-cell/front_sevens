@@ -98,88 +98,90 @@
         <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
           <h2>Algunos de nuestros  PROVEEDORES más requeridos.</h2>
         </div>
-      <!-- End Title -->
+      <!-- End Title
+    
+        style="background-image: linear-gradient(to bottom, rgb(241 241 241 / 0%) 0%,rgb(168 172 170 / 38%) 100%), url(assets/svg/components/abstract-shapes-5.svg);
+         border-radius: 10px;"-->
 
-      <div class="row"style="background-image: linear-gradient(to bottom, rgb(241 241 241 / 0%) 0%,rgb(168 172 170 / 38%) 100%), url(assets/svg/components/abstract-shapes-5.svg);
-    border-radius: 10px;">
-
-        <div class="col-sm-6 col-md-4 mb-5">
+      <div class="row proveedores">
+        <div class="text-center spiner_provee"> <p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p> </div>
+        <!-- <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/480x320/img13.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://perumype.com/central-del-acero-srl-20505982097">CENTRAL DEL ACERO S.R.L.</a>
               <p class="mb-0 text-justify">Venta al por mayor de materiales de contracción, artículos de 
                 ferretería y equipos y materiales de fontanería y calefacción</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>
+        <!-- </div>
 
-        <div class="col-sm-6 col-md-4 mb-5">
+        <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://www.conselva.com">COMERCIAL SELVA NOR PERUANA S.A.</a>
               <p class="mb-0 text-justify">Venta al por mayor de materiales de contracción, artículos de 
                 ferretería y equipos y materiales de fontanería y calefacción</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>
+        <!-- </div>
 
-        <div class="col-sm-6 col-md-4 mb-5">
+        <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://compuempresa.com/info/precon-telecom-sac-20602453589">PRECON TELECOM S.A.C.</a>
               <p class="mb-0 text-justify">PRECON TELECOM SAC especializada en FABRICACIÓN DE ARTÍCULOS DE HORMIGÓN, 
                 CEMENTO Y YESO.</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>  
+        <!-- </div>  
 
-        <div class="col-sm-6 col-md-4 mb-5">
+        <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/480x320/img17.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="http://www.conselva.com">MADERA TRIPLAYERA & FERRETERIA ALCANTARA E.I.R.L.</a>
               <p class="mb-0 text-justify">Especializada en venta al por menor de artículos de ferretería, pinturas y productos 
                 de vidrio en comercios especializados.</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>
+        <!-- </div>
 
-        <div class="col-sm-6 col-md-4 mb-5">
+        <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://acconcretos.com.pe/index.html">AC CONCRETO SAC</a>
               <p class="mb-0 text-justify">Empresa dedicada a la venta de concreto premezclado y derivados de éste,
                  así mismo brindandole el servicio de 24/7 con nuestras bombas telescopicas para hormigon.</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>
+        <!-- </div>
 
-        <div class="col-sm-6 col-md-4 mb-5">
+        <div class="col-sm-6 col-md-4 mb-5"> -->
           <!-- Card Info -->
-          <div class="card h-100">
+          <!-- <div class="card h-100">
             <img class="card-img-top" src="assets/img/proveedores/acconcretos.jpg" alt="Image Description" style=" height: 250px; width: auto;">
             <div class="card-body">
               <a class="font-weight-bold text-warning" href="https://consycon.com/">CONSTRUCCION Y CONCRETO SOCIEDAD ANONIMA</a>
               <p class="mb-0 text-justify">CONSYCON es una empresa de profesionales y técnicos con amplia experiencia 
                 en la fabricación de productos prefabricados de concreto</p>
             </div>
-          </div>
+          </div> -->
           <!-- End Card Info -->
-        </div>
+        <!-- </div> -->
 
       </div>
 

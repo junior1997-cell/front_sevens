@@ -1,5 +1,5 @@
     <!-- Breadcrumb Section -->
-    <div class="bg-dark" style="background-image: url(assets/svg/components/abstract-shapes-20.svg);">
+    <div class="bg-dark" style="background-image: url(../assets/svg/components/abstract-shapes-5.svg);">
       <div class="container space-1 space-top-lg-2 space-bottom-lg-3">
         <div class="row align-items-center">
           <div class="col">

@@ -27,64 +27,39 @@
           </ul>
           <!-- End Nav Link -->
         </div>
-
+        <!-- VALORES -->
         <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0">
           <h5 class="text-white text-center">VALORES</h5>
-
+          <div class="cargando_valores_footer"> <p class="text-center text-white"><i class="fas fa-spinner fa-pulse fa-lg text-warning"></i> Cargando...</p></div>
           <!-- Nav Link -->
-          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img class="img_icons_footer" src="assets/svg/logos/icono-integridad.svg" alt=""> Integridad
-              </a> 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img class="img_icons_footer" src="assets/svg/logos/icono-compromiso.svg" alt=""> Compromiso
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img class="img_icons_footer" src="assets/svg/logos/icono-perseverancia.svg" alt=""> Perseverancia
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <img class="img_icons_footer" src="assets/svg/logos/icono-liderazgo.svg" alt=""> Liderazgo
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-               <img class="img_icons_footer" src="assets/svg/logos/Respeto_Valor.png" alt=""> Respeto
-              </a>
-            </li>
+          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column view_valores" id="l_valores_footer" style="display: none;">
           </ul>
           <!-- End Nav Link -->
         </div>
+        <!-- VALORES -->
 
+        <!-- SERVICIOS -->
         <div class="col-6 col-md-3 col-lg mb-5 mb-lg-0">
           <h5 class="text-white text-center">SERVICIOS</h5>
-
+          <div class="cargando_serv_footer"> <p class="text-center text-white"><i class="fas fa-spinner fa-pulse fa-lg text-warning"></i> Cargando...</p></div>
           <!-- Nav Link -->
-          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column">
-            <li class="nav-item"><a class="nav-link" href="#">ARQUITECTURA E INGENIERIA</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">OBRAS CIVILES</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">CONSTRUCCIÓN </a></li>
-            <li class="nav-item"><a class="nav-link" href="#">SERVICIOS GENERALES</a></li>
+          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column view_servicios" id="l_serv_footer" style="display: none;">
           </ul>
           <!-- End Nav Link -->
         </div>
+        <!--FIN SERVICIOS -->
 
+        <!-- CONTACTOS -->
         <div class="col-6 col-md-3 col-lg">
           <h5 class="text-white text-center">CONTACTO</h5>
-
+          <div class="carg_contactos_f"> <p class="text-center text-white"><i class="fas fa-spinner fa-pulse fa-lg text-warning"></i> Cargando...</p></div>
           <!-- Nav Link -->
-          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column">
+          <ul class="nav nav-sm nav-x-0 pad-left nav-white flex-column view_contactos" style="display: none;">
             <li class="nav-item">
               <a class="nav-link media" href="#">
                   <span class="media">
                   <i class="fa fa-map-marker  mt-1 mr-2"></i>
-                    <span class="media-body"> PJ. YUNGAY NRO. 151 P.J. SANTA ROSA LAMBAYEQUE - CHICLAYO - CHICLAYO, </span>
+                    <span class="media-body direccion_f"></span>
                   </span>
               </a>
             </li>
@@ -92,15 +67,15 @@
               <a class="nav-link media" href="#">
                   <span class="media">
                   <i class="fa fa-envelope mt-1 mr-2"></i>
-                    <span class="media-body">gerencia@sevensingenieros.com</span>
+                    <span class="media-body correo_f"></span>
                   </span>
               </a>
-            </li>
+            </li> 
             <li class="nav-item">
               <a class="nav-link media" href="tel:+51-954-201-310">
                   <span class="media">
                     <span class="fas fa-phone-alt mt-1 mr-2"></span>
-                    <span class="media-body"> +51 954 201 310 </span>
+                    <span class="media-body telefono_f"></span>
                   </span>
               </a>
             </li>
@@ -113,6 +88,8 @@
           <!-- End Nav Link -->
 
         </div>
+        <!-- FIN CONTACTOS -->
+
       </div>
     </div>
 

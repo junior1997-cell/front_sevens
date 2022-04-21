@@ -175,119 +175,8 @@
                       "slidesToShow": 1
                     }
                   }]
-                }'>
-              <div class="js-slide mb-4">
-                <!-- Card Info -->
-                <div class="card h-100">
-                  <img class="card-img-top" src="assets/img/imgs_slide/calidad.jpg" alt="Image Description">
-                  <div class="card-body">
-                      <div class="media align-items-center">
-                        <div class="min-w-8rem mr-2">
-                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
-                        </div>
-                        <div class="media-body">
-                          <h4 class="mb-0">MISION TARAPOTO</h4>
-                          <small class="d-block"></small>
-                        </div>
-                      </div>
-                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros actualmente se encuentra desarrollando 
-                      CONSTRUCCIÓN DE LA SEDE MISIÓN NOR ORIENTAL TARAPOTO.</p>
-                  </div>
-                  <div class="card-footer">
-                    <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
-                          Ver más
-                        </a>
-                      </div>
-                  </div>
-                </div>
-                <!-- End Card Info -->
-              </div>
-
-              <div class="js-slide mb-4">
-                <!-- Card Info -->
-                <div class="card h-100">
-                  <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
-                  <div class="card-body">
-                      <div class="media align-items-center">
-                        <div class="min-w-8rem mr-2">
-                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
-                        </div>
-                        <div class="media-body">
-                          <h4 class="mb-0">CERCO UPEU</h4>
-                          <small class="d-block"></small>
-                        </div>
-                      </div>
-                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la CONSTRUCCION DEL CERCO PERIMÉTRICO ETAPA 2 en la 
-                      UNIVERSIDAD PERUANA UNION </p>
-                  </div>
-                  <div class="card-footer">
-                    <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
-                          Ver más
-                        </a>
-                      </div>
-                  </div>
-                </div>
-                <!-- End Card Info -->
-              </div>
-
-              <div class="js-slide mb-4">
-                <!-- Card Info -->
-                <div class="card h-100">
-                  <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
-                  <div class="card-body">
-                      <div class="media align-items-center">
-                        <div class="min-w-8rem mr-2">
-                          <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
-                        </div>
-                        <div class="media-body">
-                          <h4 class="mb-0">ESCALERAS C Y D</h4>
-                          <small class="d-block"></small>
-                        </div>
-                      </div>
-                      <p class="mb-0" style="text-align: justify;">Seven´s Ingenieros esta culminando la 	CONSTRUCCIÓN DE ESCALERAS EN EL PABELLON C Y D DE LA UNIVERSIDAD PERUANA UNIÓN
-                      en la UNIVERSIDAD PERUANA UNION </p>
-                  </div>
-                  <div class="card-footer">
-                    <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
-                          Ver más
-                        </a>
-                      </div>
-                  </div>
-                </div>
-                <!-- End Card Info -->
-              </div>
-
-              <div class="js-slide mb-4">
-                <!-- Card Info -->
-                <div class="card h-100">
-                  <img class="card-img-top" src="assets/img/imgs_slide/obras.png" alt="Image Description">
-                  <div class="card-body">
-                    <div class="media align-items-center">
-                      <div class="min-w-8rem mr-2">
-                        <img class="img-fluid" src="assets/svg/logos/icon-02.png" alt="Logo">
-                      </div>
-                      <div class="media-body">
-                        <h4 class="mb-0">OBRAS</h4>
-                        <small class="d-block"></small>
-                      </div>
-                    </div>
-                    <p class="mb-0" style="text-align: justify;">En la empresa admin seven´s cada obra cuenta con profesionales calificados 
-                    (Autocontrol) y sistemas de control calidad estandarizados.</p>
-                  </div>
-                  <div class="card-footer">
-                    <div style="text-align: center;">
-                        <a class="btn btn-warning btn-wide btn-pill transition-3d-hover mb-2 mb-sm-0" data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;">
-                          Ver más
-                        </a>
-                      </div>
-                  </div>
-                </div>
-                <!-- End Card Info -->
-              </div>
-
+                }' id="carousel_obras">
+              <!--mostramos el slide-->
             </div>
             <!-- End Slick Carousel -->
           </div>
@@ -302,18 +191,11 @@
             <div class="mb-3">
               <h4 style=" color: #1e2022; font-size: 23px;" >MISIÓN</h4>
             </div>
-            <p style="text-align: justify;" >Somos una empresa constructora dedicada a la construcción de proyectos de Arquitectura y 
-            obra civil, en el ámbito público y privado, cuya misión es satisfacer las necesidades de nuestros clientes antes, durante
-             y después de finalizado el proyecto. Dando cumplimiento a los estándares de calidad y plazos fijados por éste, 
-             satisfaciendo a nuestros clientes por medio de la exigencia en el control de calidad de nuestros productos terminados.</p>
+            <p style="text-align: justify;" id="mision" ><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>
             <div class="mb-3">
               <h4 style=" color: #1e2022; font-size: 23px;">VISIÓN</h4>
             </div>
-            <p style="text-align: justify;" >Ser la empresa constructora de referencia a nivel regional, liderando el mercado por medio 
-            de la responsabilidad, y eficiencia, cumpliendo a tiempo con todos y cada uno de los trabajos encomendados, lograr que todo 
-            nuestro personal se sienta motivado y orgulloso de pertenecer a nuestra organización, fomentando el control y la calidad 
-            en el servicio, buscando siempre dar mas de si mismos y con esto lograr la satisfacción del cliente. Una empresa diversificada 
-            e integrada, comprometida y admirada por su capacidad de crear valor y de innovar para dar respuesta a las nuevas necesidades sociales.</p>
+            <p style="text-align: justify;" id="vision" ><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>
           </div>
 
           <div class="col-lg-6 col-xl-5">
@@ -396,69 +278,10 @@
       
       <!-- valores -->
       <div class="container space-top-2 space-top-lg-3" style="padding-top: 2rem !important;">
-        <div class="row justify-content-lg-center">
         <div class="col-md-12 col-lg-12 mb-3 mb-md-7 text-center"> <h2>VALORES</h2></div>
-          <div class="col-md-6 col-lg-5 mb-3 mb-md-7">
-            <!-- Icon Blocks -->
-            <div class="media pr-lg-5">
-              <figure class="w-100 max-w-8rem mr-4">
-                <img class="img-fluid" src="assets/svg/logos/integrity.png" alt="SVG">
-              </figure>
-              <div class="media-body">
-                <h4>Integridad</h4>
-                <p style="text-align: justify;">Ser muy consecuente con lo que se pueda decir o con lo que se pueda considera 
-                  que es correcto, en cualquier circunstancia.</p>
-              </div>
-            </div>
-            <!-- End Icon Blocks -->
-          </div>
-
-          <div class="col-md-6 col-lg-5 mb-3 mb-md-7">
-            <!-- Icon Blocks -->
-            <div class="media pl-lg-5">
-              <figure class="w-100 max-w-8rem mr-4">
-                <img class="img-fluid" src="assets/svg/logos/compromiso.png" alt="SVG">
-              </figure>
-              <div class="media-body">
-                <h4>Compromiso</h4>
-                <p style="text-align: justify;">Cumplir con las obligaciones contraídas, buscando el mejor resultado,
-                  respetando las normas legales aplicables vigentes y desempeñando con dedicación</p>
-              </div>
-            </div>
-            <!-- End Icon Blocks -->
-          </div>
-
-          <div class="w-100"></div>
-
-          <div class="col-md-6 col-lg-5 mb-3 mb-md-7 mb-lg-0">
-            <!-- Icon Blocks -->
-            <div class="media pr-lg-5">
-              <figure class="w-100 max-w-8rem mr-4">
-                <img class="img-fluid" src="assets/svg/logos/perseverancia.png" alt="SVG">
-              </figure>
-              <div class="media-body">
-                <h4>Perseverancia</h4>
-                <p style="text-align: justify;">Actitud que marca el rumbo de la empresa con acciones concretas, logrando superar 
-                  obstáculos y enfocándose a cumplir los objetivos y metas propuestas.</p>
-              </div>
-            </div>
-            <!-- End Icon Blocks -->
-          </div>
-
-          <div class="col-md-6 col-lg-5">
-            <!-- Icon Blocks -->
-            <div class="media pl-lg-5">
-              <figure class="w-100 max-w-8rem mr-4">
-                <img class="img-fluid" src="assets/svg/logos/liderazgo.png" alt="SVG">
-              </figure>
-              <div class="media-body">
-                <h4>Liderazgo</h4>
-                <p style="text-align: justify;">Capacidad para motivar y dirigir, creando un ambiente de empatía, colaboración y respeto, 
-                  para lograr que estas contribuyan de forma efectiva y adecuada a la consecución de los objetivos.</p>
-              </div>
-            </div>
-            <!-- End Icon Blocks -->
-          </div>
+        <div class="row justify-content-lg-center" id="l_valores">
+           <!-- aqui se listan los valores -->
+           <p class="cargando_valores"><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>
         </div>
       </div>
       <!-- End valores -->
@@ -467,51 +290,17 @@
       <div class="container space-2 space-lg-3">
         <div class="row justify-content-lg-between">
           <div class="col-lg-5 order-lg-2 pl-lg-0">
-            <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url(assets/img/900x900/img19.jpg);"></div>
+            <div class="bg-img-hero h-100 min-h-450rem rounded-lg" style="background-image: url(assets/img/contacto/img_ceo.jpg);"></div>
           </div>
 
           <div class="col-lg-6 order-lg-1">
             <div class="pt-8 pb-lg-8">
               <!-- Title -->
               <div class="mb-5 mb-md-7">
-                <h2 class="mb-3">The powerful and flexible theme for all kinds of businesses</h2>
-                <p>Whether you're creating a subscription service, an on-demand marketplace, an e-commerce store, or a portfolio showcase, Front's unmatched functionality help you create the best possible product for your users.</p>
+                <h2 class="mb-3">NUESTRA RESPONSABILIDAD</h2>
+                <p class="text-justify" id="palabras_ceo"><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>
               </div>
               <!-- End Title -->
-
-              <div class="row">
-                <div class="col-6 mb-3 mb-md-5">
-                  <div class="pr-lg-4">
-                    <span class="js-counter h2 text-primary">300</span>
-                    <span class="h2 text-primary">+</span>
-                    <p>Build a professional website with corporate and SaaS based components.</p>
-                  </div>
-                </div>
-
-                <div class="col-6 mb-3 mb-md-5">
-                  <div class="pr-lg-4">
-                    <span class="js-counter h2 text-primary">70</span>
-                    <span class="h2 text-primary">+</span>
-                    <p>Take advantage of more than 70 pages designed with mobile-first in mind.</p>
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <div class="pr-lg-4">
-                    <span class="js-counter h2 text-primary">95</span>
-                    <span class="h2 text-primary">%</span>
-                    <p>of our customers rated 5-star our themes over 5 years.</p>
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <div class="pr-lg-4">
-                    <span class="js-counter h2 text-primary">20</span>
-                    <span class="h2 text-primary">+</span>
-                    <p>We continually deploy improvements to Front, which handles more than 3.5k users.</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -535,11 +324,7 @@
 
                       <div class="col-12 col-xl-11 content-p-description ">
 
-                          <p class="p-internas">El 2 de noviembre del año 1981 se constituyó lo que hoy es Constructora Malaga. Desde ese momento, esta empresa originada en Lima - Perú, inició sus actividades en el rubro de la construcción siendo 100% de capital peruano.</p>
-
-                          <p class="p-internas">La gran trayectoria y experiencia adquirida a lo largo de casi cuatro décadas ha permitido que Constructora Malaga abarque distintas especialidades de la construcción, como lo son: la infraestructura vial, edificaciones públicas y privadas, saneamiento, aeropuertos, minería e infraestructura de riego.</p>
-
-                          <p class="p-internas">La presencia de Constructora Malaga a lo largo del Perú, es reflejo del compromiso y dedicación de la calidad de profesionales que la componen. Su experiencia y trabajo no solo ha logrado posicionarla como una de las compañías más importantes del país, si no que, además, ha logrado internacionalizarla.</p>
+                          <p class="p-internas" id="resenia"><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>
                         
                       </div>
                   </div>
@@ -621,8 +406,8 @@
     </style>
 
     <!-- ========== SECONDARY CONTENTS ========== -->
-    <!-- Sign Up Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- modal detalle obras -->
+    <div class="modal fade" id="ver_detalles" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!-- Header -->
@@ -638,21 +423,22 @@
           <!-- Body -->
           <div class="modal-body p-sm-5 text-center">
             <div id="signinModalForm">
-              <div class="text-center mb-5"> <h2>Detalles de la obra</h2> </div>
-              <i class="fas fa-spinner fa-pulse fa-sm fa-2x"></i>
+              <div class="text-center mb-5"> <br> <h4 class="nombre_obra"></h4> </div>
+              
+              <div class="detalles_obra">
+                <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
+              </div>
             </div>
           </div>
           <!-- End Body -->
 
           <!-- Footer -->
-          <div class="modal-footer d-block text-center py-sm-5">
-            <small class="text-cap mb-4"> Esperando detalles </small>
-          </div>
+          <div class="modal-footer d-block text-center py-sm-5"> </div>
           <!-- End Footer -->
         </div>
       </div>
     </div>
-    <!-- End Sign Up Modal -->
+    <!-- modal detalle obras -->
 
     <!-- ========== SCRIPT ========== -->
     <?php require 'script.php'; ?>
@@ -722,13 +508,6 @@
           var showAnimation = new HSShowAnimation($(this)).init();
         });
 
-  
-        // INITIALIZATION OF SLICK CAROUSEL
-        // =======================================================
-        $('.js-slick-carousel').each(function() {
-          var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
-        });
-
 
         // INITIALIZATION OF COUNTER
         // =======================================================
@@ -756,10 +535,6 @@
     <script>
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
-        
-    <!-- JS consultas -->
-    <script src="assets/scripts/consultas.js"></script>
-
   </body>
 
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:16:49 GMT -->

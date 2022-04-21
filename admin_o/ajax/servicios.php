@@ -10,7 +10,7 @@ if (!isset($_SESSION["nombre"])) {
   header("Location: ../vistas/login.html"); //Validamos el acceso solo a los usuarios logueados al sistema.
 } else {
   //Validamos el acceso solo al usuario logueado y autorizado.
-  if ($_SESSION['escritorio'] == 1) {
+  if ($_SESSION['sistema_informativo'] == 1) {
     require_once "../modelos/Servicios.php";
 
     $servicios = new Servicios();
@@ -68,7 +68,7 @@ if (!isset($_SESSION["nombre"])) {
         //Fin de las validaciones de acceso
       break;
 
-      case 'mostrar_valor':
+      case 'mostrar_servicio':
         $rspta = $servicios->mostrar($idservicio);
         //Codificar el resultado utilizando json
         echo json_encode($rspta, true);
@@ -85,23 +85,21 @@ if (!isset($_SESSION["nombre"])) {
         if ($rspta['status']) {
           while ($reg = $rspta['data']->fetch_object()) {
             $data[] = [
-              "0" => '<button class="btn btn-warning btn-xs" onclick="mostrar(' . $reg->idservicio . ')" style="margin-top: 25%;"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-danger btn-xs" onclick="eliminar(' . $reg->idservicio . ')" style="margin-top: 5%;"><i class="far fa-trash-alt"></i></button>',
-              "1" => '<div class="row">
-                          <div class="col-lg-5 p-0">
-                            <div class="d-none d-lg-block text-center">
-                              <div class="avatar avatar-xl avatar-circle" style="margin-top: 20%;">
-                                <img class="avatar-img-modif" src="../dist/img/servicios/imagen_perfil/' . $reg->img_perfil . '" alt="Image Description" onerror="' . $imagen_error . '" style="border-radius: 10px;">
-                              </div>
-                            </div>
+              "0" => '<button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' . $reg->idservicio . ')"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' . $reg->idservicio . ')"><i class="far fa-trash-alt"></i></button>',
+              "1" =>  '<div class="d-flex align-items-center mx-auto">
+                        <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_servicio . '\')">
+                          <div class="avatar avatar-circle">
+                            <img class="avatar-img" src="../dist/img/servicios/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
                           </div>
-                          <div class="col-lg-7 p-0" style="margin-top: 15%;">
-                            <h4 class="card-text">' . $reg->nombre_servicio . '</h4>
-                            <h4 class="card-text">' . $reg->precio . '</h4>
-                          </div>
-                        </div>',
-              "2" => '<textarea cols="30" rows="4" class="textarea_datatable" readonly="">' . $reg->descripcion . '</textarea>',
-              "3" => '<button class="btn btn-info btn-xs" onclick="ver_caracteristicas(\'' . $reg->nombre_servicio . '\',\'' . $reg->caracteristicas . '\')" style="margin-top: 25%;"><i class="far fa-file-pdf fa-2x text-gray-50"></i></button>',
+                        </a>
+                        <div class="ml-3">
+                          <small style="font-size: 14px;font-weight: bold;">'. $reg->nombre_servicio .'</small>                          
+                          <small class="text-muted">' . $reg->precio . '</small>
+                        </div>
+                      </div>',
+              "2" => '<textarea cols="30" rows="3" class="textarea_datatable" readonly="" style="font-size: 12px;">' . $reg->descripcion . '</textarea>',
+              "3" => '<button class="btn btn-info btn-xs margin_topp" onclick="ver_caracteristicas(\'' . $reg->nombre_servicio . '\',\'' . $reg->caracteristicas . '\')"><i class="far fa-file-pdf fa-2x text-gray-50"></i></button>',
             ];
           }
           $results = [

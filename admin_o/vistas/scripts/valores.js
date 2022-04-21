@@ -31,6 +31,11 @@ function limpiar() {
   $("#nombre").val("");
   $("#descripcion").val(""); 
 
+  $("#doc_old_1").val("");
+  $("#doc1").val("");  
+  $('#doc1_ver').html(`<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >`);
+  $('#doc1_nombre').html("");
+
   // Limpiamos las validaciones
   $(".form-control").removeClass('is-valid');
   $(".form-control").removeClass('is-invalid');
@@ -60,9 +65,9 @@ function listar() {
       },
       createdRow: function (row, data, ixdex) {
         // columna: #
-        if (data[1] != '') {
-          $("td", row).eq(1).addClass('text-center');
-        }
+        // if (data[1] != '') {
+        //   $("td", row).eq(1).addClass('text-center');
+        // }
         // columna: #
         if (data[2] != '') {
           $("td", row).eq(2).addClass('text-nowrap');
@@ -87,31 +92,40 @@ function listar() {
   $(".cargando").hide();
 }
 
-//ver ficha tecnica
-function modal_comprobante(comprobante){
+//ver imagen
+function ver_img_perfil(img_perfil,nombre_valor){
 
-  var extencion = comprobante.substr(comprobante.length - 3); // => "1"
-  //console.log(extencion);
-  $('#ver_fact_pdf').html('');
-  $('#img-factura').attr("src", "");
-  $('#modal-ver-comprobante').modal("show");
+  $('#modal-ver-imagen').modal("show");
+  $('#nombre_valor').html(nombre_valor);
 
-  if (extencion=='jpeg' || extencion=='jpg' || extencion=='png' || extencion=='webp') {
-    $('#ver_fact_pdf').hide();
-    $('#img-factura').show();
-    $('#img-factura').attr("src", "../dist/img/valores/imagen_perfil/"+comprobante);
+  if (img_perfil == "" || img_perfil == null  ) {
 
-    $("#iddescargar").attr("href","../dist/img/valores/imagen_perfil/"+comprobante);
+    $("#ver_imagen").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 
-  }else{
-    $('#img-factura').hide();
+  } else {
+
+    $("#doc1_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(img_perfil)}</i></div></div>`);
     
-    $('#ver_fact_pdf').show();
+    // cargamos la imagen adecuada par el archivo
+    if ( extrae_extencion(img_perfil) == "pdf" ) {
 
-    $('#ver_fact_pdf').html('<iframe src="../dist/img/valores/imagen_perfil/'+comprobante+'" frameborder="0" scrolling="no" width="100%" height="350"></iframe>');
+      $("#ver_imagen").html('<iframe src="../dist/img/valores/imagen_perfil/'+img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
 
-    $("#iddescargar").attr("href","../dist/img/valores/imagen_perfil/"+comprobante);
+    }else{
+      if (
+        extrae_extencion(img_perfil) == "jpeg" || extrae_extencion(img_perfil) == "jpg" || extrae_extencion(img_perfil) == "jpe" ||
+        extrae_extencion(img_perfil) == "jfif" || extrae_extencion(img_perfil) == "gif" || extrae_extencion(img_perfil) == "png" ||
+        extrae_extencion(img_perfil) == "tiff" || extrae_extencion(img_perfil) == "tif" || extrae_extencion(img_perfil) == "webp" ||
+        extrae_extencion(img_perfil) == "bmp" || extrae_extencion(img_perfil) == "svg" ) {
+
+        $("#ver_imagen").html(`<img src="../dist/img/valores/imagen_perfil/${img_perfil}" alt="" width="80%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+        
+      } else {
+        $("#ver_imagen").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
+      }        
+    }      
   }
+
 }
 
 //Función para guardar o editar

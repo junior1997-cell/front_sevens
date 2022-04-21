@@ -3,22 +3,24 @@ var tabla;
 //Función que se ejecuta al inicio
 function init() {
 
-  $(".mvalores").addClass("active");
-
+  $(".mproyectos").addClass("active");
   listar();  
   //Mostramos los proveedores
-  $.post("../ajax/proyecto.php?op=select2_proyecto", function (r) { $("#id_pryecto_adm").html(r); });
+  $.post("../ajax/proyecto.php?op=select2_proyecto", function (r) { 
+    $("#id_pryecto_adm").html(r); 
+    $(".cargando_").html('Proyecto <sup class="text-danger">*</sup>');
+    $("#id_pryecto_adm").val('null').trigger("change");
+  });
 
-  $("#guardar_registro").on("click", function (e) {$("#submit-form-valores").submit();});
+  $("#guardar_registro").on("click", function (e) {$("#submit-form-proyecto").submit();});
 
   //Initialize Select2 Elements
-  $("#id_pryecto_adm").select2({
+ /* $("#id_pryecto_adm").select2({
     theme: "bootstrap4",
-    placeholder: "Selecione trabajador",
+    placeholder: "Selecione Proyecto",
     allowClear: true,
-  }); 
+  }); */
 
-  $("#id_pryecto_adm").val('null').trigger("change");
   
 }
 // abrimos el navegador de archivos
@@ -38,9 +40,21 @@ function doc1_eliminar() {
 //Función limpiar
 function limpiar() {
 
-  $("#idvalores").val("");
+  $("#idproyecto").val("");
+  $("#id_pryecto_adm").val('null').trigger("change");
   $("#nombre").val("");
   $("#descripcion").val(""); 
+
+  $.post("../ajax/proyecto.php?op=select2_proyecto", function (r) { 
+    $("#id_pryecto_adm").html(r); 
+    $(".cargando_").html('Proyecto <sup class="text-danger">*</sup>');
+    $("#id_pryecto_adm").val('null').trigger("change");
+  });
+
+  $("#doc_old_1").val("");
+  $("#doc1").val("");  
+  $('#doc1_ver').html(`<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >`);
+  $('#doc1_nombre').html("");
 
   // Limpiamos las validaciones
   $(".form-control").removeClass('is-valid');
@@ -49,12 +63,31 @@ function limpiar() {
 
 }
 
+function mostrar_select(estado) {
+
+  if (estado==1) {
+    $(".selectt").show();
+    $(".edith").hide();
+    $(".selec_proyecto_adm").hide();
+    $(".selec_proyecto_adm").hide();
+  }
+
+  if (estado==2) {
+    $(".selectt").hide();    
+    $(".edith").show();
+    $(".selec_proyecto_adm").show();
+    $(".id_pryecto_adm_edith").show();
+  }
+  
+}
+
 //Función Listar
 function listar() {
+
   $(".tabla").hide();
   $(".cargando").show();
 
-  tabla=$('#tabla-valores').dataTable({
+  tabla=$('#tabla-proyecto').dataTable({
     "responsive": true,
     lengthMenu: [[ -1, 5, 10, 25, 75, 100, 200,], ["Todos", 5, 10, 25, 75, 100, 200, ]],//mostramos el menú de registros a revisar
     "aProcessing": true,//Activamos el procesamiento del datatables
@@ -62,7 +95,7 @@ function listar() {
     dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
     buttons: ['excelHtml5','pdf'],
     "ajax":{
-        url: '../ajax/valores.php?op=listar',
+        url: '../ajax/proyecto.php?op=listar',
         type : "get",
         dataType : "json",						
         error: function(e){
@@ -71,9 +104,9 @@ function listar() {
       },
       createdRow: function (row, data, ixdex) {
         // columna: #
-        if (data[1] != '') {
-          $("td", row).eq(1).addClass('text-center');
-        }
+        // if (data[1] != '') {
+        //   $("td", row).eq(1).addClass('text-center');
+        // }
         // columna: #
         if (data[2] != '') {
           $("td", row).eq(2).addClass('text-nowrap');
@@ -99,40 +132,49 @@ function listar() {
 }
 
 //ver ficha tecnica
-function modal_comprobante(comprobante){
+function ver_img_perfil(img_perfil,nombre_proyecto){
 
-  var extencion = comprobante.substr(comprobante.length - 3); // => "1"
-  //console.log(extencion);
-  $('#ver_fact_pdf').html('');
-  $('#img-factura').attr("src", "");
-  $('#modal-ver-comprobante').modal("show");
+  $('#modal-ver-imagen').modal("show");
+  $('#nombre_proyecto').html(nombre_proyecto);
 
-  if (extencion=='jpeg' || extencion=='jpg' || extencion=='png' || extencion=='webp') {
-    $('#ver_fact_pdf').hide();
-    $('#img-factura').show();
-    $('#img-factura').attr("src", "../dist/img/valores/imagen_perfil/"+comprobante);
+  if (img_perfil == "" || img_perfil == null  ) {
 
-    $("#iddescargar").attr("href","../dist/img/valores/imagen_perfil/"+comprobante);
+    $("#ver_imagen").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
 
-  }else{
-    $('#img-factura').hide();
+  } else {
+
+    $("#doc1_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(img_perfil)}</i></div></div>`);
     
-    $('#ver_fact_pdf').show();
+    // cargamos la imagen adecuada par el archivo
+    if ( extrae_extencion(img_perfil) == "pdf" ) {
 
-    $('#ver_fact_pdf').html('<iframe src="../dist/img/valores/imagen_perfil/'+comprobante+'" frameborder="0" scrolling="no" width="100%" height="350"></iframe>');
+      $("#ver_imagen").html('<iframe src="../dist/img/proyecto/imagen_perfil/'+img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
 
-    $("#iddescargar").attr("href","../dist/img/valores/imagen_perfil/"+comprobante);
+    }else{
+      if (
+        extrae_extencion(img_perfil) == "jpeg" || extrae_extencion(img_perfil) == "jpg" || extrae_extencion(img_perfil) == "jpe" ||
+        extrae_extencion(img_perfil) == "jfif" || extrae_extencion(img_perfil) == "gif" || extrae_extencion(img_perfil) == "png" ||
+        extrae_extencion(img_perfil) == "tiff" || extrae_extencion(img_perfil) == "tif" || extrae_extencion(img_perfil) == "webp" ||
+        extrae_extencion(img_perfil) == "bmp" || extrae_extencion(img_perfil) == "svg" ) {
+
+        $("#ver_imagen").html(`<img src="../dist/img/proyecto/imagen_perfil/${img_perfil}" alt="" width="80%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+        
+      } else {
+        $("#ver_imagen").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
+      }        
+    }      
   }
+
 }
 
 //Función para guardar o editar
 
 function guardaryeditar(e) {
   // e.preventDefault(); //No se activará la acción predeterminada del evento
-  var formData = new FormData($("#form-valores")[0]);
+  var formData = new FormData($("#form-proyecto")[0]);
  
   $.ajax({
-    url: "../ajax/valores.php?op=guardaryeditar",
+    url: "../ajax/proyecto.php?op=guardaryeditar",
     type: "POST",
     data: formData,
     contentType: false,
@@ -148,7 +190,7 @@ function guardaryeditar(e) {
          
 				limpiar();
 
-        $("#modal-agregar-valores").modal("hide");
+        $("#modal-agregar-proyecto").modal("hide");
         
 
 			}else{
@@ -159,25 +201,25 @@ function guardaryeditar(e) {
   });
 }
 
-function mostrar(idvalores) {
+function mostrar(idproyecto) {
+
   limpiar();
-  $("#modal-agregar-valores").modal("show");
+  mostrar_select(2);
+  $("#modal-agregar-proyecto").modal("show");
   //$("#proveedor").val("").trigger("change"); 
   $("#cargando-1-fomulario").hide();
   $("#cargando-2-fomulario").show();
 
-  $.post("../ajax/valores.php?op=mostrar_valor", { idvalores: idvalores }, function (data, status) {
+  $.post("../ajax/proyecto.php?op=mostrar_valor", { idproyecto: idproyecto }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
 
-    $("#cargando-1-fomulario").show();
-    $("#cargando-2-fomulario").hide();
-
-    $("#idvalores").val(data.data.idvalores);
+    $("#idproyecto").val(data.data.idproyecto);
     $("#nombre").val(data.data.nombre_valor);
     $("#descripcion").val(data.data.descripcion);
+    $(".selec_proyecto_adm").val(data.data.codigo_proyecto);
+    $("#id_pryecto_adm_edith").val(data.data.id_proyecto_admin);
 
-    /**-------------------------*/
     if (data.data.img_perfil == "" || data.data.img_perfil == null  ) {
 
       $("#doc1_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
@@ -195,7 +237,7 @@ function mostrar(idvalores) {
       // cargamos la imagen adecuada par el archivo
       if ( extrae_extencion(data.data.img_perfil) == "pdf" ) {
 
-        $("#doc1_ver").html('<iframe src="../dist/img/valores/imagen_perfil/'+data.data.img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
+        $("#doc1_ver").html('<iframe src="../dist/img/proyecto/imagen_perfil/'+data.data.img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
 
       }else{
         if (
@@ -204,7 +246,7 @@ function mostrar(idvalores) {
           extrae_extencion(data.data.img_perfil) == "tiff" || extrae_extencion(data.data.img_perfil) == "tif" || extrae_extencion(data.data.img_perfil) == "webp" ||
           extrae_extencion(data.data.img_perfil) == "bmp" || extrae_extencion(data.data.img_perfil) == "svg" ) {
 
-          $("#doc1_ver").html(`<img src="../dist/img/valores/imagen_perfil/${data.data.img_perfil}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+          $("#doc1_ver").html(`<img src="../dist/img/proyecto/imagen_perfil/${data.data.img_perfil}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
           
         } else {
           $("#doc1_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
@@ -212,11 +254,14 @@ function mostrar(idvalores) {
       }      
     }
 
+    $("#cargando-1-fomulario").show();
+    $("#cargando-2-fomulario").hide();
+
   }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
 
 //Función para eliminar registros
-function eliminar(idvalores) {
+function eliminar(idproyecto) {
   Swal.fire({
     title: "¿Está Seguro de  Eliminar el registro?",
     text: "",
@@ -227,7 +272,7 @@ function eliminar(idvalores) {
     confirmButtonText: "Si, Eliminar!",
   }).then((result) => {
     if (result.isConfirmed) {
-      $.post("../ajax/valores.php?op=eliminar", { idvalores: idvalores }, function (e) {
+      $.post("../ajax/proyecto.php?op=eliminar", { idproyecto: idproyecto }, function (e) {
 
         Swal.fire("Eliminado!", "Tu registro ha sido Eliminado.", "success");
     
@@ -252,7 +297,7 @@ $(function () {
   });
   
 
-  $("#form-valores").validate({
+  $("#form-proyecto").validate({
     ignore: '.select2-input, .select2-focusser',
     rules: {
 
@@ -461,7 +506,7 @@ function re_visualizacion(id, carpeta) {
           toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
         } else {
           if ( extrae_extencion(antiguopdf) == "pdf" ) { 
-            $("#doc"+id+"_ver").html(`<iframe src="../dist/dist/img/valores/${carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
+            $("#doc"+id+"_ver").html(`<iframe src="../dist/dist/img/proyecto/${carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
             toastr.success('Documento vizualizado correctamente!!!')
           } else {
             if ( extrae_extencion(antiguopdf) == "csv" ) {
@@ -486,7 +531,7 @@ function re_visualizacion(id, carpeta) {
                       extrae_extencion(antiguopdf) == "tiff" || extrae_extencion(antiguopdf) == "tif" || extrae_extencion(antiguopdf) == "webp" ||
                       extrae_extencion(antiguopdf) == "bmp" || extrae_extencion(antiguopdf) == "svg" ) {
   
-                      $("#doc"+id+"_ver").html(`<img src="../dist/img/valores/${carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
+                      $("#doc"+id+"_ver").html(`<img src="../dist/img/proyecto/${carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
                       toastr.success('Documento vizualizado correctamente!!!');
                     } else {
                       $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');

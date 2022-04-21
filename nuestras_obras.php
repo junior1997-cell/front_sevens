@@ -123,87 +123,16 @@
         <!-- Title -->
         <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-7">
           <h2>En la Empresa Sevens Ingenieros S.A.C </h2>
-          <p>Son nuestros proyectos finaliados <a class="font-weight-bold" href="#">los que nos respaldan.</a></p>
+          <p>Son nuestros proyectos finalizados <a class="font-weight-bold" href="#">los que nos respaldan.</a></p>
         </div>
         <!-- End Title -->
 
         <!-- Listing -->
-        <div class="row mb-4">
-          <div class="col-sm-6 col-lg-4 mb-5">
-            <!-- Card -->
-            <div class="card card-bordered card-hover-shadow h-100">
-              <div class="card-body">
-                <img class="card-img-top" src="assets/img/imgs_slide/calidad.jpg" alt="Image Description">
-                <h4 class="mb-0">MISION TARAPOTO</h4>
-                <p class="mb-0" style="text-align: justify;"> CONSTRUCCIÓN DE LA SEDE MISIÓN NOR ORIENTAL TARAPOTO.</p>
-                
-              </div>
-              <div class="card-footer">
-                <ul class="list-inline list-separator small text-body">
-                <li class="list-inline-item"> 
-                    <a data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;" > 
-                      <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Ver detalles</span> 
-                    </a>
-                  </li>
-                  <li class="list-inline-item"> <span class="badge badge-soft-info mr-2"> <span class="legend-indicator bg-info"></span>En ejecución </span></li>
-
-                </ul>
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <div class="col-sm-6 col-lg-4 mb-5">
-            <!-- Card -->
-            <div class="card card-bordered card-hover-shadow h-100">
-              <div class="card-body">
-                <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
-                <h4 class="mb-0">CERCO UPEU</h4>
-                <p class="mb-0" style="text-align: justify;"> CONSTRUCCION DEL CERCO PERIMÉTRICO ETAPA 2 en la 
-                      UNIVERSIDAD PERUANA UNION.</p>
-              </div>
-              <div class="card-footer">
-                <ul class="list-inline list-separator small text-body">
-                  <li class="list-inline-item"> 
-                    <a data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;" > 
-                      <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Ver detalles</span> 
-                    </a>
-                  </li>
-                  <li class="list-inline-item"> 
-                    <span class="badge badge-soft-danger mr-2"> <span class="legend-indicator bg-danger"></span>Finalizado </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-          <div class="col-sm-6 col-lg-4 mb-5">
-            <!-- Card -->
-            <div class="card card-bordered card-hover-shadow h-100">
-              <div class="card-body">
-                <img class="card-img-top" src="assets/img/imgs_slide/disenio.jpg" alt="Image Description">
-                <h4 class="mb-0">ESCALERAS C Y D</h4>
-                <p class="mb-0" style="text-align: justify;"> CONSTRUCCIÓN DE ESCALERAS EN EL PABELLON C Y D DE LA UNIVERSIDAD PERUANA UNIÓN.</p>
-               
-              </div>
-              <div class="card-footer">
-                <ul class="list-inline list-separator small text-body">
-                <li class="list-inline-item"> 
-                    <a data-toggle="modal" data-target="#signupModal" style="cursor: pointer; font-size: 13px;" > 
-                      <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Ver detalles</span> 
-                    </a>
-                  </li>
-                  <li class="list-inline-item"> <span class="badge badge-soft-danger mr-2"> <span class="legend-indicator bg-danger"></span>Finalizado </span></li>
-                </ul>
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
+        <div class="text-center cargando_obras"> <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> </div>
+        <div class="row mb-4" id="l_obras">
+       <!-- listamos las obras -->
         </div>
         <!-- End Listing -->
-
-        <div class="text-center">
-          <a class="btn btn-link" href="demo-jobs/job-list.html">View all jobs <i class="fas fa-angle-right ml-1"></i></a>
-        </div>
       </div>
       <!-- End Listing Section -->
 
@@ -213,7 +142,7 @@
           <div class="row justify-content-center align-items-lg-center">
             <div class="col-10 col-sm-8 col-lg-5 mb-11 mb-lg-0">
               <div class="position-relative">
-                <img class="img-fluid rounded-lg" src="../assets/img/900x900/img24.jpg" alt="Image Description" />
+                <img class="img-fluid rounded-lg" src="assets/img/servicios/img55.jpg" alt="Image Description" />
 
                 <!-- SVG Elements -->
                 <figure class="max-w-15rem w-100 position-absolute top-0 left-0 z-index-n1">
@@ -237,30 +166,13 @@
 
             <div class="col-lg-7">
               <div class="pl-lg-6">
-                <img class="avatar mb-3" src="../assets/svg/brands/capsule.svg" alt="Image Description" />
+                <img class="avatar mb-3" src="admin_o/assets/svg/brands/capsule.svg" alt="Image Description" />
 
-                <blockquote class="h2 mb-5">Save time and effort in your hiring journey. Front's simple and powerful tools let you source, screen, and hire faster.</blockquote>
+                <blockquote class="h2 mb-5">Contamos el mejor equipo profesional y obrero, esto nos da la certeza de que todo lo que realicemos sea de calidad.</blockquote>
 
                 <div class="mb-5">
-                  <h5 class="mb-0">Anna Lowry</h5>
-                  <small class="d-block">HR Director</small>
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-                    <h2 class="mb-1">59%</h2>
-                    <small class="d-block">in budget saved on unconverting ads</small>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4 mb-3 mb-sm-0">
-                    <h2 class="mb-1">27%</h2>
-                    <small class="d-block">in time saved on campaign management</small>
-                  </div>
-
-                  <div class="col-sm-6 col-md-4">
-                    <h2 class="mb-1">2.1x</h2>
-                    <small class="d-block">more split tests and experiments</small>
-                  </div>
+                  <h5 class="mb-0">POOL STIWART BRIONES SÁNCHEZ</h5>
+                  <small class="d-block">CEO - Director Ejecutivo</small>
                 </div>
                 <!-- End Row -->
               </div>
@@ -276,8 +188,8 @@
     <!-- ========== FOOTER ========== -->
     <?php require 'footer.php'; ?>
     <!-- ========== END FOOTER ========== -->
-    <!-- Sign Up Modal -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- modal detalle obras -->
+    <div class="modal fade" id="ver_detalles_secc_onbras" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <!-- Header -->
@@ -293,21 +205,22 @@
           <!-- Body -->
           <div class="modal-body p-sm-5 text-center">
             <div id="signinModalForm">
-              <div class="text-center mb-5"> <h2>Detalles de la obra</h2> </div>
-              <i class="fas fa-spinner fa-pulse fa-sm fa-2x"></i>
+              <div class="text-center mb-5"> <br> <h4 class="nombre_obras_secc_onbras"></h4> </div>
+              
+              <div class="detalles_obras_secc_onbras">
+                <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
+              </div>
             </div>
           </div>
           <!-- End Body -->
 
           <!-- Footer -->
-          <div class="modal-footer d-block text-center py-sm-5">
-            <small class="text-cap mb-4"> Esperando detalles </small>
-          </div>
+          <div class="modal-footer d-block text-center py-sm-5"> </div>
           <!-- End Footer -->
         </div>
       </div>
     </div>
-    <!-- End Sign Up Modal -->
+    <!-- modal detalle obras -->
     <!-- Go to Top -->
     <a
       class="js-go-to go-to position-fixed"

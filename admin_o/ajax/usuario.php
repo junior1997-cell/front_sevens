@@ -4,12 +4,16 @@
     session_start(); //Validamos si existe o no la sesión
   }
 
+  
+  require_once "../modelos/Usuario.php";
+  require_once "../modelos/Permiso.php"; 
+
+  $usuario = new Usuario();  
+  $permisos = new Permiso();
+
   switch ($_GET["op"]) {
 
     case 'verificar':
-
-      require_once "../modelos/Usuario.php";
-      $usuario = new Usuario(); 
 
       $logina = $_POST['logina'];
       $clavea = $_POST['clavea'];
@@ -18,7 +22,7 @@
       $clavehash = hash("SHA256", $clavea);
 
       $rspta = $usuario->verificar($logina, $clavehash);   //$fetch = $rspta->fetch_object();
-
+     // echo $rspta;
       if ( $rspta['status'] ) {
         if ( !empty($rspta['data']) ) {
           //Declaramos las variables de sesión
@@ -49,30 +53,7 @@
           }       
 
           //Determinamos los accesos del usuario
-          in_array(1, $valores) ? ($_SESSION['escritorio'] = 1)       : ($_SESSION['escritorio'] = 0);
-          in_array(2, $valores) ? ($_SESSION['acceso'] = 1)           : ($_SESSION['acceso'] = 0);
-          in_array(3, $valores) ? ($_SESSION['recurso'] = 1)          : ($_SESSION['recurso'] = 0);
-          in_array(4, $valores) ? ($_SESSION['valorizacion'] = 1)     : ($_SESSION['valorizacion'] = 0);
-          in_array(5, $valores) ? ($_SESSION['trabajador'] = 1)       : ($_SESSION['trabajador'] = 0);
-          in_array(6, $valores) ? ($_SESSION['asistencia_obrero'] = 1): ($_SESSION['asistencia_obrero'] = 0);
-          in_array(7, $valores) ? ($_SESSION['pago_trabajador'] = 1)  : ($_SESSION['pago_trabajador'] = 0);
-          in_array(8, $valores) ? ($_SESSION['compra_insumos'] = 1)   : ($_SESSION['compra_insumos'] = 0);
-          in_array(9, $valores) ? ($_SESSION['servicio_maquina'] = 1) : ($_SESSION['servicio_maquina'] = 0);
-          in_array(10, $valores) ? ($_SESSION['servicio_equipo'] = 1) : ($_SESSION['servicio_equipo'] = 0);
-          in_array(11, $valores) ? ($_SESSION['calendario'] = 1)      : ($_SESSION['calendario'] = 0);
-          in_array(12, $valores) ? ($_SESSION['plano_otro'] = 1)      : ($_SESSION['plano_otro'] = 0);
-          in_array(13, $valores) ? ($_SESSION['viatico'] = 1)         : ($_SESSION['viatico'] = 0);
-          in_array(14, $valores) ? ($_SESSION['planilla_seguro'] = 1) : ($_SESSION['planilla_seguro'] = 0);
-          in_array(15, $valores) ? ($_SESSION['otro_gasto'] = 1)      : ($_SESSION['otro_gasto'] = 0);
-          in_array(16, $valores) ? ($_SESSION['resumen_general'] = 1) : ($_SESSION['resumen_general'] = 0);
-          in_array(17, $valores) ? ($_SESSION['compra_activo_fijo'] = 1) : ($_SESSION['compra_activo_fijo'] = 0);
-          in_array(18, $valores) ? ($_SESSION['resumen_activo_fijo_general'] = 1) : ($_SESSION['resumen_activo_fijo_general'] = 0);
-          in_array(19, $valores) ? ($_SESSION['otra_factura'] = 1)    : ($_SESSION['otra_factura'] = 0);
-          in_array(20, $valores) ? ($_SESSION['resumen_factura'] = 1) : ($_SESSION['resumen_factura'] = 0);
-          in_array(21, $valores) ? ($_SESSION['papelera'] = 1)        : ($_SESSION['papelera'] = 0);
-          in_array(22, $valores) ? ($_SESSION['subcontrato'] = 1)     : ($_SESSION['subcontrato'] = 0);
-          in_array(23, $valores) ? ($_SESSION['resumen_recibo_por_honorario'] = 1) : ($_SESSION['resumen_recibo_por_honorario'] = 0);
-          in_array(24, $valores) ? ($_SESSION['otro_ingreso'] = 1)    : ($_SESSION['otro_ingreso'] = 0);
+          in_array(25, $valores) ? ($_SESSION['sistema_informativo'] = 1)    : ($_SESSION['sistema_informativo'] = 0);
 
         } else {
           echo json_encode($rspta, true);
@@ -81,6 +62,55 @@
         echo json_encode($rspta, true);
       }
       
+    break;
+
+    case 'tbla_principal':
+
+      $rspta = $usuario->listar();
+          
+      //Vamos a declarar un array
+      $data = [];  
+      $imagen_error = "this.src='../assets/svg/default/user_default.svg'"; $cont=1;
+      $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
+
+      $img_perfil="http://admin.sevensingenieros.com/dist/docs/all_trabajador/perfil/";
+
+      // if ($_SERVER['HTTP_HOST']=="localhost") {
+      //   $img_perfil="http://localhost/admin_sevens/dist/docs/all_trabajador/perfil/";
+      // }else{
+      //   $img_perfil="http://admin.sevensingenieros.com/dist/docs/all_trabajador/perfil/";
+      // }
+
+      if ($rspta['status']) {
+        foreach ($rspta['data'] as $key => $value) {
+          $data[] = [
+            "0" => '<div class="d-flex align-items-center mx-auto">
+                    <a onclick="ver_img_perfil(\'' .$img_perfil.$value['imagen_perfil'] . '\',\'' . $value['nombres'] . '\')">
+                      <div class="avatar avatar-circle">
+                        <img class="avatar-img" src="'.$img_perfil.$value['imagen_perfil'] . '" alt="Image Description" onerror="'.$imagen_error.'">
+                      </div>
+                    </a>
+                    <div class="ml-3">
+                      <small style="font-size: 14px;font-weight: bold;">'. $value['nombres'] .'</small> <br>                         
+                      <small class="text-muted"> - ' . $value['tipo_documento'] .  ': ' . $value['numero_documento'] .  '</small>
+                    </div>
+                  </div>',
+            "1" => $value['telefono'],
+            "2" => $value['login'],
+            "3" => $value['cargo']
+          ];
+        }
+        $results = [
+          "sEcho" => 1, //Información para el datatables
+          "iTotalRecords" => count($data), //enviamos el total registros al datatable
+          "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+          "data" => $data,
+        ];
+        echo json_encode($results, true);
+      } else {
+        echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+      }
+
     break;
     
     case 'salir':
@@ -94,7 +124,7 @@
     break;
     
   }
-    
+  
   function multiplo_number($numero, $multiplo) {  
     
     if($numero%$multiplo == 0){

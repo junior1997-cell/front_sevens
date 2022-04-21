@@ -12,13 +12,13 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Datos generales | Seven's Ingenieros</title>
+    <title>Valores | Seven's Ingenieros</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <?php $title = "Datos generales"; require 'head.php'; ?>
+    <?php $title = "Valores"; require 'head.php'; ?>
   </head>
 
   <body>
@@ -26,7 +26,7 @@
     <main id="content" role="main" class="bg-light">
       <?php
 
-    if ($_SESSION['escritorio']==1){
+    if ($_SESSION['sistema_informativo']==1){
     //require 'enmantenimiento.php';
   ?>
       <!-- header -->
@@ -86,7 +86,7 @@
       <!-- End Content Section -->
       <!-- Modal agregar proveedores -->
       <div class="modal fade" id="modal-agregar-valores">
-        <div class="modal-dialog modal-dialog-scrollable modal-md">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title"><b>Agregar:</b> Valor</h4>
@@ -106,25 +106,25 @@
                    <!-- Sub total -->
                     <div class="col-lg-12">
                       <div class="form-group">
-                        <label for="Nombre">Nombre</label>
+                        <label for="Nombre">Nombre<sup class="text-danger">*</sup> <span style="font-size: 12px; font-weight: normal;">ej. Responsabilidad</span> </label>
                         <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre"/>
                       </div>
                     </div>
                     <!--Descripcion-->
                     <div class="col-lg-12 class_pading">
                       <div class="form-group">
-                        <label for="descripcion_pago">Descripción <sup class="text-danger">*</sup> <span style="font-size: 12px; font-weight: normal;">ej. Responsabilidad</span> </label> <br />
+                        <label for="descripcion_pago">Descripción <sup class="text-danger">*</sup></label> <br />
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="2"></textarea>
                       </div>
                     </div>
                     <!-- Factura -->
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                       <div class="row text-center">
                         <div class="col-md-12" style="padding-top: 15px; padding-bottom: 5px;">
                           <label for="cip" class="control-label"> Imagen </label>
                         </div>
                         <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-success btn-block btn-xs" id="doc1_i"><i class="fas fa-upload"></i> Subir.</button>
+                          <button type="button" class="btn btn-success btn-block btn-xs clase_margin" id="doc1_i"><i class="fas fa-upload"></i> Subir.</button>
                           <input type="hidden" id="doc_old_1" name="doc_old_1" />
                           <input style="display: none;" id="doc1" type="file" name="doc1" accept="application/pdf, image/*" class="docpdf" />
                         </div>
@@ -136,6 +136,22 @@
                         <img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" />
                       </div>
                       <div class="text-center" id="doc1_nombre"><!-- aqui va el nombre del pdf --></div>
+                    </div>
+                    <!--indicaciones-->
+                    <div class="col-lg-6 class_pading">
+                        <div class="alert alert-warning media" role="alert">
+                          <i class="fas fa-info-circle mt-1 fa-2x"></i>
+                          
+                          <div class="media-body" role="alert"> 
+                          <div class="text-center"><b> Indicaciones para la imegen</b> </div>                           
+                            <hr style="border-top-color: azure;"/>
+                            <ul>
+                              <li> <b>Tamaño:</b>  400x400 </li>
+                              <li> <b>Formato:</b> <span> .png </span>  </li>
+                              <li>  <b>Peso:</b> Max. 2 mb </li>
+                            </ul>
+                          </div>
+                      </div>
                     </div>
                   </div>
 
@@ -152,12 +168,39 @@
               </form>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar();">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick=" limpiar();">Close</button>
               <button type="submit" class="btn btn-success" id="guardar_registro">Guardar Cambios</button>
             </div>
           </div>
         </div>
       </div>
+      <!-- Modal ver imagen -->
+      <div class="modal fade" id="modal-ver-imagen">
+        <div class="modal-dialog modal-dialog-scrollable modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Valor:</b> <span class="text-warning" id="nombre_valor"></span>  </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-danger" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 text-center" id="ver_imagen">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <?php
             }else{
               require 'noacceso.php';

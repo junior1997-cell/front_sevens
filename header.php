@@ -11,11 +11,12 @@
         <div class="d-flex align-items-center pb-2">
           <div class="mx-auto">
             <!-- Links -->              
-            <span class="color-negro text-white">
-                📞 Llámanos  al 
+            <span class="color-negro text-white" id="contactos_head">
+            <i class="fas fa-spinner fa-pulse fa-lg text-white"></i> Cargando...
+                <!-- 📞 Llámanos  al 
                 <a href="tel:+51954201310" class="text-white">954201310</a> ó 
                 <a href="tel:+51969774240" class="text-white">969774240</a>
-                - Lunes a Viernes de 8 a 12 hrs. y de 14 a 17 hrs.
+                - Lunes a Viernes de 8 a 12 hrs. y de 14 a 17 hrs. -->
             </span>            
             <!-- End Links -->
           </div>

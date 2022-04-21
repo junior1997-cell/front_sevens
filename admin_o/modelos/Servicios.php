@@ -49,11 +49,27 @@ Class Servicios
 		return ejecutarConsulta($sql);		
 	}
 
+
 	//Seleccionar un comprobante
 	public function reg_img($idservicio)
 	{
 		$sql="SELECT img_perfil FROM servicio WHERE idservicio='$idservicio'";
 		return ejecutarConsultaSimpleFila($sql);		
+	}
+
+	//funciones web
+	//Implementar un método para listar los registros
+	public function listar_serv_web()
+	{
+		$sql="SELECT*FROM servicio ORDER BY idservicio DESC";
+		return ejecutarConsultaArray($sql);		
+	}
+
+	//Implementar un método para listar los registros
+	public function listar_serv_web_f()
+	{
+		$sql="SELECT*FROM servicio ORDER BY idservicio DESC LIMIT 3";
+		return ejecutarConsultaArray($sql);		
 	}
 
 }

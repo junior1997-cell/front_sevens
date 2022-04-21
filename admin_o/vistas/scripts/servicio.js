@@ -32,7 +32,13 @@ function limpiar() {
   $("#precio").val("");
   $("#descripcion").val(""); 
   $("#caracteristicas").val("");
-  $(".clss_caracteristicas").val("");
+  $(".clss_caracteristicas").html("");
+
+  $("#doc_old_1").val("");
+  $("#doc1").val("");  
+  $('#doc1_ver').html(`<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >`);
+  $('#doc1_nombre').html("");
+
   // Limpiamos las validaciones
   $(".form-control").removeClass('is-valid');
   $(".form-control").removeClass('is-invalid');
@@ -90,6 +96,41 @@ function listar() {
   $(".cargando").hide();
   
 }
+//ver ficha tecnica
+function ver_img_perfil(img_perfil,nombre_servicio){
+
+  $('#modal-ver-imagen').modal("show");
+  $('#nombre_servicio').html(nombre_servicio);
+
+  if (img_perfil == "" || img_perfil == null  ) {
+
+    $("#ver_imagen").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
+
+  } else {
+
+    $("#doc1_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(img_perfil)}</i></div></div>`);
+    
+    // cargamos la imagen adecuada par el archivo
+    if ( extrae_extencion(img_perfil) == "pdf" ) {
+
+      $("#ver_imagen").html('<iframe src="../dist/img/servicios/imagen_perfil/'+img_perfil+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
+
+    }else{
+      if (
+        extrae_extencion(img_perfil) == "jpeg" || extrae_extencion(img_perfil) == "jpg" || extrae_extencion(img_perfil) == "jpe" ||
+        extrae_extencion(img_perfil) == "jfif" || extrae_extencion(img_perfil) == "gif" || extrae_extencion(img_perfil) == "png" ||
+        extrae_extencion(img_perfil) == "tiff" || extrae_extencion(img_perfil) == "tif" || extrae_extencion(img_perfil) == "webp" ||
+        extrae_extencion(img_perfil) == "bmp" || extrae_extencion(img_perfil) == "svg" ) {
+
+        $("#ver_imagen").html(`<img src="../dist/img/servicios/imagen_perfil/${img_perfil}" alt="" width="80%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+        
+      } else {
+        $("#ver_imagen").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
+      }        
+    }      
+  }
+
+}
 
 //ver ficha tecnica
 function ver_caracteristicas(nombre_servicio,caracteristicas){
@@ -145,7 +186,7 @@ function mostrar(idservicio) {
   $("#cargando-1-fomulario").hide();
   $("#cargando-2-fomulario").show();
 
-  $.post("../ajax/servicios.php?op=mostrar_valor", { idservicio: idservicio }, function (data, status) {
+  $.post("../ajax/servicios.php?op=mostrar_servicio", { idservicio: idservicio }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
 

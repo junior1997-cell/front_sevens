@@ -11,70 +11,77 @@ Class Proyecto
 
 	}
 	//Implementamos un método para insertar registros
-	public function insertar($nombre,$descripcion,$imagen_perfil)
+	public function insertar($id_pryecto_adm,$descripcion,$imagen_perfil)
 	{
-	
-		$sql="INSERT INTO valores(nombre_valor, descripcion, img_perfil) VALUES ('$nombre','$descripcion','$imagen_perfil')";
-		return ejecutarConsulta($sql);
-			
+    //var_dump($id_pryecto_adm,$descripcion,$imagen_perfil);die();
+		//Realizamos la consulta a la bd admin sevens
+		$sql_1="SELECT idproyecto,nombre_proyecto,nombre_codigo,fecha_inicio,fecha_fin,dias_habiles,plazo,actividad_trabajo,ubicacion,estado FROM proyecto WHERE idproyecto=$id_pryecto_adm;";
+		$proyecto_admin= ejecutarConsultaSimpleFila_admin($sql_1);
+
+    if ($proyecto_admin['status']) {
+
+			if (!empty($proyecto_admin['data']['idproyecto'])) { 
+
+				$sql_2="INSERT INTO proyecto_front(id_proyecto_admin, nombre_proyecto,codigo_proyecto, fecha_inicio, fecha_fin, 
+				dias_habiles, dias_calendario, actividad_trabajo, ubicacion, descripcion, img_perfil, estado_proyecto) 
+				VALUES ( '".$proyecto_admin['data']['idproyecto']."', '".$proyecto_admin['data']['nombre_proyecto']."', '".$proyecto_admin['data']['nombre_codigo']."', 
+				        '".$proyecto_admin['data']['fecha_inicio']."', '".$proyecto_admin['data']['fecha_fin']."', 
+				        '".$proyecto_admin['data']['dias_habiles']."', '".$proyecto_admin['data']['plazo']."',
+				        '".$proyecto_admin['data']['actividad_trabajo']."', '".$proyecto_admin['data']['ubicacion']."', '$descripcion', '$imagen_perfil',
+			            '".$proyecto_admin['data']['estado']."' ) ";
+
+        return	ejecutarConsulta($sql_2);
+			}
+  
+	  }else{
+
+      return	$proyecto_admin;
+
+    }
+	//	return $sw;		
 	}
 
 	//Implementamos un método para editar registros
-	public function editar($idvalores,$nombre,$descripcion,$imagen_perfil)
+	public function editar($idproyecto,$id_pryecto_adm_edith,$descripcion,$imagen_perfil)
 	{
-		$sql="UPDATE valores SET nombre_valor='$nombre', descripcion='$descripcion', img_perfil='$imagen_perfil' WHERE idvalores='$idvalores'";	
-		return ejecutarConsulta($sql);	
+
+        $sql_2="UPDATE proyecto_front SET id_proyecto_admin ='.$id_pryecto_adm_edith.', descripcion ='$descripcion', img_perfil ='$imagen_perfil'
+              
+              WHERE idproyecto='$idproyecto'";
+
+        return	ejecutarConsulta($sql_2);
+
+
 	}
 
-	//Implementamos un método para desactivar categorías
-	public function desactivar($idvalores )
+    //Implementamos un método para desactivar categorías
+	public function eliminar($idproyecto)
 	{
-		$sql="UPDATE valores SET estado='0' WHERE idvalores ='$idvalores'";
-		return ejecutarConsulta($sql);
-	}
-
-	//Implementamos un método para activar categorías
-	public function activar($idvalores )
-	{
-		$sql="UPDATE valores SET estado='1' WHERE idvalores ='$idvalores'";
-		return ejecutarConsulta($sql);
-	}
-
-	//Implementamos un método para desactivar categorías
-	public function eliminar($idvalores)
-	{
-		$sql="DELETE FROM valores WHERE idvalores ='$idvalores';";
+		$sql="DELETE FROM proyecto_front WHERE idproyecto ='$idproyecto';";
 		return ejecutarConsulta($sql);
 	}
 	
 
 	//Implementar un método para mostrar los datos de un registro a modificar
-	public function mostrar($idvalores )
+	public function mostrar($idproyecto )
 	{
-		$sql="SELECT*FROM valores WHERE idvalores ='$idvalores'";
+		$sql="SELECT*FROM proyecto_front WHERE idproyecto ='$idproyecto'";
 
 		return ejecutarConsultaSimpleFila($sql);
 	}
 
-	public function verdatos($idvalores)
-	{
-		$sql="SELECT t.idvalores,t.idproyecto,t.idproveedor,t.tipo_comprobante,t.numero_comprobante,t.forma_de_pago,t.fecha_viaje,t.tipo_viajero,t.glosa,t.tipo_ruta,t.ruta,t.cantidad,t.precio_unitario,t.subtotal,t.igv,t.precio_parcial,t.descripcion,t.comprobante, p.razon_social, p.ruc
-		FROM valores as t, proveedor as p WHERE t.idvalores='$idvalores' AND t.idproveedor=p.idproveedor;";
-
-		return ejecutarConsultaSimpleFila($sql);
-	}
 
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT*FROM valores ORDER BY idvalores DESC";
+		$sql="SELECT*FROM proyecto_front ORDER BY idproyecto DESC";
 		return ejecutarConsulta($sql);		
 	}
 
   //Seleccionar un comprobante
-	public function reg_img($idvalores)
+	public function reg_img($idproyecto)
 	{
-		$sql="SELECT img_perfil FROM valores WHERE idvalores='$idvalores'";
+		$sql="SELECT img_perfil FROM proyecto_front WHERE idproyecto='$idproyecto'";
 		return ejecutarConsultaSimpleFila($sql);		
 	}
 
@@ -83,8 +90,9 @@ Class Proyecto
 	{
     $data_select = Array(); 
 		//bd-admin
-		$sql_1="SELECT idproyecto,nombre_codigo FROM proyecto WHERE estado!=2 AND estado_delete=1;";
+		$sql_1="SELECT idproyecto,nombre_codigo,nombre_proyecto FROM proyecto WHERE estado!=2 AND estado_delete=1;";
 		$proyecto_admin= ejecutarConsultaArray_admin($sql_1);
+
 		if ($proyecto_admin['status']) {
 
 			foreach ($proyecto_admin['data'] as $key => $value) {
@@ -100,18 +108,27 @@ Class Proyecto
           if (empty($proyecto_front['data']['id_proyecto_admin'])) {
 
             $data_select[] = array(
-              "idproyecto"                => $value['idproyecto'],
-              "codigo_proyecto"           => $value['nombre_codigo'],
+            "idproyecto"                => $value['idproyecto'],
+            "nombre_proyecto"           => $value['nombre_proyecto'],
+            "codigo_proyecto"           => $value['nombre_codigo'],
             );
 
           }
 
-        }
+		   	}
 
 			}
 
 		}
     return $data_select;
+	}
+
+	
+	//Implementar un método para listar en la web
+	public function listar_proyecto_web()
+	{
+		$sql="SELECT*FROM proyecto_front ORDER BY idproyecto DESC";
+		return ejecutarConsultaArray($sql);		
 	}
 	
 }

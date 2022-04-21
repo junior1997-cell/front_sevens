@@ -3,13 +3,13 @@
 define("DB_HOST_A","72.167.56.14");
 
 //Nombre de la base de datos
-define("DB_NAME_A", "bd_remoto");
+define("DB_NAME_A", "beta_admin_sevens");
 
 //Usuario de la base de datos
-define("DB_USERNAME_A", "bd_remoto");
+define("DB_USERNAME_A", "test_admin_sevens");
 
 //Contraseña del usuario de la base de datos
-define("DB_PASSWORD_A", "bd_remoto");
+define("DB_PASSWORD_A", "test_admin_sevens");
 
 //definimos la codificación de los caracteres
 define("DB_ENCODE_A","utf8");

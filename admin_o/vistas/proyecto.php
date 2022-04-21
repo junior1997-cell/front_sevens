@@ -12,13 +12,13 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Datos generales | Seven's Ingenieros</title>
+    <title>Proyectos | Seven's Ingenieros</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <?php $title = "Datos generales"; require 'head.php'; ?>
+    <?php $title = "Proyectos"; require 'head.php'; ?>
   </head>
 
   <body>
@@ -26,7 +26,7 @@
     <main id="content" role="main" class="bg-light">
       <?php
 
-    if ($_SESSION['escritorio']==1){
+    if ($_SESSION['sistema_informativo']==1){
     //require 'enmantenimiento.php';
   ?>
       <!-- header -->
@@ -41,8 +41,8 @@
             <div class="card mb-3 mb-lg-5 card-primary card-outline">
               <div class="card-header">
                 <h3 class="card-title">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-valores" onclick="limpiar();"><i class="fas fa-plus-circle"></i> Agregar</button>
-                  Valores
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-proyecto" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
+                  Proyectos
                 </h3>
               </div>
 
@@ -56,7 +56,7 @@
                   </div>
                   <div class="col-lg-12 tabla" style="display: none;">
                     <!-- tabla -->
-                    <table id="tabla-valores" class="table table-bordered table-striped display" style="width: 100% !important;">
+                    <table id="tabla-proyecto" class="table table-bordered table-striped display" style="width: 100% !important;">
                       <thead>
                         <tr>
                           <th class="">Acc.</th>
@@ -85,11 +85,11 @@
       </div>
       <!-- End Content Section -->
       <!-- Modal agregar proveedores -->
-      <div class="modal fade" id="modal-agregar-valores">
-        <div class="modal-dialog modal-dialog-scrollable modal-md">
+      <div class="modal fade" id="modal-agregar-proyecto">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title"><b>Agregar:</b> Valor</h4>
+              <h4 class="modal-title"><b>Agregar:</b> Proyecto</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span class="text-danger" aria-hidden="true">&times;</span>
               </button>
@@ -97,34 +97,46 @@
 
             <div class="modal-body">
               <!-- form start -->
-              <form id="form-valores" name="form-valores" method="POST">
+              <form id="form-proyecto" name="form-proyecto" method="POST">
                 <div class="card-body">
                   <div class="row" id="cargando-1-fomulario">
-                    <!--  idvalores -->
-                    <input type="hidden" name="idvalores" id="idvalores" />
+                    <!--  idproyecto -->
+                    <input type="hidden" name="idproyecto" id="idproyecto" />
 
-                   <!-- Sub total -->
+                    <!-- proyecto -->
                     <div class="col-lg-12">
-                      <div class="form-group">
-                        <label for="Nombre">Nombre</label>
-                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre"/>
+                      <div class="form-group selectt">
+                        <label for="id_pryecto_adm" class="cargando_">Proyecto <i class="fas fa-spinner fa-pulse fa-lg text-danger"></i></label>                               
+                        <select name="id_pryecto_adm" id="id_pryecto_adm"
+                        class="js-custom-select custom-select" size="1" style="opacity: 0;"
+                        data-hs-select2-options='{
+                          "minimumResultsForSearch": "Infinity",
+                          "placeholder": "Seleccionar un proyecto"
+                        }' style="width: 100%;">                                    
+                        </select>
+                      </div>  
+                      <div class="form-group edith">
+                        <label for="proyecto">Proyecto</label>
+                        <input type="text" class="form-control selec_proyecto_adm " placeholder="Proyecto" readonly />
+                        <input type="hidden" class="form-control id_pryecto_adm_edith" id="id_pryecto_adm_edith" name="id_pryecto_adm_edith" />
                       </div>
+
                     </div>
                     <!--Descripcion-->
                     <div class="col-lg-12 class_pading">
                       <div class="form-group">
-                        <label for="descripcion_pago">Descripción <sup class="text-danger">*</sup> <span style="font-size: 12px; font-weight: normal;">ej. Responsabilidad</span> </label> <br />
+                        <label for="descripcion_pago">Descripción <sup class="text-danger">*</sup> </label> <br />
                         <textarea name="descripcion" id="descripcion" class="form-control" rows="2"></textarea>
                       </div>
                     </div>
                     <!-- Factura -->
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                       <div class="row text-center">
                         <div class="col-md-12" style="padding-top: 15px; padding-bottom: 5px;">
                           <label for="cip" class="control-label"> Imagen </label>
                         </div>
                         <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-success btn-block btn-xs" id="doc1_i"><i class="fas fa-upload"></i> Subir.</button>
+                          <button type="button" class="btn btn-success btn-block btn-xs clase_margin" id="doc1_i"><i class="fas fa-upload"></i> Subir.</button>
                           <input type="hidden" id="doc_old_1" name="doc_old_1" />
                           <input style="display: none;" id="doc1" type="file" name="doc1" accept="application/pdf, image/*" class="docpdf" />
                         </div>
@@ -137,6 +149,22 @@
                       </div>
                       <div class="text-center" id="doc1_nombre"><!-- aqui va el nombre del pdf --></div>
                     </div>
+                    <!--indicaciones-->
+                    <div class="col-lg-6 class_pading">
+                        <div class="alert alert-warning media" role="alert">
+                          <i class="fas fa-info-circle mt-1 fa-2x"></i>
+                          
+                          <div class="media-body" role="alert"> 
+                          <div class="text-center"><b> Indicaciones para la imegen</b> </div>                           
+                            <hr style="border-top-color: azure;"/>
+                            <ul>
+                              <li> <b>Tamaño:</b>  480x320 </li>
+                              <li> <b>Formatos:</b> <span> .png .jpeg .jpg </span>  </li>
+                              <li>  <b>Peso:</b> Max. 2 mb </li>
+                            </ul>
+                          </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div class="row" id="cargando-2-fomulario" style="display: none;">
@@ -148,12 +176,38 @@
                   </div>
                 </div>
                 <!-- /.card-body -->
-                <button type="submit" style="display: none;" id="submit-form-valores">Submit</button>
+                <button type="submit" style="display: none;" id="submit-form-proyecto">Submit</button>
               </form>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar();">Close</button>
               <button type="submit" class="btn btn-success" id="guardar_registro">Guardar Cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal ver imagen -->
+      <div class="modal fade" id="modal-ver-imagen">
+        <div class="modal-dialog modal-dialog-scrollable modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Proyecto:</b> <span class="text-warning" id="nombre_proyecto"></span>  </h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-danger" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 text-center" id="ver_imagen">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -293,7 +347,7 @@
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
     <!-- JS script -->
-    <script src="scripts/valores.js"></script>
+    <script src="scripts/proyecto.js"></script>
   </body>
 
   <!-- Mirrored from htmlstream.com/front/account-overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:19:48 GMT -->

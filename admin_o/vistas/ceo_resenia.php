@@ -12,7 +12,7 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Datos generales | Seven's Ingenieros</title>
+    <title>Reseña historica | Seven's Ingenieros</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
@@ -25,7 +25,7 @@
 
     <!-- ========== MAIN ========== -->
     <main id="content" role="main" class="bg-light">
-      <?php if ($_SESSION['escritorio']==1){ ?>
+      <?php if ($_SESSION['sistema_informativo']==1){ ?>
 
       <!-- header -->
       <?php require 'header.php'; ?>
