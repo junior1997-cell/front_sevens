@@ -40,8 +40,12 @@
             <!-- Card -->
             <div class="card mb-3 mb-lg-5 card-primary card-outline">
               <div class="card-header">
-                <h3 class="card-title">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-proyecto" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
+                <h3 class="card-title botones_galeria">
+                  <button type="button" class="btn btn-warning btn-xs" onclick="limpiar_galeria(); mostrar_section(1);"><i class="fas fa-arrow-left"></i> Regresar</button>
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-imagen" onclick="limpiar_galeria(); "><i class="fas fa-plus-circle"></i> Agregar</button>
+                </h3>
+                <h3 class="card-title btn_add_proyect">
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-proyecto" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
                   Proyectos
                 </h3>
               </div>
@@ -49,11 +53,13 @@
               <!-- Body -->
               <div class="card-body">
                 <div class="row">
+
                   <div class="col-lg-12 text-center cargando">
                     <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
                     <br />
                     <h4>Cargando...</h4>
                   </div>
+
                   <div class="col-lg-12 tabla" style="display: none;">
                     <!-- tabla -->
                     <table id="tabla-proyecto" class="table table-bordered table-striped display" style="width: 100% !important;">
@@ -62,6 +68,7 @@
                           <th class="">Acc.</th>
                           <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
                           <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
+                          <th data-toggle="tooltip" data-original-title="Galería">Galería</th>
                         </tr>
                       </thead>
                       <tbody></tbody>
@@ -70,10 +77,17 @@
                           <th class="">Acc.</th>
                           <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
                           <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
+                          <th data-toggle="tooltip" data-original-title="Galería">Galería</th>
                         </tr>
                       </tfoot>
                     </table>
                   </div>
+
+                  <div class="col-lg-12 text-center galeria" style="display: none;">
+                    <div id="g_cargando"></div>
+                    <div class="row" id="l_galeria"> </div>
+                  </div>
+
                 </div>
               </div>
               <!-- End Body -->
@@ -84,6 +98,7 @@
         <!-- End Row -->
       </div>
       <!-- End Content Section -->
+
       <!-- Modal agregar proveedores -->
       <div class="modal fade" id="modal-agregar-proyecto">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -186,7 +201,8 @@
           </div>
         </div>
       </div>
-      <!-- Modal ver imagen -->
+
+      <!-- Modal ver imagen  -->
       <div class="modal fade" id="modal-ver-imagen">
         <div class="modal-dialog modal-dialog-scrollable modal-md">
           <div class="modal-content">
@@ -212,6 +228,84 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal agregar imagen -->
+      <div class="modal fade" id="modal-agregar-imagen">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Agregar:</b> Imagen</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-danger" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <!-- form start -->
+              <form id="form-imagen-proyect" name="form-imagen-proyect" method="POST">
+                <div class="card-body">
+                  <div class="row" id="cargando-3-fomulario">
+                    <!--  idproyecto -->
+                    <input type="hidden" name="idgaleria_proyecto" id="idgaleria_proyecto" />
+                    <input type="hidden" name="idproyecto_ing" id="idproyecto_ing" />
+                    <!-- Factura -->
+                    <div class="col-md-6">
+                      <div class="row text-center">
+                        <div class="col-md-12" style="padding-top: 15px; padding-bottom: 5px;">
+                          <label for="cip" class="control-label"> Imagen </label>
+                        </div>
+                        <div class="col-md-6 text-center">
+                          <button type="button" class="btn btn-success btn-block btn-xs clase_margin" id="doc2_i"><i class="fas fa-upload"></i> Subir.</button>
+                          <input type="hidden" id="doc_old_2" name="doc_old_2" />
+                          <input style="display: none;" id="doc2" type="file" name="doc2" accept="application/pdf, image/*" class="docpdf" />
+                        </div>
+                        <div class="col-md-6 text-center">
+                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(2, 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
+                        </div>
+                      </div>
+                      <div id="doc2_ver" class="text-center mt-4">
+                        <img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" />
+                      </div>
+                      <div class="text-center" id="doc2_nombre"><!-- aqui va el nombre del pdf --></div>
+                    </div>
+                    <!--indicaciones-->
+                    <div class="col-lg-6 class_pading">
+                        <div class="alert alert-warning media" role="alert">
+                          <i class="fas fa-info-circle mt-1 fa-2x"></i>
+                          
+                          <div class="media-body" role="alert"> 
+                          <div class="text-center"><b> Indicaciones para la imegen</b> </div>                           
+                            <hr style="border-top-color: azure;"/>
+                            <ul>
+                              <li> <b>Tamaño:</b>  400x500 </li>
+                              <li> <b>Formatos:</b> <span> .png .jpeg .jpg </span>  </li>
+                              <li>  <b>Peso:</b> Max. 2 mb </li>
+                            </ul>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row" id="cargando-4-fomulario" style="display: none;">
+                    <div class="col-lg-12 text-center">
+                      <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
+                      <br />
+                      <h4>Cargando...</h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <!-- <button type="submit" id="submit-form-imagen-proyect">Submit</button> -->
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal" onclick="limpiar_galeria();">Close</button>
+                  <button type="submit" class="btn btn-success btn-xs" id="submit-form-imagen-proyect">Guardar Cambios</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <?php
             }else{
               require 'noacceso.php';
@@ -315,6 +409,16 @@
           var select2 = $.HSCore.components.HSSelect2.init($(this));
         });
 
+        // INITIALIZATION OF CUBEPORTFOLIO
+        // =======================================================
+        $('.cbp').each(function () {
+          var cbp = $.HSCore.components.HSCubeportfolio.init($(this), {
+            layoutMode: 'grid',
+            filters: '#filterControls',
+            displayTypeSpeed: 0
+          });
+        });
+
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         var quill = $.HSCore.components.HSQuill.init(".js-quill");
@@ -324,27 +428,42 @@
         $(".js-go-to").each(function () {
           var goTo = new HSGoTo($(this)).init();
         });
+
       });
     </script>
-<style>
-  .textarea_datatable {
-    width: 100%;
-    background: rgb(215 224 225 / 22%);
-    border-block-color: inherit;
-    border-bottom: aliceblue;
-    border-left: aliceblue;
-    border-right: aliceblue;
-    border-top: hidden;
-  }
-  .avatar-img-modif {
-    max-width: 50%;
-    height: 50%;
-    object-fit: cover;
-  }
-</style>
+    <style>
+        .textarea_datatable {
+          width: 100%;
+          background: rgb(215 224 225 / 22%);
+          border-block-color: inherit;
+          border-bottom: aliceblue;
+          border-left: aliceblue;
+          border-right: aliceblue;
+          border-top: hidden;
+        }
+        .avatar-img-modif {
+          max-width: 50%;
+          height: 50%;
+          object-fit: cover;
+        }
+
+      .geeks {
+            overflow: hidden;
+            margin: 0 auto;
+        }
+      
+        .geeks img {
+            width: 90%;
+            transition: 0.5s all ease-in-out;
+        }
+      
+        .geeks:hover img {
+            transform: scale(1.5);
+        }
+    </style>
     <!-- IE Support -->
     <script>
-      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
+      if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="../assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
     <!-- JS script -->
     <script src="scripts/proyecto.js"></script>

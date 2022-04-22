@@ -123,7 +123,34 @@ Class Proyecto
     return $data_select;
 	}
 
+	//:::::::::::::::::::: G A L E R I A ::::::::::::::::::::::
+	public function insertar_galeria($idproyecto_ing,$img_galeria)
+	{
+		
+		$sql="INSERT INTO galeria_proyecto( idproyecto_front, imagen) VALUES ('$idproyecto_ing','$img_galeria')";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function editar_galeria($idgaleria_proyecto,$idproyecto_ing,$img_galeria)
+	{
+		$sql="UPDATE galeria_proyecto SET idproyecto_front='$idproyecto_ing', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
+		return ejecutarConsulta($sql);	
+	}
+	public function listar_galeria($idproyecto_front)
+	{
+		$sql="SELECT*FROM galeria_proyecto WHERE idproyecto_front='$idproyecto_front'  ORDER BY idgaleria_proyecto DESC";
+		return ejecutarConsultaArray($sql);		
+	}
+
+	//Seleccionar la imagen
+	public function reg_img_galeria($idgaleria_proyecto)
+	{
+		$sql="SELECT imagen FROM galeria_proyecto WHERE idgaleria_proyecto='$idgaleria_proyecto'";
+		return ejecutarConsultaSimpleFila($sql);		
+	}
 	
+	//:::::::::::::::::::: L I S T A R  W E B ::::::::::::::::::::::
+
 	//Implementar un método para listar en la web
 	public function listar_proyecto_web()
 	{

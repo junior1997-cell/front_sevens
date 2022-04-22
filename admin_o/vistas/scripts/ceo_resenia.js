@@ -85,6 +85,7 @@ function actualizar_ceo_resenia(e) {
     },
   });
 }
+
 function l_m() {
   // limpiar();
   $("#barra_progress").css({ width: "0%" });

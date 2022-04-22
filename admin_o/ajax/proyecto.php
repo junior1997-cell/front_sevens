@@ -15,15 +15,21 @@ if (!isset($_SESSION["nombre"])) {
     require_once "../modelos/Proyecto.php";
 
     $proyecto = new Proyecto();
-    
+
+    //::::::::P R O Y E C T O S ::::::::::::::::::::.
+
     $idproyecto = isset($_POST["idproyecto"]) ? limpiarCadena($_POST["idproyecto"]) : "";
     $id_pryecto_adm = isset($_POST["id_pryecto_adm"]) ? limpiarCadena($_POST["id_pryecto_adm"]) : "";
     $descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"]) : "";
 
     $id_pryecto_adm_edith = isset($_POST["id_pryecto_adm_edith"]) ? limpiarCadena($_POST["id_pryecto_adm_edith"]) : "";
-
   
-    $foto2 = isset($_POST["doc1"]) ? limpiarCadena($_POST["doc1"]) : "";
+    $foto1 = isset($_POST["doc1"]) ? limpiarCadena($_POST["doc1"]) : "";
+
+    //::::::::G A L E R Í A  P R O Y E C T O  ::::::::::::::::::::.
+    $idgaleria_proyecto = isset($_POST["idgaleria_proyecto"]) ? limpiarCadena($_POST["idgaleria_proyecto"]) : "";
+    $idproyecto_ing = isset($_POST["idproyecto_ing"]) ? limpiarCadena($_POST["idproyecto_ing"]) : "";
+    $foto2 = isset($_POST["doc2"]) ? limpiarCadena($_POST["doc2"]) : "";
 
     switch ($_GET["op"]) {
 
@@ -106,10 +112,11 @@ if (!isset($_SESSION["nombre"])) {
                             </div>
                           </a>
                           <div class="ml-3">
-                            <small style="font-size: 14px;font-weight: bold;">'. $reg->nombre_proyecto .'</small>
+                            <small style="font-weight: bold;">'. $reg->nombre_proyecto .'</small>
                           </div>
                         </div>',
-                "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px;">' . $reg->descripcion . '</textarea>'
+                "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px; width: 200px;">' . $reg->descripcion . '</textarea>',
+                "3" =>'<button class="btn btn-info btn-xs margin_topp" onclick="galeria(' .$reg->idproyecto .');"><i class="fas fa-images fa-1x"></i></button>'
               ];
             }
             $results = [
@@ -135,6 +142,63 @@ if (!isset($_SESSION["nombre"])) {
         }
 
       break;
+      //:::::::::::::G A L E R Í A::::::::::::::
+      
+      case 'guardaryeditar_imagen':
+
+        if (!file_exists($_FILES['doc2']['tmp_name']) || !is_uploaded_file($_FILES['doc2']['tmp_name'])) {
+          $img_galeria = $_POST["doc_old_2"];
+          $flat_img = false;
+        } else {
+          $ext1 = explode(".", $_FILES["doc2"]["name"]);
+          $flat_img = true;
+
+          $img_galeria = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+
+          move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
+        }
+
+        if (empty($idgaleria_proyecto)) {
+          //var_dump($idproyecto,$idproveedor);
+          $rspta = $proyecto->insertar_galeria($idproyecto_ing,$img_galeria);
+          echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
+        } else {
+          //validamos si existe comprobante para eliminarlo
+          if ($flat_img == true) {
+
+            $datos_ficha1 = $proyecto->reg_img_galeria($idgaleria_proyecto);
+
+            if ( $datos_ficha1['status'] ) {
+      
+              $ficha1_ant = $datos_ficha1['data']['img_perfil'];
+        
+              if ($ficha1_ant != "") {
+
+                unlink("../dist/img/proyecto/img_galeria/" . $ficha1_ant);
+              }
+
+            }
+
+          }
+
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$idproyecto_ing,$img_galeria);
+          //var_dump($idproyecto,$idproveedor);
+          echo $rspta ? "ok" : "No se pudo actualizar";
+        }
+      break;
+        
+      //Listar Galeria
+      case 'listar_galeria':
+        $rspta =   $rspta = $proyecto->listar_galeria( $_POST['idproyecto_front']);
+        echo json_encode($rspta, true);
+      break;
+  
+      case 'eliminar':
+          $rspta = $proyecto->eliminar($idproyecto);
+          echo $rspta ? " Eliminado" : "No se puede Eliminar";
+          //Fin de las validaciones de acceso
+      break;
+
 
       case 'salir':
         //Limpiamos las variables de sesión

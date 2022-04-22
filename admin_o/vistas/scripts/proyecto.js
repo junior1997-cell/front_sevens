@@ -1,5 +1,4 @@
 var tabla;
-
 //Función que se ejecuta al inicio
 function init() {
 
@@ -14,14 +13,9 @@ function init() {
 
   $("#guardar_registro").on("click", function (e) {$("#submit-form-proyecto").submit();});
 
-  //Initialize Select2 Elements
- /* $("#id_pryecto_adm").select2({
-    theme: "bootstrap4",
-    placeholder: "Selecione Proyecto",
-    allowClear: true,
-  }); */
+  $("#form-imagen-proyect").on("submit", function (e) { guardaryeditar_imagen(e) });
 
-  
+  mostrar_section(1);
 }
 // abrimos el navegador de archivos
 $("#doc1_i").click(function() {  $('#doc1').trigger('click'); });
@@ -81,11 +75,35 @@ function mostrar_select(estado) {
   
 }
 
+function mostrar_section(estado) {
+
+  if (estado==1) {
+
+    $(".tabla").show();
+    $(".botones_galeria").hide();
+    $(".btn_add_proyect").show();
+    
+    $(".galeria").hide();
+    $("#l_galeria").html("");
+
+  }
+
+  if (estado==2) {
+
+    $(".tabla").hide();
+    $(".botones_galeria").show();
+    $(".btn_add_proyect").hide();
+    
+    $(".galeria").show();
+    
+  }
+
+}
+
 //Función Listar
 function listar() {
 
-  $(".tabla").hide();
-  $(".cargando").show();
+  $(".tabla").hide(); $(".cargando").show();
 
   tabla=$('#tabla-proyecto').dataTable({
     "responsive": true,
@@ -102,16 +120,6 @@ function listar() {
           console.log(e.responseText);	
         }
       },
-      createdRow: function (row, data, ixdex) {
-        // columna: #
-        // if (data[1] != '') {
-        //   $("td", row).eq(1).addClass('text-center');
-        // }
-        // columna: #
-        if (data[2] != '') {
-          $("td", row).eq(2).addClass('text-nowrap');
-        }
-      },
     "language": {
       "lengthMenu": "Mostrar: _MENU_ registros",
       "buttons": {
@@ -126,9 +134,9 @@ function listar() {
     "iDisplayLength": 5,//Paginación
     "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
   }).DataTable();
-  
-  $(".tabla").show();
-  $(".cargando").hide();
+    
+  $(".tabla").show(); $(".cargando").hide();
+
 }
 
 //ver ficha tecnica
@@ -282,9 +290,123 @@ function eliminar(idproyecto) {
     }
   });   
 }
+//::::::::::::::: G A L E R Í A :::::::::.
+
+// abrimos el navegador de archivos
+$("#doc2_i").click(function() {  $('#doc2').trigger('click'); });
+$("#doc2").change(function(e) {  addDocs(e,$("#doc2").attr("id")) });
+
+// Eliminamos el doc 1
+function doc2_eliminar() {
+
+	$("#doc2").val("");
+
+	$("#doc2_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
+
+	$("#doc2_nombre").html("");
+}
+
+function limpiar_galeria() {
+
+  $("#idgaleria_proyecto").val("");
+
+  $("#doc_old_2").val("");
+  $("#doc2").val("");  
+  $('#doc2_ver').html(`<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >`);
+  $('#doc2_nombre').html("");
+
+}
+
+function galeria(idproyecto) { 
+  $("#idproyecto_ing").val(idproyecto); 
+  localStorage.setItem('idproyecto_img',idproyecto);
+  mostrar_section(2);
+  $("#g_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
+
+  $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto_front:idproyecto }, function (e, status) {
+
+    e = JSON.parse(e); console.log('........'); console.log(e.data); 
+    imagen="";
+    
+    if (e.data.length == 0) {
+      $("#g_cargando").html(`<div class="col-lg-12">
+      <div class="cbp-item product">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        </div>
+      </div>
+    </div>`);
+
+    } else {
+
+      $.each(e.data, function (index, value) {
+
+        if (value.imagen!=null || value.imagen!="") { imagen='../dist/img/proyecto/img_galeria/'+value.imagen; } else { imagen='../dist/svg/drag-n-drop.svg'; }
+
+          var l_galeria = ` <div class="col-lg-4">
+                              <div class="cbp-item product">
+                                  <div class="overflow-hidden rounded-lg">
+                                    <div class="cbp-caption-defaultWrap geeks">
+                                      <img class="rounded-lg" src="${imagen}" style="width: 90%;" onerror="this.src='../dist/svg/drag-n-drop.svg';" alt="Image Description">
+                                    </div>
+                                  </div>
+                                  <div class="card-footer">
+                                    <ul class="list-inline list-separator small text-body">
+                                      <li class="list-inline-item" > 
+                                        <a style="cursor: pointer; font-size: 13px;"> 
+                                          <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
+                                        </a>
+                                      </li>
+                                      <li class="list-inline-item">
+                                        <a style="cursor: pointer; font-size: 13px;"> 
+                                            <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                              </div>
+                            </div>`;
+
+          $("#l_galeria").append(l_galeria);
+          
+      });
+
+      $("#g_cargando").html("");
+
+    }
+
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
+
+}
+
+function guardaryeditar_imagen(e) {
+  e.preventDefault(); //No se activará la acción predeterminada del evento
+  var formData = new FormData($("#form-imagen-proyect")[0]);
+
+  $.ajax({
+    url: "../ajax/proyecto.php?op=guardaryeditar_imagen",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+
+    success: function (datos) {
+      if (datos == "ok") {
+        Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
+        galeria(localStorage.getItem('idproyecto_img'));
+        $("#modal-agregar-imagen").modal("hide");
+
+      } else {
+        Swal.fire("Error!", datos, "error");
+      }
+    }
+
+  });
+}
 
 init();
-var idproyecto=0;
+
 $(function () {
 
   
