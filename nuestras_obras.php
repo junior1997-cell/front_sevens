@@ -166,7 +166,7 @@
 
             <div class="col-lg-7">
               <div class="pl-lg-6">
-                <img class="avatar mb-3" src="admin_o/assets/svg/brands/capsule.svg" alt="Image Description" />
+                <img class="avatar mb-3" src="admin/assets/svg/brands/capsule.svg" alt="Image Description" />
 
                 <blockquote class="h2 mb-5">Contamos el mejor equipo profesional y obrero, esto nos da la certeza de que todo lo que realicemos sea de calidad.</blockquote>
 

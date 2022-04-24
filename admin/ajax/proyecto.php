@@ -1,556 +1,220 @@
 <?php
-  ob_start();
 
-  if (strlen(session_id()) < 1){
+ob_start();
 
-    session_start();//Validamos si existe o no la sesión
-  }
+if (strlen(session_id()) < 1) {
+  session_start(); //Validamos si existe o no la sesión
+}
 
-  if (!isset($_SESSION["nombre"])) {    
-     
-		header("Location: ../vistas/login.html");//Validamos el acceso solo a los usuarios logueados al sistema.
-		die();
+if (!isset($_SESSION["nombre"])) {
+  header("Location: ../vistas/login.html"); //Validamos el acceso solo a los usuarios logueados al sistema.
+} else {
+  //Validamos el acceso solo al usuario logueado y autorizado.
+  if ($_SESSION['sistema_informativo'] == 1) {
 
-	} else {
-    //Validamos el acceso solo al usuario logueado y autorizado.
-    if ($_SESSION['escritorio'] == 1) {
+    require_once "../modelos/Proyecto.php";
 
-      require_once "../modelos/Proyecto.php";
+    $proyecto = new Proyecto();
 
-      $proyecto = new Proyecto();
+    //::::::::P R O Y E C T O S ::::::::::::::::::::.
 
-      $idproyecto				    = isset($_POST["idproyecto"])? limpiarCadena($_POST["idproyecto"]):""; 
-      $tipo_documento			  = isset($_POST["tipo_documento"])? limpiarCadena($_POST["tipo_documento"]):"";
-      $numero_documento		  = isset($_POST["numero_documento"])? limpiarCadena($_POST["numero_documento"]):"";
-      $empresa				      = isset($_POST["empresa"])? limpiarCadena($_POST["empresa"]):"";
-      $nombre_proyecto		  = isset($_POST["nombre_proyecto"])? limpiarCadena($_POST["nombre_proyecto"]):"";
-      $nombre_codigo		    = isset($_POST["nombre_codigo"])? limpiarCadena($_POST["nombre_codigo"]):"";
-      $ubicacion				    = isset($_POST["ubicacion"])? limpiarCadena($_POST["ubicacion"]):"";
-      $actividad_trabajo		= isset($_POST["actividad_trabajo"])? limpiarCadena($_POST["actividad_trabajo"]):"";
-      $empresa_acargo 		  = isset($_POST['empresa_acargo'])? limpiarCadena($_POST['empresa_acargo']):"";
-      $costo					      = isset($_POST["costo"])? limpiarCadena($_POST["costo"]):"";
-      $fecha_inicio			    = isset($_POST["fecha_inicio"])? limpiarCadena($_POST["fecha_inicio"]):"";
-      $fecha_fin				    = isset($_POST["fecha_fin"])? limpiarCadena($_POST["fecha_fin"]):"";
-      $fecha_inicio_actividad= isset($_POST["fecha_inicio_actividad"])? limpiarCadena($_POST["fecha_inicio_actividad"]):"";
-      $fecha_fin_actividad	= isset($_POST["fecha_fin_actividad"])? limpiarCadena($_POST["fecha_fin_actividad"]):"";
-      $plazo_actividad		  = isset($_POST["plazo_actividad"])? limpiarCadena($_POST["plazo_actividad"]):"";
-      $plazo		            = isset($_POST["plazo"])? limpiarCadena($_POST["plazo"]):""; 
-      $dias_habiles		      = isset($_POST["dias_habiles"])? limpiarCadena($_POST["dias_habiles"]):"";
+    $idproyecto = isset($_POST["idproyecto"]) ? limpiarCadena($_POST["idproyecto"]) : "";
+    $id_pryecto_adm = isset($_POST["id_pryecto_adm"]) ? limpiarCadena($_POST["id_pryecto_adm"]) : "";
+    $descripcion = isset($_POST["descripcion"]) ? limpiarCadena($_POST["descripcion"]) : "";
 
-      $fecha_pago_obrero		= isset($_POST["fecha_pago_obrero"])? limpiarCadena($_POST["fecha_pago_obrero"]):"";
-      $fecha_valorizacion		= isset($_POST["fecha_valorizacion"])? limpiarCadena($_POST["fecha_valorizacion"]):"";
+    $id_pryecto_adm_edith = isset($_POST["id_pryecto_adm_edith"]) ? limpiarCadena($_POST["id_pryecto_adm_edith"]) : "";
+  
+    $foto1 = isset($_POST["doc1"]) ? limpiarCadena($_POST["doc1"]) : "";
 
-      $permanente_pago_obrero		= isset($_POST["permanente_pago_obrero"])? limpiarCadena($_POST["permanente_pago_obrero"]):"";
-       
-      $doc1; $doc2; $doc3; $doc4; $doc5; $doc6;
-      // $idproyecto,$tipo_documento,$numero_documento,$empresa,$nombre_proyecto,$ubicacion,$actividad_trabajo,
-      // $empresa_acargo,$costo,$fecha_inicio,$fecha_fin,$doc1_contrato_obra,$doc2_entrega_terreno,$doc3_inicio_obra,
-      switch ($_GET["op"]){
+    //::::::::G A L E R Í A  P R O Y E C T O  ::::::::::::::::::::.
+    $idgaleria_proyecto = isset($_POST["idgaleria_proyecto"]) ? limpiarCadena($_POST["idgaleria_proyecto"]) : "";
+    $idproyecto_ing = isset($_POST["idproyecto_ing"]) ? limpiarCadena($_POST["idproyecto_ing"]) : "";
+    $foto2 = isset($_POST["doc2"]) ? limpiarCadena($_POST["doc2"]) : "";
 
-        case 'guardaryeditar':
+    switch ($_GET["op"]) {
+
+      case 'guardaryeditar':
+
+            if (!file_exists($_FILES['doc1']['tmp_name']) || !is_uploaded_file($_FILES['doc1']['tmp_name'])) {
+              $imagen_perfil = $_POST["doc_old_1"];
+              $flat_img = false;
+            } else {
+              $ext1 = explode(".", $_FILES["doc1"]["name"]);
+              $flat_img = true;
+
+              $imagen_perfil = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+
+              move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/img/proyecto/imagen_perfil/" . $imagen_perfil);
+            }
+
+            if (empty($idproyecto)) {
+              //var_dump($idproyecto,$idproveedor);
+              $rspta = $proyecto->insertar($id_pryecto_adm,$descripcion,$imagen_perfil);
+              echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
+            } else {
+              //validamos si existe comprobante para eliminarlo
+              if ($flat_img == true) {
+
+                $datos_ficha1 = $proyecto->reg_img($idproyecto);
+
+                if ( $datos_ficha1['status'] ) {
           
-          $fecha_inicio_actividad =  format_a_m_d( $fecha_inicio_actividad);          
-          $fecha_fin_actividad =  format_a_m_d( $fecha_fin_actividad);
-
-          $fecha_inicio =  format_a_m_d( $fecha_inicio);          
-          $fecha_fin =  format_a_m_d( $fecha_fin);
-
-          //*DOC 1*//
-          if (!file_exists($_FILES['doc1']['tmp_name']) || !is_uploaded_file($_FILES['doc1']['tmp_name'])) {
-
-            $flat_doc1 = false;  $doc1 = $_POST["doc_old_1"];
-
-          } else {
-
-            $flat_doc1 = true;  $ext_doc1 = explode(".", $_FILES["doc1"]["name"]);            
-              
-            $doc1 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc1);
-
-            move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/docs/valorizacion/" . $doc1);
+                  $ficha1_ant = $datos_ficha1['data']['img_perfil'];
             
-          }	
+                  if ($ficha1_ant != "") {
 
-          //*DOC 2*//
-          if (!file_exists($_FILES['doc2']['tmp_name']) || !is_uploaded_file($_FILES['doc2']['tmp_name'])) {
+                    unlink("../dist/img/proyecto/imagen_perfil/" . $ficha1_ant);
+                  }
 
-            $flat_doc2 = false;
+                }
 
-            $doc2      = $_POST["doc_old_2"];
-
-          } else {
-
-            $flat_doc2 = true;
-
-            $ext_doc2     = explode(".", $_FILES["doc2"]["name"]);
-              
-            $doc2 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc2);
-
-            move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/docs/valorizacion/" . $doc2);
-            
-          }	
-
-          //*DOC 3*//
-          if (!file_exists($_FILES['doc3']['tmp_name']) || !is_uploaded_file($_FILES['doc3']['tmp_name'])) {
-
-            $flat_doc3 = false;
-
-            $doc3      = $_POST["doc_old_3"];
-
-          } else {
-
-            $flat_doc3 = true;
-
-            $ext_doc3     = explode(".", $_FILES["doc3"]["name"]);
-              
-            $doc3 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc3);
-
-            move_uploaded_file($_FILES["doc3"]["tmp_name"], "../dist/docs/valorizacion/" . $doc3);
-            
-          }	
-
-          //*DOC 4*//
-          if (!file_exists($_FILES['doc4']['tmp_name']) || !is_uploaded_file($_FILES['doc4']['tmp_name'])) {
-
-            $flat_doc4 = false;
-
-            $doc4      = $_POST["doc_old_4"];
-
-          } else {
-
-            $flat_doc4 = true;
-
-            $ext_doc4     = explode(".", $_FILES["doc4"]["name"]);
-              
-            $doc4 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc4);
-
-            move_uploaded_file($_FILES["doc4"]["tmp_name"], "../dist/docs/valorizacion/" . $doc4);
-            
-          }	
-
-          //*DOC 5*//
-          if (!file_exists($_FILES['doc5']['tmp_name']) || !is_uploaded_file($_FILES['doc5']['tmp_name'])) {
-
-            $flat_doc5 = false;
-
-            $doc5      = $_POST["doc_old_5"];
-
-          } else {
-
-            $flat_doc5 = true;
-
-            $ext_doc5     = explode(".", $_FILES["doc5"]["name"]);
-              
-            $doc5 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc5);
-
-            move_uploaded_file($_FILES["doc5"]["tmp_name"], "../dist/docs/valorizacion/" . $doc5);
-            
-          }	
-
-          //*DOC 6*//
-          if (!file_exists($_FILES['doc6']['tmp_name']) || !is_uploaded_file($_FILES['doc6']['tmp_name'])) {
-
-            $flat_doc6 = false;
-
-            $doc6      = $_POST["doc_old_6"];
-
-          } else {
-
-            $flat_doc6 = true;
-
-            $ext_doc6     = explode(".", $_FILES["doc6"]["name"]);
-            
-            // echo json_encode($_FILES['doc6']); 
-            $doc6 = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext_doc6);
-
-            move_uploaded_file($_FILES["doc6"]["tmp_name"], "../dist/docs/valorizacion/" . $doc6);
-            
-          }          
-
-          if (empty($idproyecto)){
-            // insertamos en la bd
-            $rspta=$proyecto->insertar($tipo_documento, $numero_documento, $empresa, $nombre_proyecto, $nombre_codigo, $ubicacion, $actividad_trabajo, $empresa_acargo, quitar_formato_miles($costo), $fecha_inicio_actividad, $fecha_fin_actividad, $plazo_actividad, $fecha_inicio, $fecha_fin, $plazo, $dias_habiles, $doc1, $doc2, $doc3, $doc4, $doc5, $doc6, $fecha_pago_obrero, $fecha_valorizacion, $permanente_pago_obrero);
-            // echo $rspta ;
-            echo $rspta ? "ok" : "No se pudieron registrar todos los datos del proyecto";
-
-          } else {
-            // validamos si existe el doc para eliminarlo
-            if ($flat_doc1 == true) {
-
-              $datos_f1 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc1_ant = $datos_f1->fetch_object()->doc1_contrato_obra;
-
-              if ($doc1_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc1_ant);
               }
+
+              $rspta = $proyecto->editar($idproyecto,$id_pryecto_adm_edith,$descripcion,$imagen_perfil);
+              //var_dump($idproyecto,$idproveedor);
+              echo $rspta ? "ok" : "No se pudo actualizar";
             }
-
-            if ($flat_doc2 == true) {
-
-              $datos_f2 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc2_ant = $datos_f2->fetch_object()->doc2_entrega_terreno;
-
-              if ($doc2_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc2_ant);
-              }
-            }
-
-            if ($flat_doc3 == true) {
-
-              $datos_f3 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc3_ant = $datos_f3->fetch_object()->doc3_inicio_obra;
-
-              if ($doc3_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc3_ant);
-              }
-            }
-
-            if ($flat_doc4 == true) {
-
-              $datos_f4 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc4_ant = $datos_f4->fetch_object()->doc4_presupuesto;
-
-              if ($doc4_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc4_ant);
-              }
-            }
-
-            if ($flat_doc5 == true) {
-
-              $datos_f5 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc5_ant = $datos_f5->fetch_object()->doc5_analisis_costos_unitarios;
-
-              if ($doc5_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc5_ant);
-              }
-            }
-
-            if ($flat_doc6 == true) {
-
-              $datos_f6 = $proyecto->obtenerDocs($idproyecto);
-
-              $doc6_ant = $datos_f6->fetch_object()->doc6_insumos;
-
-              if ($doc6_ant != "") {
-
-                unlink("../dist/docs/valorizacion/" . $doc6_ant);
-              }
-            }
-
-            $rspta=$proyecto->editar($idproyecto, $tipo_documento, $numero_documento, $empresa, $nombre_proyecto, $nombre_codigo, $ubicacion, $actividad_trabajo, $empresa_acargo, quitar_formato_miles($costo), $fecha_inicio_actividad, $fecha_fin_actividad, $plazo_actividad, $fecha_inicio, $fecha_fin, $plazo, $dias_habiles, $doc1, $doc2, $doc3, $doc4, $doc5, $doc6, $fecha_pago_obrero, $fecha_valorizacion, $permanente_pago_obrero);
-            
-            echo $rspta ? "ok" : "Proyecto no se pudo actualizar";
-          }
-            
         break;
+
       
-        case 'empezar_proyecto':
+        case 'eliminar':
+          $rspta = $proyecto->eliminar($idproyecto);
+          echo $rspta ? " Eliminado" : "No se puede Eliminar";
+          //Fin de las validaciones de acceso
+      break;
 
-          $rspta=$proyecto->empezar_proyecto($idproyecto);
-
-          echo $rspta ? "ok" : "No se logro empezar el proyecto";	
-
-        break;
-
-        case 'terminar_proyecto':
-
-          $rspta=$proyecto->terminar_proyecto($idproyecto);
-
-          echo $rspta ? "ok" : "No se logro terminar el proyecto";
-
-        break;
-
-        case 'reiniciar_proyecto':
-
-          $rspta=$proyecto->reiniciar_proyecto($idproyecto);
-
-          echo $rspta ? "ok" : "No se logro reiniciar el proyecto";	
-
-        break;
-
-        case 'mostrar':
-
-          $rspta=$proyecto->mostrar($idproyecto);
+      case 'mostrar_valor':
+          $rspta = $proyecto->mostrar($idproyecto);
           //Codificar el resultado utilizando json
-          echo json_encode($rspta);	
+          echo json_encode($rspta, true);
+          //Fin de las validaciones de acceso
+      break;
 
-        break;
+      case 'listar':
 
-        case 'tablero':
-          $rspta=$proyecto->tablero();
-          //Codificar el resultado utilizando json
-          echo json_encode($rspta);
-        break;
-
-        case 'listar':
-
-          $rspta=$proyecto->listar();
+          $rspta = $proyecto->listar();
           //Vamos a declarar un array
-          $data= Array();
-          $cont=1;
-          while ($reg=$rspta->fetch_object()){
+          $data = [];
+          $comprobante = '';
+          $cont = 1;
+          $imagen_error = "this.src='../dist/svg/defaul_valor.png'";
+          if ($rspta['status']) {
 
-            $estado = "";
-            $acciones = "";
+            while ($reg = $rspta['data']->fetch_object()) {
 
-            if ($reg->estado == '2') {
+              $data[] = [
+                "0" => '<button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' .$reg->idproyecto .')"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' .$reg->idproyecto .')"><i class="far fa-trash-alt"></i></button>',
+                "1" =>  '<div class="d-flex align-items-center mx-auto">
+                          <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_proyecto . '\')">
+                            <div class="avatar avatar-circle">
+                              <img class="avatar-img" src="../dist/img/proyecto/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
+                            </div>
+                          </a>
+                          <div class="ml-3">
+                            <small style="font-weight: bold;">'. $reg->nombre_proyecto .'</small>
+                          </div>
+                        </div>',
+                "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px; width: 200px;">' . $reg->descripcion . '</textarea>',
+                "3" =>'<button class="btn btn-info btn-xs margin_topp" onclick="galeria(' .$reg->idproyecto .');"><i class="fas fa-images fa-1x"></i></button>'
+              ];
+            }
+            $results = [
+              "sEcho" => 1, //Información para el datatables
+              "iTotalRecords" => count($data), //enviamos el total registros al datatable
+              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+              "data" => $data,
+            ];
+            echo json_encode($results,true);
 
-              $estado = '<span class="text-center badge badge-danger">No empezado</span>';
-              $acciones = '<button class="btn btn-success btn-sm" onclick="empezar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Empezar proyecto" /*style="margin-right: 3px !important;"*/><i class="fa fa-check"></i></button>';
-            } else {
+          } else {
+            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+          }
 
-              if ($reg->estado == '1') {
+      break;
 
-                $estado = '<span class="text-center badge badge-warning">En proceso</span>';
-                $acciones = '<button class="btn btn-danger btn-sm" onclick="terminar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Terminar proyecto" /*style="margin-right: 3px !important;"*/><i class="fas fa-times"></i></button>';
-              } else {
+      case 'select2_proyecto':
 
-                $estado = '<span class="text-center badge badge-success">Terminado</span>';
-                $acciones = '<button class="btn btn-primary btn-sm" onclick="reiniciar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Reiniciar proyecto" /*style="margin-right: 3px !important;"*/><i class="fas fa-sync-alt"></i></button>';
-              }                
+        $rspta =  $proyecto->select2_proyecto();
+
+        foreach ($rspta as $key => $reg) {
+          echo '<option value=' . $reg['idproyecto'] . '>' . $reg['codigo_proyecto']  . '</option>';
+        }
+
+      break;
+      //:::::::::::::G A L E R Í A::::::::::::::
+      
+      case 'guardaryeditar_imagen':
+
+        if (!file_exists($_FILES['doc2']['tmp_name']) || !is_uploaded_file($_FILES['doc2']['tmp_name'])) {
+          $img_galeria = $_POST["doc_old_2"];
+          $flat_img = false;
+        } else {
+          $ext1 = explode(".", $_FILES["doc2"]["name"]);
+          $flat_img = true;
+
+          $img_galeria = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+
+          move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
+        }
+
+        if (empty($idgaleria_proyecto)) {
+          //var_dump($idproyecto,$idproveedor);
+          $rspta = $proyecto->insertar_galeria($idproyecto_ing,$img_galeria);
+          echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
+        } else {
+          //validamos si existe comprobante para eliminarlo
+          if ($flat_img == true) {
+
+            $datos_ficha1 = $proyecto->reg_img_galeria($idgaleria_proyecto);
+
+            if ( $datos_ficha1['status'] ) {
+      
+              $ficha1_ant = $datos_ficha1['data']['img_perfil'];
+        
+              if ($ficha1_ant != "") {
+
+                unlink("../dist/img/proyecto/img_galeria/" . $ficha1_ant);
+              }
+
             }
 
-            if (strlen($reg->empresa) >= 20 ) { $empresa = substr($reg->empresa, 0, 20).'...';  } else { $empresa = $reg->empresa; }
-
-            if (strlen($reg->ubicacion) >= 20 ) { $ubicacion = substr($reg->ubicacion, 0, 20).'...';  } else { $ubicacion = $reg->ubicacion; }
-
-            if (strlen($reg->nombre_proyecto) >= 21 ) { $nombre_proyecto = substr($reg->nombre_proyecto, 0, 21).'...'; } else { $nombre_proyecto = $reg->nombre_proyecto; }
-              
-            $abrir_proyecto = "'$reg->idproyecto', '$reg->nombre_codigo', '$reg->fecha_inicio', '$reg->fecha_fin'";
-
-            $docs= "'$reg->doc1_contrato_obra', '$reg->doc2_entrega_terreno', '$reg->doc3_inicio_obra', '$reg->doc4_presupuesto', '$reg->doc5_analisis_costos_unitarios', '$reg->doc6_insumos'";
-            
-            $tool = '"tooltip"';   $toltip = "<script> $(function () { $('[data-toggle=$tool]').tooltip(); }); </script>";                
-
-            $data[]=array(
-              "0"=>$cont++,
-              "1"=>'<div class="asignar_paint_'.$reg->idproyecto.'"> 
-                <button class="btn bg-secondary btn-sm"  onclick="abrir_proyecto('.$abrir_proyecto.')" data-toggle="tooltip" data-original-title="Abrir proyecto" id="icon_folder_'.$reg->idproyecto.'">
-                  <i class="fas fa-folder"></i>
-                </button> 
-                <button class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Editar" /*style="margin-right: 3px !important;"*/>
-                  <i class="fas fa-pencil-alt"></i> 
-                </button>
-                '.$acciones.'
-                <button class="btn bg-info btn-sm" onclick="mostrar_detalle('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Ver detalle proyecto">
-                  <i class="fas fa-eye"></i>
-                </button> 
-              </div>',
-              "2"=>'<div class="user-block asignar_paint_'.$reg->idproyecto.'">
-                <img class="img-circle" src="../dist/svg/empresa-logo.svg" alt="User Image">
-                <span class="username"><p class="text-primary"style="margin-bottom: 0.2rem !important"; >'. $empresa .'</p></span>
-                <span class="description">'. $reg->tipo_documento .': '. $reg->numero_documento .' </span>
-              </div>',              
-              "3"=> '<div class="asignar_paint_'.$reg->idproyecto.'">  <span class="description" >'.$reg->nombre_codigo.'</span> </div>' ,
-              "4"=> '<div class="asignar_paint_'.$reg->idproyecto.'">'. $ubicacion.'</div>',             
-              "5"=> '<div class="asignar_paint_'.$reg->idproyecto.'"> <div class="justify-content-between"><span><b> S/ </b></span> <span >'. number_format($reg->costo, 2, '.', ',').'</span></div> </div>',
-              "6"=> $reg->empresa,
-              "7"=> $reg->tipo_documento . ': '. $reg->numero_documento,
-              "8"=> $reg->ubicacion,
-              "9"=> $reg->fecha_inicio,
-              "10"=> $reg->fecha_fin,
-              "11"=> $reg->plazo,
-              "12"=> $reg->dias_habiles,
-              "13"=> $reg->fecha_valorizacion,
-              "14"=> $reg->fecha_pago_obrero,
-              "15"=> ($reg->permanente_pago_obrero) ? 'SI' : 'NO',
-              "16"=>'<div class="asignar_paint_'.$reg->idproyecto.'">
-                <center>
-                  <a type="btn btn-danger" class=""  href="#"  onclick="ver_modal_docs('.$docs.')"data-toggle="tooltip" data-original-title="Ver documentos" >
-                    <img src="../dist/svg/pdf.svg" class="card-img-top" height="35" width="30" >
-                  </a>
-                </center>
-              </div>',                  
-              "17"=> '<div class="asignar_paint_'.$reg->idproyecto.'">'. $estado.'</div>'.$toltip
-            );
           }
-          $results = array(
-            "sEcho"=>1, //Información para el datatables
-            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
-            "iTotalDisplayRecords"=>1, //enviamos el total registros a visualizar
-            "data"=>$data);
-          echo json_encode($results);          
-          
-        break;
+
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$idproyecto_ing,$img_galeria);
+          //var_dump($idproyecto,$idproveedor);
+          echo $rspta ? "ok" : "No se pudo actualizar";
+        }
+      break;
         
-        case 'listar-proyectos-terminados':
+      //Listar Galeria
+      case 'listar_galeria':
+        $rspta =   $rspta = $proyecto->listar_galeria( $_POST['idproyecto_front']);
+        echo json_encode($rspta, true);
+      break;
+  
+      case 'eliminar':
+          $rspta = $proyecto->eliminar($idproyecto);
+          echo $rspta ? " Eliminado" : "No se puede Eliminar";
+          //Fin de las validaciones de acceso
+      break;
 
-          $rspta=$proyecto->listar_proyectos_terminados();
-          //Vamos a declarar un array
-          $data= Array();
-          $cont=1;
 
-          while ($reg=$rspta->fetch_object()){
+      case 'salir':
+        //Limpiamos las variables de sesión
+        session_unset();
+        //Destruìmos la sesión
+        session_destroy();
+        //Redireccionamos al login
+        header("Location: ../index.php");
 
-            $estado = "";
-            $acciones = "";
-
-            if ($reg->estado == '2') {
-
-              $estado = '<span class="text-center badge badge-danger">No empezado</span>';
-              $acciones = '<button class="btn btn-success btn-sm" onclick="empezar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Empezar proyecto" /*style="margin-right: 3px !important;"*/><i class="fa fa-check"></i></button>';
-            } else {
-
-              if ($reg->estado == '1') {
-
-                $estado = '<span class="text-center badge badge-warning">En proceso</span>';
-                $acciones = '<button class="btn btn-danger btn-sm" onclick="terminar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Terminar proyecto" /*style="margin-right: 3px !important;"*/><i class="fas fa-times"></i></button>';
-              } else {
-
-                $estado = '<span class="text-center badge badge-success">Terminado</span>';
-                $acciones = '<button class="btn btn-primary btn-sm" onclick="reiniciar_proyecto('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Reiniciar proyecto" /*style="margin-right: 3px !important;"*/><i class="fas fa-sync-alt"></i></button>';
-              }                
-            }
-
-            if (strlen($reg->empresa) >= 20 ) { $empresa = substr($reg->empresa, 0, 20).'...';  } else { $empresa = $reg->empresa; }
-
-            if (strlen($reg->ubicacion) >= 20 ) { $ubicacion = substr($reg->ubicacion, 0, 20).'...';  } else { $ubicacion = $reg->ubicacion; }
-
-            if (strlen($reg->nombre_proyecto) >= 21 ) { $nombre_proyecto = substr($reg->nombre_proyecto, 0, 21).'...'; } else { $nombre_proyecto = $reg->nombre_proyecto; }
-              
-              $abrir_proyecto = "'$reg->idproyecto', '$reg->nombre_codigo', '$reg->fecha_inicio', '$reg->fecha_fin'";
-
-              $docs= "'$reg->doc1_contrato_obra', '$reg->doc2_entrega_terreno', '$reg->doc3_inicio_obra', '$reg->doc4_presupuesto', '$reg->doc5_analisis_costos_unitarios', '$reg->doc6_insumos'";
-              
-              $tool = '"tooltip"';   $toltip = "<script> $(function () { $('[data-toggle=$tool]').tooltip(); }); </script>";                
-
-              $data[]=array(
-                "0"=>$cont++,
-                "1"=>'<div class="asignar_paint_'.$reg->idproyecto.'"> 
-                  <button class="btn bg-secondary btn-sm"  onclick="abrir_proyecto('.$abrir_proyecto.')" data-toggle="tooltip" data-original-title="Abrir proyecto" id="icon_folder_'.$reg->idproyecto.'">
-                    <i class="fas fa-folder"></i>
-                  </button> 
-                  <button class="btn btn-warning btn-sm" onclick="mostrar('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Editar" /*style="margin-right: 3px !important;"*/>
-                    <i class="fas fa-pencil-alt"></i> 
-                  </button>
-                  '.$acciones.'
-                  <button class="btn bg-info btn-sm" onclick="mostrar_detalle('.$reg->idproyecto.')" data-toggle="tooltip" data-original-title="Ver detalle proyecto">
-                    <i class="fas fa-eye"></i>
-                  </button> 
-                </div>',
-                "2"=>'<div class="user-block asignar_paint_'.$reg->idproyecto.'">
-                  <img class="img-circle" src="../dist/svg/empresa-logo.svg" alt="User Image">
-                  <span class="username"><p class="text-primary"style="margin-bottom: 0.2rem !important"; >'. $empresa .'</p></span>
-                  <span class="description">'. $reg->tipo_documento .': '. $reg->numero_documento .' </span>
-                </div>',              
-                "3"=> '<div class="asignar_paint_'.$reg->idproyecto.'">  <span class="description" >'.$reg->nombre_codigo.'</span> </div>' ,
-                "4"=> '<div class="asignar_paint_'.$reg->idproyecto.'">'. $ubicacion.'</div>',             
-                "5"=> '<div class="asignar_paint_'.$reg->idproyecto.'"> <div class="justify-content-between"><span><b> S/ </b></span> <span >'. number_format($reg->costo, 2, '.', ',').'</span></div> </div>',
-                "6"=> $reg->empresa,
-                "7"=> $reg->tipo_documento . ': '. $reg->numero_documento,
-                "8"=> $reg->ubicacion,
-                "9"=> $reg->fecha_inicio,
-                "10"=> $reg->fecha_fin,
-                "11"=> $reg->plazo,
-                "12"=> $reg->dias_habiles,
-                "13"=> $reg->fecha_valorizacion,
-                "14"=> $reg->fecha_pago_obrero,
-                "15"=> ($reg->permanente_pago_obrero) ? 'SI' : 'NO',
-                "16"=>'<div class="asignar_paint_'.$reg->idproyecto.'">
-                  <center>
-                    <a type="btn btn-danger" class=""  href="#"  onclick="ver_modal_docs('.$docs.')"data-toggle="tooltip" data-original-title="Ver documentos" >
-                      <img src="../dist/svg/pdf.svg" class="card-img-top" height="35" width="30" >
-                    </a>
-                  </center>
-                </div>',                  
-                "17"=> '<div class="asignar_paint_'.$reg->idproyecto.'">'. $estado.'</div>'.$toltip
-              );
-          }
-          $results = array(
-            "sEcho"=>1, //Información para el datatables
-            "iTotalRecords"=>count($data), //enviamos el total registros al datatable
-            "iTotalDisplayRecords"=>1, //enviamos el total registros a visualizar
-            "data"=>$data);
-          echo json_encode($results);          
-          
-        break;
-
-        case 'listar_feriados':
-
-          $rspta=$proyecto->listar_feriados($idproyecto);
-          //Codificar el resultado utilizando json
-          echo json_encode($rspta);	
-
-        break;
-
-        case 'mostrar-rango-fechas-feriadas':
-
-          $fecha_i = $_POST["fecha_i"]; $fecha_f = $_POST["fecha_f"];
-
-          $rspta=$proyecto->listar_rango_feriados($fecha_i, $fecha_f);
-          //Codificar el resultado utilizando json
-          echo json_encode($rspta);	
-
-        break;
-
-        case 'fecha_fin-es-feriado':
-
-          $fecha_f = $_POST["fecha_fin"];
-          
-        break;
-
-        // buscar datos de RENIEC
-        case 'reniec':
-
-          $dni = $_POST["dni"];
-
-          $rspta = $proyecto->datos_reniec($dni);
-
-          echo json_encode($rspta);
-
-        break;
-        // buscar datos de SUNAT
-        case 'sunat':
-
-          $ruc = $_POST["ruc"];
-
-          $rspta = $proyecto->datos_sunat($ruc);
-
-          echo json_encode($rspta);
-
-        break;
-        
-      }
-
-    }else {
-      require 'noacceso.php';
+      break;
     }
+  } else {
+    require 'noacceso.php';
   }
+}
 
-  function quitar_formato_miles($number) {
+ob_end_flush();
 
-    $sin_format = 0;
-
-    if ( !empty($number) ) { $sin_format = floatval(str_replace(",", "", $number)); }
-    
-    return $sin_format;
-  }
-
-  // convierte de una fecha(dd-mm-aa): 23-12-2021 a una fecha(aa-mm-dd): 2021-12-23
-  function format_a_m_d( $fecha ) {
-
-    if (!empty($fecha)) {
-
-      $fecha_expl = explode("-", $fecha);
-
-      $fecha_convert =  $fecha_expl[2]."-".$fecha_expl[1]."-".$fecha_expl[0];
-
-    }else{
-
-      $fecha_convert = "";
-    }   
-
-    return $fecha_convert;
-  }
-
-  ob_end_flush();
 ?>

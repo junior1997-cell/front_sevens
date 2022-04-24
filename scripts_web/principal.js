@@ -13,7 +13,7 @@ function init() {
 }
 //:::::::: V A L O R E S :::::::::
 function mostrar_valores() {
-  $.post("admin_o/ajax/web.php?op=listar_valores_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_valores_web", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 
@@ -25,7 +25,7 @@ function mostrar_valores() {
                             <!-- Icon Blocks -->
                             <div class="media pr-lg-5">
                               <figure class="w-100 max-w-8rem mr-4">
-                                <img class="img-fluid" src="admin_o/dist/img/valores/imagen_perfil/${value.img_perfil}" alt="SVG">
+                                <img class="img-fluid" src="admin/dist/img/valores/imagen_perfil/${value.img_perfil}" alt="SVG">
                               </figure>
                               <div class="media-body">
                                 <h4>${value.nombre_valor}</h4>
@@ -50,7 +50,7 @@ function mostrar_valores() {
 //:::::::: V A L O R E S   F O O T E R :::::::::
 function mostrar_valores_footer() {
 
-  $.post("admin_o/ajax/web.php?op=listar_v_foot_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_v_foot_web", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 
@@ -60,7 +60,7 @@ function mostrar_valores_footer() {
 
           var l_valores_footer = `<li class="nav-item">
                             <a class="nav-link">
-                              <img class="img_icons_footer" src="admin_o/dist/img/valores/imagen_perfil/${value.img_perfil}" alt="" style="color: white;background-color: white;border-radius: 4px;"> 
+                              <img class="img_icons_footer" src="admin/dist/img/valores/imagen_perfil/${value.img_perfil}" alt="" style="color: white;background-color: white;border-radius: 4px;"> 
                               ${value.nombre_valor} 
                             </a> 
                           </li> `;
@@ -84,7 +84,7 @@ function mostrar_valores_footer() {
 
 //:::::::: D A T O S  G E N E R A L E S :::::::::
 function mostrar_datos_g() {
-  $.post("admin_o/ajax/web.php?op=datos_generales", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=datos_generales", { }, function (data, status) {
 
     data = JSON.parse(data); // console.log(data); 
 
@@ -116,7 +116,7 @@ function mostrar_datos_g() {
 //:::::::: P R O Y E C T O S :::::::::
 function slide_obras() {
   
-  $.post("admin_o/ajax/web.php?op=listar_proyecto_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_proyecto_web", { }, function (data, status) {
 
     data = JSON.parse(data); console.log(data); 
 
@@ -130,7 +130,7 @@ function slide_obras() {
           var carousel_obras = ` <div class="js-slide mb-4">
                                   <!-- Card Info -->
                                   <div class="card h-100">
-                                    <img class="card-img-top" src="admin_o/dist/img/proyecto/imagen_perfil/${value.img_perfil}" alt="Image Description">
+                                    <img class="card-img-top" src="admin/dist/img/proyecto/imagen_perfil/${value.img_perfil}" alt="Image Description">
                                     <div class="card-body">
                                         <div class="media align-items-center">
                                           <div class="min-w-8rem mr-2">
@@ -177,7 +177,7 @@ function slide_obras() {
 //:::::::: S E C C C I O N   O B R A S :::::::::
 function mostrar_proyectos() {
   
-  $.post("admin_o/ajax/web.php?op=listar_proyecto_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_proyecto_web", { }, function (data, status) {
 
     data = JSON.parse(data); // console.log(data); 
 
@@ -197,7 +197,7 @@ function mostrar_proyectos() {
           var l_obras = ` <div class="col-sm-6 col-lg-4 mb-5" >
                             <div class="card card-bordered card-hover-shadow h-100">
                               <div class="card-body">
-                                <img class="card-img-top" src="admin_o/dist/img/proyecto/imagen_perfil/${value.img_perfil}" alt="Image Description">
+                                <img class="card-img-top" src="admin/dist/img/proyecto/imagen_perfil/${value.img_perfil}" alt="Image Description">
                                 <h4 class="mb-0">${nomb_proyect.substr(0,60)+' ...'}</h4>
                                 <p class="mb-0" style="text-align: justify;">${descripcion.substr(0,120)+' ...'}</p>
                                 
@@ -233,7 +233,7 @@ function mostrar_proyectos() {
 //:::::::: S E R V I C I O S :::::::::
 function mostrar_servicios() {
 
-  $.post("admin_o/ajax/web.php?op=listar_servicios_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_servicios_web", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 
@@ -246,7 +246,7 @@ function mostrar_servicios() {
                               <a class="card text-center h-100 transition-3d-hover">
                                 <div class="card-body p-lg-5">
                                   <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                                    <img class="img-fluid" src="admin_o/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="SVG">
+                                    <img class="img-fluid" src="admin/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="SVG">
                                   </figure>
                                   <h3 class="h4">${value.nombre_servicio}</h3>
                                   <p class="text-body text-justify mb-0">${value.descripcion}</p>
@@ -270,7 +270,7 @@ function mostrar_servicios() {
 //:::::::: S E R V I C I O S  F O O T E R:::::::::
 function mostrar_servicios_footer() {
 
-  $.post("admin_o/ajax/web.php?op=listar_ser_web_f", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_ser_web_f", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 
@@ -280,7 +280,7 @@ function mostrar_servicios_footer() {
 
           var servicios_f = `<li class="nav-item">
                             <a class="nav-link">
-                              <img class="img_icons_footer" src="admin_o/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="" style="color: white;background-color: white;border-radius: 4px;"> 
+                              <img class="img_icons_footer" src="admin/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="" style="color: white;background-color: white;border-radius: 4px;"> 
                               ${value.nombre_servicio} 
                             </a> 
                           </li> `;
@@ -309,7 +309,7 @@ function ver_modal_slide(actividad_trabajo,descripcion,dias_calendario,dias_habi
 
     if ( extrae_extencion(img_perfil) == "pdf" ) {
 
-      imagen= `<img src="admin_o/dist/svg/drag-n-drop.svg" alt="" width="50%" >`;
+      imagen= `<img src="admin/dist/svg/drag-n-drop.svg" alt="" width="50%" >`;
 
     }else{
 
@@ -319,17 +319,17 @@ function ver_modal_slide(actividad_trabajo,descripcion,dias_calendario,dias_habi
         extrae_extencion(img_perfil) == "tiff" || extrae_extencion(img_perfil) == "tif" || extrae_extencion(img_perfil) == "webp" ||
         extrae_extencion(img_perfil) == "bmp" || extrae_extencion(img_perfil) == "svg" ) {
 
-          imagen=`<img src="admin_o/dist/img/proyecto/imagen_perfil/${img_perfil}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`; 
+          imagen=`<img src="admin/dist/img/proyecto/imagen_perfil/${img_perfil}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`; 
         
       } else {
-        imagen=`<img src="admin_o/dist/svg/drag-n-drop.svg" alt="" width="50%" >`;
+        imagen=`<img src="admin/dist/svg/drag-n-drop.svg" alt="" width="50%" >`;
       }  
 
     }
 
   } else {
 
-    imagen='<img src="admin_o/dist/svg/drag-n-drop.svg" alt="" width="50%" >';
+    imagen='<img src="admin/dist/svg/drag-n-drop.svg" alt="" width="50%" >';
 
   }
 
@@ -442,7 +442,7 @@ function ver_modal_slide(actividad_trabajo,descripcion,dias_calendario,dias_habi
 //:::::::: S E C C C I O N   O B R A S :::::::::
 function mostrar_proveedores() {
   
-  $.post("admin_o/ajax/web.php?op=listar_proveedores_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_proveedores_web", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 

@@ -9,7 +9,7 @@ function init() {
 
 function mostrar_servicios() {
 
-  $.post("admin_o/ajax/web.php?op=listar_servicios_web", { }, function (data, status) {
+  $.post("admin/ajax/web.php?op=listar_servicios_web", { }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data); 
 
@@ -22,7 +22,7 @@ function mostrar_servicios() {
                               <a class="card text-center h-100 transition-3d-hover">
                                 <div class="card-body p-lg-5">
                                   <figure class="max-w-8rem_modif w-100 mx-auto mb-4">
-                                    <img class="img-fluid" src="admin_o/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="SVG">
+                                    <img class="img-fluid" src="admin/dist/img/servicios/imagen_perfil/${value.img_perfil}" alt="SVG">
                                   </figure>
                                   <h3 class="h4">${value.nombre_servicio}</h3>
                                   <p class="text-body text-justify mb-0">${value.descripcion}</p>
