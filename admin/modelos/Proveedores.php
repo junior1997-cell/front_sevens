@@ -60,7 +60,7 @@ Class Proveedores
 	//Implementar un método para mostrar los datos de un registro a modificar
 	public function mostrar($idproveedor )
 	{
-		$sql="SELECT*FROM proveedor WHERE idproveedor ='$idproveedor'";
+		$sql="SELECT * FROM proveedorr WHERE idproveedor ='$idproveedor'";
 
 		return ejecutarConsultaSimpleFila($sql);
 	}

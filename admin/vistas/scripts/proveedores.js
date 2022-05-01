@@ -112,7 +112,8 @@ function listar() {
           _: '%d líneas copiadas',
           1: '1 línea copiada'
         }
-      }
+      },
+      sLoadingRecords: '<i class="fas fa-spinner fa-pulse fa-lg"></i> Cargando datos...'
     },
     "bDestroy": true,
     "iDisplayLength": 5,//Paginación
@@ -161,7 +162,6 @@ function guardaryeditar(e) {
     data: formData,
     contentType: false,
     processData: false,
-
     success: function (datos) {
              
       if (datos == 'ok') {
@@ -302,57 +302,41 @@ function eliminar(idproveedor) {
 }
 
 init();
+
 var idproveedor=0;
+
 $(function () {
-
-  
-  $.validator.setDefaults({
-
-    submitHandler: function (e) {
-      //console.log('kkkkkkkk');
-        guardaryeditar(e);
-      
-    },
-  });
 
   // Aplicando la validacion del select cada vez que cambie
   // $("#id_proveedor_adm").on("change", function () { $(this).trigger("blur"); });
   
   $("#form-proveedores").validate({
     ignore: '.select2-input, .select2-focusser',
-    rules: {
-
-     // id_proveedor_adm:{required: true},
-      descripcion:{required: true}, 
-      // terms: { required: true },
+    rules: { 
+      descripcion: {required: true}, 
     },
-    messages: {
-
-      //id_proveedor_adm: { required: "Campo requerido", },
+    messages: { 
       descripcion: { required: "Campo requerido", }, 
-
     },
         
     errorElement: "span",
 
     errorPlacement: function (error, element) {
-
       error.addClass("invalid-feedback");
-
       element.closest(".form-group").append(error);
     },
 
     highlight: function (element, errorClass, validClass) {
-
       $(element).addClass("is-invalid").removeClass("is-valid");
     },
 
     unhighlight: function (element, errorClass, validClass) {
-
-      $(element).removeClass("is-invalid").addClass("is-valid");
-   
+      $(element).removeClass("is-invalid").addClass("is-valid");   
     },
 
+    submitHandler: function (e) {
+      guardaryeditar(e);      
+    },
 
   });
 
