@@ -318,21 +318,22 @@ function limpiar_galeria() {
 }
 
 function galeria(idproyecto) { 
-  $("#idproyecto_ing").val(idproyecto); 
+  $("#idproyecto_img").val(idproyecto); 
   localStorage.setItem('idproyecto_img',idproyecto);
   mostrar_section(2);
   $("#g_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
 
   $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto_front:idproyecto }, function (e, status) {
-
-    e = JSON.parse(e); console.log('........'); console.log(e.data); 
+    $("#l_galeria").html("");
+    e = JSON.parse(e); //console.log(e.data); 
     imagen="";
     
     if (e.data.length == 0) {
       $("#g_cargando").html(`<div class="col-lg-12">
       <div class="cbp-item product">
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <strong>Ninguna imagen por mostrar!</strong> puede registar una en el boton   <strong> 
+          <button type="button" class="btn btn-primary btn-xs" style="cursor: no-drop;"><i class="fas fa-plus-circle"></i> Agregar</button></strong> en la parte superior.
         </div>
       </div>
     </div>`);
@@ -353,12 +354,12 @@ function galeria(idproyecto) {
                                   <div class="card-footer">
                                     <ul class="list-inline list-separator small text-body">
                                       <li class="list-inline-item" > 
-                                        <a style="cursor: pointer; font-size: 13px;"> 
+                                        <a style="cursor: pointer; font-size: 13px;" onclick="editar_imagen(${value.idgaleria_proyecto},${value.idproyecto_front},'${value.imagen}')"> 
                                           <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
                                         </a>
                                       </li>
                                       <li class="list-inline-item">
-                                        <a style="cursor: pointer; font-size: 13px;"> 
+                                        <a style="cursor: pointer; font-size: 13px;" onclick="eliminar_imagen(${value.idgaleria_proyecto})"> 
                                             <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
                                         </a>
                                       </li>
@@ -403,6 +404,76 @@ function guardaryeditar_imagen(e) {
     }
 
   });
+}
+
+function editar_imagen(idgaleria_proyecto,idproyecto_front,imagen) {
+
+    limpiar_galeria();
+    
+    $("#modal-agregar-imagen").modal("show");
+
+    $("#cargando-3-fomulario").hide();
+    $("#cargando-4-fomulario").show();
+
+    $("#idgaleria_proyecto").val(idgaleria_proyecto);
+    $("#idproyecto_img").val(idproyecto_front);
+
+    if (imagen == "" || imagen == null  ) {
+
+      $("#doc2_ver").html('<img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >');
+
+      $("#doc2_nombre").html('');
+
+      $("#doc_old_2").val(""); $("#doc2").val("");
+
+    } else {
+
+      $("#doc_old_2").val(imagen); 
+
+      $("#doc2_nombre").html(`<div class="row"> <div class="col-md-12"><i>Baucher.${extrae_extencion(imagen)}</i></div></div>`);
+      
+      // cargamos la imagen adecuada par el archivo
+      if ( extrae_extencion(imagen) == "pdf" ) {
+
+        $("#doc2_ver").html('<iframe src="../dist/img/proyecto/img_galeria/'+imagen+'" frameborder="0" scrolling="no" width="100%" height="210"> </iframe>');
+
+      }else{
+        if (
+          extrae_extencion(imagen) == "jpeg" || extrae_extencion(imagen) == "jpg" || extrae_extencion(imagen) == "jpe" ||
+          extrae_extencion(imagen) == "jfif" || extrae_extencion(imagen) == "gif" || extrae_extencion(imagen) == "png" ||
+          extrae_extencion(imagen) == "tiff" || extrae_extencion(imagen) == "tif" || extrae_extencion(imagen) == "webp" ||
+          extrae_extencion(imagen) == "bmp" || extrae_extencion(imagen) == "svg" ) {
+
+          $("#doc2_ver").html(`<img src="../dist/img/proyecto/img_galeria/${imagen}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
+          
+        } else {
+          $("#doc2_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
+        }        
+      }      
+    }
+
+    $("#cargando-3-fomulario").show();
+    $("#cargando-4-fomulario").hide();
+}
+
+function eliminar_imagen(idgaleria_proyecto) {
+  Swal.fire({
+    title: "¿Está Seguro de  Eliminar el registro?",
+    text: "",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#28a745",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Eliminar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.post("../ajax/proyecto.php?op=eliminar_galeria", { idgaleria_proyecto: idgaleria_proyecto }, function (e) {
+
+        Swal.fire("Eliminado!", "Tu registro ha sido Eliminado.", "success");
+        galeria(localStorage.getItem('idproyecto_img'));
+      });      
+    }
+  });   
 }
 
 init();

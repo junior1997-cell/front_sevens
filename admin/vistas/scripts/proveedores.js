@@ -192,7 +192,7 @@ function mostrar(idproveedor) {
   $("#cargando-1-fomulario").hide();
   $("#cargando-2-fomulario").show();
 
-  $.post("../ajax/proveedores.php?op=mostrar_valor", { idproveedor: idproveedor }, function (data, status) {
+  $.post("../ajax/proveedores.php?op=mostrar", { idproveedor: idproveedor }, function (data, status) {
 
     data = JSON.parse(data);  console.log(data);  
 

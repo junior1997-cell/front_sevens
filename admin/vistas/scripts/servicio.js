@@ -134,13 +134,27 @@ function ver_img_perfil(img_perfil,nombre_servicio){
 
 //ver ficha tecnica
 function ver_caracteristicas(nombre_servicio,caracteristicas){
-  $(".nombre_s").html("");
-  $(".listar_caracteristicas").html("");
+  console.log(nombre_servicio+'  - '+caracteristicas);
+
 
   $("#modal-ver-caracteristicas").modal("show");
 
-  $(".nombre_s").html(nombre_servicio);
-  $(".listar_caracteristicas").html(caracteristicas);
+
+  if (caracteristicas==null || caracteristicas=="" || caracteristicas=='<p><br></p>') {
+    $(".nombre_s").html(nombre_servicio);
+
+    $(".listar_caracteristicas").html(`<div class="col-lg-12">
+    <div class="cbp-item product">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Ninguna Característica por mostrar!</strong> puede editar el registro y agregar características.
+      </div>
+    </div>
+  </div>`);
+    
+  } else {
+    $(".nombre_s").html(nombre_servicio);
+    $(".listar_caracteristicas").html(caracteristicas);
+  }
  
 }
 

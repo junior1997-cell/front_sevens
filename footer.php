@@ -113,3 +113,6 @@
   @media (min-width: 600px) and (max-width: 991px) { .pad-left{ padding-left: 4%; } .img_icons_footer{width: 12%; } .padingtop{ padding-top: 3.5rem;} }
   @media (min-width: 992px) { .pad-left{ padding-left: 15%; } .img_icons_footer{width: 10%; } }
 </style>
+
+
+

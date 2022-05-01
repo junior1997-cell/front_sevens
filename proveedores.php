@@ -260,6 +260,9 @@
   </script>
 
   <!-- IE Support -->
+  <script src="scripts_web/proveedores.js"></script> 
+  <script src="scripts_web/footer.js"></script>
+
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
   </script>

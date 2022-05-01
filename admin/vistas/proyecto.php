@@ -246,8 +246,8 @@
                 <div class="card-body">
                   <div class="row" id="cargando-3-fomulario">
                     <!--  idproyecto -->
-                    <input type="hidden" name="idgaleria_proyecto" id="idgaleria_proyecto" />
-                    <input type="hidden" name="idproyecto_ing" id="idproyecto_ing" />
+                    <input type="text" name="idgaleria_proyecto" id="idgaleria_proyecto" />
+                    <input type="text" name="idproyecto_img" id="idproyecto_img" />
                     <!-- Factura -->
                     <div class="col-md-6">
                       <div class="row text-center">
@@ -260,7 +260,7 @@
                           <input style="display: none;" id="doc2" type="file" name="doc2" accept="application/pdf, image/*" class="docpdf" />
                         </div>
                         <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(2, 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
+                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(2, 'img_galeria');"><i class="fas fa-redo"></i> Recargar.</button>
                         </div>
                       </div>
                       <div id="doc2_ver" class="text-center mt-4">

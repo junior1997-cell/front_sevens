@@ -6,7 +6,7 @@ function init() {
   mostrar_servicios();  
 
 }
-
+//:::::::: S E R V I C I O S :::::::::
 function mostrar_servicios() {
 
   $.post("admin/ajax/web.php?op=listar_servicios_web", { }, function (data, status) {
@@ -39,11 +39,9 @@ function mostrar_servicios() {
       $("#servicios").html('<p><p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p></p>');  
     } 
 
-
+    $('.cargando_serv').css('display', 'none');
   }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
-
-
 
 init();
 

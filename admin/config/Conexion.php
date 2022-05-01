@@ -1,6 +1,6 @@
 <?php
 //require_once "global_local.php";
- require_once "global.php";
+require_once "global.php";
 
 $conexion = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
@@ -62,8 +62,9 @@ if (!function_exists('ejecutarConsulta')) {
       }
 
     } else {
+
       $row = $query->fetch_assoc();
-      $data= array( 
+      return array( 
         'status' => true, 
         'code_error' => $conexion->errno, 
         'message' => 'Salió todo ok, en ejecutarConsultaSimpleFila()', 
@@ -74,13 +75,11 @@ if (!function_exists('ejecutarConsulta')) {
         'field_count' => $conexion->field_count,
         'warning_count' => $conexion->warning_count, 
       );
-      
-      return $data;
     }
   }
 
   function ejecutarConsultaArray($sql) {
-    global $conexion;  //$data= Array();	$i = 0;
+    global $conexion;  //$data= Array(); $i = 0;
 
     $query = $conexion->query($sql);
 
@@ -117,7 +116,9 @@ if (!function_exists('ejecutarConsulta')) {
     $query = $conexion->query($sql);
     if ($conexion->error) {
       try {
-        throw new Exception("MySQL error <b> $conexion->error </b> Query:<br> $query", $conexion->errno);
+        throw new Exception("MySQL error <b> $conexion->error </b> Query:<
+
+br> $query", $conexion->errno);
       } catch (Exception $e) {
         //echo "Error No: " . $e->getCode() . " - " . $e->getMessage() . "<br >"; echo nl2br($e->getTraceAsString());
         return array( 

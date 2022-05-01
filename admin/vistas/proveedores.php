@@ -41,7 +41,7 @@
             <div class="card mb-3 mb-lg-5 card-primary card-outline">
               <div class="card-header">
                 <h3 class="card-title">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-proveedores" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-proveedores" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
                   Proveedores
                 </h3>
               </div>
@@ -180,8 +180,8 @@
               </form>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar();">Close</button>
-              <button type="submit" class="btn btn-success" id="guardar_registro">Guardar Cambios</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal" onclick="limpiar();">Close</button>
+              <button type="submit" class="btn btn-success btn-xs" id="guardar_registro">Guardar Cambios</button>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@
               </div>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>

@@ -128,7 +128,7 @@
               </div>
               <!-- End Body -->
               <div class="modal-footer justify-content-end">
-                <button type="submit" class="btn btn-success" id="actualizar_registro">Actualizar</button><!-- -->
+                <button type="submit" class="btn btn-success btn-xs" id="actualizar_registro">Actualizar</button><!-- -->
               </div>
             </div>
             <!-- End Card -->

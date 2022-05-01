@@ -536,6 +536,8 @@
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
   </body>
+  <!-- JS script -->
+  <script src="scripts_web/principal.js"></script> 
 
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:16:49 GMT -->
 </html>

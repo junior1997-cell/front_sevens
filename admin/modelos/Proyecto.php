@@ -88,7 +88,7 @@ Class Proyecto
 	//Select2 proyecto
 	public function select2_proyecto()
 	{
-    $data_select = Array(); 
+        $data_select = Array(); 
 		//bd-admin
 		$sql_1="SELECT idproyecto,nombre_codigo,nombre_proyecto FROM proyecto WHERE estado!=2 AND estado_delete=1;";
 		$proyecto_admin= ejecutarConsultaArray_admin($sql_1);
@@ -131,9 +131,9 @@ Class Proyecto
 		return ejecutarConsulta($sql);		
 	}
 
-	public function editar_galeria($idgaleria_proyecto,$idproyecto_ing,$img_galeria)
+	public function editar_galeria($idgaleria_proyecto,$idproyecto_img,$img_galeria)
 	{
-		$sql="UPDATE galeria_proyecto SET idproyecto_front='$idproyecto_ing', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
+		$sql="UPDATE galeria_proyecto SET idproyecto_front='$idproyecto_img', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
 		return ejecutarConsulta($sql);	
 	}
 	public function listar_galeria($idproyecto_front)
@@ -142,12 +142,20 @@ Class Proyecto
 		return ejecutarConsultaArray($sql);		
 	}
 
+	//Implementamos un método para desactivar categorías
+	public function eliminar_galeria($idgaleria_proyecto)
+	{
+		$sql="DELETE FROM galeria_proyecto WHERE idgaleria_proyecto ='$idgaleria_proyecto';";
+		return ejecutarConsulta($sql);
+	}
+
 	//Seleccionar la imagen
 	public function reg_img_galeria($idgaleria_proyecto)
 	{
 		$sql="SELECT imagen FROM galeria_proyecto WHERE idgaleria_proyecto='$idgaleria_proyecto'";
 		return ejecutarConsultaSimpleFila($sql);		
 	}
+
 	
 	//:::::::::::::::::::: L I S T A R  W E B ::::::::::::::::::::::
 
@@ -156,6 +164,67 @@ Class Proyecto
 	{
 		$sql="SELECT*FROM proyecto_front ORDER BY idproyecto DESC";
 		return ejecutarConsultaArray($sql);		
+	}
+  
+	//Implementar un método para listar 1 proyecto en la web
+	public function detalle_proyecto_web($idproyecto)
+	{
+		$data_proyecto = Array(); $rpta_galeria= Array();
+
+		$sql_1="SELECT idproyecto,id_proyecto_admin,nombre_proyecto,codigo_proyecto,fecha_inicio,fecha_fin,dias_habiles,dias_calendario,actividad_trabajo,ubicacion,descripcion,estado_proyecto,img_perfil 
+		FROM proyecto_frontt WHERE id_proyecto_admin='$idproyecto'";
+
+		$datosproyecto =  ejecutarConsultaSimpleFila($sql_1);
+
+		if ($datosproyecto['status']) {
+
+			$id=$datosproyecto['data']['idproyecto'];
+
+			$sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id'";
+			$galeria_proyecto= ejecutarConsultaArray($sql_2);
+
+			if ($galeria_proyecto['status']) {
+
+				if (!empty($galeria_proyecto['data'])) {
+
+					$rpta_galeria =$galeria_proyecto['data'];
+
+				}
+				
+			}else{
+
+        return 	$galeria_proyecto ;
+
+			}
+
+      $data_proyecto = array(
+
+        "status"               => true,
+        "data"                 => [
+            "idproyecto"           => $datosproyecto['data']['idproyecto'],
+            "nombre_proyecto"      => $datosproyecto['data']['nombre_proyecto'],
+            "codigo_proyecto"      => $datosproyecto['data']['codigo_proyecto'],
+            "fecha_inicio"         => $datosproyecto['data']['fecha_inicio'],
+            "fecha_fin"            => $datosproyecto['data']['fecha_fin'],
+            "dias_habiles"         => $datosproyecto['data']['dias_habiles'],
+            "dias_calendario"      => $datosproyecto['data']['dias_calendario'],
+            "actividad_trabajo"    => $datosproyecto['data']['actividad_trabajo'],
+            "ubicacion"            => $datosproyecto['data']['ubicacion'],
+            "descripcion"          => $datosproyecto['data']['descripcion'],
+            "estado_proyecto"      => $datosproyecto['data']['estado_proyecto'],
+            "img_perfil"           => $datosproyecto['data']['img_perfil'],
+            "galeria"              => $rpta_galeria,],
+        "message"              => 'Data sin errores',
+      
+      );
+
+      return $data_proyecto; 
+		
+		}else{
+
+      return $datosproyecto=[ "status"=> false, "data" => $datosproyecto,"message"=> 'Data con  errores'];
+    }
+
 	}
 	
 }

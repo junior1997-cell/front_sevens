@@ -277,7 +277,9 @@
     </script>
 
     <!-- IE Support -->
-    <script></script>
+    <script src="scripts_web/obras.js"></script>
+    <script src="scripts_web/footer.js"></script>
+    
   </body>
 
   <!-- Mirrored from htmlstream.com/front/demo-jobs/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:21:54 GMT -->

@@ -41,7 +41,7 @@
             <div class="card mb-3 mb-lg-5 card-primary card-outline">
               <div class="card-header">
                 <h3 class="card-title">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-agregar-servicios" onclick="limpiar();"><i class="fas fa-plus-circle"></i> Agregar</button>
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-servicios" onclick="limpiar();"><i class="fas fa-plus-circle"></i> Agregar</button>
                   Servicio
                 </h3>
               </div>
@@ -203,8 +203,8 @@
               </form>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar();">Close</button>
-              <button type="submit" class="btn btn-success" id="guardar_registro">Guardar Cambios</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal" onclick="limpiar();">Close</button>
+              <button type="submit" class="btn btn-success btn-xs" id="guardar_registro">Guardar Cambios</button>
             </div>
           </div>
         </div>
@@ -214,14 +214,18 @@
         <div class="modal-dialog modal-dialog-scrollable modal-md">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title"> Caracteristicas: <b class="nombre_s" style="color: red;"></b></h4>
+              <h4 class="modal-title"> Caracteristicas: 
+                 <b class="nombre_s text-warning" ><i class="fas fa-spinner fa-pulse fa-1x" style="color: #768494;"></i></b>
+              </h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span class="text-danger" aria-hidden="true">&times;</span>
               </button>
             </div>
 
             <div class="modal-body">
-              <div class="listar_caracteristicas"></div>
+              <div class="listar_caracteristicas">
+                <p><i class="fas fa-spinner fa-pulse fa-1x"></i> Cargando ...</p>
+              </div>
             </div>
 
           </div>
@@ -248,7 +252,7 @@
               </div>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>

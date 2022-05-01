@@ -130,8 +130,8 @@
                 </div>
                 <!-- End Body -->
                 <div class="modal-footer justify-content-end">
-                  <button class="btn btn-warning editar" onclick="activar_editar(1);">Editar</button>
-                  <button type="submit" class="btn btn-success actualizar" style="display: none;" id="actualizar_registro">Actualizar</button>
+                  <button class="btn btn-warning btn-xs editar" onclick="activar_editar(1);">Editar</button>
+                  <button type="submit" class="btn btn-success btn-xs actualizar" style="display: none;" id="actualizar_registro">Actualizar</button>
                   <!-- -->
                 </div>
               </div>

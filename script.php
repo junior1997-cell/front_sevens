@@ -25,5 +25,3 @@
 <!-- JS Front -->
 <script src="assets/js/theme.min.js"></script>
 
-<!-- JS script -->
-<script src="scripts_web/principal.js"></script>

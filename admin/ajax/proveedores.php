@@ -75,7 +75,7 @@ if (!isset($_SESSION["nombre"])) {
           //Fin de las validaciones de acceso
       break;
 
-      case 'mostrar_valor':
+      case 'mostrar':
           $rspta = $proveedores->mostrar($idproveedor);
           //Codificar el resultado utilizando json
           echo json_encode($rspta, true);

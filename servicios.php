@@ -410,8 +410,9 @@
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
   </script>
-  <!-- JS script 
-  <script src="scripts_web/servicios.js"></script>-->
+  <!-- JS script -->
+  <script src="scripts_web/servicios.js"></script>
+  <script src="scripts_web/footer.js"></script>
 </body>
 
 <!-- Mirrored from htmlstream.com/front/page-services-agency.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:20:02 GMT -->

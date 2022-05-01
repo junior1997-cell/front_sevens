@@ -47,13 +47,19 @@
 
       //Listar proyectos
       case 'listar_proyecto_web':
-        $rspta =   $rspta = $proyecto->listar_proyecto_web();
+        $rspta = $proyecto->listar_proyecto_web();
+        echo json_encode($rspta, true);
+      break;
+
+      //detalle_proyecto_web
+      case 'detalle_proyecto_web':
+        $rspta = $proyecto->detalle_proyecto_web($_POST['idproyecto']);
         echo json_encode($rspta, true);
       break;
 
       //Listar proveedores
       case 'listar_proveedores_web':
-        $rspta =   $rspta = $proveedores->listar_proveedores_web();
+        $rspta = $proveedores->listar_proveedores_web();
         echo json_encode($rspta, true);
       break;
      
