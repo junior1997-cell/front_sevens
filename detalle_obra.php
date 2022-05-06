@@ -36,130 +36,14 @@
                  ]
                }' id="l_galeria">
             <!-- Item -->
-            <!-- <div class="cbp-item">
-              <div class="cbp-caption">
-                <img class="rounded-lg" src="assets/img/900x900/img11.jpg" alt="Image Description">
-              </div>
-            </div> -->
             <!-- End Item -->
 
           </div>
           <!-- End Cubeportfolio -->
         </div>
 
-        <div id="stickyBlockStartPoint" class="col-lg-5">
+        <div id="stickyBlockStartPoint" class=" cbp col-lg-5 detalles_x_obra">
           <!-- Sticky Block -->
-          <div class="js-sticky-block pl-lg-4"
-               data-hs-sticky-block-options='{
-                 "parentSelector": "#stickyBlockStartPoint",
-                 "targetSelector": "#logoAndNav",
-                 "startPoint": "#stickyBlockStartPoint",
-                 "endPoint": "#stickyBlockEndPoint",
-                 "stickyOffsetTop": 24,
-                 "stickyOffsetBottom": 130
-               }'>
-            <div class="mb-6">
-              <h1 class="h2 nombre_obra">Dose juice</h1>
-              <p class="des">Oamy texture like the ones you are making at home.</p>
-            </div>
-
-            <hr class="my-5">
-
-            <!-- List -->
-            <ul class="list-unstyled mb-0">
-              <li class="media mb-1">
-                <div class="d-flex w-40 w-sm-30">
-                  <h2 class="h4">Client</h2>
-                </div>
-                <div class="media-body">
-                  <small class="text-muted">
-                    Htmlstream
-                  </small>
-                </div>
-              </li>
-
-              <li class="media mb-1">
-                <div class="d-flex w-40 w-sm-30">
-                  <h3 class="h4">Designers</h3>
-                </div>
-                <div class="media-body">
-                  <small class="text-muted">
-                    Christina Kray,
-                  </small>
-                  <small class="text-muted">
-                    Jeff Fisher
-                  </small>
-                </div>
-              </li>
-
-              <li class="media mb-1">
-                <div class="d-flex w-40 w-sm-30">
-                  <h4>Partners</h4>
-                </div>
-                <div class="media-body">
-                  <small class="text-muted">
-                    Pixeel
-                  </small>
-                </div>
-              </li>
-
-              <li class="media">
-                <div class="d-flex w-40 w-sm-30">
-                  <h4>Awards</h4>
-                </div>
-                <div class="media-body">
-                  <small class="d-block text-muted mb-1">
-                    FWA Site of the Day
-                  </small>
-                  <small class="d-block text-muted mb-1">
-                    Awwwards Site of the Day
-                  </small>
-                  <small class="d-block text-muted mb-1">
-                    CSSAwards Site of the Day
-                  </small>
-                  <small class="d-block text-muted">
-                    Bronze ADCN Lamp (Digital Craft)
-                  </small>
-                </div>
-              </li>
-            </ul>
-            <!-- End List -->
-
-            <hr class="my-5">
-
-            <div class="media">
-              <div class="d-flex w-40 w-sm-30">
-                <h4>Share</h4>
-              </div>
-
-              <div class="media-body">
-                <!-- Social Networks -->
-                <ul class="list-inline mb-0">
-                  <li class="list-inline-item">
-                    <a class="btn btn-xs btn-icon btn-soft-secondary" href="#">
-                      <i class="fab fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="btn btn-xs btn-icon btn-soft-secondary" href="#">
-                      <i class="fab fa-google"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="btn btn-xs btn-icon btn-soft-secondary" href="#">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="btn btn-xs btn-icon btn-soft-secondary" href="#">
-                      <i class="fab fa-github"></i>
-                    </a>
-                  </li>
-                </ul>
-                <!-- End Social Networks -->
-              </div>
-            </div>
-          </div>
           <!-- End Sticky Block -->
         </div>
 
@@ -227,6 +111,22 @@
         </div>
         <!-- End Item -->
 
+        <!-- Item -->
+        <div class="cbp-item product branding">
+          <a class="cbp-caption" href="portfolio-single-page-grid.html">
+            <div class="overflow-hidden rounded-lg">
+              <div class="cbp-caption-defaultWrap">
+                <img class="rounded-lg" src="assets/img/480x320/img1.jpg" alt="Image Description">
+              </div>
+            </div>
+            <div class="p-4">
+              <span class="d-block small text-body font-weight-bold text-cap">Branding</span>
+              <span class="d-block h3 mb-0">Larq</span>
+            </div>
+          </a>
+        </div>
+        <!-- End Item -->
+        
         <!-- Item -->
         <div class="cbp-item product branding">
           <a class="cbp-caption" href="portfolio-single-page-grid.html">
@@ -365,6 +265,7 @@
   </script>
 
   <!-- IE Support -->
+    <script src="admin/vistas/scripts/funcion_crud.js"></script>    
     <script src="scripts_web/detalle_obra.js"></script>    
     <script src="scripts_web/footer.js"></script>
 </body>

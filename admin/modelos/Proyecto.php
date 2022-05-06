@@ -172,7 +172,7 @@ Class Proyecto
 		$data_proyecto = Array(); $rpta_galeria= Array();
 
 		$sql_1="SELECT idproyecto,id_proyecto_admin,nombre_proyecto,codigo_proyecto,fecha_inicio,fecha_fin,dias_habiles,dias_calendario,actividad_trabajo,ubicacion,descripcion,estado_proyecto,img_perfil 
-		FROM proyecto_frontt WHERE id_proyecto_admin='$idproyecto'";
+		FROM proyecto_front WHERE id_proyecto_admin='$idproyecto'";
 
 		$datosproyecto =  ejecutarConsultaSimpleFila($sql_1);
 
@@ -222,7 +222,7 @@ Class Proyecto
 		
 		}else{
 
-      return $datosproyecto=[ "status"=> false, "data" => $datosproyecto,"message"=> 'Data con  errores'];
+      return $datosproyecto;
     }
 
 	}

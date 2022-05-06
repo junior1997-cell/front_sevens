@@ -38,8 +38,8 @@ function mostrar_proyectos() {
                               <div class="card-footer">
                                 <ul class="list-inline list-separator small text-body">
                                   <li class="list-inline-item"> 
-                                    <a style="cursor: pointer; font-size: 13px;"
-                                    onclick="ver_modal_slide('${value.actividad_trabajo}','${value.descripcion}','${value.dias_calendario}','${value.dias_habiles}','${value.fecha_fin}','${value.fecha_inicio}', '${value.img_perfil}','${value.nombre_proyecto}','${value.ubicacion}','2')"> 
+                                    <a style="cursor: pointer; font-size: 13px;" href="detalle_obra.php"
+                                      onclick="detalle_obras(${value.idproyecto})"> 
                                       <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Ver detalles</span> 
                                     </a>
                                   </li>
@@ -64,6 +64,7 @@ function mostrar_proyectos() {
 }
 
 
+function detalle_obras(idproyecto){ localStorage.setItem("idproyecto_detalle", idproyecto); }
 
 init();
 
