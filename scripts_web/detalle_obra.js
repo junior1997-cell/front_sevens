@@ -1,29 +1,65 @@
 
 //Función que se ejecuta al inicio
+var idproyecto
 function init() {
 
- var idproyecto=localStorage.getItem("idproyecto_detalle");
+ idproyecto=localStorage.getItem("idproyecto_detalle");
  console.log(idproyecto);
   detalle_obras(idproyecto); 
 
 }
-//::::::::  D E T A L L E S  O B R A S :::::::::si
-function detalle_obras(idproyecto) {
+//:::::::::::::ALL IMAGES :::::::::::::::::::::::::
 
-  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto}, function (e, status) {
+function all_images() {
+  $(".all_content_mages").show();
 
-    e = JSON.parse(e); console.log('KKKKKKKKKKKKKKKKKKK');  
-    console.log(e); 
+  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'completo'}, function (e, status) {
+
+    e = JSON.parse(e); console.log(e);
 
     if (e.status) {
 
       $.each(e.data.galeria, function (index, value) {
 
-        console.log(value);
-
-          var l_galeria = `<div class="cbp-item">
-                                  <div class="cbp-caption">
+          var all_galeria = ` <div class="cbp-item product">
+                                <div class="overflow-hidden rounded-lg">
+                                  <div class="cbp-caption-defaultWrap">
                                     <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${value.imagen}" alt="Image Description">
+                                  </div>
+                                </div>
+                                <div class="p-4">
+                              </div>`;
+
+          $("#all_mages").append(all_galeria);
+      });
+
+      
+    } else {
+
+      $("#all_mages").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>'); 
+      ver_errores(e);
+
+    } 
+
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
+
+
+}
+//::::::::  D E T A L L E S  O B R A S :::::::::si
+function detalle_obras(idproyecto) {
+
+  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'resumido'}, function (e, status) {
+
+    e = JSON.parse(e); //console.log(e);
+
+    if (e.status) {
+
+      $.each(e.data.galeria, function (index, value) {
+
+          var l_galeria = `<div class="cbp-item" style="width: 401px !important; left: 0px; top: 58px !important;">
+                                  <div class="cbp-caption">
+                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${value.imagen}" alt="Image Description" onclick="modal_xl('${value.imagen}')">
                                   </div>
                                 </div>`;
 
@@ -137,8 +173,6 @@ function detalle_obras(idproyecto) {
           </div>
       </div>`);
 
-
-
       // INITIALIZATION OF CUBEPORTFOLIO
       // =======================================================
       $('.cbp').each(function () {
@@ -165,6 +199,12 @@ function detalle_obras(idproyecto) {
 
   }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
+
+function modal_xl(imagen) {
+  $("#modal_xl").modal("show");
+  $(".img_modal_xl").html(`<img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${imagen}" style="width: 100%;"  alt="Image Description"></img>`)
+}
+
 
 init();
 function extrae_extencion(filename) {

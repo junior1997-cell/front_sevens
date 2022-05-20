@@ -48,6 +48,10 @@
                   <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-proyecto" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
                   Proyectos
                 </h3>
+                <h3 class="card-title botones_fases">
+                  <button type="button" class="btn btn-warning btn-xs" onclick="limpiar_fase(); mostrar_section(1);"><i class="fas fa-arrow-left"></i> Regresar</button>
+                  <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-fase" onclick="limpiar_fase();"><i class="fas fa-plus-circle"></i> Agregar </button>
+                </h3>
               </div>
 
               <!-- Body -->
@@ -68,7 +72,7 @@
                           <th class="">Acc.</th>
                           <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
                           <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
-                          <th data-toggle="tooltip" data-original-title="Galería">Galería</th>
+                          <th data-toggle="tooltip" ata-original-title="Opciones">Op.</th>
                         </tr>
                       </thead>
                       <tbody></tbody>
@@ -77,16 +81,43 @@
                           <th class="">Acc.</th>
                           <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
                           <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
-                          <th data-toggle="tooltip" data-original-title="Galería">Galería</th>
+                          <th data-toggle="tooltip" data-original-title="Opciones">Op.</th>
                         </tr>
                       </tfoot>
                     </table>
                   </div>
-
+                  <!-- GALERIA -->
                   <div class="col-lg-12 text-center galeria" style="display: none;">
                     <div id="g_cargando"></div>
                     <div class="row" id="l_galeria"> </div>
                   </div>
+                  <!-- FIN GALERIA -->
+
+                  <!-- FASES PROYECTO -->
+                  <div class="col-lg-12 text-center fases_proyecto" style="display: none;">
+                    <div id="f_cargando"></div>
+                    <div>
+                      <!-- tabla -->
+                      <table id="tabla-fases" class="table table-bordered table-striped display" style="width: 100% !important;">
+                        <thead>
+                          <tr>
+                          <th class="">Acc.</th>
+                            <th data-toggle="tooltip" data-original-title="Número de fase">N° de fase</th>
+                            <th data-toggle="tooltip" data-original-title="Nombre">Nombre</th>
+                          </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                          <tr>
+                            <th class="">Acc.</th>
+                            <th data-toggle="tooltip" data-original-title="Número de fase">N° de fase</th>
+                            <th data-toggle="tooltip" data-original-title="Nombre">Nombre</th>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- FIN FASES PROYECTO -->
 
                 </div>
               </div>
@@ -99,7 +130,7 @@
       </div>
       <!-- End Content Section -->
 
-      <!-- Modal agregar proveedores -->
+      <!-- Modal agregar proyecto -->
       <div class="modal fade" id="modal-agregar-proyecto">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
           <div class="modal-content">
@@ -246,8 +277,8 @@
                 <div class="card-body">
                   <div class="row" id="cargando-3-fomulario">
                     <!--  idproyecto -->
-                    <input type="text" name="idgaleria_proyecto" id="idgaleria_proyecto" />
-                    <input type="text" name="idproyecto_img" id="idproyecto_img" />
+                    <input type="hidden" name="idgaleria_proyecto" id="idgaleria_proyecto" />
+                    <input type="hidden" name="idproyecto_img" id="idproyecto_img" />
                     <!-- Factura -->
                     <div class="col-md-6">
                       <div class="row text-center">
@@ -301,6 +332,63 @@
                   <button type="submit" class="btn btn-success btn-xs" id="submit-form-imagen-proyect">Guardar Cambios</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal agregar fases proyecto -->
+      <div class="modal fade" id="modal-agregar-fase">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><b>Agregar:</b> FASE</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-danger" aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <!-- form start -->
+              <form id="form-fase" name="form-fase" method="POST">
+                <div class="card-body">
+                  <div class="row" id="cargando-5-fomulario">
+                    <!--  idproyecto -->
+                    <input type="text" name="idfase" id="idfase" />
+                    <input type="text" name="idproyecto_fase" id="idproyecto_fase" />
+
+                    <!-- N° de fase idfase,idproyecto_fase,n_fase,nombre_fase -->
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="precio">N° de fase <sup class="text-danger">*</sup></label>
+                        <input class="form-control" type="number" id="n_fase" name="n_fase" min='1' placeholder="N° de fase"/>
+                      </div>
+                    </div>
+                    <!-- Nombre -->
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="Nombre">Nombre  <sup class="text-danger">*</sup></label>
+                        <input class="form-control" type="text" id="nombre_f" name="nombre_f" placeholder="Nombre fase"/>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row" id="cargando-6-fomulario" style="display: none;">
+                    <div class="col-lg-12 text-center">
+                      <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
+                      <br />
+                      <h4>Cargando...</h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <button type="submit" style="display: none;" id="submit-form-proyecto-fase">Submit</button>
+              </form>
+            </div>
+
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar_fase();">Close</button>
+              <button type="submit" class="btn btn-success" id="guardar_registro_fase">Guardar Cambios</button>
             </div>
           </div>
         </div>

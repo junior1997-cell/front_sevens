@@ -53,7 +53,7 @@
 
       //detalle_proyecto_web
       case 'detalle_proyecto_web':
-        $rspta = $proyecto->detalle_proyecto_web($_POST['idproyecto']);
+        $rspta = $proyecto->detalle_proyecto_web($_POST['idproyecto'], $_POST['opcion']);
         echo json_encode($rspta, true);
       break;
 

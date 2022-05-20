@@ -1,4 +1,5 @@
 var tabla;
+var tabla_fases;
 //Función que se ejecuta al inicio
 function init() {
 
@@ -14,6 +15,8 @@ function init() {
   $("#guardar_registro").on("click", function (e) {$("#submit-form-proyecto").submit();});
 
   $("#form-imagen-proyect").on("submit", function (e) { guardaryeditar_imagen(e) });
+
+  $("#guardar_registro_fase").on("click", function (e) {$("#submit-form-proyecto-fase").submit();  console.log('llllllllll');   });
 
   mostrar_section(1);
 }
@@ -82,10 +85,11 @@ function mostrar_section(estado) {
     $(".tabla").show();
     $(".botones_galeria").hide();
     $(".btn_add_proyect").show();
+    $(".botones_fases").hide();
     
     $(".galeria").hide();
     $("#l_galeria").html("");
-
+    $(".fases_proyecto").hide();
   }
 
   if (estado==2) {
@@ -93,8 +97,21 @@ function mostrar_section(estado) {
     $(".tabla").hide();
     $(".botones_galeria").show();
     $(".btn_add_proyect").hide();
+    $(".botones_fases").hide();
     
     $(".galeria").show();
+    $(".fases_proyecto").hide();
+  }
+
+  if (estado==3) {
+
+    $(".tabla").hide();
+    $(".botones_galeria").hide();
+    $(".btn_add_proyect").hide();
+    $(".galeria").hide();
+
+    $(".botones_fases").show();
+    $(".fases_proyecto").show();
     
   }
 
@@ -139,7 +156,7 @@ function listar() {
 
 }
 
-//ver ficha tecnica
+//ver ficha imagen
 function ver_img_perfil(img_perfil,nombre_proyecto){
 
   $('#modal-ver-imagen').modal("show");
@@ -475,6 +492,78 @@ function eliminar_imagen(idgaleria_proyecto) {
     }
   });   
 }
+//:::::::::::::::F A C E S  P R O Y E C T O :::::::::.
+function limpiar_fase(){
+
+  $("idfase").val("");
+  $("n_fase").val("");
+  $("nombre_fase").val("");
+
+}
+
+function fases_proyecto(idproyecto) {
+  mostrar_section(3);
+  $("#idproyecto_fase").val(idproyecto)
+  
+  $("#f_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
+
+  tabla_fases=$('#tabla-fases').dataTable({
+    "responsive": true,
+    lengthMenu: [[ -1, 5, 10, 25, 75, 100, 200,], ["Todos", 5, 10, 25, 75, 100, 200, ]],//mostramos el menú de registros a revisar
+    "aProcessing": true,//Activamos el procesamiento del datatables
+    "aServerSide": true,//Paginación y filtrado realizados por el servidor
+    dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
+    buttons: ['excelHtml5','pdf'],
+    "ajax":{
+        url: '../ajax/proyecto.php?op=listar_fase&idproyecto='+idproyecto,
+        type : "get",
+        dataType : "json",						
+        error: function(e){
+          console.log(e.responseText);	
+        }
+      },
+    "language": {
+      "lengthMenu": "Mostrar: _MENU_ registros",
+      "buttons": {
+        "copyTitle": "Tabla Copiada",
+        "copySuccess": {
+          _: '%d líneas copiadas',
+          1: '1 línea copiada'
+        }
+      }
+    },
+    "bDestroy": true,
+    "iDisplayLength": 5,//Paginación
+    "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
+  }).DataTable();
+
+}
+
+
+function guardaryeditar_fase(e) {
+  //e.preventDefault(); //No se activará la acción predeterminada del evento
+  var formData = new FormData($("#form-fase")[0]);
+
+  $.ajax({
+    url: "../ajax/proyecto.php?op=guardaryeditar_fase",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+
+    success: function (datos) {
+      if (datos == "ok") {
+        Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
+        galeria(localStorage.getItem('idproyecto_img'));
+        $("#modal-agregar-fase").modal("hide");
+
+      } else {
+        Swal.fire("Error!", datos, "error");
+      }
+    }
+
+  });
+}
 
 init();
 
@@ -502,6 +591,48 @@ $(function () {
 
         nombre: { required: "Campo requerido", },
         descripcion: { required: "Campo requerido", }, 
+
+    },
+        
+    errorElement: "span",
+
+    errorPlacement: function (error, element) {
+
+      error.addClass("invalid-feedback");
+
+      element.closest(".form-group").append(error);
+    },
+
+    highlight: function (element, errorClass, validClass) {
+
+      $(element).addClass("is-invalid").removeClass("is-valid");
+    },
+
+    unhighlight: function (element, errorClass, validClass) {
+
+      $(element).removeClass("is-invalid").addClass("is-valid");
+   
+    },
+
+
+  });
+
+});
+
+$(function () {
+  
+  $.validator.setDefaults({ submitHandler: function (e) { guardaryeditar_fase(e); }, });
+  
+  $("#form-fase").validate({
+    rules: {
+      n_fase:{required: true},
+      nombre_f:{required: true},
+      // terms: { required: true },
+    },
+    messages: {
+
+        n_fase: { required: "Campo requerido", },
+        nombre_f: { required: "Campo requerido", },
 
     },
         

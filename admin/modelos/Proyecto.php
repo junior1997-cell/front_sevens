@@ -156,6 +156,34 @@ Class Proyecto
 		return ejecutarConsultaSimpleFila($sql);		
 	}
 
+	//:::::::::::::::::::: F A S E S  ::::::::::::::::::::::
+	public function insertar_fase($idproyecto_fase,$n_fase,$nombre_f)
+	{
+		
+		$sql="INSERT INTO fase_proyecto(idproyecto, nombre, numero_fase) VALUES ('$idproyecto_fase','$nombre_f','$n_fase')";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function editar_fase($idfase,$idproyecto_fase,$n_fase,$nombre_f)
+	{
+		$sql="UPDATE fase_proyecto SET idproyecto='$idproyecto_fase',nombre='$nombre_f',numero_fase='$n_fase'] 
+		WHERE idfase_proyecto=$idfase";
+		return ejecutarConsulta($sql);	
+	}
+
+	public function listar_fase($idproyecto_fase)
+	{
+		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase'  ORDER BY idfase_proyecto DESC";
+		return ejecutarConsulta($sql);		
+	}
+
+	//Implementamos un método para desactivar categorías
+	public function eliminar_fase($idfase)
+	{
+		$sql="DELETE FROM fase_proyecto WHERE idfase_proyecto ='$idfase';";
+		return ejecutarConsulta($sql);
+	}
+
 	
 	//:::::::::::::::::::: L I S T A R  W E B ::::::::::::::::::::::
 
@@ -167,11 +195,12 @@ Class Proyecto
 	}
   
 	//Implementar un método para listar 1 proyecto en la web
-	public function detalle_proyecto_web($idproyecto)
+	public function detalle_proyecto_web($idproyecto,$opcion)
 	{
 		$data_proyecto = Array(); $rpta_galeria= Array();
 
-		$sql_1="SELECT idproyecto,id_proyecto_admin,nombre_proyecto,codigo_proyecto,fecha_inicio,fecha_fin,dias_habiles,dias_calendario,actividad_trabajo,ubicacion,descripcion,estado_proyecto,img_perfil 
+		$sql_1="SELECT idproyecto,id_proyecto_admin,nombre_proyecto,codigo_proyecto,fecha_inicio,fecha_fin,
+		dias_habiles,dias_calendario,actividad_trabajo,ubicacion,descripcion,estado_proyecto,img_perfil 
 		FROM proyecto_front WHERE id_proyecto_admin='$idproyecto'";
 
 		$datosproyecto =  ejecutarConsultaSimpleFila($sql_1);
@@ -180,8 +209,15 @@ Class Proyecto
 
 			$id=$datosproyecto['data']['idproyecto'];
 
-			$sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id'";
-			$galeria_proyecto= ejecutarConsultaArray($sql_2);
+      if ($opcion=='resumido') {
+          $sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id' ORDER BY idgaleria_proyecto DESC LIMIT 3";
+          $galeria_proyecto= ejecutarConsultaArray($sql_2);
+      }else{
+          
+        $sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id'";
+        $galeria_proyecto= ejecutarConsultaArray($sql_2);
+
+      }
 
 			if ($galeria_proyecto['status']) {
 

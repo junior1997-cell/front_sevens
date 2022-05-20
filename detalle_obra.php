@@ -50,20 +50,40 @@
       </div>
     </div>
     <!-- End Description Section -->
+    <!-- CTA Section -->
+    <div class="container space-top-2 space-top-lg-3">
+      <div class="w-lg-85 mx-lg-auto">
+        <div class="card bg-primary text-white overflow-hidden p-4">
+          <div class="row justify-content-md-start align-items-md-center text-center text-md-left">
+            <div class="col-md-6 offset-md-3 mb-3 mb-md-0">
+              <h3 class="text-white mb-1">Deseas ver más fotos?</h3>
+              <p class="text-white-70 mb-0">Si tu respuesta es si, click en el botón 
+              <span class="badge ml-1" style="background-color: #f7faff; color: #000;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver más</font></font></span>
+               </p> 
+
+            </div>
+            <div class="col-md-3 text-md-right">
+              <a class="btn btn-light transition-3d-hover" onclick="all_images()" >Ver más <i class="fas fa-angle-double-down"></i> </a>
+            </div>
+          </div>
+
+          <!-- SVG Component -->
+          <figure class="w-25 d-none d-md-block content-centered-y ml-n4">
+            <img class="img-fluid" src="assets/svg/illustrations/communication.svg" alt="Image Description">
+          </figure>
+          <!-- End SVG Component -->
+        </div>
+      </div>
+    </div>
+    <!-- End CTA Section -->
 
     <!-- Sticky Block End Point -->
     <div id="stickyBlockEndPoint"></div>
 
-    <hr class="my-0">
+    <hr class="my-0 m-4">
 
     <!-- Portfolio Section -->
-    <div class="container space-2 space-lg-3">
-      <!-- Title -->
-      <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <h2>Our branding works</h2>
-        <p>Experience a level of our quality in both design &amp; customization works.</p>
-      </div>
-      <!-- End Title -->
+    <div class="container space-2 space-lg-3 all_content_mages" style="display: none;">
 
       <div class="cbp"
            data-hs-cbp-options='{
@@ -78,70 +98,9 @@
                {"width": 480, "cols": 2},
                {"width": 380, "cols": 1}
              ]
-           }'>
-        <!-- Item -->
-        <div class="cbp-item product">
-          <a class="cbp-caption" href="portfolio-single-page-grid.html">
-            <div class="overflow-hidden rounded-lg">
-              <div class="cbp-caption-defaultWrap">
-                <img class="rounded-lg" src="assets/img/480x320/img2.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="p-4">
-              <span class="d-block small text-body font-weight-bold text-cap">Product</span>
-              <span class="d-block h3 mb-0">Canva Schedule</span>
-            </div>
-          </a>
-        </div>
-        <!-- End Item -->
+           }' id="all_mages">
 
-        <!-- Item -->
-        <div class="cbp-item branding">
-          <a class="cbp-caption" href="portfolio-single-page-grid.html">
-            <div class="overflow-hidden rounded-lg">
-              <div class="cbp-caption-defaultWrap">
-                <img class="rounded-lg" src="assets/img/480x320/img5.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="p-4">
-              <span class="d-block small text-body font-weight-bold text-cap">Product</span>
-              <span class="d-block h3 mb-0">Electro bike</span>
-            </div>
-          </a>
-        </div>
-        <!-- End Item -->
-
-        <!-- Item -->
-        <div class="cbp-item product branding">
-          <a class="cbp-caption" href="portfolio-single-page-grid.html">
-            <div class="overflow-hidden rounded-lg">
-              <div class="cbp-caption-defaultWrap">
-                <img class="rounded-lg" src="assets/img/480x320/img1.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="p-4">
-              <span class="d-block small text-body font-weight-bold text-cap">Branding</span>
-              <span class="d-block h3 mb-0">Larq</span>
-            </div>
-          </a>
-        </div>
-        <!-- End Item -->
-        
-        <!-- Item -->
-        <div class="cbp-item product branding">
-          <a class="cbp-caption" href="portfolio-single-page-grid.html">
-            <div class="overflow-hidden rounded-lg">
-              <div class="cbp-caption-defaultWrap">
-                <img class="rounded-lg" src="assets/img/480x320/img1.jpg" alt="Image Description">
-              </div>
-            </div>
-            <div class="p-4">
-              <span class="d-block small text-body font-weight-bold text-cap">Branding</span>
-              <span class="d-block h3 mb-0">Larq</span>
-            </div>
-          </a>
-        </div>
-        <!-- End Item -->
+            <!-- mostramos todas las imagenes -->
 
       </div>
     </div>
@@ -152,6 +111,34 @@
 
   <!-- ========== FOOTER ========== -->
   <?php require 'footer.php'; ?>
+
+    <!-- modal detalle obras -->
+    <div class="modal fade " id="modal_xl" tabindex="-1" role="dialog" aria-hidden="true" style="background-color: #00000063;">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <!-- Header -->
+          <div class="modal-close">
+            <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close" style="background-color: rgb(0 0 0 / 61%);">
+              <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+              </svg>
+            </button>
+          </div>
+          <!-- End Header -->
+
+          <!-- Body -->
+          <div class="modal-body p-sm-2 text-center">
+            <div id="signinModalForm">
+              <div class="img_modal_xl">
+                <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
+              </div>
+            </div>
+          </div>
+          <!-- End Body -->
+        </div>
+      </div>
+    </div>
+    <!-- modal detalle obras -->
 
   <style>
     .wrapper-diamond-us .content-diamond-us:first-child .diamond-us {
