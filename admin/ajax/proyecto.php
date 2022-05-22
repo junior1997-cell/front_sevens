@@ -227,46 +227,50 @@ if (!isset($_SESSION["nombre"])) {
 
       //Listar Galeria
       case 'listar_fase':
-        $rspta = $proyecto->listar_fase( $_POST['idproyecto']);
+        $rspta = $proyecto->listar_fase($_GET['idproyecto']);
+          //Vamos a declarar un array
+          $data = [];
+          $cont = 1;
 
-        //Vamos a declarar un array
-        $data = [];
-        $comprobante = '';
-        $cont = 1;
-        $imagen_error = "this.src='../dist/svg/defaul_valor.png'";
-
-        if ($rspta['status']) {
+          if ($rspta['status']) {
 
 
-          while ($reg = $rspta['data']->fetch_object()) {
+            while ($reg = $rspta['data']->fetch_object()) {
 
-            $data[] = [
-              "0" => '<center><button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' .$reg->idfase_proyecto .')"><i class="fas fa-pencil-alt"></i></button>
-                      <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' .$reg->idfase_proyecto .')"><i class="far fa-trash-alt"></i></button> </center>',
-              "1" => $reg->numero_fase,
-              "2" => $reg->nombre
+              $data[] = [
+                "0" => '<center><button class="btn btn-warning btn-xs" onclick="mostrar_fase(' .$reg->idfase_proyecto .')"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger btn-xs" onclick="eliminar_fase(' .$reg->idfase_proyecto .')"><i class="far fa-trash-alt"></i></button> </center>',
+                "1" => $reg->numero_fase,
+                "2" =>$reg->nombre
+              ];
+            }
+
+            $results = [
+              "sEcho" => 1, //Información para el datatables
+              "iTotalRecords" => count($data), //enviamos el total registros al datatable
+              "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
+              "data" => $data,
             ];
-          }
-          $results = [
-            "sEcho" => 1, //Información para el datatables
-            "iTotalRecords" => count($data), //enviamos el total registros al datatable
-            "iTotalDisplayRecords" => 1, //enviamos el total registros a visualizar
-            "data" => $data,
-          ];
-          echo json_encode($results,true);
+            echo json_encode($results,true);
 
-        } else {
-          echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
-        }
+          } else {
+            echo $rspta['code_error'] .' - '. $rspta['message'] .' '. $rspta['data'];
+          }
+
+      break;
+
+      case 'mostrar_fase':
+          $rspta = $proyecto->mostrar_fase($idfase);
+          //Codificar el resultado utilizando json
+          echo json_encode($rspta, true);
+          //Fin de las validaciones de acceso
       break;
   
       case 'eliminar_fase':
           $rspta = $proyecto->eliminar_fase($idfase);
           echo $rspta ? " Eliminado" : "No se puede Eliminar";
           //Fin de las validaciones de acceso
-      break;
-      
-        
+      break;       
 
       case 'salir':
         //Limpiamos las variables de sesión

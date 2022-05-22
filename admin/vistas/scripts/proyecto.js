@@ -505,7 +505,7 @@ function fases_proyecto(idproyecto) {
   mostrar_section(3);
   $("#idproyecto_fase").val(idproyecto)
   
-  $("#f_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
+  //$("#f_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
 
   tabla_fases=$('#tabla-fases').dataTable({
     "responsive": true,
@@ -536,9 +536,7 @@ function fases_proyecto(idproyecto) {
     "iDisplayLength": 5,//Paginación
     "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
   }).DataTable();
-
 }
-
 
 function guardaryeditar_fase(e) {
   //e.preventDefault(); //No se activará la acción predeterminada del evento
@@ -554,9 +552,8 @@ function guardaryeditar_fase(e) {
     success: function (datos) {
       if (datos == "ok") {
         Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
-        galeria(localStorage.getItem('idproyecto_img'));
         $("#modal-agregar-fase").modal("hide");
-
+        tabla_fases.ajax.reload();
       } else {
         Swal.fire("Error!", datos, "error");
       }
@@ -564,6 +561,55 @@ function guardaryeditar_fase(e) {
 
   });
 }
+
+function mostrar_fase(idfase_proyecto) {
+
+  limpiar_fase();
+  mostrar_select(3);
+
+  $("#modal-agregar-fase").modal("show");
+
+  $("#cargando-5-fomulario").hide();
+  $("#cargando-6-fomulario").show();
+
+  $.post("../ajax/proyecto.php?op=mostrar_fase", { idfase: idfase_proyecto }, function (e, status) {
+
+    e = JSON.parse(e);  console.log(e);  
+
+    $("#idfase").val(e.data.idfase_proyecto);
+    $("#idproyecto_fase").val(e.data.idproyecto);
+    $("#n_fase").val(e.data.numero_fase);
+    $("#nombre_f").val(e.data.nombre);
+
+    $("#cargando-5-fomulario").show();
+    $("#cargando-6-fomulario").hide();
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
+  
+}
+
+//Función para eliminar registros
+function eliminar_fase(idfase_proyecto) {
+  Swal.fire({
+    title: "¿Está Seguro de  Eliminar el registro?",
+    text: "",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#28a745",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, Eliminar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.post("../ajax/proyecto.php?op=eliminar_fase", { idfase: idfase_proyecto }, function (e) {
+
+        Swal.fire("Eliminado!", "Tu registro ha sido Eliminado.", "success");
+    
+        tabla_fases.ajax.reload();
+      });      
+    }
+  });   
+}
+
 
 init();
 

@@ -353,8 +353,8 @@
                 <div class="card-body">
                   <div class="row" id="cargando-5-fomulario">
                     <!--  idproyecto -->
-                    <input type="text" name="idfase" id="idfase" />
-                    <input type="text" name="idproyecto_fase" id="idproyecto_fase" />
+                    <input type="hidden" name="idfase" id="idfase" />
+                    <input type="hidden" name="idproyecto_fase" id="idproyecto_fase" />
 
                     <!-- N° de fase idfase,idproyecto_fase,n_fase,nombre_fase -->
                     <div class="col-lg-6">

@@ -166,23 +166,34 @@ Class Proyecto
 
 	public function editar_fase($idfase,$idproyecto_fase,$n_fase,$nombre_f)
 	{
-		$sql="UPDATE fase_proyecto SET idproyecto='$idproyecto_fase',nombre='$nombre_f',numero_fase='$n_fase'] 
+		$sql="UPDATE fase_proyecto SET idproyecto='$idproyecto_fase',nombre='$nombre_f',numero_fase='$n_fase' 
 		WHERE idfase_proyecto=$idfase";
 		return ejecutarConsulta($sql);	
 	}
 
 	public function listar_fase($idproyecto_fase)
 	{
-		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase'  ORDER BY idfase_proyecto DESC";
+		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase' AND estado='1'  ORDER BY idfase_proyecto DESC";
 		return ejecutarConsulta($sql);		
 	}
+
+	
+	//Implementar un método para mostrar los datos de un registro a modificar
+	public function mostrar_fase($idfase)
+	{
+		$sql="SELECT idfase_proyecto, idproyecto, nombre, numero_fase, estado FROM fase_proyecto WHERE idfase_proyecto ='$idfase'";
+
+		return ejecutarConsultaSimpleFila($sql);
+	}
+
 
 	//Implementamos un método para desactivar categorías
 	public function eliminar_fase($idfase)
 	{
-		$sql="DELETE FROM fase_proyecto WHERE idfase_proyecto ='$idfase';";
+		$sql="UPDATE fase_proyecto SET estado='0' WHERE idfase_proyecto ='$idfase';";
 		return ejecutarConsulta($sql);
 	}
+
 
 	
 	//:::::::::::::::::::: L I S T A R  W E B ::::::::::::::::::::::
@@ -210,11 +221,11 @@ Class Proyecto
 			$id=$datosproyecto['data']['idproyecto'];
 
       if ($opcion=='resumido') {
-          $sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id' ORDER BY idgaleria_proyecto DESC LIMIT 3";
+          $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto=1 ORDER BY idgaleria_proyecto DESC LIMIT 3";
           $galeria_proyecto= ejecutarConsultaArray($sql_2);
       }else{
           
-        $sql_2="SELECT * FROM galeria_proyecto WHERE idproyecto_front='$id'";
+        $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto=1";
         $galeria_proyecto= ejecutarConsultaArray($sql_2);
 
       }
