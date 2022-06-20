@@ -29,6 +29,8 @@ if (!isset($_SESSION["nombre"])) {
     //::::::::G A L E R Í A  P R O Y E C T O  ::::::::::::::::::::.
     $idgaleria_proyecto = isset($_POST["idgaleria_proyecto"]) ? limpiarCadena($_POST["idgaleria_proyecto"]) : "";
     $idproyecto_img = isset($_POST["idproyecto_img"]) ? limpiarCadena($_POST["idproyecto_img"]) : "";
+    $id_fase_select = isset($_POST["id_fase_select"]) ? limpiarCadena($_POST["id_fase_select"]) : "";
+    $nombre_img = isset($_POST["nombre_img"]) ? limpiarCadena($_POST["nombre_img"]) : "";  
     $foto2 = isset($_POST["doc2"]) ? limpiarCadena($_POST["doc2"]) : "";
 
     //::::::::F A S E S  P R O Y E C T O  ::::::::::::::::::::.
@@ -169,7 +171,7 @@ if (!isset($_SESSION["nombre"])) {
 
         if (empty($idgaleria_proyecto)) {
           //var_dump($idproyecto,$idproveedor);
-          $rspta = $proyecto->insertar_galeria($idproyecto_img,$img_galeria);
+          $rspta = $proyecto->insertar_galeria($id_fase_select,$nombre_img,$img_galeria);
           echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
         } else {
           //validamos si existe comprobante para eliminarlo
@@ -190,7 +192,7 @@ if (!isset($_SESSION["nombre"])) {
 
           }
 
-          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$idproyecto_img,$img_galeria);
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria,);
           //var_dump($idproyecto,$idproveedor);
           echo $rspta ? "ok" : "No se pudo actualizar";
         }
@@ -198,7 +200,7 @@ if (!isset($_SESSION["nombre"])) {
         
       //Listar Galeria
       case 'listar_galeria':
-        $rspta =   $rspta = $proyecto->listar_galeria( $_POST['idproyecto_front']);
+        $rspta =   $rspta = $proyecto->listar_galeria( $_POST['idproyecto']);
         echo json_encode($rspta, true);
       break;
   
@@ -270,7 +272,18 @@ if (!isset($_SESSION["nombre"])) {
           $rspta = $proyecto->eliminar_fase($idfase);
           echo $rspta ? " Eliminado" : "No se puede Eliminar";
           //Fin de las validaciones de acceso
-      break;       
+      break;  
+      
+      case 'select2_fases':
+
+        $rspta =  $proyecto->select2_fases($_GET['idproyecto']);
+
+        while ($reg = $rspta['data']->fetch_object())  {
+    
+          echo '<option value=' . $reg->idfase_proyecto . '>' . $reg->numero_fase .'-'.$reg->nombre.'</option>';
+        }
+
+      break;
 
       case 'salir':
         //Limpiamos las variables de sesión

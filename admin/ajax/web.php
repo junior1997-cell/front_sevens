@@ -53,8 +53,27 @@
 
       //detalle_proyecto_web
       case 'detalle_proyecto_web':
-        $rspta = $proyecto->detalle_proyecto_web($_POST['idproyecto'], $_POST['opcion']);
+        $rspta = $proyecto->detalle_proyecto_web($_POST['idproyecto'], $_POST['opcion'], $_POST['fase_selec']);
         echo json_encode($rspta, true);
+      break;
+
+      //  Selecct fases para mostrar en detalle proyecto en la web     
+      case 'select2_view_fase':
+
+        $rspta =  $proyecto->select2_view_fase($_GET['idproyecto']);
+        
+        $sta= true;
+        while ($reg = $rspta['data']->fetch_object())  {
+
+          if ($sta) {
+            echo '<option value=0>Todos</option>';
+            $sta= false;
+          }
+    
+          echo '<option value=' . $reg->idfase_proyecto . '>' . $reg->numero_fase .'-'.$reg->nombre.'</option>';
+        }
+
+
       break;
 
       //Listar proveedores
@@ -62,6 +81,8 @@
         $rspta = $proveedores->listar_proveedores_web();
         echo json_encode($rspta, true);
       break;
+
+
      
 
     }

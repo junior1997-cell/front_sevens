@@ -278,8 +278,32 @@
                   <div class="row" id="cargando-3-fomulario">
                     <!--  idproyecto -->
                     <input type="hidden" name="idgaleria_proyecto" id="idgaleria_proyecto" />
-                    <input type="hidden" name="idproyecto_img" id="idproyecto_img" />
-                    <!-- Factura -->
+                    <!-- <input type="text" name="idproyecto_img" id="idproyecto_img" /> -->
+
+                    <!-- select2 -->
+                    <div class="col-lg-6">
+                      <div class="form-group selectt">
+                        <label for="fase_select" class="cargando_select">Fase <i class="fas fa-spinner fa-pulse fa-lg text-danger"></i></label>                               
+                        <select name="id_fase_select" id="id_fase_select"
+                        class="js-custom-select custom-select" size="1" style="opacity: 0;"
+                        data-hs-select2-options='{
+                          "minimumResultsForSearch": "Infinity",
+                          "placeholder": "Seleccionar un proyecto"
+                        }' style="width: 100%;">                                    
+                        </select>
+                      </div> 
+                    </div>
+
+                    <!-- nombre foto -->
+                    <div class="col-lg-6"> 
+                      <div class="form-group">
+                        <label for="nombre_img">Nombre imagen</label>
+                        <input type="text" class="form-control" id="nombre_img" name="nombre_img" placeholder="Nombre imagen"/>
+                      </div>
+
+                    </div>
+
+                    <!-- imagen -->
                     <div class="col-md-6">
                       <div class="row text-center">
                         <div class="col-md-12" style="padding-top: 15px; padding-bottom: 5px;">
@@ -336,6 +360,7 @@
           </div>
         </div>
       </div>
+      
       <!-- Modal agregar fases proyecto -->
       <div class="modal fade" id="modal-agregar-fase">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">

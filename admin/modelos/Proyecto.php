@@ -124,22 +124,26 @@ Class Proyecto
 	}
 
 	//:::::::::::::::::::: G A L E R I A ::::::::::::::::::::::
-	public function insertar_galeria($idproyecto_ing,$img_galeria)
+	public function insertar_galeria($id_fase_select,$nombre_img,$img_galeria)
 	{
 		
-		$sql="INSERT INTO galeria_proyecto( idproyecto_front, imagen) VALUES ('$idproyecto_ing','$img_galeria')";
+		$sql="INSERT INTO galeria_proyecto(idfase_proyecto,nombre_imagen,imagen) VALUES ('$id_fase_select','$nombre_img','$img_galeria')";
 		return ejecutarConsulta($sql);		
 	}
 
-	public function editar_galeria($idgaleria_proyecto,$idproyecto_img,$img_galeria)
+	public function editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria)
 	{
-		$sql="UPDATE galeria_proyecto SET idproyecto_front='$idproyecto_img', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
+		$sql="UPDATE galeria_proyecto SET idfase_proyecto='$id_fase_select',nombre_imagen='$nombre_img', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
 		return ejecutarConsulta($sql);	
 	}
-	public function listar_galeria($idproyecto_front)
+
+	public function listar_galeria($idproyecto)
 	{
-		$sql="SELECT*FROM galeria_proyecto WHERE idproyecto_front='$idproyecto_front'  ORDER BY idgaleria_proyecto DESC";
-		return ejecutarConsultaArray($sql);		
+				
+		$sql_1="SELECT fp.idfase_proyecto, fp.nombre as fase, gp.idgaleria_proyecto as idgaleria_proyecto, gp.nombre_imagen,  gp.imagen, gp.nombre_imagen
+		FROM fase_proyecto as fp, galeria_proyecto as gp
+		WHERE gp.idfase_proyecto = fp.idfase_proyecto AND fp.estado =1 AND fp.idproyecto='$idproyecto'";
+		return ejecutarConsultaArray($sql_1);
 	}
 
 	//Implementamos un método para desactivar categorías
@@ -176,7 +180,6 @@ Class Proyecto
 		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase' AND estado='1'  ORDER BY idfase_proyecto DESC";
 		return ejecutarConsulta($sql);		
 	}
-
 	
 	//Implementar un método para mostrar los datos de un registro a modificar
 	public function mostrar_fase($idfase)
@@ -194,6 +197,12 @@ Class Proyecto
 		return ejecutarConsulta($sql);
 	}
 
+	public function select2_fases($idproyecto_fase)
+	{
+		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase' AND estado='1'  ORDER BY idfase_proyecto DESC";
+		return ejecutarConsulta($sql);		
+	}
+
 
 	
 	//:::::::::::::::::::: L I S T A R  W E B ::::::::::::::::::::::
@@ -206,72 +215,78 @@ Class Proyecto
 	}
   
 	//Implementar un método para listar 1 proyecto en la web
-	public function detalle_proyecto_web($idproyecto,$opcion)
+	public function detalle_proyecto_web($idproyecto,$opcion,$fase_selec)
 	{
-		$data_proyecto = Array(); $rpta_galeria= Array();
+		$data_proyecto = Array(); $rpta_galeria= Array();  $galeria_fases= Array();
 
 		$sql_1="SELECT idproyecto,id_proyecto_admin,nombre_proyecto,codigo_proyecto,fecha_inicio,fecha_fin,
 		dias_habiles,dias_calendario,actividad_trabajo,ubicacion,descripcion,estado_proyecto,img_perfil 
 		FROM proyecto_front WHERE id_proyecto_admin='$idproyecto'";
 
 		$datosproyecto =  ejecutarConsultaSimpleFila($sql_1);
+		if ($datosproyecto['status'] = false) {return $datosproyecto;}
 
-		if ($datosproyecto['status']) {
+    $id=$datosproyecto['data']['idproyecto'];    
+    $limite = "";
+	$filtrar_fase="";
+	
+    if ($fase_selec!='0') { $filtrar_fase ='AND idfase_proyecto='.$fase_selec.'';}
 
-			$id=$datosproyecto['data']['idproyecto'];
+    $sql_1_5  = "SELECT idfase_proyecto, nombre, numero_fase FROM fase_proyecto WHERE estado=1 $filtrar_fase  AND idproyecto ='$id'";
+    $fase_proyecto = ejecutarConsultaArray($sql_1_5);  
+    if ($fase_proyecto['status']==false) {return $fase_proyecto;}
 
-      if ($opcion=='resumido') {
-          $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto=1 ORDER BY idgaleria_proyecto DESC LIMIT 3";
-          $galeria_proyecto= ejecutarConsultaArray($sql_2);
-      }else{
-          
-        $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto=1";
-        $galeria_proyecto= ejecutarConsultaArray($sql_2);
+	if ($opcion=='resumido') { $limite ="LIMIT 3";}
 
-      }
+    foreach ($fase_proyecto['data'] as $key => $value) {
 
-			if ($galeria_proyecto['status']) {
+      $id_fase=$value['idfase_proyecto'];
 
-				if (!empty($galeria_proyecto['data'])) {
-
-					$rpta_galeria =$galeria_proyecto['data'];
-
-				}
-				
-			}else{
-
-        return 	$galeria_proyecto ;
-
-			}
-
-      $data_proyecto = array(
-
-        "status"               => true,
-        "data"                 => [
-            "idproyecto"           => $datosproyecto['data']['idproyecto'],
-            "nombre_proyecto"      => $datosproyecto['data']['nombre_proyecto'],
-            "codigo_proyecto"      => $datosproyecto['data']['codigo_proyecto'],
-            "fecha_inicio"         => $datosproyecto['data']['fecha_inicio'],
-            "fecha_fin"            => $datosproyecto['data']['fecha_fin'],
-            "dias_habiles"         => $datosproyecto['data']['dias_habiles'],
-            "dias_calendario"      => $datosproyecto['data']['dias_calendario'],
-            "actividad_trabajo"    => $datosproyecto['data']['actividad_trabajo'],
-            "ubicacion"            => $datosproyecto['data']['ubicacion'],
-            "descripcion"          => $datosproyecto['data']['descripcion'],
-            "estado_proyecto"      => $datosproyecto['data']['estado_proyecto'],
-            "img_perfil"           => $datosproyecto['data']['img_perfil'],
-            "galeria"              => $rpta_galeria,],
-        "message"              => 'Data sin errores',
+      $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto='$id_fase' ORDER BY idgaleria_proyecto DESC $limite ";
+      $img_fase = ejecutarConsultaArray($sql_2);
       
+      if ($img_fase['status']==false) {return $img_fase;}
+
+      $galeria_fases[] = array(
+
+        "idfase" =>$value['idfase_proyecto'],
+        "nombre_fase"=>$value['nombre'],
+        "numero_fase"=>$value['numero_fase'],
+        "imagenes" =>$img_fase['data']
+
       );
 
-      return $data_proyecto; 
-		
-		}else{
-
-      return $datosproyecto;
     }
 
+    $data_proyecto = array(
+
+      "status"               => true,
+      "data"                 => [
+          "idproyecto"           => $datosproyecto['data']['idproyecto'],
+          "nombre_proyecto"      => $datosproyecto['data']['nombre_proyecto'],
+          "codigo_proyecto"      => $datosproyecto['data']['codigo_proyecto'],
+          "fecha_inicio"         => $datosproyecto['data']['fecha_inicio'],
+          "fecha_fin"            => $datosproyecto['data']['fecha_fin'],
+          "dias_habiles"         => $datosproyecto['data']['dias_habiles'],
+          "dias_calendario"      => $datosproyecto['data']['dias_calendario'],
+          "actividad_trabajo"    => $datosproyecto['data']['actividad_trabajo'],
+          "ubicacion"            => $datosproyecto['data']['ubicacion'],
+          "descripcion"          => $datosproyecto['data']['descripcion'],
+          "estado_proyecto"      => $datosproyecto['data']['estado_proyecto'],
+          "img_perfil"           => $datosproyecto['data']['img_perfil'],
+          "galeria"              => $galeria_fases,],
+      "message"              => 'Data sin errores',
+    
+    );
+
+    return $data_proyecto; 
+		
+	}
+
+	public function select2_view_fase($idproyecto_fase)
+	{
+		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase' AND estado='1'  ORDER BY idfase_proyecto DESC";
+		return ejecutarConsulta($sql);		
 	}
 	
 }

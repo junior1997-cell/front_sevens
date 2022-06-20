@@ -16,7 +16,7 @@ function init() {
 
   $("#form-imagen-proyect").on("submit", function (e) { guardaryeditar_imagen(e) });
 
-  $("#guardar_registro_fase").on("click", function (e) {$("#submit-form-proyecto-fase").submit();  console.log('llllllllll');   });
+  $("#guardar_registro_fase").on("click", function (e) {$("#submit-form-proyecto-fase").submit();});
 
   mostrar_section(1);
 }
@@ -335,64 +335,83 @@ function limpiar_galeria() {
 }
 
 function galeria(idproyecto) { 
+  console.log('idproyecto_gale ---------- '+idproyecto);
+
   $("#idproyecto_img").val(idproyecto); 
+
   localStorage.setItem('idproyecto_img',idproyecto);
+
   mostrar_section(2);
+
+  //Mostramos los proveedores
+  $.post('../ajax/proyecto.php?op=select2_fases&idproyecto='+idproyecto, function (r) { 
+    $("#id_fase_select").html(r); 
+    $(".cargando_select").html('Fase <sup class="text-danger">*</sup>');
+    $("#id_fase_select").val('null').trigger("change");
+  });
+
   $("#g_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
 
-  $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto_front:idproyecto }, function (e, status) {
+  $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto:idproyecto }, function (e, status) {
+
     $("#l_galeria").html("");
-    e = JSON.parse(e); //console.log(e.data); 
+
+    e = JSON.parse(e); console.log(e); 
     imagen="";
-    
-    if (e.data.length == 0) {
-      $("#g_cargando").html(`<div class="col-lg-12">
-      <div class="cbp-item product">
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Ninguna imagen por mostrar!</strong> puede registar una en el boton   <strong> 
-          <button type="button" class="btn btn-primary btn-xs" style="cursor: no-drop;"><i class="fas fa-plus-circle"></i> Agregar</button></strong> en la parte superior.
+    if (e.status == true) {
+      if (e.data.length == 0) {
+        $("#g_cargando").html(`<div class="col-lg-12">
+        <div class="cbp-item product">
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Ninguna imagen por mostrar!</strong> puede registar una en el boton   <strong> 
+            <button type="button" class="btn btn-primary btn-xs" style="cursor: no-drop;"><i class="fas fa-plus-circle"></i> Agregar</button></strong> en la parte superior.
+          </div>
         </div>
-      </div>
-    </div>`);
+      </div>`);
 
-    } else {
+      } else {
 
-      $.each(e.data, function (index, value) {
+        $.each(e.data, function (index, value) {
 
-        if (value.imagen!=null || value.imagen!="") { imagen='../dist/img/proyecto/img_galeria/'+value.imagen; } else { imagen='../dist/svg/drag-n-drop.svg'; }
+          if (value.imagen!=null || value.imagen!="") { imagen='../dist/img/proyecto/img_galeria/'+value.imagen; } else { imagen='../dist/svg/drag-n-drop.svg'; }
 
-          var l_galeria = ` <div class="col-lg-4">
-                              <div class="cbp-item product">
-                                  <div class="overflow-hidden rounded-lg">
-                                    <div class="cbp-caption-defaultWrap geeks">
-                                      <img class="rounded-lg" src="${imagen}" style="width: 90%;" onerror="this.src='../dist/svg/drag-n-drop.svg';" alt="Image Description">
+            var l_galeria = ` <div class="col-lg-4">
+                                <div class="cbp-item product">
+                                    <div class="overflow-hidden rounded-lg">
+                                      <div class="cbp-caption-defaultWrap geeks">
+                                        <img class="rounded-lg" src="${imagen}" style="width: 90%;" onerror="this.src='../dist/svg/drag-n-drop.svg';" alt="Image Description">
+                                      </div>
+                                      <div class="text-center font-size-11px">
+                                      <i>${value.nombre_imagen}</i>
+                                      </div>
                                     </div>
-                                  </div>
-                                  <div class="card-footer">
-                                    <ul class="list-inline list-separator small text-body">
-                                      <li class="list-inline-item" > 
-                                        <a style="cursor: pointer; font-size: 13px;" onclick="editar_imagen(${value.idgaleria_proyecto},${value.idproyecto_front},'${value.imagen}')"> 
-                                          <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
-                                        </a>
-                                      </li>
-                                      <li class="list-inline-item">
-                                        <a style="cursor: pointer; font-size: 13px;" onclick="eliminar_imagen(${value.idgaleria_proyecto})"> 
-                                            <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                              </div>
-                            </div>`;
+                                    <div class="card-footer">
+                                      <ul class="list-inline list-separator small text-body">
+                                        <li class="list-inline-item" > 
+                                          <a style="cursor: pointer; font-size: 13px;" onclick="editar_imagen(${value.idgaleria_proyecto},${value.idfase_proyecto},'${value.imagen}','${value.nombre_imagen}')"> 
+                                            <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
+                                          </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                          <a style="cursor: pointer; font-size: 13px;" onclick="eliminar_imagen(${value.idgaleria_proyecto})"> 
+                                              <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
+                                          </a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                </div>
+                              </div>`;
 
-          $("#l_galeria").append(l_galeria);
-          
-      });
+            $("#l_galeria").append(l_galeria);
+            
+        });
 
-      $("#g_cargando").html("");
+        $("#g_cargando").html("");
 
-    }
-
+      }
+    } else {
+      ver_errores(e);
+    }   
 
   }).fail( function(e) { console.log(e); ver_errores(e); } );
 
@@ -423,17 +442,20 @@ function guardaryeditar_imagen(e) {
   });
 }
 
-function editar_imagen(idgaleria_proyecto,idproyecto_front,imagen) {
+function editar_imagen(idgaleria_proyecto,idfase_proyecto,imagen,nombre_imagen) {
 
     limpiar_galeria();
     
     $("#modal-agregar-imagen").modal("show");
-
+    $("#id_fase_select").val("").trigger("change"); 
+    
     $("#cargando-3-fomulario").hide();
     $("#cargando-4-fomulario").show();
 
+    $("#id_fase_select").val(idfase_proyecto).trigger("change"); 
+
     $("#idgaleria_proyecto").val(idgaleria_proyecto);
-    $("#idproyecto_img").val(idproyecto_front);
+    $("#nombre_img").val(nombre_imagen);
 
     if (imagen == "" || imagen == null  ) {
 

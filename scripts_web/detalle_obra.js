@@ -7,64 +7,109 @@ function init() {
  console.log(idproyecto);
   detalle_obras(idproyecto); 
 
+  //Cargando select    
+  $(".cargando_select").html('<i class="fas fa-spinner fa-pulse fa-lg text-danger"></i>');
+  $.post('admin/ajax/web.php?op=select2_view_fase&idproyecto='+idproyecto, function (r) { 
+    $("#selec_fase").html(r);
+    $(".cargando_select").html('');
+
+  });
+
 }
 //:::::::::::::ALL IMAGES :::::::::::::::::::::::::
 
 function all_images() {
   $(".all_content_mages").show();
 
-  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'completo'}, function (e, status) {
+  $('.all_images').removeAttr("onclick");
 
-    e = JSON.parse(e); console.log(e);
+  var  cap_selec =  $('#selec_fase').select2('val');
 
-    if (e.status) {
+  $(".cargando_spinner").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>');
+  $("#all_mages").html("");
 
-      $.each(e.data.galeria, function (index, value) {
-
-          var all_galeria = ` <div class="cbp-item product">
-                                <div class="overflow-hidden rounded-lg">
-                                  <div class="cbp-caption-defaultWrap">
-                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${value.imagen}" alt="Image Description">
-                                  </div>
-                                </div>
-                                <div class="p-4">
-                              </div>`;
-
-          $("#all_mages").append(all_galeria);
-      });
-
-      
-    } else {
-
-      $("#all_mages").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>'); 
-      ver_errores(e);
-
-    } 
-
-
-  }).fail( function(e) { console.log(e); ver_errores(e); } );
-
-
-}
-//::::::::  D E T A L L E S  O B R A S :::::::::si
-function detalle_obras(idproyecto) {
-
-  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'resumido'}, function (e, status) {
+  var cont = 0;
+  
+  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'completo',fase_selec:cap_selec}, function (e, status) {
 
     e = JSON.parse(e); //console.log(e);
 
-    if (e.status) {
+    if (e.status=true) {
 
       $.each(e.data.galeria, function (index, value) {
 
+        $.each(value.imagenes, function (i, key) {
+
+          var all_galeria = ` <div class="col-sm-6 col-lg-4 px-2 px-sm-3 mb-3 mb-sm-5">
+                                <!-- Product -->
+                                <div class="card card-bordered shadow-none text-center h-100">
+                                  <div class="position-relative">
+                                    <img class="card-img-top" src="admin/dist/img/proyecto/img_galeria/${key.imagen}" alt="Image Description">
+
+                                    <div class="position-absolute top-0 right-0 pt-3 pr-3">
+                                      <button type="button" class="btn btn-xs btn-icon btn-success rounded-circle"  onclick="modal_xl('${key.imagen}','all_image')">
+                                        <i class="fas fa-eye"></i>
+                                      </button>
+                                    </div>
+                                  </div>
+
+                                  <div class="card-body pt-2 px-2 pb-0">
+                                    <div class="mb-2">
+                                      <a class="d-inline-block text-body small font-weight-bold mb-1">${value.numero_fase}. ${value.nombre_fase} - ${key.nombre_imagen}</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- End Product -->
+                              </div>`;
+                              
+                             
+          $("#all_mages").append(all_galeria);
+          cont+= 1;
+        });
+
+      });
+      
+    } else {
+
+     // $("#all_mages").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>'); 
+      $(".cargando_spinner").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>');
+
+      ver_errores(e);
+
+    } 
+    
+    $("#total_img").html(cont);
+    $(".cargando_spinner").html('');
+
+  }).fail( function(e) { console.log(e); ver_errores(e); } );
+
+}
+
+//::::::::  D E T A L L E S  O B R A S :::::::::si
+function detalle_obras(idproyecto) {
+
+  $.post("admin/ajax/web.php?op=detalle_proyecto_web", { idproyecto:idproyecto,opcion:'resumido',fase_selec:'0'}, function (e, status) {
+
+    e = JSON.parse(e); console.log(e);
+
+    if (e.status == true) {
+
+      $.each(e.data.galeria, function (index, value) {
+
+        $.each(value.imagenes, function (i, key) {
+
           var l_galeria = `<div class="cbp-item" style="width: 401px !important; left: 0px; top: 58px !important;">
                                   <div class="cbp-caption">
-                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${value.imagen}" alt="Image Description" onclick="modal_xl('${value.imagen}')">
+                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${key.imagen}" alt="Image Description" onclick="modal_xl('${key.imagen}','_image')">
+                                    <p>${value.numero_fase}. ${value.nombre_fase} - ${key.nombre_imagen}</p>
                                   </div>
                                 </div>`;
 
           $("#l_galeria").append(l_galeria);
+        });
+
       });
+
       var estado="";
       if (e.data.estado_proyecto==1) {
         estado='<span class="badge badge-soft-info mr-2 "> <span class="legend-indicator bg-info"></span>En ejecución </span>';
@@ -200,7 +245,8 @@ function detalle_obras(idproyecto) {
   }).fail( function(e) { console.log(e); ver_errores(e); } );
 }
 
-function modal_xl(imagen) {
+function modal_xl(imagen,condicion) {
+  
   $("#modal_xl").modal("show");
   $(".img_modal_xl").html(`<img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${imagen}" style="width: 100%;"  alt="Image Description"></img>`)
 }
