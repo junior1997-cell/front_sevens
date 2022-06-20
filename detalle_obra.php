@@ -88,7 +88,8 @@
             <!-- Sorting -->
             <div class="row align-items-center mb-5">
               <div class="col-sm mb-3 mb-sm-0">
-                <span class="font-size-1 ml-1" id="total_img"></span>
+                <p class="font-size-1 ml-1"><span class="font-size-1 ml-1" id="total_img"></span> - Imagenes</p>
+                
               </div>
 
               <div class="col-sm-auto">

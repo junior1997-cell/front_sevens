@@ -27,6 +27,7 @@ function all_images() {
 
   $(".cargando_spinner").html('<p><i class="fas fa-spinner fa-pulse fa-lg text-danger"></i> Cargando...</p>');
   $("#all_mages").html("");
+  $("#total_img").html('<i class="fas fa-spinner fa-pulse fa-lg text-danger"></i>');
 
   var cont = 0;
   
@@ -246,7 +247,7 @@ function detalle_obras(idproyecto) {
 }
 
 function modal_xl(imagen,condicion) {
-  
+
   $("#modal_xl").modal("show");
   $(".img_modal_xl").html(`<img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${imagen}" style="width: 100%;"  alt="Image Description"></img>`)
 }
