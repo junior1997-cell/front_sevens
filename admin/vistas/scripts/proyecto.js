@@ -204,25 +204,41 @@ function guardaryeditar(e) {
     data: formData,
     contentType: false,
     processData: false,
-
-    success: function (datos) {
-             
+    success: function (datos) {             
       if (datos == 'ok') {
 
-				toastr.success('Registrado correctamente')				 
-
-	      tabla.ajax.reload();
-         
+				toastr.success('Registrado correctamente');
+	      tabla.ajax.reload();         
 				limpiar();
-
-        $("#modal-agregar-proyecto").modal("hide");
-        
+        $("#modal-agregar-proyecto").modal("hide");        
 
 			}else{
-
 				toastr.error(datos)
 			}
+      $("#guardar_registro").html('Guardar Cambios').removeClass('disabled');
     },
+    xhr: function () {
+      var xhr = new window.XMLHttpRequest();
+      xhr.upload.addEventListener("progress", function (evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = (evt.loaded / evt.total)*100;
+          /*console.log(percentComplete + '%');*/
+          $("#barra_progress").css({"width": percentComplete+'%'});
+          $("#barra_progress").text(percentComplete.toFixed(2)+" %");
+        }
+      }, false);
+      return xhr;
+    },
+    beforeSend: function () {
+      $("#guardar_registro").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
+      $("#barra_progress").css({ width: "0%",  });
+      $("#barra_progress").text("0%").addClass('progress-bar-striped progress-bar-animated');
+    },
+    complete: function () {
+      $("#barra_progress").css({ width: "0%", });
+      $("#barra_progress").text("0%").removeClass('progress-bar-striped progress-bar-animated');
+    },
+    error: function (jqXhr) { ver_errores(jqXhr); },
   });
 }
 
@@ -335,12 +351,11 @@ function limpiar_galeria() {
 }
 
 function galeria(idproyecto) { 
-  console.log('idproyecto_gale ---------- '+idproyecto);
 
   $("#idproyecto_img").val(idproyecto); 
 
   localStorage.setItem('idproyecto_img',idproyecto);
-
+  $("#g_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
   mostrar_section(2);
 
   //Mostramos los proveedores
@@ -350,8 +365,6 @@ function galeria(idproyecto) {
     $("#id_fase_select").val('null').trigger("change");
   });
 
-  $("#g_cargando").html(' <p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
-
   $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto:idproyecto }, function (e, status) {
 
     $("#l_galeria").html("");
@@ -359,7 +372,9 @@ function galeria(idproyecto) {
     e = JSON.parse(e); console.log(e); 
     imagen="";
     if (e.status == true) {
+
       if (e.data.length == 0) {
+
         $("#g_cargando").html(`<div class="col-lg-12">
         <div class="cbp-item product">
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -427,7 +442,6 @@ function guardaryeditar_imagen(e) {
     data: formData,
     contentType: false,
     processData: false,
-
     success: function (datos) {
       if (datos == "ok") {
         Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
@@ -437,8 +451,30 @@ function guardaryeditar_imagen(e) {
       } else {
         Swal.fire("Error!", datos, "error");
       }
-    }
-
+      $("#submit-form-imagen-proyect").html('Guardar Cambios').removeClass('disabled');
+    },
+    xhr: function () {
+      var xhr = new window.XMLHttpRequest();
+      xhr.upload.addEventListener("progress", function (evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = (evt.loaded / evt.total)*100;
+          /*console.log(percentComplete + '%');*/
+          $("#barra_progress_galeria").css({"width": percentComplete+'%'});
+          $("#barra_progress_galeria").text(percentComplete.toFixed(2)+" %");
+        }
+      }, false);
+      return xhr;
+    },
+    beforeSend: function () {
+      $("#submit-form-imagen-proyect").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
+      $("#barra_progress_galeria").css({ width: "0%",  });
+      $("#barra_progress_galeria").text("0%").addClass('progress-bar-striped progress-bar-animated');
+    },
+    complete: function () {
+      $("#barra_progress_galeria").css({ width: "0%", });
+      $("#barra_progress_galeria").text("0%").removeClass('progress-bar-striped progress-bar-animated');
+    },
+    error: function (jqXhr) { ver_errores(jqXhr); },
   });
 }
 
@@ -571,17 +607,38 @@ function guardaryeditar_fase(e) {
     contentType: false,
     processData: false,
 
-    success: function (datos) {
-      if (datos == "ok") {
-        Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
-        $("#modal-agregar-fase").modal("hide");
-        tabla_fases.ajax.reload();
-      } else {
-        Swal.fire("Error!", datos, "error");
-      }
-    }
+    success: function (e) {
+
+      try {
+        e = JSON.parse(e);  console.log(e); 
+  
+        if (e.status == true) {
+  
+          Swal.fire("Correcto!", "Datos actualizados correctamente", "success");
+
+          $("#modal-agregar-fase").modal("hide");
+
+          tabla_fases.ajax.reload();
+  
+        }else{  
+  
+          ver_errores(e);
+        } 
+  
+        $("#guardar_registro_fase").html('Guardar Cambios').removeClass('disabled');
+  
+      } catch (err) {
+        console.log('Error: ', err.message); toastr.error('<h5 class="font-size-16px">Error temporal!!</h5> puede intentalo mas tarde, o comuniquese con <i><a href="tel:+51921305769" >921-305-769</a></i> ─ <i><a href="tel:+51921487276" >921-487-276</a></i>');
+      } 
+
+
+    },
+    beforeSend: function () {
+      $("#guardar_registro_fase").html('<i class="fas fa-spinner fa-pulse fa-lg"></i>').addClass('disabled');
+    },
 
   });
+  
 }
 
 function mostrar_fase(idfase_proyecto) {
@@ -637,60 +694,38 @@ init();
 
 $(function () {
 
-  
-  $.validator.setDefaults({
-
-    submitHandler: function (e) {
-        guardaryeditar(e);
-      
-    },
-  });
-  
-
   $("#form-proyecto").validate({
     ignore: '.select2-input, .select2-focusser',
     rules: {
-
       nombre:{required: true},
       descripcion:{required: true}, 
       // terms: { required: true },
     },
     messages: {
-
-        nombre: { required: "Campo requerido", },
-        descripcion: { required: "Campo requerido", }, 
-
+      nombre: { required: "Campo requerido", },
+      descripcion: { required: "Campo requerido", }, 
     },
         
     errorElement: "span",
 
     errorPlacement: function (error, element) {
-
       error.addClass("invalid-feedback");
-
       element.closest(".form-group").append(error);
     },
 
     highlight: function (element, errorClass, validClass) {
-
       $(element).addClass("is-invalid").removeClass("is-valid");
     },
 
     unhighlight: function (element, errorClass, validClass) {
-
-      $(element).removeClass("is-invalid").addClass("is-valid");
-   
+      $(element).removeClass("is-invalid").addClass("is-valid");   
     },
-
-
+    submitHandler: function (e) {
+      $(".modal-body").animate({ scrollTop: $(document).height() }, 600); // Scrollea hasta abajo de la página
+      guardaryeditar(e);      
+    },
   });
-
-});
-
-$(function () {
-  
-  $.validator.setDefaults({ submitHandler: function (e) { guardaryeditar_fase(e); }, });
-  
+   
   $("#form-fase").validate({
     rules: {
       n_fase:{required: true},
@@ -698,33 +733,27 @@ $(function () {
       // terms: { required: true },
     },
     messages: {
-
-        n_fase: { required: "Campo requerido", },
-        nombre_f: { required: "Campo requerido", },
-
+      n_fase: { required: "Campo requerido", },
+      nombre_f: { required: "Campo requerido", },
     },
         
     errorElement: "span",
 
     errorPlacement: function (error, element) {
-
       error.addClass("invalid-feedback");
-
-      element.closest(".form-group").append(error);
-    },
+      element.closest(".form-group").append(error);    },
 
     highlight: function (element, errorClass, validClass) {
-
       $(element).addClass("is-invalid").removeClass("is-valid");
     },
 
     unhighlight: function (element, errorClass, validClass) {
-
-      $(element).removeClass("is-invalid").addClass("is-valid");
-   
+      $(element).removeClass("is-invalid").addClass("is-valid");   
     },
-
-
+    submitHandler: function (e) { 
+      $(".modal-body").animate({ scrollTop: $(document).height() }, 600); // Scrollea hasta abajo de la página
+      guardaryeditar_fase(e);
+    },
   });
 
 });

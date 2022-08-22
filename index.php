@@ -407,12 +407,12 @@
 
     <!-- ========== SECONDARY CONTENTS ========== -->
     <!-- modal detalle obras -->
-    <div class="modal fade" id="ver_detalles" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade " id="modal_xl" tabindex="-1" role="dialog" aria-hidden="true" style="background-color: #00000063;">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
           <!-- Header -->
           <div class="modal-close">
-            <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close" style="background-color: rgb(0 0 0 / 61%);">
               <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                 <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
               </svg>
@@ -421,20 +421,14 @@
           <!-- End Header -->
 
           <!-- Body -->
-          <div class="modal-body p-sm-5 text-center">
+          <div class="modal-body p-sm-2 text-center">
             <div id="signinModalForm">
-              <div class="text-center mb-5"> <br> <h4 class="nombre_obra"></h4> </div>
-              
-              <div class="detalles_obra">
+              <div class="img_modal_xl">
                 <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
               </div>
             </div>
           </div>
           <!-- End Body -->
-
-          <!-- Footer -->
-          <div class="modal-footer d-block text-center py-sm-5"> </div>
-          <!-- End Footer -->
         </div>
       </div>
     </div>

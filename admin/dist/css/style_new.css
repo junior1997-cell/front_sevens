@@ -647,7 +647,5 @@ table th {
 }
 
 /* max-width = como maximo  ────────| */
-@media (max-width: 1200px) {
-  
-}
 
+@media (min-width: 1200px){ .container_mod { max-width: 95%!important; } }

@@ -25,6 +25,7 @@
      // echo $rspta;
       if ( $rspta['status'] ) {
         if ( !empty($rspta['data']) ) {
+
           //Declaramos las variables de sesión
           $_SESSION['idusuario'] = $rspta['data']['idusuario'];
           $_SESSION['nombre'] = $rspta['data']['nombres'];
@@ -45,7 +46,7 @@
           if ($rspta['status']) {
             //Almacenamos los permisos marcados en el array
             foreach ($marcados['data'] as $key => $value) {
-              array_push($valores, $value['idpermiso']);
+              array_push($valores, $value['nombre']);
             }
             echo json_encode($rspta);
           }else{
@@ -53,7 +54,7 @@
           }       
 
           //Determinamos los accesos del usuario
-          in_array(25, $valores) ? ($_SESSION['sistema_informativo'] = 1)    : ($_SESSION['sistema_informativo'] = 0);
+          in_array('Sistema informativo', $valores) ? ($_SESSION['sistema_informativo'] = 1)    : ($_SESSION['sistema_informativo'] = 0);
 
         } else {
           echo json_encode($rspta, true);
@@ -75,14 +76,11 @@
 
       $img_perfil="http://admin.sevensingenieros.com/dist/docs/all_trabajador/perfil/";
 
-      // if ($_SERVER['HTTP_HOST']=="localhost") {
-      //   $img_perfil="http://localhost/admin_sevens/dist/docs/all_trabajador/perfil/";
-      // }else{
-      //   $img_perfil="http://admin.sevensingenieros.com/dist/docs/all_trabajador/perfil/";
-      // }
 
       if ($rspta['status']) {
+
         foreach ($rspta['data'] as $key => $value) {
+
           $data[] = [
             "0" => '<div class="d-flex align-items-center mx-auto">
                     <a onclick="ver_img_perfil(\'' .$img_perfil.$value['imagen_perfil'] . '\',\'' . $value['nombres'] . '\')">
@@ -99,6 +97,7 @@
             "2" => $value['login'],
             "3" => $value['cargo']
           ];
+
         }
         $results = [
           "sEcho" => 1, //Información para el datatables
@@ -124,18 +123,6 @@
     break;
     
   }
-  
-  function multiplo_number($numero, $multiplo) {  
-    
-    if($numero%$multiplo == 0){
-      return true;
-    }else{
-      return false;
-    }
-    
-  }
-
-  function quitar_guion($numero){ return str_replace("-", "", $numero); } 
 
   ob_end_flush();
 ?>

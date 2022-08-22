@@ -48,7 +48,7 @@ function all_images() {
                                     <img class="card-img-top" src="admin/dist/img/proyecto/img_galeria/${key.imagen}" alt="Image Description">
 
                                     <div class="position-absolute top-0 right-0 pt-3 pr-3">
-                                      <button type="button" class="btn btn-xs btn-icon btn-success rounded-circle"  onclick="modal_xl('${key.imagen}','all_image')">
+                                      <button type="button" class="btn btn-xs btn-icon btn-success rounded-circle"  onclick="modal_xl('${key.imagen}','all_image')" style="cursor: pointer !important;">
                                         <i class="fas fa-eye"></i>
                                       </button>
                                     </div>
@@ -101,7 +101,7 @@ function detalle_obras(idproyecto) {
 
           var l_galeria = `<div class="cbp-item" style="width: 401px !important; left: 0px; top: 58px !important;">
                                   <div class="cbp-caption">
-                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${key.imagen}" alt="Image Description" onclick="modal_xl('${key.imagen}','_image')">
+                                    <img class="rounded-lg" src="admin/dist/img/proyecto/img_galeria/${key.imagen}" alt="Image Description" onclick="modal_xl('${key.imagen}','_image')" style="cursor: pointer !important;">
                                     <p>${value.numero_fase}. ${value.nombre_fase} - ${key.nombre_imagen}</p>
                                   </div>
                                 </div>`;

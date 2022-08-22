@@ -27,6 +27,7 @@ function mostrar_valores() {
                             <div class="media pr-lg-5">
                               <figure class="w-100 max-w-8rem mr-4">
                                 <img class="img-fluid" src="admin/dist/img/valores/imagen_perfil/${value.img_perfil}" alt="SVG">
+                                  
                               </figure>
                               <div class="media-body">
                                 <h4>${value.nombre_valor}</h4>
@@ -136,6 +137,11 @@ function slide_obras() {
                                   <!-- Card Info -->
                                   <div class="card h-100">
                                     <img class="card-img-top" src="admin/dist/img/proyecto/imagen_perfil/${value.img_perfil}" alt="Image Description">
+                                    <div class="position-absolute top-0 right-0 pt-3 pr-3">
+                                      <button type="button" class="btn btn-xs btn-icon btn-success rounded-circle"  onclick="modal_xl('${value.img_perfil}','all_image')">
+                                        <i class="fas fa-eye"></i>
+                                      </button>
+                                    </div>
                                     <div class="card-body">
                                         <div class="media align-items-center">
                                           <div class="min-w-8rem mr-2">
@@ -218,6 +224,11 @@ function mostrar_servicios_footer() {
 
 function detalle_obras(idproyecto){ localStorage.setItem("idproyecto_detalle", idproyecto); }
 
+function modal_xl(imagen,condicion) {
+
+  $("#modal_xl").modal("show");
+  $(".img_modal_xl").html(`<img class="rounded-lg" src="admin/dist/img/proyecto/imagen_perfil/${imagen}" style="width: 100%;"  alt="Image Description"></img>`)
+}
 
 init();
 

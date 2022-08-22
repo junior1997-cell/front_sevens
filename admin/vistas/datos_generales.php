@@ -32,7 +32,7 @@
         <!-- fin  header -->
 
         <!-- Content Section -->
-        <div class="container space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
+        <div class="container container_mod space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
           <div class="row">
 
             <div class="col-lg-3">

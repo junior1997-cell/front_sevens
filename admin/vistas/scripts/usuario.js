@@ -46,10 +46,11 @@ function tbla_principal() {
           _: '%d líneas copiadas',
           1: '1 línea copiada'
         }
-      }
+      },
+      sLoadingRecords: '<i class="fas fa-spinner fa-pulse fa-lg"></i> Cargando datos...'
     },
     "bDestroy": true,
-    "iDisplayLength": 10,//Paginación
+    "iDisplayLength": 5,//Paginación
     "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
   }).DataTable();
 

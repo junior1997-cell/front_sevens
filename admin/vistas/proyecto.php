@@ -33,7 +33,7 @@
       <?php require 'header.php'; ?>
       <!-- fin  header -->
       <!-- Content Section -->
-      <div class="container space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
+      <div class="container container_mod space-1 space-top-lg-0 space-bottom-lg-2 mt-lg-n10">
         <div class="row">
           <div class="col-lg-3"><?php require 'aside.php'; ?></div>
           <div class="col-lg-9">
@@ -155,10 +155,7 @@
                         <label for="id_pryecto_adm" class="cargando_">Proyecto <i class="fas fa-spinner fa-pulse fa-lg text-danger"></i></label>                               
                         <select name="id_pryecto_adm" id="id_pryecto_adm"
                         class="js-custom-select custom-select" size="1" style="opacity: 0;"
-                        data-hs-select2-options='{
-                          "minimumResultsForSearch": "Infinity",
-                          "placeholder": "Seleccionar un proyecto"
-                        }' style="width: 100%;">                                    
+                        data-hs-select2-options='{ "minimumResultsForSearch": "Infinity", "placeholder": "Seleccionar un proyecto" }' style="width: 100%;">                                    
                         </select>
                       </div>  
                       <div class="form-group edith">
@@ -209,6 +206,14 @@
                               <li>  <b>Peso:</b> Max. 2 mb </li>
                             </ul>
                           </div>
+                      </div>
+                    </div>
+                    <!-- barprogress -->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+                      <div class="progress" id="div_barra_progress">
+                        <div id="barra_progress" class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+                          0%
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -325,18 +330,26 @@
                     </div>
                     <!--indicaciones-->
                     <div class="col-lg-6 class_pading">
-                        <div class="alert alert-warning media" role="alert">
-                          <i class="fas fa-info-circle mt-1 fa-2x"></i>
-                          
-                          <div class="media-body" role="alert"> 
-                          <div class="text-center"><b> Indicaciones para la imegen</b> </div>                           
-                            <hr style="border-top-color: azure;"/>
-                            <ul>
-                              <li> <b>Tamaño:</b>  400x500 </li>
-                              <li> <b>Formatos:</b> <span> .png .jpeg .jpg </span>  </li>
-                              <li>  <b>Peso:</b> Max. 2 mb </li>
-                            </ul>
-                          </div>
+                      <div class="alert alert-warning media" role="alert">
+                        <i class="fas fa-info-circle mt-1 fa-2x"></i>
+                        
+                        <div class="media-body" role="alert"> 
+                        <div class="text-center"><b> Indicaciones para la imegen</b> </div>                           
+                          <hr style="border-top-color: azure;"/>
+                          <ul>
+                            <li> <b>Tamaño:</b>  400x500 </li>
+                            <li> <b>Formatos:</b> <span> .png .jpeg .jpg </span>  </li>
+                            <li>  <b>Peso:</b> Max. 2 mb </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- barprogress -->
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+                      <div class="progress" id="barra_progress_galeria_div">
+                        <div id="barra_progress_galeria" class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+                          0%
+                        </div>
                       </div>
                     </div>
                   </div>
