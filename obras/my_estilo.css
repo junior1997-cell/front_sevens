@@ -1,0 +1,15 @@
+.shadow-0-10px-40px-10px-rgb-0-0-0-44 {
+  box-shadow: 0 10px 40px 10px rgb(0 0 0 / 44%) !important;
+}
+
+.shadow-17px-20px-40px-10px-rgb-0-0-0-44 {
+  box-shadow: 17px 20px 40px 10px rgb(0 0 0 / 44%) !important;
+}
+
+.shadow-0-12px-15px-rgb-0-0-0-38 {
+box-shadow: 0 12px 15px rgb(0 0 0 / 38%);
+}
+
+/*  ══════════════════════════════════════════ - B A C K G R O U N D   P E R S O N A L I Z A D O - ══════════════════════════════════════════ */
+/* negro */
+.bg-color-ff6c046b{ background-color: #00000040 !important; } /* 25% */

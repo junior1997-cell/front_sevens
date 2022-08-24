@@ -464,6 +464,9 @@
         // =======================================================
         var header = new HSHeader($('#header')).init();
 
+        // INITIALIZATION OF MEGA MENU
+        // =======================================================
+        var megaMenu = new HSMegaMenu($('.js-mega-menu')).init();
 
         // INITIALIZATION OF UNFOLD
         // =======================================================
