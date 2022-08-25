@@ -709,27 +709,21 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="d-block font-size-1 text-body">For sale</span>
+              <!-- <span class="d-block font-size-1 text-body">For sale</span> -->
+              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col">
-                  <h4 class="text-hover-primary">Borrett Close, London</h4>
+                  <h4 class="text-hover-primary">Otro proyecto</h4>
                 </div>
                 <div class="col-auto">
-                  <h3 class="text-primary">&#163;689,000</h3>
+                  <h3 class="text-primary"><i class="fas fa-eye text-info"></i></h3>
                 </div>
               </div>
 
               <ul class="list-inline list-separator font-size-1 text-body">
-                <li class="list-inline-item">
-                  <i class="fas fa-bed text-muted mr-1"></i> 3 bed
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-bath text-muted mr-1"></i> 2 bath
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-ruler-combined text-muted mr-1"></i> 1,428 sqft
-                </li>
+                <li class="list-inline-item"> <i class="far fa-calendar-check"></i> 00-00-0000 / 00-00-0000 </li>
+                <li class="list-inline-item"> <i class="fas fa-map-marker-alt"></i> Perú </li>
               </ul>
             </div>
             <!-- End Body -->
@@ -744,27 +738,21 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="d-block font-size-1 text-body">For sale</span>
+              <!-- <span class="d-block font-size-1 text-body">For sale</span> -->
+              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col">
-                  <h4 class="text-hover-primary">The Drive, Ilford</h4>
+                  <h4 class="text-hover-primary">Otro proyecto</h4>
                 </div>
                 <div class="col-auto">
-                  <h3 class="text-primary">&#163;999,000</h3>
+                  <h3 class="text-primary"><i class="fas fa-eye text-info"></i></h3>
                 </div>
               </div>
 
               <ul class="list-inline list-separator font-size-1 text-body">
-                <li class="list-inline-item">
-                  <i class="fas fa-bed text-muted mr-1"></i> 2 bed
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-bath text-muted mr-1"></i> 1 bath
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-ruler-combined text-muted mr-1"></i> 2,123 sqft
-                </li>
+                <li class="list-inline-item"> <i class="far fa-calendar-check"></i> 00-00-0000 / 00-00-0000 </li>
+                <li class="list-inline-item"> <i class="fas fa-map-marker-alt"></i> Perú </li>
               </ul>
             </div>
             <!-- End Body -->
@@ -779,27 +767,21 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="d-block font-size-1 text-body">For sale</span>
+              <!-- <span class="d-block font-size-1 text-body">For sale</span> -->
+              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col">
-                  <h4 class="text-hover-primary">Alderney House, Enfield</h4>
+                  <h4 class="text-hover-primary">Otro proyecto</h4>
                 </div>
                 <div class="col-auto">
-                  <h3 class="text-primary">&#163;725,000</h3>
+                  <h3 class="text-primary"><i class="fas fa-eye text-info"></i></h3>
                 </div>
               </div>
 
               <ul class="list-inline list-separator font-size-1 text-body">
-                <li class="list-inline-item">
-                  <i class="fas fa-bed text-muted mr-1"></i> 1 bed
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-bath text-muted mr-1"></i> 1 bath
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-ruler-combined text-muted mr-1"></i> 1,791 sqft
-                </li>
+                <li class="list-inline-item"> <i class="far fa-calendar-check"></i> 00-00-0000 / 00-00-0000 </li>
+                <li class="list-inline-item"> <i class="fas fa-map-marker-alt"></i> Perú </li>
               </ul>
             </div>
             <!-- End Body -->
@@ -814,27 +796,21 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="d-block font-size-1 text-body">For rent</span>
+              <!-- <span class="d-block font-size-1 text-body">For rent</span> -->
+              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col">
-                  <h4 class="text-hover-primary">Burns Way, Hounslow</h4>
+                  <h4 class="text-hover-primary">Otro proyecto</h4>
                 </div>
                 <div class="col-auto">
-                  <h3 class="text-primary">&#163;2,500</h3>
+                  <h3 class="text-primary"><i class="fas fa-eye text-info"></i></h3>
                 </div>
               </div>
 
               <ul class="list-inline list-separator font-size-1 text-body">
-                <li class="list-inline-item">
-                  <i class="fas fa-bed text-muted mr-1"></i> 3 bed
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-bath text-muted mr-1"></i> 2 bath
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-ruler-combined text-muted mr-1"></i> 2,182 sqft
-                </li>
+                <li class="list-inline-item"> <i class="far fa-calendar-check"></i> 00-00-0000 / 00-00-0000 </li>
+                <li class="list-inline-item"> <i class="fas fa-map-marker-alt"></i> Perú </li>
               </ul>
             </div>
             <!-- End Body -->
@@ -849,27 +825,21 @@
 
             <!-- Body -->
             <div class="card-body">
-              <span class="d-block font-size-1 text-body">For rent</span>
+              <!-- <span class="d-block font-size-1 text-body">For rent</span> -->
+              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col">
-                  <h4 class="text-hover-primary">Burns Way, Hounslow</h4>
+                  <h4 class="text-hover-primary">Otro proyecto</h4>
                 </div>
                 <div class="col-auto">
-                  <h3 class="text-primary">&#163;999</h3>
+                  <h3 class="text-primary"><i class="fas fa-eye text-info"></i></h3>
                 </div>
               </div>
 
               <ul class="list-inline list-separator font-size-1 text-body">
-                <li class="list-inline-item">
-                  <i class="fas fa-bed text-muted mr-1"></i> 1 bed
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-bath text-muted mr-1"></i> 1 bath
-                </li>
-                <li class="list-inline-item">
-                  <i class="fas fa-ruler-combined text-muted mr-1"></i> 1,254 sqft
-                </li>
+                <li class="list-inline-item"> <i class="far fa-calendar-check"></i> 00-00-0000 / 00-00-0000 </li>
+                <li class="list-inline-item"> <i class="fas fa-map-marker-alt"></i> Perú </li>
               </ul>
             </div>
             <!-- End Body -->
