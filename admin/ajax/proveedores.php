@@ -13,6 +13,9 @@ if (!isset($_SESSION["nombre"])) {
   if ($_SESSION['sistema_informativo'] == 1) {
     require_once "../modelos/Proveedores.php";
 
+    date_default_timezone_set('America/Lima');
+    $date_now = date("d-m-Y h.i.s A");
+
     $proveedores = new Proveedores();
 
     $idproveedor = isset($_POST["idproveedor"]) ? limpiarCadena($_POST["idproveedor"]) : "";
@@ -24,7 +27,9 @@ if (!isset($_SESSION["nombre"])) {
     $foto2 = isset($_POST["doc1"]) ? limpiarCadena($_POST["doc1"]) : "";
 
     switch ($_GET["op"]) {
+
       case 'guardaryeditar':
+
         if (!file_exists($_FILES['doc1']['tmp_name']) || !is_uploaded_file($_FILES['doc1']['tmp_name'])) {
           $imagen_perfil = $_POST["doc_old_1"];
           $flat_img = false;
@@ -32,17 +37,16 @@ if (!isset($_SESSION["nombre"])) {
           $ext1 = explode(".", $_FILES["doc1"]["name"]);
           $flat_img = true;
 
-          $imagen_perfil = rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+          $imagen_perfil = $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
 
           move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/img/proveedores/imagen_perfil/" . $imagen_perfil);
         }
 
         if (empty($idproveedor)) {
-          //var_dump($idproveedor,$idproveedor);
           $rspta = $proveedores->insertar($id_proveedor_adm, $descripcion, $imagen_perfil);
-          echo $rspta ? "ok" : "No se pudieron registrar todos los datos";
+          echo json_encode($rspta, true);
         } else {
-          //validamos si existe comprobante para eliminarlo
+
           if ($flat_img == true) {
             $datos_ficha1 = $proveedores->reg_img($idproveedor);
 
@@ -56,25 +60,23 @@ if (!isset($_SESSION["nombre"])) {
           }
 
           $rspta = $proveedores->editar($idproveedor, $id_proveedor_adm_edith, $descripcion, $imagen_perfil);
-          //var_dump($idproveedor,$idproveedor);
-          echo $rspta ? "ok" : "No se pudo actualizar";
+          echo json_encode($rspta, true);
         }
-        break;
+
+      break;
 
       case 'eliminar':
         $rspta = $proveedores->eliminar($idproveedor);
-        echo $rspta ? " Eliminado" : "No se puede Eliminar";
-        //Fin de las validaciones de acceso
-        break;
+        echo json_encode($rspta, true);
+      break;
 
       case 'mostrar':
         $rspta = $proveedores->mostrar($idproveedor);
-        //Codificar el resultado utilizando json
         echo json_encode($rspta, true);
-        //Fin de las validaciones de acceso
-        break;
+      break;
 
       case 'listar':
+
         $rspta = $proveedores->listar();
         //Vamos a declarar un array
         $data = [];
@@ -112,7 +114,7 @@ if (!isset($_SESSION["nombre"])) {
           echo $rspta['code_error'] . ' - ' . $rspta['message'] . ' ' . $rspta['data'];
         }
 
-        break;
+      break;
 
       case 'select2_proveedor':
         $rspta = $proveedores->select2_proveedor();
@@ -121,7 +123,7 @@ if (!isset($_SESSION["nombre"])) {
           echo '<option value=' . $reg['idproveedor'] . '>' . $reg['razon_social'] . ' - ' . $reg['ruc'] . '</option>';
         }
 
-        break;
+      break;
 
       case 'salir':
         //Limpiamos las variables de sesión
@@ -131,7 +133,7 @@ if (!isset($_SESSION["nombre"])) {
         //Redireccionamos al login
         header("Location: ../index.php");
 
-        break;
+      break;
     }
   } else {
     require 'noacceso.php';

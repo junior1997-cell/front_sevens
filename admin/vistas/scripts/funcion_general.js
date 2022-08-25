@@ -199,7 +199,7 @@ function addImage(e, id, img_default='') {
 			toastr.error('Este tipo de ARCHIVO no esta permitido <br> elija formato: <b>.png .jpeg .jpg .webp etc... </b>');
 
 			if (img_default == '' || img_default == null || img_default == false || img_default == true ) {
-        $("#"+id+"_i").attr("src", "../dist/img/default/img_defecto.png");
+        $("#"+id+"_i").attr("src", "../dist/svg/drag-n-drop.svg");
       } else {
         $("#"+id+"_i").attr("src", img_default);
       }      
@@ -424,7 +424,7 @@ function re_visualizacion(id, carpeta, sub_carpeta) {
           toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
         } else {
           if ( extrae_extencion(antiguopdf) == "pdf" ) {
-            $("#doc"+id+"_ver").html(`<iframe src="../dist/docs/${carpeta}/${sub_carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
+            $("#doc"+id+"_ver").html(`<iframe src="../dist/img/${carpeta}/${sub_carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
             toastr.success('Documento vizualizado correctamente!!!')
           } else {
             if ( extrae_extencion(antiguopdf) == "csv" ) {
@@ -448,8 +448,11 @@ function re_visualizacion(id, carpeta, sub_carpeta) {
                       extrae_extencion(antiguopdf) == "jfif" || extrae_extencion(antiguopdf) == "gif" || extrae_extencion(antiguopdf) == "png" ||
                       extrae_extencion(antiguopdf) == "tiff" || extrae_extencion(antiguopdf) == "tif" || extrae_extencion(antiguopdf) == "webp" ||
                       extrae_extencion(antiguopdf) == "bmp" || extrae_extencion(antiguopdf) == "svg" ) {
-  
-                      $("#doc"+id+"_ver").html(`<img src="../dist/docs/${carpeta}/${sub_carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
+
+                        console.log('oooooooooooo');
+                        //../dist/img/proyecto/img_galeria/" . $img_galeria
+                        console.log('ñññññññ '+antiguopdf);
+                      $("#doc"+id+"_ver").html(`<img src="../dist/img/${carpeta}/${sub_carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
                       toastr.success('Documento vizualizado correctamente!!!');
                     } else {
                       $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
@@ -467,7 +470,6 @@ function re_visualizacion(id, carpeta, sub_carpeta) {
   }else{
 
     pdffile_url=URL.createObjectURL(pdffile);
-
     // cargamos la imagen adecuada par el archivo
     if ( extrae_extencion(pdffile.name) == "doc") {
       $("#doc"+id+"_ver").html('<img src="../dist/svg/doc.svg" alt="" width="50%" >');
@@ -522,7 +524,7 @@ function re_visualizacion(id, carpeta, sub_carpeta) {
 
 function doc_view_extencion(filename, carpeta, sub_carpeta='', width='50%', height='auto') {
 
-  var html = ''; var ruta = sub_carpeta==''?  `../dist/docs/${carpeta}/${sub_carpeta}/${filename}`: `../dist/docs/${carpeta}/${sub_carpeta}/${filename}` ;
+  var html = ''; var ruta = sub_carpeta==''?  `../dist/img/${carpeta}/${sub_carpeta}/${filename}`: `../dist/img/${carpeta}/${sub_carpeta}/${filename}` ;
   var extencion = '';
 
   // cargamos la imagen adecuada par el archivo
