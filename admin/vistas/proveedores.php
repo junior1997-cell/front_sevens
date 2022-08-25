@@ -22,6 +22,8 @@
     </head>
     <style>
           @media (min-width: 1200px){ .container_mod { max-width: 95%!important; } }
+          .class_table{ padding-right: 3px!important; padding-left: 5px!important; }
+
     </style>
 
     <body>
@@ -52,7 +54,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-lg-12 text-center cargando">
-                        <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
+                        <i class="fas fa-spinner fa-pulse fa-3x"></i><br />
                         <br />
                         <h4>Cargando...</h4>
                       </div>
@@ -86,6 +88,7 @@
             <!-- End Row -->
           </div>
           <!-- End Content Section -->
+
           <!-- Modal agregar proveedores -->
           <div class="modal fade" id="modal-agregar-proveedores">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -143,7 +146,7 @@
                               <input style="display: none;" id="doc1" type="file" name="doc1" accept="application/pdf, image/*" class="docpdf" />
                             </div>
                             <div class="col-md-6 text-center">
-                              <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(1, 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
+                              <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(1,'proveedores', 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
                             </div>
                           </div>
                           <div id="doc1_ver" class="text-center mt-4">
@@ -171,7 +174,7 @@
 
                       <div class="row" id="cargando-2-fomulario" style="display: none;">
                         <div class="col-lg-12 text-center">
-                          <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
+                          <i class="fas fa-spinner fa-pulse fa-3x"></i><br />
                           <br />
                           <h4>Cargando...</h4>
                         </div>
@@ -188,29 +191,33 @@
               </div>
             </div>
           </div>
+
           <!-- Modal ver imagen -->
-          <div class="modal fade" id="modal-ver-imagen">
-            <div class="modal-dialog modal-dialog-scrollable modal-md">
+          <div class="modal fade " id="modal-ver-imagen" tabindex="-1" role="dialog" aria-hidden="true" style="background-color: #00000063;">
+            <div class="modal-dialog modal-dialog-centered modal-xs" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+
+              <div class="modal-header">
                   <h4 class="modal-title"><b>Proveedor: </b> <span class="text-warning" id="razon_social"></span>  </h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="text-danger" aria-hidden="true">&times;</span>
-                  </button>
+                  <div class="modal-close">
+                    <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close" style="background-color: rgb(0 0 0 / 61%);">
+                      <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
+                <!-- End Header -->
 
-                <div class="modal-body">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-lg-12 text-center" id="ver_imagen">
-
-                      </div>
+                <!-- Body -->
+                <div class="modal-body p-sm-2 text-center">
+                  <div id="signinModalForm">
+                    <div class="img_modal_xl_">
+                      <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
                     </div>
                   </div>
                 </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal">Close</button>
-                </div>
+                <!-- End Body -->
               </div>
             </div>
           </div>

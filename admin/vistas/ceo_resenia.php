@@ -124,7 +124,7 @@
                   <!--Cargando-->
                   <div class="row" id="cargando-2-fomulario" style="display: none;">
                     <div class="col-lg-12 text-center">
-                      <i class="fas fa-spinner fa-pulse fa-6x"></i><br />
+                      <i class="fas fa-spinner fa-pulse fa-3x"></i><br />
                       <br />
                       <h4>Cargando...</h4>
                     </div>

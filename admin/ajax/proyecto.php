@@ -9,7 +9,7 @@ if (strlen(session_id()) < 1) {
 if (!isset($_SESSION["nombre"])) {
   header("Location: ../vistas/login.html"); //Validamos el acceso solo a los usuarios logueados al sistema.
 } else {
-  //Validamos el acceso solo al usuario logueado y autorizado.
+
   if ($_SESSION['sistema_informativo'] == 1) {
 
     date_default_timezone_set('America/Lima');
@@ -19,7 +19,8 @@ if (!isset($_SESSION["nombre"])) {
 
     $proyecto = new Proyecto();
     $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
-    //::::::::P R O Y E C T O S ::::::::::::::::::::.
+
+    //-----------------------P R O Y E C T O ---------------------------------
 
     $idproyecto = isset($_POST["idproyecto"]) ? limpiarCadena($_POST["idproyecto"]) : "";
     $id_pryecto_adm = isset($_POST["id_pryecto_adm"]) ? limpiarCadena($_POST["id_pryecto_adm"]) : "";
@@ -29,20 +30,27 @@ if (!isset($_SESSION["nombre"])) {
   
     $foto1 = isset($_POST["doc1"]) ? limpiarCadena($_POST["doc1"]) : "";
 
-    //::::::::G A L E R Í A  P R O Y E C T O  ::::::::::::::::::::.
+
+    //-----------------------G A L E R I A------------------------------------
+
     $idgaleria_proyecto = isset($_POST["idgaleria_proyecto"]) ? limpiarCadena($_POST["idgaleria_proyecto"]) : "";
     $idproyecto_img = isset($_POST["idproyecto_img"]) ? limpiarCadena($_POST["idproyecto_img"]) : "";
     $id_fase_select = isset($_POST["id_fase_select"]) ? limpiarCadena($_POST["id_fase_select"]) : "";
     $nombre_img = isset($_POST["nombre_img"]) ? limpiarCadena($_POST["nombre_img"]) : "";  
     $foto2 = isset($_POST["doc2"]) ? limpiarCadena($_POST["doc2"]) : "";
 
-    //::::::::F A S E S  P R O Y E C T O  ::::::::::::::::::::.
+    //-----------------------F A S E S -----------------------------------------
+
     $idfase = isset($_POST["idfase"]) ? limpiarCadena($_POST["idfase"]) : "";
     $idproyecto_fase = isset($_POST["idproyecto_fase"]) ? limpiarCadena($_POST["idproyecto_fase"]) : "";
     $n_fase = isset($_POST["n_fase"]) ? limpiarCadena($_POST["n_fase"]) : "";
     $nombre_f = isset($_POST["nombre_f"]) ? limpiarCadena($_POST["nombre_f"]) : "";
     
     switch ($_GET["op"]) {
+
+      //------------------------------------------------------------------------
+      //-----------------------P R O Y E C T O ---------------------------------
+      //------------------------------------------------------------------------
 
       case 'guardaryeditar':
 
@@ -86,7 +94,6 @@ if (!isset($_SESSION["nombre"])) {
           echo json_encode($rspta, true);
         }
       break;
-
       
       case 'eliminar':
         $rspta = $proyecto->eliminar($idproyecto);
@@ -96,7 +103,6 @@ if (!isset($_SESSION["nombre"])) {
       case 'mostrar_valor':
         $rspta = $proyecto->mostrar($idproyecto);
         echo json_encode($rspta, true);
-
       break;
 
       case 'listar':
@@ -126,7 +132,7 @@ if (!isset($_SESSION["nombre"])) {
                           <small style="font-weight: bold;">'. $reg->nombre_proyecto .'</small>
                         </div>
                       </div>',
-              "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px; width: 100%;">' . $reg->descripcion . '</textarea>',
+              "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px; width: 250px;">' . $reg->descripcion . '</textarea>',
               "3" =>'<center><button class="btn btn-info btn-xs margin_topp" onclick="galeria(' .$reg->idproyecto .');" data-toggle="tooltip" title="Galería" ><i class="fas fa-images fa-1x"></i></button> 
                       <button class="btn btn-success btn-xs margin_topp" onclick="fases_proyecto(' .$reg->idproyecto .');" data-toggle="tooltip" title="Fases del proyecto"><i class="fas fa-list-ul"></i></button> </center>'.$toltip
             ];
@@ -155,7 +161,9 @@ if (!isset($_SESSION["nombre"])) {
 
       break;
 
-      //:::::::::::::G A L E R Í A::::::::::::::
+      //------------------------------------------------------------------------
+      //-----------------------G A L E R I A------------------------------------
+      //------------------------------------------------------------------------
       
       case 'guardaryeditar_imagen':
 
@@ -213,7 +221,9 @@ if (!isset($_SESSION["nombre"])) {
           //Fin de las validaciones de acceso
       break;
 
-      //:::::::::::::F A S E S ::::::::::::::
+      //--------------------------------------------------------------------------
+      //-----------------------F A S E S -----------------------------------------
+      //--------------------------------------------------------------------------
             
       case 'guardaryeditar_fase':
 
@@ -230,7 +240,6 @@ if (!isset($_SESSION["nombre"])) {
         }
       break;
 
-      //Listar fase
       case 'listar_fase':
         $rspta = $proyecto->listar_fase($_GET['idproyecto']);
           //Vamos a declarar un array
@@ -274,18 +283,15 @@ if (!isset($_SESSION["nombre"])) {
       case 'eliminar_fase':
           $rspta = $proyecto->eliminar_fase($idfase);
           echo $rspta ? " Eliminado" : "No se puede Eliminar";
-          //Fin de las validaciones de acceso
       break;  
       
       case 'select2_fases':
-
         $rspta =  $proyecto->select2_fases($_GET['idproyecto']);
 
         while ($reg = $rspta['data']->fetch_object())  {
     
           echo '<option value=' . $reg->idfase_proyecto . '>' . $reg->numero_fase .'-'.$reg->nombre.'</option>';
         }
-
       break;
 
       case 'salir':

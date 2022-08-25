@@ -184,7 +184,7 @@
                           <input style="display: none;" id="doc1" type="file" name="doc1" accept="application/pdf, image/*" class="docpdf" />
                         </div>
                         <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(1, 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
+                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(1, 'proyecto', 'imagen_perfil');"><i class="fas fa-redo"></i> Recargar.</button>
                         </div>
                       </div>
                       <div id="doc1_ver" class="text-center mt-4">
@@ -231,36 +231,39 @@
               </form>
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar();">Close</button>
-              <button type="submit" class="btn btn-success" id="guardar_registro">Guardar Cambios</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal" onclick="limpiar();">Close</button>
+              <button type="submit" class="btn btn-success btn-xs" id="guardar_registro">Guardar Cambios</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Modal ver imagen  -->
-      <div class="modal fade" id="modal-ver-imagen">
-        <div class="modal-dialog modal-dialog-scrollable modal-md">
+      <!-- Modal ver imagen  proyecto -->
+      <div class="modal fade " id="modal-ver-imagen" tabindex="-1" role="dialog" aria-hidden="true" style="background-color: #00000063;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
-            <div class="modal-header">
+
+          <div class="modal-header">
               <h4 class="modal-title"><b>Proyecto:</b> <span class="text-warning" id="nombre_proyecto"></span>  </h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span class="text-danger" aria-hidden="true">&times;</span>
-              </button>
+              <div class="modal-close">
+                <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close" style="background-color: rgb(0 0 0 / 61%);">
+                  <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                  </svg>
+                </button>
+              </div>
             </div>
+            <!-- End Header -->
 
-            <div class="modal-body">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-lg-12 text-center" id="ver_imagen">
-
-                  </div>
+            <!-- Body -->
+            <div class="modal-body p-sm-2 text-center">
+              <div id="signinModalForm">
+                <div class="img_modal_xl_">
+                  <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
                 </div>
               </div>
             </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
+            <!-- End Body -->
           </div>
         </div>
       </div>
@@ -309,25 +312,30 @@
                     </div>
 
                     <!-- imagen -->
-                    <div class="col-md-6">
-                      <div class="row text-center">
-                        <div class="col-md-12" style="padding-top: 15px; padding-bottom: 5px;">
-                          <label for="cip" class="control-label"> Imagen </label>
-                        </div>
-                        <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-success btn-block btn-xs clase_margin" id="doc2_i"><i class="fas fa-upload"></i> Subir.</button>
+                    <div class="col-md-6 col-lg-6">
+                      <label for="doc2_i" ><small><b class="text-danger">(Imagen)</b></small>  </label>  
+                      <div class="row text-center">                               
+                        <!-- Subir img -->
+                        <div class="col-6 col-md-6 text-center">
+                          <button type="button" class="btn btn-success btn-block btn-xs" id="doc2_i">
+                            <i class="fas fa-upload"></i> Subir.
+                          </button>
                           <input type="hidden" id="doc_old_2" name="doc_old_2" />
-                          <input style="display: none;" id="doc2" type="file" name="doc2" accept="application/pdf, image/*" class="docpdf" />
+                          <input style="display: none;" id="doc2" type="file" name="doc2" accept="image/*" class="docpdf" /> 
                         </div>
-                        <div class="col-md-6 text-center">
-                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(2, 'img_galeria');"><i class="fas fa-redo"></i> Recargar.</button>
-                        </div>
+                        <!-- Recargar -->
+                        <div class="col-6 col-md-6 text-center comprobante">
+                          <button type="button" class="btn btn-info btn-block btn-xs" onclick="re_visualizacion(2, 'proyecto','img_galeria');">
+                          <i class="fas fa-redo"></i> Recargar.
+                        </button>
+                        </div>                                  
                       </div>
                       <div id="doc2_ver" class="text-center mt-4">
-                        <img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" />
+                        <img src="../dist/svg/drag-n-drop.svg" alt="" width="50%" >
                       </div>
                       <div class="text-center" id="doc2_nombre"><!-- aqui va el nombre del pdf --></div>
                     </div>
+                    
                     <!--indicaciones-->
                     <div class="col-lg-6 class_pading">
                       <div class="alert alert-warning media" role="alert">
@@ -425,9 +433,36 @@
             </div>
 
             <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="limpiar_fase();">Close</button>
-              <button type="submit" class="btn btn-success" id="guardar_registro_fase">Guardar Cambios</button>
+              <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal" onclick="limpiar_fase();">Close</button>
+              <button type="submit" class="btn btn-success btn-xs" id="guardar_registro_fase">Guardar Cambios</button>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal ver imagen secc imagenes  -->
+      <div class="modal fade " id="modal_xl" tabindex="-1" role="dialog" aria-hidden="true" style="background-color: #00000063;">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-close">
+              <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary" data-dismiss="modal" aria-label="Close" style="background-color: rgb(0 0 0 / 61%);">
+                <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                </svg>
+              </button>
+            </div>
+            <!-- End Header -->
+
+            <!-- Body -->
+            <div class="modal-body p-sm-2 text-center">
+              <div id="signinModalForm">
+                <div class="img_modal_xl">
+                  <p><i class="fas fa-spinner fa-pulse fa-sm fa-1x"></i> Cargando ...</p> 
+                </div>
+              </div>
+            </div>
+            <!-- End Body -->
           </div>
         </div>
       </div>
