@@ -2,6 +2,7 @@ var tabla;
 
 function init() {
 
+  console.log(location.host);
   $(".mproveedores").addClass("active");
 
   listar();  
@@ -96,6 +97,7 @@ function listar() {
       createdRow: function (row, data, ixdex) {
         $("td", row).addClass('class_table');
         // columna: #
+        if (data[0] != '') { $("td", row).eq(0).addClass('text-center'); }
         if (data[1] != '') { $("td", row).eq(1).addClass('text-center'); }
         // columna: #
         if (data[2] != '') { $("td", row).eq(2).addClass('text-nowrap'); }

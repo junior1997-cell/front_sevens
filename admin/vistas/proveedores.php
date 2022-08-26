@@ -20,11 +20,11 @@
 
       <?php $title = "Datos generales"; require 'head.php'; ?>
     </head>
-    <style>
+    <!-- <style>
           @media (min-width: 1200px){ .container_mod { max-width: 95%!important; } }
           .class_table{ padding-right: 3px!important; padding-left: 5px!important; }
 
-    </style>
+    </style> -->
 
     <body>
       <!-- ========== MAIN ========== -->

@@ -102,8 +102,8 @@ if (!isset($_SESSION["nombre"])) {
 
           while ($reg = $rspta['data']->fetch_object()) {
             $data[] = [
-              "0" => '<button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' . $reg->idservicio . ')"><i class="fas fa-pencil-alt"></i></button>
-                        <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' . $reg->idservicio . ')"><i class="far fa-trash-alt"></i></button>',
+              "0" => '<button class="btn btn-warning btn-xs" onclick="mostrar(' . $reg->idservicio . ')"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="btn btn-danger btn-xs" onclick="eliminar(' . $reg->idservicio . ')"><i class="far fa-trash-alt"></i></button>',
               "1" =>  '<div class="d-flex align-items-center mx-auto">
                         <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_servicio . '\')">
                           <div class="avatar avatar-circle">

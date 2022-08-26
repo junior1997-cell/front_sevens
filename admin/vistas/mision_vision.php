@@ -80,7 +80,7 @@
 
                     <!-- Form Group reseña historica -->
                     <div class="col-lg-12 col-sm-12">
-                      <label class="col-sm-3 col-form-label input-label">Visión</label>
+                      <label class="col-sm-3 col-form-label input-label text-bold">Visión</label>
                       <div class="form-group">
                         <!-- Quill -->
                         <div class="quill-custom">

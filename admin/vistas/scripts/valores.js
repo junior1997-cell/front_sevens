@@ -65,8 +65,8 @@ function listar() {
         }
       },
       createdRow: function (row, data, ixdex) {
+        if (data[0] != '') { $("td", row).eq(0).addClass('text-center'); }
         if (data[2] != '') { $("td", row).eq(2).addClass('text-nowrap'); }
-        $("td", row).addClass('text-center');
         $("td", row).addClass('class_table');
       },
     "language": {
