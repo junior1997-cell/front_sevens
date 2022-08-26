@@ -16,6 +16,8 @@ if (!isset($_SESSION["nombre"])) {
     $date_now = date("d-m-Y h.i.s A");
 
     require_once "../modelos/Proyecto.php";
+    //require_once "../dist/img/proyecto/img_galeria/marca_agua.php";
+
 
     $proyecto = new Proyecto();
     $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
@@ -170,8 +172,12 @@ if (!isset($_SESSION["nombre"])) {
         if (!file_exists($_FILES['doc2']['tmp_name']) || !is_uploaded_file($_FILES['doc2']['tmp_name'])) {
           $img_galeria = $_POST["doc_old_2"];
           $flat_img_g = false;
+
         } else {
+
           $ext1 = explode(".", $_FILES["doc2"]["name"]);
+          // $imagen=$_FILES["doc2"]["name"];
+          // $marca = "../dist/img/marca.png";
           $flat_img_g = true;
 
           $img_galeria =  $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
