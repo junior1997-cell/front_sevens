@@ -1,6 +1,6 @@
 <?php
 // validamos la repeticion de funciones
-if (!function_exists('ejecutarConsulta')) {
+if (!function_exists('ejecutarConsulta_admin') && !function_exists('ejecutarConsulta') ) {
 
   
 
