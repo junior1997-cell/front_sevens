@@ -22,6 +22,8 @@ if (!isset($_SESSION["nombre"])) {
     $proyecto = new Proyecto();
     $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
 
+    $scheme_host=  ($_SERVER['HTTP_HOST'] == 'localhost' ? 'http://localhost/front_sevens/' :  $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].'/');
+
     //-----------------------P R O Y E C T O ---------------------------------
 
     $idproyecto = isset($_POST["idproyecto"]) ? limpiarCadena($_POST["idproyecto"]) : "";
@@ -183,8 +185,9 @@ if (!isset($_SESSION["nombre"])) {
           $img_galeria =  $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
 
           move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
+          
         }
-
+        $url=$scheme_host."admin/dist/img/proyecto/img_galeria/";
         if (empty($idgaleria_proyecto)) {
           
           $rspta = $proyecto->insertar_galeria($id_fase_select,$nombre_img,$img_galeria);
@@ -209,8 +212,8 @@ if (!isset($_SESSION["nombre"])) {
             }
 
           }
-
-          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria,);
+//,$url,$flat_img_g
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria);
 
           echo json_encode($rspta, true);
         }

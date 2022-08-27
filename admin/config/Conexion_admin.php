@@ -1,6 +1,7 @@
 <?php
 require_once "global_admin.php";
 //require_once "global.php";
+require "../config/funcion_general.php";
 
 $conexion_adm = new mysqli(DB_HOST_A, DB_USERNAME_A, DB_PASSWORD_A, DB_NAME_A);
 
