@@ -281,7 +281,7 @@ function marca_agua($imagen)
 {
 	// if (validar_url($imagen)) {
 		$rutaImagenOriginal ="../dist/img/proyecto/img_galeria/".$imagen;
-		$rutaMarcaDeAgua = "../dist/img/sombra_02.png";
+		$rutaMarcaDeAgua = "../dist/img/marca_de_agua.png";
 	   // $rutaMarcaDeAgua = "../dist/img/marca.png";
 		
 		$marcaDeAgua = imagecreatefrompng($rutaMarcaDeAgua);
