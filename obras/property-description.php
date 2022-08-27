@@ -52,7 +52,7 @@
           <div class="row mx-n1">
             <div class="col-md-8 px-1">
               <!-- Gallery -->
-              <a class="js-fancybox-item d-block" href="javascript:;" data-src="pry/pry_1_2.jpeg" data-caption="Front in frames - image #01">
+              <a class="js-fancybox-item d-block" href="javascript:;" data-src="pry/pry_1_2.jpeg" data-caption="Front in frames - image #01" download="dsd">
                 <img class="img-fluid w-100" src="pry/pry_1_2.jpeg" alt="imagen">
 
                 <div class="position-absolute bottom-0 right-0 pb-3 pr-3">
@@ -103,7 +103,7 @@
           <div class="row justify-content-lg-between mb-7">
             <div class="col-12 col-sm-8 mb-5 mb-sm-0">
               <h1 class="h2 mb-0">Sede Mision Nor Oriental.</h1>
-              <span class="d-block text-dark mb-3 text-lowercase"> <i class="fas fa-map-marker-alt mr-1"></i> JR. RAMIREZ HURTADO NRO. 321 SAN MARTIN SAN MARTIN TARAPOTO</span>
+              <span class="d-block text-dark mb-3 text-lowercase"> <i class="fas fa-map-marker-alt mr-1"></i> JR. RAMIREZ HURTADO NRO. 321 SAN MARTÍN - SAN MARTÍN - TARAPOTO</span>
 
               <ul class="list-inline list-separator font-size-1 text-body">
                 <li class="list-inline-item"> <i class="far fa-calendar-check text-muted mr-1"></i> 15-03-2022 / 15-09-2022 </li>
@@ -240,37 +240,8 @@
                 <span class="link-collapse-default">Ver más</span>
                 <span class="link-collapse-active">Ver menos</span>
               </a>
-              <!-- End Collapse Link -->              
-
-              <hr class="my-6">
-
-              <h4 class="mb-1">Costos estimados</h4>
-              <!-- <p class="small">Basado en datos de la obra</p> -->
-
-              <div class="row">
-                <div class="col-md-6">
-                  <span class="h1"><small>S/.</small> 2,150,000.00</span>
-                  <p>Basado en datos de la obra</p>
-                </div>
-
-                <div class="col-md-6">
-                  <dl class="row">
-                    <dt class="col-sm-6 text-dark"><i class="fas fa-hard-hat nav-icon"></i> Mano de Obra </dt>
-                    <dd class="col-sm-6 text-sm-right">S/ 11,700.00</dd>
-
-                    <dt class="col-sm-6 text-dark"><i class="fas fa-burn nav-icon"></i> Energia y Agua  </dt>
-                    <dd class="col-sm-6 text-sm-right">S/ 2,700.00</dd>
-
-                    <dt class="col-sm-6 text-dark"><i class="fas fa-ruler nav-icon"></i> Fierro </dt>
-                    <dd class="col-sm-6 text-sm-right">S/ 16,800.00</dd>
-
-                    <dt class="col-sm-6 text-dark"><i class="fas fa-dumpster nav-icon"></i> Cemento </dt>
-                    <dd class="col-sm-6 text-sm-right">S/ 22,700.00</dd>
-                  </dl>
-                  <!-- End Row -->
-                </div>
-              </div>
-              <!-- End Row -->
+              <!-- End Collapse Link --> 
+              
             </div>
 
             <div class="tab-pane fade mt-6" id="property-floorplan" role="tabpanel" aria-labelledby="property-floorplan-tab">
@@ -680,7 +651,7 @@
     <div class="container space-2">
       <!-- Title -->
       <div class="w-md-80 w-lg-50 mb-4">
-        <h3>Similar properties you may like</h3>
+        <h3>Obras similares</h3>
       </div>
       <!-- End Title -->
 
@@ -890,6 +861,7 @@
 
   <!-- JS Plugins Init. -->
   <script>
+    var fancybox =''; var hola = 'gdgsgsgs';
     $(document).on('ready', function () {
       // INITIALIZATION OF HEADER
       // =======================================================
@@ -907,9 +879,10 @@
 
 
       // INITIALIZATION OF FANCYBOX
+      
       // =======================================================
       $('.js-fancybox').each(function () {
-        var fancybox = $.HSCore.components.HSFancyBox.init($(this));
+        fancybox = $.HSCore.components.HSFancyBox.init($(this));
       });
 
 
