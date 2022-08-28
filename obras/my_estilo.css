@@ -1,15 +1,265 @@
-.shadow-0-10px-40px-10px-rgb-0-0-0-44 {
-  box-shadow: 0 10px 40px 10px rgb(0 0 0 / 44%) !important;
-}
 
-.shadow-17px-20px-40px-10px-rgb-0-0-0-44 {
-  box-shadow: 17px 20px 40px 10px rgb(0 0 0 / 44%) !important;
-}
-
-.shadow-0-12px-15px-rgb-0-0-0-38 {
-box-shadow: 0 12px 15px rgb(0 0 0 / 38%);
-}
 
 /*  ══════════════════════════════════════════ - B A C K G R O U N D   P E R S O N A L I Z A D O - ══════════════════════════════════════════ */
 /* negro */
-.bg-color-ff6c046b{ background-color: #00000040 !important; } /* 25% */
+
+
+----------------------------------------------------------------------
+
+/*  ══════════════════════════════════════════ - B A C K G R O U N D   P E R S O N A L I Z A D O - ══════════════════════════════════════════ */
+
+
+/*  ══════════════════════════════════════════ - E S T Y L O   P A R A   T A B L A - ══════════════════════════════════════════ */
+
+
+
+
+/* ::::::::::::::::: END stylos para tblas::::::::::::::::::: */
+
+/*  ══════════════════════════════════════════ - D I S E Ñ O   D E   S C R O L L - ══════════════════════════════════════════ */
+
+  .disenio-scroll::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    /* display: none;  Ocultar scroll */
+  }
+
+  /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+  .disenio-scroll::-webkit-scrollbar-thumb {
+    background: #74d3e4;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+  .disenio-scroll::-webkit-scrollbar-thumb:hover {
+    background: #74d3e4;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Cambiamos el fondo cuando esté en active */
+  .disenio-scroll::-webkit-scrollbar-thumb:active {
+    background-color: #18c0dd;
+  }
+
+  /* Ponemos un color de fondo y redondeamos las esquinas del track */
+  .disenio-scroll::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+  }
+
+  /* Cambiamos el fondo cuando esté en active o hover */
+  .disenio-scroll::-webkit-scrollbar-track:hover,
+  .disenio-scroll::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+  }
+/* ::::::::::: END diseño del scroll ::::::::::: */
+
+
+/*  ══════════════════════════════════════════ - P A D D I N G   S I Z E - ══════════════════════════════════════════ */
+
+
+
+/* ══════════════════════════════════════════ - M A R G I N G   S I Z E - ══════════════════════════════════════════ */
+
+
+
+
+/*  ══════════════════════════════════════════ - W I D T H   S I Z E - ══════════════════════════════════════════ */
+
+
+/*  ══════════════════════════════════════════ - H E I G H T   S I Z E - ══════════════════════════════════════════ */
+
+
+
+/*  ══════════════════════════════════════════ - F O N T   S I Z E - ══════════════════════════════════════════ */
+
+
+
+/*  ══════════════════════════════════════════ - B O R D E R   R A D I U S - ══════════════════════════════════════════ */
+
+
+/*  ══════════════════════════════════════════ - S H A D O W  C O L O R - ══════════════════════════════════════════ */
+/* celeste */
+.shadow-1px1rem2rem-rgb-52-174-193-77{ box-shadow: 1px 1rem 2rem rgb(52 174 193 / 77%) !important; }
+.shadow-1px06rem09rem-rgb-52-174-193-77 { box-shadow: 1px 0.6rem 0.9rem rgb(52 174 193 / 77%) !important; }
+.shadow-0px-05rem-1rem-rgb-23-162-184 {  box-shadow: 0 0.5rem 1rem rgb(23 162 184) !important; }
+
+/* rojo */
+.shadow-0px-05rem-1rem-rgb-220-53-69 { box-shadow: 0 0.5rem 1rem rgb(220 53 69) !important; }
+
+/* amarillo */
+.shadow-0px-05rem-1rem-rgb-255-193-7 { box-shadow: 0 0.5rem 1rem rgb(255 193 7) !important; }
+
+/* azul */
+
+/* verde */
+.shadow-0px-05rem-1rem-rgb-40-167-69 { box-shadow: 0 0.5rem 1rem rgb(40 167 69) !important; }
+
+/* negro */
+.shadow-0px-0125rem-025rem-rgb-0-0-0-38{ box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 38%) !important; }
+.shadow-0px1rem3rem-rgb-0-0-0-50 { box-shadow: 0 1rem 3rem rgb(0 0 0 / 50%) !important; }
+.shadow-0px-05rem-1rem-rgb-0-0-0-65 { box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 65%) !important; }
+
+/*  ═══════════════════════════════════ - P A R P A D E A N T E    M U L T I C O L O R    C O L O R - ═══════════════════════════════════ */
+
+@keyframes animacion_parpadeante{
+  0% {background-color: #17a2b8;} /*0*/
+  25% {background-color: #15c3df;} /*25*/
+  50% {background-color: #17cce9;} /*50*/
+  75% {background-color: #0fdafb;} /*75*/
+  100% {background-color: #17a2b8;} /*100*/
+}
+.background_parpadeante_17a2b8 {
+  animation-name: animacion_parpadeante;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+/*  ══════════════════════════════════════════ - I N P U T - ══════════════════════════════════════════ */
+
+
+
+/*  ══════════════════════════════════════════ - Z O O M   J Q U E R Y - ══════════════════════════════════════════ */
+
+
+
+
+/*  ══════════════════════════════════════════ - T O A S T - ══════════════════════════════════════════ */
+
+
+/*  ══════════════════════════════════════════ - O T R O S - ══════════════════════════════════════════ */
+.hidden{ display: none; }
+
+.center-vertical{ vertical-align: middle !important; }
+
+#dp .ui-datepicker tbody td.highlight a{background-color: red; border-bottom: 3px blue solid;}
+
+.cursor-pointer{ cursor: pointer !important; }
+
+/*TextArea con datatable*/
+.textarea_datatable{
+  width: 100%;
+  background: rgb(215 224 225 / 22%);
+  border-block-color: inherit;
+  border-bottom: aliceblue;
+  border-left: aliceblue;
+  border-right: aliceblue;
+  border-top: hidden;
+}
+
+.recorte-text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.formato-numero-conta{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  /* padding: 1rem; */
+  /* border: 0px  !important; */
+}
+
+.hover-negrita:hover{ font-weight: bold; color: #000000; }
+
+/* input-group-append con SELECT2 */
+/* .input-group > .select2-container--bootstrap .elect2-container--below {
+  width: 90% !important;
+  flex: 1 1 auto;
+}
+
+.input-group > .select2-container--bootstrap .select2-selection--single {
+  height: 100%;
+  line-height: inherit;
+  padding: 0.5rem 1rem;
+  width: 90% !important;
+} */
+
+
+/* clase que nos permite modificar el car en view modulos en papelera */
+
+.bb-m{ border-bottom: 1px;}
+.cur_point {  cursor: pointer;}
+
+/*  ══════════════════════════════════════════ - @ M E D I A  - M I N - ══════════════════════════════════════════ */
+/* min-width = como minimo ─|──────── */
+@media (min-width: 576px) {
+
+  .show-min-width-576px{ display: inline-block !important; }
+
+  .hide-min-width-576px{ display: none !important;  }
+
+}
+
+/* min-width = como minimo ─|──────── */
+@media (min-width: 768px) {
+
+  
+}
+
+/* min-width = como minimo ─|──────── */
+@media (min-width: 992px) {
+
+  .borde-arriba-naranja{ border-top: 3px solid #fd4604; }
+
+  .borde-arriba-negro{ border-top: 3px solid #1a221c; }
+}
+
+/* min-width = como minimo ─|──────── */
+@media (min-width: 1080px) {
+  
+}
+
+/* min-width = como minimo ─|──────── */
+@media (min-width: 1200px) {
+
+  .show-min-width-1200px{ display: inline-block !important; }
+}
+
+/*  ══════════════════════════════════════════ - @ M E D I A  - M A X - ══════════════════════════════════════════ */
+
+/* max-width = como maximo ────────|─ */
+@media (max-width: 575.98px) {
+
+  
+}
+
+/* max-width = como maximo  ────────| */
+@media (max-width: 576px) {
+ 
+  .show-max-width-576px{ display: inline-block !important; }
+}
+/* max-width = como maximo  ────────| */
+@media (max-width: 767.98px) {
+  
+}
+
+/* max-width = como maximo ────────| */
+@media (max-width: 991.98px) {
+  .borde-arriba-verde{ border-top: 3px solid #109e38; }
+  
+}
+
+/* max-width = como maximo ────────| */
+@media (max-width: 1080px) {
+  .hide-max-width-1080px{ display: none !important; }
+}
+
+/* max-width = como maximo  ────────| */
+@media (max-width: 1199.98px) {
+  
+}
+
+/* max-width = como maximo  ────────| */
+@media (max-width: 1200px) {
+  
+}
+
+

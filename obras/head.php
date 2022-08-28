@@ -11,4 +11,4 @@
 <link rel="stylesheet" href="../assets/css/theme.minc619.css?v=1.0">
 
 <!-- CSS Front Template -->
-<link rel="stylesheet" href="my_estilo.css">
+<link rel="stylesheet" href="../admin/dist/css/style_new.css">

@@ -854,10 +854,7 @@
   <script src="../assets/js/vendor.min.js"></script>
 
   <!-- JS Front -->
-  <script src="../assets/js/theme.min.js"></script>
-
-  <!-- sweetalert2 -->
-  <script src="../admin/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="../assets/js/theme.min.js"></script>  
 
   <!-- JS Plugins Init. -->
   <script>

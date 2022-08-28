@@ -98,8 +98,8 @@
       <div class="row mb-5">
         <div class="col-sm-6 col-lg-4 mb-3 mx-auto rounded-lg shadow">
           <!-- Property Item -->
-          <a class="card card-no-gutters h-100" href="property-description.php">
-            <img class="img-fluid rounded-lg" src="img1.jpeg" alt="imagen">
+          <a class="card card-no-gutters h-100 transition-zoom-hover" href="property-description.php">
+            <img class="img-fluid b-radio-top-10px object-fit-cover-top-center h-235px" src="pry/pry_3_7.jpeg" alt="imagen">
 
             <!-- Body -->
             <div class="card-body">
@@ -127,13 +127,13 @@
 
         <div class="col-sm-6 col-lg-4 mb-3 mx-auto rounded-lg shadow">
           <!-- Property Item -->
-          <a class="card card-no-gutters h-100" href="property-description.php">
-            <img class="img-fluid rounded-lg" src="img2.jpeg" alt="imagen">
+          <a class="card card-no-gutters h-100 transition-zoom-hover" href="property-description.php">
+            <img class="img-fluid b-radio-top-10px object-fit-cover-top-center h-235px" src="../assets/img/480x320/img20.jpg" alt="imagen">
 
             <!-- Body -->
             <div class="card-body">
               <!-- <span class="d-block font-size-1 text-body">For sale</span> -->
-              <span class="badge badge-soft-danger mr-2 "> <span class="legend-indicator bg-danger"></span>Culminada </span>
+              <span class="badge badge-soft-danger mr-2"> <span class="legend-indicator bg-danger"></span>Culminada </span>
 
               <div class="row align-items-center">
                 <div class="col"><h4 class="text-hover-primary">Cerco perimetrico etapa 2</h4></div>
@@ -152,8 +152,8 @@
 
         <div class="col-sm-6 col-lg-4 mb-3 mx-auto rounded-lg shadow">
           <!-- Property Item -->
-          <a class="card card-no-gutters h-100" href="property-description.php">
-            <img class="img-fluid rounded-lg" src="img3.jpeg" alt="imagen">
+          <a class="card card-no-gutters h-100 transition-zoom-hover" href="property-description.php">
+            <img class="img-fluid b-radio-top-10px object-fit-cover-top-center h-235px" src="pry/pry_1_21.jpeg" alt="imagen">
 
             <!-- Body -->
             <div class="card-body">
@@ -179,7 +179,7 @@
       <!-- End Properties -->
 
       <div class="text-center">
-        <a class="btn btn-primary" href="property-grid.php">Ver todos <i class="fas fa-angle-right ml-1"></i></a>
+        <a class="btn btn-primary transition-zoom-hover" href="property-grid.php">Ver todos <i class="fas fa-angle-right ml-1"></i></a>
       </div>
     </div>
     <!-- End Properties Section -->
@@ -311,7 +311,7 @@
             <div class="col-sm-6 col-lg-4 px-2 mb-3">
               <!-- Card -->
               <div class="overflow-hidden rounded-lg-pseudo">
-                <a class="card shadow-none min-h-270rem bg-img-hero gradient-y-overlay-lg-dark transition-zoom-hover" style="background-image: url(gal3.jpeg);" href="property-description.php#div_galeria_fases">
+                <a class="card shadow-none min-h-270rem bg-img-hero gradient-y-overlay-lg-dark transition-zoom-hover" style="background-image: url(pry/pry_3_5.jpeg);" href="property-description.php#div_galeria_fases">
                   <div class="position-absolute top-0 left-0 p-4">
                     <span class="badge badge-light"><i class="fas fa-eye"></i></span>
                   </div>
@@ -509,6 +509,9 @@
 
 
   <?php require 'script.php'; ?>
+
+  <!-- JS Front -->
+  <script src="../scripts_web/nuestra_obra.js"></script>
 
   <!-- IE Support -->
   <script>
