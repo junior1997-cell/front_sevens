@@ -177,11 +177,11 @@ if (!function_exists('ejecutarConsulta_admin') && !function_exists('ejecutarCons
     } 
   }
 
-  // function validar_url_completo( $ruta )  {   
-  //   stream_context_set_default(['http' => ['method' => 'HEAD',],]); $headers = @get_headers($ruta); sscanf($headers[0], 'HTTP/%*d.%*d %d', $httpcode);
-  //   // Aceptar solo respuesta 200 (Ok), 301 (redirección permanente) o 302 (redirección temporal)
-  //   return $httpcode;
-  // }
+  function validar_url_completo_get_header( $ruta )  {   
+    stream_context_set_default(['http' => ['method' => 'HEAD',],]); $headers = @get_headers($ruta); sscanf($headers[0], 'HTTP/%*d.%*d %d', $httpcode);
+    // Aceptar solo respuesta 200 (Ok), 301 (redirección permanente) o 302 (redirección temporal)
+    return $httpcode;
+  }
 
   function validar_url_completo( $ruta ) { clearstatcache(); if (is_readable($ruta)) { return true; } else { return false; }  }
   /*  ══════════════════════════════════════════ - M O D U L O S - ══════════════════════════════════════════ */

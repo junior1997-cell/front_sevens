@@ -92,7 +92,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../admin/index.php">
+              <a class="nav-link" href="../admin/index.php" target="_blank">
                 <span class="media align-items-center">
                   <i class="fa fa-user-circle mr-2"></i>
                   <span class="media-body">Tu Intranet</span>

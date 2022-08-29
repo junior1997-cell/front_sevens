@@ -150,7 +150,7 @@
           <!-- End Property Item -->
         </div>
 
-        <div class="col-sm-6 col-lg-4 mb-3 mx-auto rounded-lg shadow">
+        <div class="col-sm-6 col-lg-4 mb-3 mx-auto rounded-lg shadow"> 
           <!-- Property Item -->
           <a class="card card-no-gutters h-100 transition-zoom-hover" href="property-description.php">
             <img class="img-fluid b-radio-top-10px object-fit-cover-top-center h-235px" src="pry/pry_1_21.jpeg" alt="imagen">

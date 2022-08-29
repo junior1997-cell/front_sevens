@@ -186,7 +186,9 @@ if (!isset($_SESSION["nombre"])) {
           move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
           
         }
+
         $url="admin/dist/img/proyecto/img_galeria/";
+
         if (empty($idgaleria_proyecto)) {
           
           $rspta = $proyecto->insertar_galeria($id_fase_select,$nombre_img,$scheme_host,$url,$flat_img_g,$img_galeria);
@@ -196,24 +198,16 @@ if (!isset($_SESSION["nombre"])) {
 
           //validamos si existe comprobante para eliminarlo
           if ($flat_img_g == true) {
-
             $datos_ficha1 = $proyecto->reg_img_galeria($idgaleria_proyecto);
-
-            if ( $datos_ficha1['status'] ) {
-      
-              $imagen_ant = $datos_ficha1['data']['imagen'];
-        
-              if ($imagen_ant != "") {
-
+            if ( $datos_ficha1['status'] ) {      
+              $imagen_ant = $datos_ficha1['data']['imagen'];        
+              if (validar_url_completo_get_header($scheme_host.$url.$imagen_ant) == 200) {
                 unlink("../dist/img/proyecto/img_galeria/" . $imagen_ant);
               }
-
             }
-
           }
-//,$url,$flat_img_g
-          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$scheme_host,$url,$flat_img_g,$img_galeria);
 
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$scheme_host,$url,$flat_img_g,$img_galeria);
           echo json_encode($rspta, true);
         }
       break;

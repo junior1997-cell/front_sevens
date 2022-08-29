@@ -80,7 +80,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark text-white" href="admin/index.php">
+              <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark text-white" href="admin/index.php" target="_blank">
                   <i class="fas fa-user-circle"></i>
               </a>
             </li>
