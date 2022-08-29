@@ -178,8 +178,7 @@ if (!isset($_SESSION["nombre"])) {
         } else {
 
           $ext1 = explode(".", $_FILES["doc2"]["name"]);
-          // $imagen=$_FILES["doc2"]["name"];
-          // $marca = "../dist/img/marca.png";
+
           $flat_img_g = true;
 
           $img_galeria =  $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
@@ -187,10 +186,10 @@ if (!isset($_SESSION["nombre"])) {
           move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
           
         }
-        $url=$scheme_host."admin/dist/img/proyecto/img_galeria/";
+        $url="admin/dist/img/proyecto/img_galeria/";
         if (empty($idgaleria_proyecto)) {
           
-          $rspta = $proyecto->insertar_galeria($id_fase_select,$nombre_img,$img_galeria);
+          $rspta = $proyecto->insertar_galeria($id_fase_select,$nombre_img,$scheme_host,$url,$flat_img_g,$img_galeria);
           echo json_encode($rspta, true);
 
         } else {
@@ -213,7 +212,7 @@ if (!isset($_SESSION["nombre"])) {
 
           }
 //,$url,$flat_img_g
-          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria);
+          $rspta = $proyecto->editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$scheme_host,$url,$flat_img_g,$img_galeria);
 
           echo json_encode($rspta, true);
         }

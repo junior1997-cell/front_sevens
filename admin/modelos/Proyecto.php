@@ -73,7 +73,7 @@ Class Proyecto
 	//Select2 proyecto
 	public function select2_proyecto()
 	{
-        $data_select = Array(); 
+    $data_select = Array(); 
 		//bd-admin
 		$sql_1="SELECT idproyecto,nombre_codigo,nombre_proyecto FROM proyecto WHERE estado!=2 AND estado_delete=1;";
 		$proyecto_admin= ejecutarConsultaArray_admin($sql_1);
@@ -107,17 +107,20 @@ Class Proyecto
   //-----------------------G A L E R I A------------------------------------
   //------------------------------------------------------------------------
 
-	public function insertar_galeria($id_fase_select,$nombre_img,$img_galeria)
+	public function insertar_galeria($id_fase_select,$nombre_img,$host,$url,$flat_img_g,$img_galeria)
 	{
-		marca_agua($img_galeria);
+
+    if ($flat_img_g==true) {marca_agua($host,$url,$img_galeria);}
+
 		$sql="INSERT INTO galeria_proyecto(idfase_proyecto,nombre_imagen,imagen) VALUES ('$id_fase_select','$nombre_img','$img_galeria')";
 		return ejecutarConsulta($sql);	
 			
 	}
 
-	public function editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$img_galeria)
+	public function editar_galeria($idgaleria_proyecto,$id_fase_select,$nombre_img,$host,$url,$flat_img_g,$img_galeria)
 	{
-		marca_agua($img_galeria);
+    if ($flat_img_g==false) {}else{marca_agua($host,$url,$img_galeria);}
+		
 		$sql="UPDATE galeria_proyecto SET idfase_proyecto='$id_fase_select',nombre_imagen='$nombre_img', imagen='$img_galeria' WHERE idgaleria_proyecto='$idgaleria_proyecto'";
 		return ejecutarConsulta($sql);	
 
@@ -149,6 +152,7 @@ Class Proyecto
   //--------------------------------------------------------------------------
   //-----------------------F A S E S -----------------------------------------
   //--------------------------------------------------------------------------
+  
 	public function insertar_fase($idproyecto_fase,$n_fase,$nombre_f)
 	{
 		
@@ -190,7 +194,6 @@ Class Proyecto
   //-----------------------L I S T A R  W E B  -------------------------------
   //--------------------------------------------------------------------------
 
-
 	//Implementar un método para listar en la web
 	public function listar_proyecto_web()
 	{
@@ -224,63 +227,64 @@ Class Proyecto
 
     if ($opcion=='resumido') { $limite ="LIMIT 3";}
 
-      foreach ($fase_proyecto['data'] as $key => $value) {
+    foreach ($fase_proyecto['data'] as $key => $value) {
 
-        $id_fase=$value['idfase_proyecto'];
+      $id_fase=$value['idfase_proyecto'];
 
-        $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto='$id_fase' ORDER BY idgaleria_proyecto DESC $limite ";
-        $img_fase = ejecutarConsultaArray($sql_2);
-        
-        if ($img_fase['status']==false) {return $img_fase;}
-
-        $galeria_fases[] = array(
-
-          "idfase" =>$value['idfase_proyecto'],
-          "nombre_fase"=>$value['nombre'],
-          "numero_fase"=>$value['numero_fase'],
-          "imagenes" =>$img_fase['data']
-
-        );
-
-      }
-
-      $data_proyecto = array(
-
-        "status"               => true,
-        "data"                 => [
-            "idproyecto"           => $datosproyecto['data']['idproyecto'],
-            "nombre_proyecto"      => $datosproyecto['data']['nombre_proyecto'],
-            "codigo_proyecto"      => $datosproyecto['data']['codigo_proyecto'],
-            "fecha_inicio"         => $datosproyecto['data']['fecha_inicio'],
-            "fecha_fin"            => $datosproyecto['data']['fecha_fin'],
-            "dias_habiles"         => $datosproyecto['data']['dias_habiles'],
-            "dias_calendario"      => $datosproyecto['data']['dias_calendario'],
-            "actividad_trabajo"    => $datosproyecto['data']['actividad_trabajo'],
-            "ubicacion"            => $datosproyecto['data']['ubicacion'],
-            "descripcion"          => $datosproyecto['data']['descripcion'],
-            "estado_proyecto"      => $datosproyecto['data']['estado_proyecto'],
-            "img_perfil"           => $datosproyecto['data']['img_perfil'],
-            "galeria"              => $galeria_fases,],
-        "message"              => 'Data sin errores',
+      $sql_2="SELECT * FROM galeria_proyecto WHERE idfase_proyecto='$id_fase' ORDER BY idgaleria_proyecto DESC $limite ";
+      $img_fase = ejecutarConsultaArray($sql_2);
       
+      if ($img_fase['status']==false) {return $img_fase;}
+
+      $galeria_fases[] = array(
+
+        "idfase" =>$value['idfase_proyecto'],
+        "nombre_fase"=>$value['nombre'],
+        "numero_fase"=>$value['numero_fase'],
+        "imagenes" =>$img_fase['data']
+
       );
 
-      return $data_proyecto;
-
     }
+
+    $data_proyecto = array(
+
+      "status"               => true,
+      "data"                 => [
+          "idproyecto"           => $datosproyecto['data']['idproyecto'],
+          "nombre_proyecto"      => $datosproyecto['data']['nombre_proyecto'],
+          "codigo_proyecto"      => $datosproyecto['data']['codigo_proyecto'],
+          "fecha_inicio"         => $datosproyecto['data']['fecha_inicio'],
+          "fecha_fin"            => $datosproyecto['data']['fecha_fin'],
+          "dias_habiles"         => $datosproyecto['data']['dias_habiles'],
+          "dias_calendario"      => $datosproyecto['data']['dias_calendario'],
+          "actividad_trabajo"    => $datosproyecto['data']['actividad_trabajo'],
+          "ubicacion"            => $datosproyecto['data']['ubicacion'],
+          "descripcion"          => $datosproyecto['data']['descripcion'],
+          "estado_proyecto"      => $datosproyecto['data']['estado_proyecto'],
+          "img_perfil"           => $datosproyecto['data']['img_perfil'],
+          "galeria"              => $galeria_fases,],
+      "message"              => 'Data sin errores',
+    
+    );
+
+    return $data_proyecto;   
+
+  }
 
 	public function select2_view_fase($idproyecto_fase)
 	{
 		$sql="SELECT*FROM fase_proyecto WHERE idproyecto='$idproyecto_fase' AND estado='1'  ORDER BY idfase_proyecto DESC";
 		return ejecutarConsulta($sql);		
 	}
-	
+  	
 }
 
-function marca_agua($imagen)
+function marca_agua($host,$url,$img_galeria)
 {
-	// if (validar_url($imagen)) {
-		$rutaImagenOriginal ="../dist/img/proyecto/img_galeria/".$imagen;
+    // if (validar_url($host,$url,$img_galeria)==true) {
+
+		$rutaImagenOriginal ="../dist/img/proyecto/img_galeria/".$img_galeria;
 		$rutaMarcaDeAgua = "../dist/img/marca_de_agua.png";
 	   // $rutaMarcaDeAgua = "../dist/img/marca.png";
 		
@@ -315,7 +319,7 @@ function marca_agua($imagen)
 		
 		# Guardar y liberar recursos
 		# Segundo argumento de imagepng es la ruta de la imagen de salida
-		$resultado = imagepng($original, "../dist/img/proyecto/img_galeria/" .$imagen);
+		$resultado = imagepng($original, "../dist/img/proyecto/img_galeria/" .$img_galeria);
 		//var_dump($resultado);
 		imagedestroy($original);
 		imagedestroy($marcaDeAgua);
