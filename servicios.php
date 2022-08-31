@@ -5,12 +5,13 @@
   <head>
     <!-- Title -->
     <title>Servicios | Seven's Ingenieros</title>
+    <span class="hidden name_page" >Servicios</span>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <?php require 'head.php'; ?>
+    <?php $title_page = "Servicios"; require 'head.php'; ?>
   </head>
 
   <body>
@@ -417,6 +418,7 @@
   <!-- JS script -->
   <script src="scripts_web/servicios.js"></script>
   <script src="scripts_web/footer.js"></script>
+  <script src="admin/vistas/scripts/contador.js"></script> 
 </body>
 
 <!-- Mirrored from htmlstream.com/front/page-services-agency.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:20:02 GMT -->

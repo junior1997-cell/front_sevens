@@ -46,7 +46,61 @@
 
                     <!-- Body -->
                     <div class="card-body">
-                      <?php require 'endesarrollo.php'; ?>
+                      <?php //require 'endesarrollo.php'; ?>
+
+                      <div class="row">
+                        <div class="col-lg-8">
+
+                        <div class="align-content-between row">
+                          <!-- Año -->
+                           <div class="col-6 col-lg-6">
+                             <div class="form-group">
+                              <label for="">Fecha inicio</label>
+                                <!-- <label for="year_filtro">Año </label> -->
+                                <!-- <select name="year_filtro" id="year_filtro" class="form-control select2" style="width: 100%;" onchange="chart_linea_barra();"> </select> -->
+                                <input type="date" class="form-control form-control-sm" name="filtro_fecha_inicio" id="filtro_fecha_inicio" onchange="cargando_search(); delay(function(){filtros()}, 50 );"  placeholder="Fecha" />
+
+                              </div>
+                            </div>
+
+                            <!-- Mes -->
+                            <div class="col-6 col-lg-6">
+                              <div class="form-group">
+                              <label for="">Fecha fin</label>
+                              <input type="date" class="form-control form-control-sm" name="filtro_fecha_fin" id="filtro_fecha_fin" onchange="cargando_search(); delay(function(){filtros()}, 50 );" placeholder="Fecha" />
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="cargando text-center bg-danger color-white"><i class="fas fa-spinner fa-pulse fa-sm"></i> Buscando... </div>
+                          <canvas id="myChart" width="400" height="250"></canvas> <br>
+                          <div class="cargando text-center bg-danger color-white"><i class="fas fa-spinner fa-pulse fa-sm"></i> Buscando... </div>
+                          <canvas id="chart_radar" width="250" height="250"></canvas>                  
+
+                        </div>
+                        <div class="col-lg-4">
+                          <strong>Visitas a nuesta pagina web</strong> <br>
+
+                          <table id="tabla-valores" class="table table-bordered table-striped display" style="width: 100% !important;">
+                            <thead>
+                              <tr>
+                                <th class="">Acc.</th>
+                                <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
+                                <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                              <tr>
+                                <th class="">Acc.</th>
+                                <th data-toggle="tooltip" data-original-title="Nombres">Nombre</th>
+                                <th data-toggle="tooltip" data-original-title="Descripción">Descrip</th>
+                              </tr>
+                            </tfoot>
+                          </table>
+
+                        </div>
+                      </div>
                     </div>
                     <!-- End Body -->
                   </div>
@@ -178,6 +232,9 @@
         </script>
 
         <!-- JS consultas -->
+        <!-- <script src="../plugins/Chart.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
         <script src="scripts/escritorio.js"></script>
 
       </body>

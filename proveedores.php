@@ -4,7 +4,9 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Servicios | Seven's Ingenieros</title>
+    <title>Proveedores | Seven's Ingenieros</title>
+    <span class="hidden name_page" >Proveedores</span>
+
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -266,7 +268,7 @@
   <!-- IE Support -->
   <script src="scripts_web/proveedores.js"></script> 
   <script src="scripts_web/footer.js"></script>
-
+  <script src="admin/vistas/scripts/contador.js"></script> 
   <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
   </script>

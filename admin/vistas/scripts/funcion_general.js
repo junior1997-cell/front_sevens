@@ -1,5 +1,13 @@
 /*  ══════════════════════════════════════════ - F E C H A S - ══════════════════════════════════════════ */
 
+function sumar_mes(fecha) {
+  var split_fecha =  fecha.split("-");
+  var dias_total_mes = cantDiasEnUnMes( parseInt(split_fecha[1]), parseInt(split_fecha[0]) );  
+  var mes_next =  sumaFecha(dias_total_mes-1, fecha); 
+  // console.log(`🚀 ${fecha} + ${dias_total_mes-1} =  fecha_f:${mes_next}`);
+  return mes_next;
+}
+
 // Función que suma o resta días a la fecha indicada
 sumaFecha = function(d, fecha){
   var Fecha = new Date();
@@ -18,6 +26,15 @@ sumaFecha = function(d, fecha){
   return (fechaFinal);
 }
 
+// Extrae los nombres de dias de semana "Abreviado"
+function extraer_dia_semana(fecha) {
+  const fechaComoCadena = fecha; // día fecha
+  const dias = ['lu', 'ma', 'mi', 'ju', 'vi', 'sa', 'do']; //
+  const numeroDia = new Date(fechaComoCadena).getDay();
+  const nombreDia = dias[numeroDia];
+  return nombreDia;
+}
+
 // extrae los nombres de dias de semana "Completo"
 function extraer_dia_semana_completo(fecha) {
 
@@ -30,6 +47,24 @@ function extraer_dia_semana_completo(fecha) {
     nombreDia = dias[numeroDia];
   }
   return nombreDia;
+}
+
+function extraer_dia_mes(fecha) {
+  var dia_mes = "";
+
+  if (fecha == '' || fecha == null || fecha == '0000-00-00') {  } else {
+    dia_mes = parseFloat(moment(fecha).format('DD'));
+  }
+  return dia_mes;
+}
+
+function extraer_ultimo_dia_mes(fecha) {
+  var ultimo_dia_mes = "";
+
+  if (fecha == '' || fecha == null || fecha == '0000-00-00') {  } else {
+    ultimo_dia_mes = moment(fecha).endOf("month").format('DD-MM-YYYY');
+  }
+  return ultimo_dia_mes;
 }
 
 function extraer_nombre_mes(fecha) {
@@ -47,6 +82,12 @@ function extraer_nombre_mes(fecha) {
   }
 
   return nombre_completo;
+}
+
+// calulamos la cantidad de dias de una mes especifico
+function cantidad_dias_mes(year, month) {
+  var diasMes = new Date(year, month, 0).getDate();
+  return diasMes;
 }
 
 // convierte de una fecha(aa-mm-dd): 2021-12-23 a una fecha(dd-mm-aa): 23-12-2021
@@ -79,6 +120,24 @@ function format_m_d_a(fecha) {
   return format;
 }
 
+// convierte de una fecha(aa-mm-dd): 2021-12-23 a una fecha(aa-mm): 2021-12
+function format_a_m(fecha) {
+  var format = "";
+  if (fecha == '' || fecha == null || fecha == '00-00-0000') { format = "-"; } else {
+    format = moment(fecha).format('YYYY-MM');
+  } 
+  return format;
+}
+
+// convierte de una fecha(aa-mm-dd): 23-12-2021 a una fecha(aa-mm): 12-2021
+function format_m_a(fecha) {
+  var format = "";
+  if (fecha == '' || fecha == null || fecha == '00-00-0000') { format = "-"; } else {
+    format = moment(fecha).format('MM-YYYY');
+  } 
+  return format;
+}
+
 // restringimos la fecha para no elegir mañana
 function no_select_tomorrow(nombre_input) {  
   var today = new Date();
@@ -93,10 +152,242 @@ function no_select_tomorrow(nombre_input) {
   $(nombre_input).attr('max',today);
 }
 
+// restringimos la fecha para no elegir mañana
+function restrigir_fecha_ant(nombre_input,fecha_minima) {
+  console.log(nombre_input,fecha_minima);
+  var today2 = new Date(fecha_minima);
+  var dd2 = today2.getDate()+1;
+  var mm2 = today2.getMonth()+1; //January is 0!
+  var yyyy2 = today2.getFullYear();
+  
+  if(dd2<10){ dd2='0'+dd2  }
+  if(mm2<10){ mm2='0'+mm2 }
+  
+  today2 = yyyy2+'-'+mm2+'-'+dd2;
+  console.log(today2);
+
+  $(nombre_input).attr('min',today2);
+  $(nombre_input).rules("add", { min: today2, messages: { min: `Ingresa una fecha mayor a: ${format_d_m_a(today2)}` } });
+}
+
+function cant_dias_mes(date_anio, date_mes) {
+	var año = date_anio;
+  var mes = date_mes;
+
+  if (date_anio == '' || date_anio == null || date_mes =='' || date_mes ==null ) {
+    return '';
+  } else {
+    var diasMes = new Date(año, mes, 0).getDate();
+    var diasSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    
+    // for (var dia = 1; dia <= diasMes; dia++) {
+    //   // Ojo, hay que restarle 1 para obtener el mes correcto
+    //   var indice = new Date(año, mes - 1, dia).getDay();
+    //   console.log(`El día número ${dia} del mes ${mes} del año ${año} es ${diasSemana[indice]}`);
+    // }
+    return diasMes;
+  }   
+  
+}
+
+function fecha_dentro_de_rango(fecha, rango_inicial, rango_final) {
+
+  var fechar_validar = new Date(fecha);
+  var f1 = new Date(rango_inicial);
+  var f2 = new Date(rango_final);
+
+  //nos aseguramos que no tengan hora
+  fechar_validar.setHours(0,0,0,0);
+  f1.setHours(0,0,0,0);
+  f2.setHours(0,0,0,0);
+ 
+  // validamos las fechas con un IF
+  if (fechar_validar.getTime() >= f1.getTime() && fechar_validar.getTime() <= f2.getTime() ){
+    return true;
+  }
+
+  return false;
+}
+
+function validarFechaEnRango(fechaI, fechaF, fechaV){
+  
+  const fechaInicio=new Date(fechaI);
+  const fechaFin=new Date(fechaF);
+  const fechaValidar=new Date(fechaV);
+
+  const fechaInicioMs = fechaInicio.getTime();
+  const fechaFinMs = fechaFin.getTime();
+  const fechaValidarMs = fechaValidar.getTime();
+
+  if(fechaValidarMs >= fechaInicioMs && fechaValidarMs <= fechaFinMs){
+    //console.log(fechaI, fechaF, fechaV + ' este es');
+    return true;
+  }else{
+    //console.log(fechaI, fechaF, fechaV+ ' este no es');
+    return false;
+  }
+}
+
+function validarFechaMayorIgualQue(fecha_1, fecha_2) {
+  const fecha_a=new Date(fecha_1);
+  const fecha_b=new Date(fecha_2);
+  if(fecha_a >= fecha_b ){
+    //console.log(fechaI, fechaF, fechaV + ' este es');
+    return true;
+  }else{
+    //console.log(fechaI, fechaF, fechaV+ ' este no es');
+    return false;
+  }
+}
+
+function validarFechaMenorIgualQue(fecha_1, fecha_2) {
+  const fecha_a=new Date(fecha_1);
+  const fecha_b=new Date(fecha_2);
+  if(fecha_a <= fecha_b ){
+    //console.log(fechaI, fechaF, fechaV + ' este es');
+    return true;
+  }else{
+    //console.log(fechaI, fechaF, fechaV+ ' este no es');
+    return false;
+  }
+}
+
+function valida_fecha_menor_que(fecha_menor, fecha_mayor) {
+  var f1 = new Date(fecha_menor); //fecha "fecha_menor" parseado a "Date()"
+  var f2 = new Date(fecha_mayor); //fecha "fecha_mayor" parseado a "Date()"
+
+  var estado = false;
+
+  //nos aseguramos que no tengan hora
+  f1.setHours(0,0,0,0);
+  f2.setHours(0,0,0,0);
+
+  // validamos las fechas con un IF
+  if (f1.getTime() < f2.getTime()){  estado = true; }
+
+  return estado;
+}
+
+function validarFechaMenorQue(fecha_1, fecha_2) {
+  const fecha_a=new Date(fecha_1);
+  const fecha_b=new Date(fecha_2);
+  if(fecha_a < fecha_b ){
+    //console.log(fechaI, fechaF, fechaV + ' este es');
+    return true;
+  }else{
+    //console.log(fechaI, fechaF, fechaV+ ' este no es');
+    return false;
+  }
+}
+
+function diferencia_de_dias(fecha_i, fecha_f) {
+  var fecha1 = moment(fecha_i);
+  var fecha2 = moment(fecha_f); 
+  return fecha2.diff(fecha1, 'days');
+}
+
 /*  ══════════════════════════════════════════ - N U M E R I C O S - ══════════════════════════════════════════ */
+// Formato de miles a INPUT
+function formato_miles_input (nombre_input) {  
+  // input con comas de miles
+  $(nombre_input).on({
+    focus: function (event) {
+      $(event.target).select();
+    },
+    keyup: function (event) {
+      $(event.target).val(function (index, value) {
+        return value.replace(/\D/g, "").replace(/([0-9])([0-9]{2})$/, "$1.$2").replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ",");
+      });
+    },
+  });
+}
+
+//variables globales para definir el separador de millares y decimales
+//Para coma millares y punto en decimales (USA)
+const DECIMALES = ".";
+// cambiar por "," para coma decimal y punto en millares (ESPAÑA)
+const INFLOCAL = DECIMALES === "." ? new Intl.NumberFormat("en-US") : new Intl.NumberFormat("es-ES");
+//============================================================================
+let regexpInteger = new RegExp("[^0-9]", "g");
+let regexpNumber = new RegExp("[^0-9" + "\\" + DECIMALES + "]", "g");
+//============================================================================
+
+// Formatear numeros decimales indistintamente tanto positivos como negativos
+function numberFormatIndistinto(e) {
+  if (this.value !== "") {
+    //ver si el primer caracter es el simbolo minus "-"
+    let caracterInicial = this.value.substring(0, 1);
+    //si hay caracter negativo al inicio se quita del proceso de formateo
+    //se filtra el contenido de caracteres no admisibles
+    //se divide el numero entre la parte entera y la parte decimal
+    let contenido = caracterInicial === "-" ? this.value.substring(1, this.value.length).replace(regexpNumber, "").split(DECIMALES) : this.value.replace(regexpNumber, "").split(DECIMALES);
+    // añadimos los separadores de miles a la parte entera del numero
+    contenido[0] = contenido[0].length ? INFLOCAL.format(parseInt(contenido[0])) : "0";
+    // Juntamos el numero con los decimales si hay decimales
+    this.value = contenido.length > 1 ? contenido.slice(0, 2).join(DECIMALES) : contenido[0];
+    // Juntamos el signo "-" minus si existe
+    if (caracterInicial === "-") {
+      this.value = caracterInicial + this.value;
+    }
+    //damos color rojo si numero negativo
+    // this.className = this.value.substring(0, 1) !== "-" ? "numberIndistinto numero_positivos" : "numberIndistinto numero_negativos";
+    if (this.value.substring(0, 1) !== "-") {
+      this.classList.remove('numberIndistinto', 'numero_negativos'); this.classList.add('numberIndistinto', 'numero_positivos');
+    }else{
+      this.classList.remove('numberIndistinto', 'numero_positivos'); this.classList.add('numberIndistinto', 'numero_negativos');
+    }
+  }
+}
+
+// Formatear numeros decimales indistintamente tanto positivos como negativos con solo 2 decimales
+function numberFormatIndistintoFixed (nombre_input) {  
+  console.log('holaaaaaa');
+  if (this.value !== "") {
+    
+    //ver si el primer caracter es el simbolo minus "-"
+    let caracterInicial = this.value.substring(0, 1);
+    //si hay caracter negativo al inicio se quita del proceso de formateo
+    //se filtra el contenido de caracteres no admisibles
+    //se divide el numero entre la parte entera y la parte decimal
+    let contenido = caracterInicial === "-" ? this.value.substring(1, this.value.length).replace(regexpNumber, "").split(DECIMALES) : this.value.replace(regexpNumber, "").split(DECIMALES);
+    //ver si hay ya 2 decimales introducidos
+    if (contenido.length > 1) {
+      if (contenido[1].length > 2) {
+        contenido[1] = contenido[1].substring(0, contenido[1].length - 1);
+      }
+    }
+    // añadimos los separadores de miles a la parte entera del numero
+    contenido[0] = contenido[0].length ? INFLOCAL.format(parseInt(contenido[0])) : "0";
+    // Juntamos el numero con los decimales si hay decimales
+    this.value = contenido.length > 1 ? contenido.slice(0, 2).join(DECIMALES) : contenido[0];
+    // Juntamos el signo "-" minus si existe
+    if (caracterInicial === "-") {
+      this.value = caracterInicial + this.value;
+    }
+    //damos color rojo si numero negativo
+    // this.className = this.value.substring(0, 1) !== "-" ? "numberIndistinto numero_positivos" : "numberIndistinto numero_negativos";
+    if (this.value.substring(0, 1) !== "-") {
+     this.classList.remove('numberIndistinto', 'numero_negativos'); this.classList.add('numberIndistinto', 'numero_positivos');
+    }else{
+      this.classList.remove('numberIndistinto', 'numero_positivos'); this.classList.add('numberIndistinto', 'numero_negativos');
+    }
+  }
+}
+
+window.onload = function () {
+  // ################ SE EJECUTA DESPUES CARGAR EL CODIGO CSS y HTML #############
+  // Creamos el evento keyup para cada clase definida
+  // document.querySelectorAll(".integerIndistinto").forEach((el) => el.addEventListener("keyup", integerFormatIndistinto));
+  // document.querySelectorAll(".integerPositivo").forEach((el) => el.addEventListener("keyup", integerFormatPositivo));
+  document.querySelectorAll(".numberIndistinto").forEach((el) => el.addEventListener("keyup", numberFormatIndistinto));
+  // document.querySelectorAll(".numberPositivo").forEach((el) => el.addEventListener("keyup", numberFormatPositivo));
+  document.querySelectorAll(".numberIndistintoFixed").forEach((el) => el.addEventListener("keyup", numberFormatIndistintoFixed));
+  // document.querySelectorAll(".numberPositivoFixed").forEach((el) => el.addEventListener("keyup", numberFormatPositivoFixed));
+};
 
 // Formato de miles
 function formato_miles(num) {
+  if (num == 0) return "0.00";
   if (!num || num == "NaN") return "-";
   if (num == "Infinity") return "&#x221e;";
   num = num.toString().replace(/\$|\,/g, "");
@@ -110,6 +401,16 @@ function formato_miles(num) {
   return (sign ? "" : "-") + num + "." + cents;
 }
 
+function es_numero(num) {
+  if (!num || num == "NaN") return false;
+  if (num == "Infinity") return false;
+  if (isNaN(num)){ return false } else { return true };
+}
+
+function convertir_a_numero(num) {
+  return es_numero(num) == true ? parseFloat(num) : 0.00 ;
+}
+
 // Quitar formato de miles
 function quitar_formato_miles(num) {
   let inVal = 0;
@@ -120,7 +421,7 @@ function quitar_formato_miles(num) {
 }
 
 // Redondear a un exponente
-function redondearExp(numero, digitos) {
+function redondearExp(numero, digitos=2) {
   function toExp(numero, digitos) {
     let arr = numero.toString().split("e");
     let mantisa = arr[0], exponente = digitos;
@@ -131,7 +432,7 @@ function redondearExp(numero, digitos) {
   return Math.sign(numero) * toExp(entero, -digitos);
 }
 
-//Redondear 2 decimales (1.56 = 1.60, 1.52 = 1.50)
+//Redondear 2 decimales (1.56 = 1.60, 1.52 = 1.50), para dinero
 function roundTwo(num) { return Number(+(Math.round(num + "e+1") + "e-1")).toFixed(2); }
 
 // Unico ID
@@ -171,8 +472,67 @@ function decodeHtml(str) {
   return decode;
 }
 
+function removeHtml(str) {
+  if ((str===null) || (str==='')){
+    return '';
+  }else{
+    str = str.toString();
+    return str.replace( /(<([^>]+)>)/ig, '');
+  }
+}
+
+function removeCaracterEspecial(str) {
+  var string = "";
+  if (str == "" || str == null || str === undefined) { } else {     
+    string = str.replace(/[`~!@#$%^&*()_|+\-=?;:°'",.<>\{\}\[\]\\\/]/g, '');
+  }
+  return string;
+}
+
+function preservarNumeroLetra(str) {
+  var string = "";
+  if (str == "" || str == null || str === undefined) { } else {     
+   string = str.replace(/[^a-zA-Z 0-9.]/g, '');    
+  }
+  return string;
+}
+
 // to miniscula
 function convert_minuscula(e) { e.value = e.value.toLowerCase(); }
+
+function quitar_punto(string){ 
+  return string.replace(/\./g,'');
+}
+
+function replace_punto_a_guion(string) {
+  return string.replace(/\./g,'-');
+}
+
+function quitar_guion(str) {
+
+  if (str == '' || str == null ) {
+    return "-";
+  } else {
+    return str.replace("-", "");
+  }  
+}
+
+//capitalize all words of a string. 
+function capitalizeWords(str) {
+  var string = "";
+  if (str == "" || str == null || str === undefined) { } else {     
+    string = str.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+  }
+  return string;
+};
+
+/*  ══════════════════════════════════════════ - T I E M P O S - ══════════════════════════════════════════ */
+
+// retrazamos la ejecuccion de una funcion
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){ clearTimeout (timer); timer = setTimeout(callback, ms); };
+})();
 
 /*  ══════════════════════════════════════════ - S U B I R   D O C S  - ══════════════════════════════════════════ */
 
@@ -199,7 +559,7 @@ function addImage(e, id, img_default='') {
 			toastr.error('Este tipo de ARCHIVO no esta permitido <br> elija formato: <b>.png .jpeg .jpg .webp etc... </b>');
 
 			if (img_default == '' || img_default == null || img_default == false || img_default == true ) {
-        $("#"+id+"_i").attr("src", "../dist/svg/drag-n-drop.svg");
+        $("#"+id+"_i").attr("src", "../dist/img/default/img_defecto.png");
       } else {
         $("#"+id+"_i").attr("src", img_default);
       }      
@@ -217,6 +577,8 @@ function addImage(e, id, img_default='') {
 					var result = e.target.result;
 
 					$("#"+id+"_i").attr("src", result);
+
+          $(`.jq_image_zoom`).zoom({ on:'grab' });
 
 					$("#"+id+"_nombre").html(''+
 						'<div class="row">'+
@@ -259,19 +621,17 @@ function addImage(e, id, img_default='') {
 }
 
 /* PREVISUALIZA: img, pdf, doc, excel,  */
-function addImageApplication(e, id, img_default='') {
+function addImageApplication(e, id, img_default='', width='100%', height='310', detalle_upload=false) {
+  console.log(id, img_default, width, height, detalle_upload);
+  $(`#${id}_ver`).html('<i class="fas fa-spinner fa-pulse fa-6x"></i><br>');	
 
-  $(`#${id}_ver`).html('<i class="fas fa-spinner fa-pulse fa-6x"></i><br><br>');	console.log(id);
-
-	var file = e.target.files[0], archivoType = /image.*|application.*/;
+	var file = e.target.files[0], archivoType = /image.*|application.*/; console.log(file);
 	
 	if (e.target.files[0]) {
     
 		var sizeByte = file.size; console.log(file.type);
-
 		var sizekiloBytes = parseInt(sizeByte / 1024);
-
-		var sizemegaBytes = (sizeByte / 1000000);
+		var sizemegaBytes = (sizekiloBytes / 1024);
 		// alert("KILO: "+sizekiloBytes+" MEGA: "+sizemegaBytes)
 
 		if (!file.type.match(archivoType) ){
@@ -308,8 +668,8 @@ function addImageApplication(e, id, img_default='') {
             $(`#${id}_ver`).html('<img src="../dist/svg/doc.svg" alt="" width="50%" >');
           } else if ( extrae_extencion(file.name) == "docx" ) {             
             $(`#${id}_ver`).html('<img src="../dist/svg/docx.svg" alt="" width="50%" >');
-          }else if ( extrae_extencion(file.name) == "pdf" ) {              
-            $(`#${id}_ver`).html(`<iframe src="${result}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
+          }else if ( extrae_extencion(file.name) == "pdf" || extrae_extencion(file.name) == "PDF" ) {              
+            $(`#${id}_ver`).html(`<iframe src="${result}" frameborder="0" scrolling="no" width="${width}" height="${height}"></iframe>`);
           }else if ( extrae_extencion(file.name) == "csv" ) {              
             $(`#${id}_ver`).html('<img src="../dist/svg/csv.svg" alt="" width="50%" >');
           } else if ( extrae_extencion(file.name) == "xls" ) {             
@@ -318,26 +678,41 @@ function addImageApplication(e, id, img_default='') {
             $(`#${id}_ver`).html('<img src="../dist/svg/xlsx.svg" alt="" width="50%" >');
           } else if ( extrae_extencion(file.name) == "xlsm" ) {             
             $(`#${id}_ver`).html('<img src="../dist/svg/xlsm.svg" alt="" width="50%" >');
+          } else if ( extrae_extencion(file.name) == "xlsb" ) {             
+            $(`#${id}_ver`).html('<img src="../dist/svg/xlsb.svg" alt="" width="50%" >');
           } else if (
             extrae_extencion(file.name) == "jpeg" || extrae_extencion(file.name) == "jpg" || extrae_extencion(file.name) == "jpe" ||
             extrae_extencion(file.name) == "jfif" || extrae_extencion(file.name) == "gif" || extrae_extencion(file.name) == "png" ||
             extrae_extencion(file.name) == "tiff" || extrae_extencion(file.name) == "tif" || extrae_extencion(file.name) == "webp" ||
             extrae_extencion(file.name) == "bmp" || extrae_extencion(file.name) == "svg" ) {
 
-            $(`#${id}_ver`).html(`<img src="${result}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" >`); 
-              
+            $(`#${id}_ver`).html(`<span class="jq_image_zoom"><img src="${result}" alt="" width="100%" onerror="this.src='../dist/svg/error-404-x.svg';" ></span>`); 
+            $(`.jq_image_zoom`).zoom({ on:'grab' });
           } else {
             $(`#${id}_ver`).html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
           }
-           
-					$("#"+id+"_nombre").html(`<div class="row">
-            <div class="col-md-12">
-              <i> ${file.name} </i>
-            </div>
-            <div class="col-md-12">
-              <button class="btn btn-danger btn-block btn-xs" onclick="${id}_eliminar();" type="button" ><i class="far fa-trash-alt"></i></button>
-            </div>
-          </div>`);
+          
+          if (detalle_upload == true) {
+            $(`#${id}_nombre`).html(`<div class="row">
+              <div class="col-sm-11 col-md-10 col-lg-11 col-xl-11 mt-2">
+                <p><b>Nombre:</b><i> ${file.name}</i></p>
+                <p><b>Tamaño:</b> ${formato_miles(sizemegaBytes)} mb</p>
+                <p><b>Tipo:</b> ${file.type}</p>
+              </div>
+              <div class="col-sm-1 col-md-2 col-lg-1 col-xl-1 mt-2">
+                <button class="btn btn-danger btn-block btn-xs h-100" onclick="${id}_eliminar();" type="button" ><i class="far fa-trash-alt"></i></button>
+              </div>
+            </div>`);
+          } else {
+            $(`#${id}_nombre`).html(`<div class="row">
+              <div class="col-md-12">
+                <i> ${file.name} </i>
+              </div>
+              <div class="col-md-12">
+                <button class="btn btn-danger btn-block btn-xs" onclick="${id}_eliminar();" type="button" ><i class="far fa-trash-alt"></i></button>
+              </div>
+            </div>`);
+          }					
 
           Swal.fire({
             position: 'top-end',
@@ -390,9 +765,9 @@ function addImageApplication(e, id, img_default='') {
 }
 
 // recargar un doc para ver
-function re_visualizacion(id, carpeta, sub_carpeta) {
-
-  $("#doc"+id+"_ver").html('<i class="fas fa-spinner fa-pulse fa-6x"></i><br><br>'); console.log(id);
+function re_visualizacion(id, carpeta, sub_carpeta, width='100%', height='310') {
+  console.log(id, carpeta, sub_carpeta, width, height);
+  $("#doc"+id+"_ver").html('<i class="fas fa-spinner fa-pulse fa-6x"></i><br><br>');
 
   pdffile     = document.getElementById("doc"+id+"").files[0];
 
@@ -415,152 +790,142 @@ function re_visualizacion(id, carpeta, sub_carpeta) {
 		  $("#doc"+id+"_nombre").html("");
 
     } else {
-      if ( extrae_extencion(antiguopdf) == "doc") {
-        $("#doc"+id+"_ver").html('<img src="../dist/svg/doc.svg" alt="" width="50%" >');
-        toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-      } else {
-        if ( extrae_extencion(antiguopdf) == "docx" ) {
-          $("#doc"+id+"_ver").html('<img src="../dist/svg/docx.svg" alt="" width="50%" >');
-          toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-        } else {
-          if ( extrae_extencion(antiguopdf) == "pdf" ) {
-            $("#doc"+id+"_ver").html(`<iframe src="../dist/img/${carpeta}/${sub_carpeta}/${antiguopdf}" frameborder="0" scrolling="no" width="100%" height="310"></iframe>`);
-            toastr.success('Documento vizualizado correctamente!!!')
-          } else {
-            if ( extrae_extencion(antiguopdf) == "csv" ) {
-              $("#doc"+id+"_ver").html('<img src="../dist/svg/csv.svg" alt="" width="50%" >');
-              toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-            } else {
-              if ( extrae_extencion(antiguopdf) == "xls" ) {
-                $("#doc"+id+"_ver").html('<img src="../dist/svg/xls.svg" alt="" width="50%" >');
-                toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-              } else {
-                if ( extrae_extencion(antiguopdf) == "xlsx" ) {
-                  $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsx.svg" alt="" width="50%" >');
-                  toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-                } else {
-                  if ( extrae_extencion(antiguopdf) == "xlsm" ) {
-                    $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsm.svg" alt="" width="50%" >');
-                    toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-                  } else {
-                    if (
-                      extrae_extencion(antiguopdf) == "jpeg" || extrae_extencion(antiguopdf) == "jpg" || extrae_extencion(antiguopdf) == "jpe" ||
-                      extrae_extencion(antiguopdf) == "jfif" || extrae_extencion(antiguopdf) == "gif" || extrae_extencion(antiguopdf) == "png" ||
-                      extrae_extencion(antiguopdf) == "tiff" || extrae_extencion(antiguopdf) == "tif" || extrae_extencion(antiguopdf) == "webp" ||
-                      extrae_extencion(antiguopdf) == "bmp" || extrae_extencion(antiguopdf) == "svg" ) {
+      $("#doc"+id+"_ver").html( doc_view_extencion(antiguopdf, carpeta, sub_carpeta, width, height) );
 
-                        console.log('oooooooooooo');
-                        //../dist/img/proyecto/img_galeria/" . $img_galeria
-                        console.log('ñññññññ '+antiguopdf);
-                      $("#doc"+id+"_ver").html(`<img src="../dist/img/${carpeta}/${sub_carpeta}/${antiguopdf}" alt="" onerror="this.src='../dist/svg/error-404-x.svg';" width="100%" >`);
-                      toastr.success('Documento vizualizado correctamente!!!');
-                    } else {
-                      $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
-                      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-                    }                    
-                  }
-                }
-              }
-            }
-          }
-        }
-      }      
+      if (pdf_o_img(antiguopdf) == true) {
+        toastr.success('Documento vizualizado correctamente!!!');
+      } else {
+        toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+      }
+            
     }
     // console.log('hola'+dr);
   }else{
 
     pdffile_url=URL.createObjectURL(pdffile);
+
+    var sizeByte = pdffile_url.size; console.log(pdffile_url.type);
+		var sizekiloBytes = parseInt(sizeByte / 1024);
+		var sizemegaBytes = (sizeByte / 1000000);
+
     // cargamos la imagen adecuada par el archivo
     if ( extrae_extencion(pdffile.name) == "doc") {
       $("#doc"+id+"_ver").html('<img src="../dist/svg/doc.svg" alt="" width="50%" >');
       toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-    } else {
-      if ( extrae_extencion(pdffile.name) == "docx" ) {
-        $("#doc"+id+"_ver").html('<img src="../dist/svg/docx.svg" alt="" width="50%" >');
-        toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
-      }else{
-        if ( extrae_extencion(pdffile.name) == "pdf" ) {
-          $("#doc"+id+"_ver").html('<iframe src="'+pdffile_url+'" frameborder="0" scrolling="no" width="100%" height="310"> </iframe>');
-          toastr.success('Documento vizualizado correctamente!!!');
-        }else{
-          if ( extrae_extencion(pdffile.name) == "csv" ) {
-            $("#doc"+id+"_ver").html('<img src="../dist/svg/csv.svg" alt="" width="50%" >');
-            toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
-          } else {
-            if ( extrae_extencion(pdffile.name) == "xls" ) {
-              $("#doc"+id+"_ver").html('<img src="../dist/svg/xls.svg" alt="" width="50%" >');
-              toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
-            } else {
-              if ( extrae_extencion(pdffile.name) == "xlsx" ) {
-                $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsx.svg" alt="" width="50%" >');
-                toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
-              } else {
-                if ( extrae_extencion(pdffile.name) == "xlsm" ) {
-                  $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsm.svg" alt="" width="50%" >');
-                  toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
-                } else {
-                  if (
-                    extrae_extencion(pdffile.name) == "jpeg" || extrae_extencion(pdffile.name) == "jpg" || extrae_extencion(pdffile.name) == "jpe" ||
-                    extrae_extencion(pdffile.name) == "jfif" || extrae_extencion(pdffile.name) == "gif" || extrae_extencion(pdffile.name) == "png" ||
-                    extrae_extencion(pdffile.name) == "tiff" || extrae_extencion(pdffile.name) == "tif" || extrae_extencion(pdffile.name) == "webp" ||
-                    extrae_extencion(pdffile.name) == "bmp" || extrae_extencion(pdffile.name) == "svg" ) {
+    } else if ( extrae_extencion(pdffile.name) == "docx" ) {
+      
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/docx.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!')
+    } else if ( extrae_extencion(pdffile.name) == "pdf" || extrae_extencion(pdffile.name) == "PDF" ) {
+        
+      $("#doc"+id+"_ver").html(`<iframe src="${pdffile_url}" frameborder="0" scrolling="no" width="${width}" height="${height}"> </iframe>`);
+      toastr.success('Documento vizualizado correctamente!!!');
+    } else if ( extrae_extencion(pdffile.name) == "csv" ) {
+          
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/csv.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    } else if ( extrae_extencion(pdffile.name) == "xls" ) {
+            
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/xls.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    } else if ( extrae_extencion(pdffile.name) == "xlsx" ) {
+              
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsx.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    } else if ( extrae_extencion(pdffile.name) == "xlsm" ) {
+                
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsm.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    } else if ( extrae_extencion(pdffile.name) == "xlsb" ) {
+                
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/xlsb.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    } else if (
+      extrae_extencion(pdffile.name) == "jpeg" || extrae_extencion(pdffile.name) == "jpg" || extrae_extencion(pdffile.name) == "jpe" ||
+      extrae_extencion(pdffile.name) == "jfif" || extrae_extencion(pdffile.name) == "gif" || extrae_extencion(pdffile.name) == "png" ||
+      extrae_extencion(pdffile.name) == "tiff" || extrae_extencion(pdffile.name) == "tif" || extrae_extencion(pdffile.name) == "webp" ||
+      extrae_extencion(pdffile.name) == "bmp" || extrae_extencion(pdffile.name) == "svg" ) {
 
-                    $("#doc"+id+"_ver").html(`<img src="${pdffile_url}" alt="" width="100%" >`);
-                    toastr.success('Documento vizualizado correctamente!!!');
-                  } else {
-                    $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
-                    toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
-                  }                  
-                }
-              }
-            }
-          }
-        }
-      }
-    }     	
+      $("#doc"+id+"_ver").html(`<span class="jq_image_zoom"><img src="${pdffile_url}" alt="" width="100%" ></span>`);
+      $(`.jq_image_zoom`).zoom({ on:'grab' });
+      toastr.success('Documento vizualizado correctamente!!!');
+    } else {
+      $("#doc"+id+"_ver").html('<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" >');
+      toastr.error('Documento NO TIENE PREVIZUALIZACION!!!');
+    }
+    
     console.log(pdffile);
   }
 }
 
 function doc_view_extencion(filename, carpeta, sub_carpeta='', width='50%', height='auto') {
 
-  var html = ''; var ruta = sub_carpeta==''?  `../dist/img/${carpeta}/${sub_carpeta}/${filename}`: `../dist/img/${carpeta}/${sub_carpeta}/${filename}` ;
-  var extencion = '';
+  var html = ''; var extencion = '';
+  var host = '';
+  var ruta = sub_carpeta=='' || sub_carpeta == null ?  `../dist/docs/${carpeta}/${filename}`: `../dist/docs/${carpeta}/${sub_carpeta}/${filename}`;
+  
+  if (sub_carpeta == '' || sub_carpeta == null) {
+    host = window.location.host == 'localhost'? `http://localhost/admin_sevens/dist/docs/${carpeta}/${filename}` : `${window.location.origin}/dist/docs/${carpeta}/${filename}` ;
+  } else {
+    host = window.location.host == 'localhost'? `http://localhost/admin_sevens/dist/docs/${carpeta}/${sub_carpeta}/${filename}` : `${window.location.origin}/dist/docs/${carpeta}/${sub_carpeta}/${filename}` ;
+  }
 
   // cargamos la imagen adecuada par el archivo
-  if ( extrae_extencion(filename) == "xls") {
+  if ( UrlExists(host) != 200 ) {
 
-    html = `<img src="../dist/svg/xls.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<div class="callout callout-danger">
+      <p class="text-danger font-size-12px text-left">404 Documento no encontrado!!</p>
+      <p class="font-size-10px text-left">Hubo un <b>error</b> al <b>encontrar este archivo</b> , los mas probable es que se haya eliminado, o se haya movido a otro lugar, se <b>recomienda editar</b> en su módulo correspodiente.</p>
+    </div>`;
+    extencion = extrae_extencion(filename);
+
+  }else if ( extrae_extencion(filename) == "xls") {
+
+    html = `<img src="../dist/svg/xls.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
   } else if ( extrae_extencion(filename) == "xlsx" ) {    
 
-    html = `<img src="../dist/svg/xlsx.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<img src="../dist/svg/xlsx.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
   }else if ( extrae_extencion(filename) == "csv" ) {
 
-    html = `<img src="../dist/svg/csv.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<img src="../dist/svg/csv.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
   }else if ( extrae_extencion(filename) == "xlsm" ) {
 
-    html = `<img src="../dist/svg/xlsm.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<img src="../dist/svg/xlsm.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(filename);
+  }else if ( extrae_extencion(filename) == "xlsb" ) {
+
+    html = `<img src="../dist/svg/xlsb.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
-  }else if ( extrae_extencion(filename) == "docx" ) {
+  }else if ( extrae_extencion(filename) == "docx" ||  extrae_extencion(filename) == "docm"  || extrae_extencion(filename) == "dot" ||  extrae_extencion(filename) == "dotx" ||  extrae_extencion(filename) == "dotm") {
 
-    html = `<img src="../dist/svg/docx.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<img src="../dist/svg/docx.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
   }else if ( extrae_extencion(filename) == "doc") {
 
-    html = `<img src="../dist/svg/doc.svg" alt="" width="${width}" height="${height}" >`;
+    html = `<img src="../dist/svg/doc.svg" alt="" width="50%" height="50%" >`;
     extencion = extrae_extencion(filename);
 
-  }else if ( extrae_extencion(filename) == "pdf" ) {
+  }else if ( extrae_extencion(filename) == "dwg") {
+
+    html = `<img src="../dist/svg/dwg.svg" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(filename);
+
+  }else if ( extrae_extencion(filename) == "zip" || extrae_extencion(filename) == "rar" || extrae_extencion(filename) == "iso") {
+
+    html = `<img src="../dist/img/default/zip.png" alt="" width="50%" height="50%" >`;
+    extencion = extrae_extencion(filename);
+
+  }else if ( extrae_extencion(filename) == "pdf" || extrae_extencion(filename) == "PDF" ) {
     //recomendado - height="210" 
-    html = `<iframe src="${ruta}" frameborder="0" scrolling="no" width="${width}" height="${height}"> </iframe>`;
+    html = `<iframe src="${ruta}" onerror="this.src='../dist/svg/404-v2.svg';" frameborder="0" scrolling="no" width="${width}" height="${height}"> </iframe>`;
     extencion = extrae_extencion(filename);
   
   } else if (
@@ -569,17 +934,30 @@ function doc_view_extencion(filename, carpeta, sub_carpeta='', width='50%', heig
     extrae_extencion(filename) == "tiff" || extrae_extencion(filename) == "tif" || extrae_extencion(filename) == "webp" ||
     extrae_extencion(filename) == "bmp" || extrae_extencion(filename) == "svg" ) {
 
-    html = `<img src="${ruta}" alt="" width="${width}" height="${height}" onerror="this.src='../dist/svg/error-404-x.svg';" >`;
+    html = `<center><span class="jq_image_zoom"><img id="_cargando_img_" src="${ruta}" alt="" width="${width}" onerror="this.src='../dist/svg/404-v2.svg';"  ></span></center>`;
     extencion = extrae_extencion(filename);
+    //loading_img('_cargando_img_', ruta, width);
     
   }else{
-    //height="${height}"
-    html = `<img src="../dist/svg/doc_si_extencion.svg" alt="" width="${width}" >`;
+    html = `<img src="../dist/svg/doc_si_extencion.svg" alt="" width="50%" height="50%"  >`;
     extencion = extrae_extencion(filename);
     
   }
 
   return html;
+}
+
+function loading_img(attr_img, file_img, width_img) {
+  $('#_cargando_img_').attr('onload', '');
+  //attr_img.removeAttribute("onload");
+  console.log(attr_img.src);
+  const img_temp= document.createElement('img');
+  img_temp.addEventListener('load', ()=>{
+    console.log('imgagen cargadaaaa');    
+    $('#_cargando_img_').attr('width', width_img);
+    attr_img.src = img_temp.src;
+  });
+  img_temp.src = file_img;  
 }
 
 function doc_view_icon(filename, color_class='', font_size_class='' ) {
@@ -598,6 +976,10 @@ function doc_view_icon(filename, color_class='', font_size_class='' ) {
     html = `<i class="fas fa-file-csv ${(color_class==''? 'text-success': color_class)} ${font_size_class}"></i>`;
 
   }else if ( extrae_extencion(filename) == "xlsm" ) {
+
+    html = `<i class="far fa-file-excel ${(color_class==''? 'text-success': color_class)} ${font_size_class}"></i>`;
+    
+  }else if ( extrae_extencion(filename) == "xlsb" ) {
 
     html = `<i class="far fa-file-excel ${(color_class==''? 'text-success': color_class)} ${font_size_class}"></i>`;
 
@@ -657,10 +1039,16 @@ function pdf_o_img(filename) {
   return data;
 }
 
+// cuando hace click en revizualizar
+function reload_zoom() {
+  $(`.jq_image_zoom`).zoom({ on:'grab' });
+}
+
+
 /*  ══════════════════════════════════════════ - A P I S - ══════════════════════════════════════════ */
 // Buscar Reniec SUNAT
 function buscar_sunat_reniec(input='') {
-  console.log(input);
+  //console.log(input);
 
   $(`#search${input}`).hide(); $(`#charge${input}`).show();
 
@@ -681,6 +1069,8 @@ function buscar_sunat_reniec(input='') {
           $(`#search${input}`).show();
   
           $(`#charge${input}`).hide();
+
+          $(`#nombre${input}`).val(''); $(`#titular_cuenta${input}`).val('');
   
           toastr.error("Verifique su conexion a internet o el sistema de BUSQUEDA esta en mantenimiento.");
           
@@ -715,6 +1105,8 @@ function buscar_sunat_reniec(input='') {
 
       $(`#charge${input}`).hide();
 
+      $(`#nombre${input}`).val(''); $(`#titular_cuenta${input}`).val('');
+
       toastr.info("Asegurese de que el DNI tenga 8 dígitos!!!");
     }
   } else {
@@ -740,6 +1132,8 @@ function buscar_sunat_reniec(input='') {
 
               $(`#charge${input}`).hide();
 
+              $(`#nombre${input}`).val(''); $(`#titular_cuenta${input}`).val('');  $(`#empresa${input}`).val('');  $(`#razon_social${input}`).val(''); $(`#direccion${input}`).val('');
+
               toastr.error("Datos no encontrados en la SUNAT!!!");
               
             } else {
@@ -751,7 +1145,8 @@ function buscar_sunat_reniec(input='') {
                 $(`#charge${input}`).hide();
 
                 data.razonSocial == null ? $(`#nombre${input}`).val(data.nombreComercial) : $(`#nombre${input}`).val(data.razonSocial);
-                data.razonSocial == null ? $(`#empresa${input}`).val(data.empresaComercial) : $(`#empresa${input}`).val(data.razonSocial);
+                data.razonSocial == null ? $(`#empresa${input}`).val(data.nombreComercial) : $(`#empresa${input}`).val(data.razonSocial);
+                data.razonSocial == null ? $(`#razon_social${input}`).val(data.nombreComercial) : $(`#razon_social${input}`).val(data.razonSocial);
 
                 data.razonSocial == null ? $(`#titular_cuenta${input}`).val(data.nombreComercial) : $(`#titular_cuenta${input}`).val(data.razonSocial);
 
@@ -794,6 +1189,8 @@ function buscar_sunat_reniec(input='') {
         $(`#search${input}`).show();
 
         $(`#charge${input}`).hide();
+
+        $(`#nombre${input}`).val(''); $(`#titular_cuenta${input}`).val('');  $(`#empresa${input}`).val('');  $(`#razon_social${input}`).val(''); $(`#direccion${input}`).val('');
 
         toastr.info("Asegurese de que el RUC tenga 11 dígitos!!!");
       }
@@ -941,3 +1338,86 @@ function calcular_edad(input_fecha_nacimiento='', input_edad, span_edad='') {
   }
 }
 
+
+function UrlExists(url) {  
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.send(); //console.log(http.status);
+  return http.status;
+}
+
+function DocExist(url) {  
+  
+  var host = window.location.host == 'localhost'? `http://localhost/admin_sevens/${url}` : `${window.location.origin}/${url}`;
+  
+  var http = new XMLHttpRequest();
+  http.open("HEAD", host, false);
+  http.send(); //console.log(http.status);
+  return http.status;
+}
+
+function fechas_valorizacion_quincena(fecha_inicial, fecha_final) {
+  var fecha_ii = format_d_m_a(fecha_inicial);
+  var fecha_ff = "";
+  var fecha_iterativa = format_d_m_a(fecha_inicial);
+  var fechas_array = [];
+  var i = 1;
+  var cal_mes = false;
+
+  while (cal_mes == false) {
+
+    var dia_mes = extraer_dia_mes(format_a_m_d(fecha_ii));
+    if (dia_mes < 15) {
+      fecha_ff = `15-${format_m_a(format_a_m_d(fecha_ii))}`;
+    } else if (dia_mes >= 15 ) {
+      fecha_ff =  extraer_ultimo_dia_mes(format_a_m_d(fecha_ii));
+    }    
+    
+    if (validarFechaMenorQue( format_a_m_d(fecha_ff), fecha_final) == false) { 
+      cal_mes = true; fecha_ff = format_d_m_a(fecha_final);       
+    }
+
+    fechas_array.push({ 'fecha_inicio':fecha_ii, 'fecha_fin':fecha_ff, 'num_q_s': i, });
+    //console.log(fecha_ii, fecha_ff); console.log(cal_mes);
+    fecha_ii = sumaFecha(1,fecha_ff);
+    i++;
+  }
+  return fechas_array;
+}
+
+function fechas_valorizacion_mensual(fecha_inicial, fecha_final) {
+  var fecha_ii = format_d_m_a(fecha_inicial);
+  var fecha_ff = "";
+  var fecha_iterativa = format_d_m_a(fecha_inicial);
+  var fechas_array = [];
+  var i = 1;
+  var cal_mes = false;
+
+  while (cal_mes == false) {
+
+    var dia_mes = extraer_dia_mes(format_a_m_d(fecha_ii));
+    
+    fecha_ff =  extraer_ultimo_dia_mes(format_a_m_d(fecha_ii));     
+    
+    if (validarFechaMenorQue( format_a_m_d(fecha_ff), fecha_final) == false) { 
+      cal_mes = true; fecha_ff = format_d_m_a(fecha_final);       
+    }
+    
+    fechas_array.push({ 'fecha_inicio':fecha_ii, 'fecha_fin':fecha_ff, 'num_q_s': i, });
+    //console.log(fecha_ii, fecha_ff); console.log(cal_mes);
+    fecha_ii = sumaFecha(1,fecha_ff);
+    i++;
+  }
+  return fechas_array;
+}
+
+
+function optener_ultima_clase(clase) {
+  var clases = $(clase).last()[0].className;
+  var ultima_clase = clases.split("")[clases.length - 1];
+  return ultima_clase;
+}
+
+function abrir_calculadora() {
+  var newWindow = window.open("https://www.desmos.com/scientific?lang=es", "_blank", "top=100, left=100, width=350, height=500, menubar=yes,toolbar=yes, scrollbars=yes, resizable=yes");
+}

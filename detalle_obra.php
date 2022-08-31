@@ -4,7 +4,8 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Home | Seven's Ingenieros</title>
+    <title>Detalle obra | Seven's Ingenieros</title>
+    <span class="hidden name_page" >Detalle Obra</span>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -663,6 +664,7 @@
     <script src="admin/vistas/scripts/funcion_crud.js"></script>    
     <script src="scripts_web/detalle_obra.js"></script>    
     <script src="scripts_web/footer.js"></script>
+    <script src="admin/vistas/scripts/contador.js"></script> 
 </body>
 
 <!-- Mirrored from htmlstream.com/front/portfolio-single-page-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:20:40 GMT -->

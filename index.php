@@ -5,6 +5,7 @@
   <head>
     <!-- Title -->
     <title>Home | Seven's Ingenieros</title>
+    <span class="hidden name_page" >Home</span>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -535,6 +536,7 @@
   </body>
   <!-- JS script -->
   <script src="scripts_web/principal.js"></script> 
+  <script src="admin/vistas/scripts/contador.js"></script> 
 
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:16:49 GMT -->
 </html>

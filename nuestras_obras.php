@@ -3,7 +3,8 @@
   <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:15:43 GMT -->
   <head>
     <!-- Title -->
-    <title>Obras | Seven's Ingenieros</title>
+    <title>Nuestras Obras | Seven's Ingenieros</title>
+    <span class="hidden name_page" >Nuestras Obras</span>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
@@ -283,6 +284,7 @@
     <!-- IE Support -->
     <script src="scripts_web/obras.js"></script>
     <script src="scripts_web/footer.js"></script>
+    <script src="admin/vistas/scripts/contador.js"></script> 
     
   </body>
 

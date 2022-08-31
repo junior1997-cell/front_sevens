@@ -126,7 +126,8 @@ if (!function_exists('ejecutarConsulta_admin') && !function_exists('ejecutarCons
 
   /*  ══════════════════════════════════════════ - S T R I N G - ══════════════════════════════════════════ */
   
-  function quitar_guion($numero) { return str_replace("-", "", $numero); }
+  function quitar_guion($str) { return str_replace("-", "", $str); }
+  function quitar_espacio($str) { return str_replace(" ", "", $str); }
 
   function removeSpecialChar($str) {
     $res = preg_replace('/[@\.\+\*\"\/\#\%\°\;\$\'\}\{]+/', '', $str);
