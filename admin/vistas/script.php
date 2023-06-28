@@ -54,8 +54,11 @@
 <!-- Summernote -->
 <script src="../plugins/summernote/summernote-bs4.min.js"></script>
 
-<script src="scripts/funcion_general.js"></script>
+<!-- JQuery ZOOM imagen -->
+<script type="text/javascript" src="../plugins/jquery-zoom/jquery.zoom.js"></script>
 
+<!-- Funciones Propias -->
+<script src="scripts/funcion_general.js"></script>
 <script src="scripts/funcion_crud.js"></script>
 
 <!-- jquery-validation funcion_crud.js

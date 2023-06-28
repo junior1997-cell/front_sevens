@@ -40,9 +40,9 @@ function marca_agua_($imagen)
     # Guardar y liberar recursos
     # Segundo argumento de imagepng es la ruta de la imagen de salida
     $resultado = imagepng($original, $imagen);
-    var_dump($resultado);
+    //var_dump($resultado);
     imagedestroy($original);
     imagedestroy($marcaDeAgua);
 
-    // return $resultado;
+    return $resultado;
 }

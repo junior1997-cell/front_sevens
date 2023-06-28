@@ -38,18 +38,20 @@
                 <div class="col-lg-9">
                   <!-- Card -->
                   <div class="card mb-3 mb-lg-5 card-primary card-outline">
-                    <div class="card-header">
-                      <h3 class="card-title botones_galeria">
-                        <button type="button" class="btn btn-warning btn-xs" onclick="limpiar_galeria(); mostrar_section(1);"><i class="fas fa-arrow-left"></i> Regresar</button>
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-imagen" onclick="limpiar_galeria(); "><i class="fas fa-plus-circle"></i> Agregar</button>
-                      </h3>
+                    <div class="card-header">                      
                       <h3 class="card-title btn_add_proyect">
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-proyecto" onclick="limpiar(); mostrar_select(1);"><i class="fas fa-plus-circle"></i> Agregar</button>
                         Proyectos
                       </h3>
-                      <h3 class="card-title botones_fases">
+                      <h3 class="card-title botones_galeria" style="display: none;">
+                        <button type="button" class="btn btn-warning btn-xs" onclick="limpiar_galeria(); mostrar_section(1);"><i class="fas fa-arrow-left"></i> Regresar</button>
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-imagen" onclick="limpiar_galeria(); "><i class="fas fa-plus-circle"></i> Agregar</button>
+                        Galeria
+                      </h3>
+                      <h3 class="card-title botones_fases" style="display: none;">
                         <button type="button" class="btn btn-warning btn-xs" onclick="limpiar_fase(); mostrar_section(1);"><i class="fas fa-arrow-left"></i> Regresar</button>
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-agregar-fase" onclick="limpiar_fase();"><i class="fas fa-plus-circle"></i> Agregar </button>
+                        Fase de proyecto
                       </h3>
                     </div>
 
@@ -123,8 +125,8 @@
             <!-- End Content Section -->
 
             <!-- Modal agregar proyecto -->
-            <div class="modal fade" id="modal-agregar-proyecto">
-              <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal fade bg-color-02020280" id="modal-agregar-proyecto">
+              <div class="modal-dialog modal-dialog-scrollable modal-lg ">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title"><b>Agregar:</b> Proyecto</h4>

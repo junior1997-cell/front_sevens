@@ -115,7 +115,7 @@ if (!isset($_SESSION["nombre"])) {
 
         $data = []; $cont = 1;        
 
-        if ($rspta['status']) {
+        if ($rspta['status'] == true) {
 
           while ($reg = $rspta['data']->fetch_object()) {
 
@@ -125,7 +125,7 @@ if (!isset($_SESSION["nombre"])) {
               "1" =>  '<div class="d-flex align-items-center mx-auto">
                 <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_proyecto . '\')">
                   <div class="avatar avatar-circle">
-                    <img class="avatar-img" src="../dist/img/proyecto/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
+                    <img class="avatar-img cursor-pointer" src="../dist/img/proyecto/imagen_perfil/'. $reg->img_perfil .'" data-toggle="tooltip" title="Ver Imagen" alt="Image Description" onerror="'.$imagen_error.'">
                   </div>
                 </a>
                 <div class="ml-3">
@@ -155,7 +155,7 @@ if (!isset($_SESSION["nombre"])) {
 
         $rspta =  $proyecto->select2_proyecto();
 
-        foreach ($rspta as $key => $reg) {
+        foreach ($rspta['data'] as $key => $reg) {
           echo '<option value=' . $reg['idproyecto'] . '>' . $reg['codigo_proyecto']  . '</option>';
         }
 
