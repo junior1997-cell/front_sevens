@@ -37,7 +37,7 @@ if (!isset($_SESSION["nombre"])) {
           $ext1 = explode(".", $_FILES["doc1"]["name"]);
           $flat_img = true;
 
-          $imagen_perfil = $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+          $imagen_perfil = $date_now.' '.random_int(0, 20) . round(microtime(true)) . random_int(21, 41) . '.' . end($ext1);
 
           move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/img/proveedores/imagen_perfil/" . $imagen_perfil);
         }

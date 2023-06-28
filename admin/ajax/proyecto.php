@@ -10,17 +10,17 @@ if (!isset($_SESSION["nombre"])) {
   header("Location: ../vistas/login.html"); //Validamos el acceso solo a los usuarios logueados al sistema.
 } else {
 
-  if ($_SESSION['sistema_informativo'] == 1) {
+  if ($_SESSION['sistema_informativo'] == 1) {    
+
+    require_once "../modelos/Proyecto.php";
+
+    $proyecto = new Proyecto();
 
     date_default_timezone_set('America/Lima');
     $date_now = date("d-m-Y h.i.s A");
 
-    require_once "../modelos/Proyecto.php";
-    //require_once "../dist/img/proyecto/img_galeria/marca_agua.php";
-
-
-    $proyecto = new Proyecto();
     $toltip = '<script> $(function () { $(\'[data-toggle="tooltip"]\').tooltip(); }); </script>';
+    $imagen_error = "this.src='../dist/svg/defaul_valor.png'";
 
     $scheme_host=  ($_SERVER['HTTP_HOST'] == 'localhost' ? 'http://localhost/front_sevens/' :  $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].'/');
 
@@ -65,7 +65,7 @@ if (!isset($_SESSION["nombre"])) {
           $ext1 = explode(".", $_FILES["doc1"]["name"]);
           $flat_img = true;
 
-          $imagen_perfil = $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+          $imagen_perfil = $date_now.' '.random_int(0, 20) . round(microtime(true)) . random_int(21, 41) . '.' . end($ext1);
 
           move_uploaded_file($_FILES["doc1"]["tmp_name"], "../dist/img/proyecto/imagen_perfil/" . $imagen_perfil);
         }
@@ -109,34 +109,30 @@ if (!isset($_SESSION["nombre"])) {
         echo json_encode($rspta, true);
       break;
 
-      case 'listar':
+      case 'tabla_principal':
 
-        $rspta = $proyecto->listar();
-        
-        $data = [];
-        $comprobante = '';
-        $cont = 1;
-        $imagen_error = "this.src='../dist/svg/defaul_valor.png'";
+        $rspta = $proyecto->tabla_principal();  
+
+        $data = []; $cont = 1;        
 
         if ($rspta['status']) {
-
 
           while ($reg = $rspta['data']->fetch_object()) {
 
             $data[] = [
-              "0" => '<center><button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' .$reg->idproyecto .')"><i class="fas fa-pencil-alt"></i></button>
-                      <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' .$reg->idproyecto .')"><i class="far fa-trash-alt"></i></button> </center>',
+              "0" => '<center><button class="btn btn-warning btn-xs margin_topp" onclick="mostrar(' .$reg->idproyecto .')" data-toggle="tooltip" title="Editar"><i class="fas fa-pencil-alt"></i></button>
+                      <button class="btn btn-danger btn-xs margin_topp" onclick="eliminar(' .$reg->idproyecto .')" data-toggle="tooltip" title="Eliminar"><i class="far fa-trash-alt"></i></button> </center>',
               "1" =>  '<div class="d-flex align-items-center mx-auto">
-                        <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_proyecto . '\')">
-                          <div class="avatar avatar-circle">
-                            <img class="avatar-img" src="../dist/img/proyecto/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
-                          </div>
-                        </a>
-                        <div class="ml-3">
-                          <small style="font-weight: bold;">'. $reg->nombre_proyecto .'</small>
-                        </div>
-                      </div>',
-              "2" =>'<textarea cols="30" rows="4" class="textarea_datatable" readonly="" style="font-size: 12px; width: 250px;">' . $reg->descripcion . '</textarea>',
+                <a onclick="ver_img_perfil(\'' . $reg->img_perfil . '\',\'' . $reg->nombre_proyecto . '\')">
+                  <div class="avatar avatar-circle">
+                    <img class="avatar-img" src="../dist/img/proyecto/imagen_perfil/'. $reg->img_perfil .'" alt="Image Description" onerror="'.$imagen_error.'">
+                  </div>
+                </a>
+                <div class="ml-3">
+                  <small style="font-weight: bold;">'. $reg->nombre_proyecto .'</small>
+                </div>
+              </div>',
+              "2" =>'<textarea cols="30" rows="2" class="textarea_datatable" readonly="" style="font-size: 12px; width: 250px;">' . $reg->descripcion . '</textarea>',
               "3" =>'<center><button class="btn btn-info btn-xs margin_topp" onclick="galeria(' .$reg->idproyecto .');" data-toggle="tooltip" title="Galería" ><i class="fas fa-images fa-1x"></i></button> 
                       <button class="btn btn-success btn-xs margin_topp" onclick="fases_proyecto(' .$reg->idproyecto .');" data-toggle="tooltip" title="Fases del proyecto"><i class="fas fa-list-ul"></i></button> </center>'.$toltip
             ];
@@ -181,7 +177,7 @@ if (!isset($_SESSION["nombre"])) {
 
           $flat_img_g = true;
 
-          $img_galeria =  $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.' . end($ext1);
+          $img_galeria =  $date_now.' '.random_int(0, 20) . round(microtime(true)) . random_int(21, 41) . '.' . end($ext1);
 
           move_uploaded_file($_FILES["doc2"]["tmp_name"], "../dist/img/proyecto/img_galeria/" . $img_galeria);
           

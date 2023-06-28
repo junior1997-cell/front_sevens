@@ -5,7 +5,7 @@
   <head>
     <!-- Title -->
     <title>Home | Seven's Ingenieros</title>
-    <span class="hidden name_page" >Home</span>
+    
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <span class="name_page" style="display: none;" >Home</span>
     <!-- ========== HEADER ========== -->
     <?php require 'header.php'; ?>
 
@@ -438,25 +439,25 @@
     <!-- ========== SCRIPT ========== -->
     <?php require 'script.php'; ?>
 
-      <!-- Go to Top -->
-      <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
-        data-hs-go-to-options='{
-          "offsetTop": 700,
-          "position": {
-            "init": {
-              "right": 15
-            },
-            "show": {
-              "bottom": 15
-            },
-            "hide": {
-              "bottom": -15
-            }
+    <!-- Go to Top -->
+    <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
+      data-hs-go-to-options='{
+        "offsetTop": 700,
+        "position": {
+          "init": {
+            "right": 15
+          },
+          "show": {
+            "bottom": 15
+          },
+          "hide": {
+            "bottom": -15
           }
-        }'>
-        <i class="fas fa-angle-up"></i>
-      </a>
-      <!-- End Go to Top -->
+        }
+      }'>
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- End Go to Top -->
 
     <!-- ========== JS Plugins Init. ========== -->
     <script>
@@ -533,12 +534,10 @@
     <script>
       if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="assets/vendor/babel-polyfill/dist/polyfill.js"><\/script>');
     </script>
+    <!-- JS script -->
+    <script src="scripts_web/principal.js"></script> 
+    <script src="admin/vistas/scripts/contador.js"></script> 
   </body>
-  <!-- JS script -->
-  <script src="scripts_web/principal.js"></script> 
-  <script src="admin/vistas/scripts/contador.js"></script> 
-
-  <!-- Mirrored from htmlstream.com/front/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 May 2021 14:16:49 GMT -->
 </html>
 <!-- JS -->
 

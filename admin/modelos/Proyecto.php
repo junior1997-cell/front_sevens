@@ -56,7 +56,7 @@ class Proyecto
     return ejecutarConsultaSimpleFila($sql);
   }
 
-  public function listar()
+  public function tabla_principal()
   {
     $sql = "SELECT*FROM proyecto_front ORDER BY idproyecto DESC";
     return ejecutarConsulta($sql);
@@ -304,8 +304,8 @@ function marca_agua($img_galeria) {
     $alturaOriginal = imagesy($original);
   
     // calcularmos los tamaños por porcentaje
-    $width_m =floatval($anchuraOriginal) * 0.25; 
-    $height_m = floatval($alturaOriginal) * 0.25; 
+    $width_m =floatval($anchuraOriginal) * 0.30; 
+    $height_m = floatval($alturaOriginal) * 0.30; 
   
     // cambiamos el tamaño a escala
     $new_marca =   img_resize($rutaMarcaDeAgua, $width_m, $height_m, '../dist/img/');
@@ -334,7 +334,7 @@ function marca_agua($img_galeria) {
     imagecopy($original, $marcaDeAgua, $xOriginal, $yOriginal, $xMarcaDeAgua, $yMarcaDeAgua, $anchuraMarcaDeAgua, $alturaMarcaDeAgua);
   
     # Guardar: Segundo argumento de imagepng es la ruta de la imagen de salida
-    $resultado = imagepng($original, $img_galeria);
+    $resultado = imagepng($original, "../dist/img/proyecto/img_galeria/".$img_galeria);
     //liberamos recursos
     imagedestroy($original); imagedestroy($marcaDeAgua);
   
@@ -351,7 +351,7 @@ function img_resize($imagen_name, $width, $height, $carpeta) {
 
 	// creamos el nombre
 	date_default_timezone_set('America/Lima'); $date_now = date("d-m-Y h.i.s A");  
-  $imagenNueva = $date_now.' '.rand(0, 20) . round(microtime(true)) . rand(21, 41) . '.png';
+  $imagenNueva = $date_now.' '.random_int(0, 20) . round(microtime(true)) . random_int(21, 41) . '.png';
 
   $nAncho = $width; //Nuevo ancho
   $nAlto = $height; //Nuevo alto

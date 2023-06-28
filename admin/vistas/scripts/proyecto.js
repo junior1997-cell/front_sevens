@@ -16,7 +16,7 @@ function init() {
 
   $("#guardar_registro").on("click", function (e) {$("#submit-form-proyecto").submit();});
 
-  $("#form-imagen-proyect").on("submit", function (e) { guardaryeditar_imagen(e) });
+  $("#guardar_registro_galeria").on("click", function (e) {$("#submit-form-imagen-proyect").submit();});
 
   $("#guardar_registro_fase").on("click", function (e) {$("#submit-form-proyecto-fase").submit();});
 
@@ -134,45 +134,38 @@ function mostrar_section(estado) {
 //-----------------------P R O Y E C T O ---------------------------------
 //------------------------------------------------------------------------
 
-function listar() {
-
-  $(".tabla").hide(); $(".cargando").show();
+function listar() {  
 
   tabla=$('#tabla-proyecto').dataTable({
-
-    "responsive": true,
+    responsive: true,
     lengthMenu: [[ -1, 5, 10, 25, 75, 100, 200,], ["Todos", 5, 10, 25, 75, 100, 200, ]],
-    "aProcessing": true,
-    "aServerSide": true,
+    aProcessing: true,
+    aServerSide: true,
     dom: '<Bl<f>rtip>',
     buttons: ['excelHtml5','pdf'],
-    "ajax":{
-        url: '../ajax/proyecto.php?op=listar',
-        type : "get",
-        dataType : "json",						
-        error: function(e){
-          console.log(e.responseText);	
-        }
-      },
-    "language": {
-      "lengthMenu": "Mostrar: _MENU_ registros",
-      "buttons": {
-        "copyTitle": "Tabla Copiada",
-        "copySuccess": {
-          _: '%d líneas copiadas',
-          1: '1 línea copiada'
-        }
-      },
+    ajax:{
+      url: '../ajax/proyecto.php?op=tabla_principal',
+      type : "get",
+      dataType : "json",						
+      error: function(e){
+        console.log(e.responseText);	
+      }
+    },
+    createdRow: function (row, data, ixdex) {
+      // columna: #
+      if (data[0] != '') { $("td", row).eq(0).addClass('text-nowrap'); }
+      // columna: opciones
+      if (data[3] != '') { $("td", row).eq(3).addClass('text-nowrap'); }
+    },
+    language: {
+      lengthMenu: "Mostrar: _MENU_ registros",
+      buttons: { copyTitle: "Tabla Copiada", copySuccess: { _: "%d líneas copiadas", 1: "1 línea copiada", }, },
       sLoadingRecords: '<i class="fas fa-spinner fa-pulse fa-lg"></i> Cargando datos...'
     },
-    "bDestroy": true,
-    "iDisplayLength": 5,//Paginación
-    "order": [[ 0, "asc" ]]//Ordenar (columna,orden)
-
+    bDestroy: true,
+    iDisplayLength: 5,//Paginación
+    order: [[ 0, "asc" ]],//Ordenar (columna,orden)
   }).DataTable();
-    
-  $(".tabla").show(); $(".cargando").hide();
-
 }
 
 function ver_img_perfil(img_perfil,nombre_proyecto){
@@ -325,6 +318,7 @@ function eliminar(idproyecto) {
 function limpiar_galeria() {
 
   $("#idgaleria_proyecto").val("");
+  $("#nombre_img").val("");
 
   $("#doc_old_2").val("");
   $("#doc2").val("");  
@@ -338,7 +332,7 @@ function galeria(idproyecto) {
   $("#idproyecto_img").val(idproyecto); 
 
   localStorage.setItem('idproyecto_img',idproyecto);
-  $("#g_cargando").html('<p><i class="fas fa-spinner fa-pulse fa-1x"></i> <h4>Cargando...</h4></p>');
+  $("#l_galeria").html(`<div class="col-lg-12 text-center"><i class="fas fa-spinner fa-pulse fa-2x"></i> <br> <h4>Cargando...</h4></div>`);
   mostrar_section(2);
 
   //Mostramos los proyectos
@@ -348,77 +342,71 @@ function galeria(idproyecto) {
     $("#id_fase_select").val('null').trigger("change");
   });
 
-  $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto:idproyecto }, function (e, status) {
+  $.post("../ajax/proyecto.php?op=listar_galeria", {idproyecto:idproyecto }, function (e, status) {   
 
-    $("#l_galeria").html("");
+    e = JSON.parse(e); console.log(e);      
 
-    e = JSON.parse(e); console.log(e); 
-    imagen=""; mostrar_img="";
     if (e.status == true) {
+
+      var l_galeria ='';
 
       if (e.data.length == 0) {
 
-        $("#g_cargando").html(`<div class="col-lg-12">
-        <div class="cbp-item product">
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Ninguna imagen por mostrar!</strong> puede registar una en el boton   <strong> 
-            <button type="button" class="btn btn-primary btn-xs" style="cursor: no-drop;"><i class="fas fa-plus-circle"></i> Agregar</button></strong> en la parte superior.
+        $("#l_galeria").html(`<div class="col-lg-12">
+          <div class="cbp-item product">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Ninguna imagen por mostrar!</strong> puede registar una en el boton   <strong> 
+              <button type="button" class="btn btn-primary btn-xs" style="cursor: no-drop;"><i class="fas fa-plus-circle"></i> Agregar</button></strong> en la parte superior.
+            </div>
           </div>
-        </div>
-      </div>`);
+        </div>`);
 
       } else {
 
         $.each(e.data, function (index, value) {
 
-          if (value.imagen!=null || value.imagen!="") { imagen='../dist/img/proyecto/img_galeria/'+value.imagen; } else { imagen='../dist/svg/drag-n-drop.svg'; }
+          var imagen = value.imagen!=null || value.imagen!="" ? `../dist/img/proyecto/img_galeria/${value.imagen}` : '../dist/svg/drag-n-drop.svg';
 
-            var l_galeria = ` <div class="col-lg-4">
-                                <div class="cbp-item product">
-                                    <div class="overflow-hidden rounded-lg">
-                                      <div class="cbp-caption-defaultWrap geeks">
-                                        <a onclick="modal_xl('${value.imagen}')">
-                                          <img class="rounded-lg" src="${imagen}" style="width: 90%;" onerror="this.src='../dist/svg/drag-n-drop.svg';" alt="Image Description">
-                                        </a>
-                                      </div>
-                                      <div class="text-center font-size-11px">
-                                      <span style="font-weight: bold;">${value.fase} : </span> <i>${value.nombre_imagen}</i> 
-                                      </div>
-                                    </div>
-                                    <div class="card-footer">
-                                      <ul class="list-inline list-separator small text-body">
-                                        <li class="list-inline-item" > 
-                                          <a style="cursor: pointer; font-size: 13px;" onclick="editar_imagen(${value.idgaleria_proyecto},${value.idfase_proyecto},'${value.imagen}','${value.nombre_imagen}')"> 
-                                            <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
-                                          </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                          <a style="cursor: pointer; font-size: 13px;" onclick="eliminar_imagen(${value.idgaleria_proyecto})"> 
-                                              <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                </div>
-                              </div>`;
-
-            $("#l_galeria").append(l_galeria);
-            
+          l_galeria =  l_galeria.concat(`<div class="col-lg-4">
+            <div class="cbp-item product">
+              <div class="overflow-hidden rounded-lg transition-zoom-hover">
+                <div class="cbp-caption-defaultWrap">
+                  <a onclick="modal_xl('${value.imagen}')">
+                    <img class="b-radio-top-10px cursor-pointer object-fit-cover-top-center h-150px w-100" src="${imagen}" onerror="this.src='../dist/svg/drag-n-drop.svg';" alt="Image Description">
+                  </a>
+                </div>
+                <div class="text-center font-size-11px">
+                  <span style="font-weight: bold;">${value.fase} : </span> <i>${value.nombre_imagen}</i> 
+                </div>
+              </div>
+              <div class="card-footer">
+                <ul class="list-inline list-separator small text-body">
+                  <li class="list-inline-item" > 
+                    <a class="cursor-pointer font-size-13px" onclick="editar_imagen(${value.idgaleria_proyecto},${value.idfase_proyecto},'${value.imagen}','${value.nombre_imagen}')"> 
+                      <span class="badge badge-soft-warning mr-2"  style="font-size: 13px;"> Editar</span> 
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="cursor-pointer font-size-13px" onclick="eliminar_imagen(${value.idgaleria_proyecto})"> 
+                      <span class="badge badge-soft-danger mr-2"  style="font-size: 13px;"> Eliminar</span> 
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>`);            
         });
 
-        $("#g_cargando").html("");
-
+        $("#l_galeria").html(l_galeria);
       }
     } else {
       ver_errores(e);
-    }   
-
+    } 
   }).fail( function(e) { console.log(e); ver_errores(e); } );
-
 }
 
 function guardaryeditar_imagen(e) {
-  e.preventDefault(); //No se activará la acción predeterminada del evento
+  //e.preventDefault(); //No se activará la acción predeterminada del evento
   var formData = new FormData($("#form-imagen-proyect")[0]);
 
   $.ajax({
@@ -480,35 +468,35 @@ function guardaryeditar_imagen(e) {
 
 function editar_imagen(idgaleria_proyecto,idfase_proyecto,imagen,nombre_imagen) {
 
-    limpiar_galeria();
-    
-    $("#modal-agregar-imagen").modal("show");
-    $("#id_fase_select").val("").trigger("change"); 
-    
-    $("#cargando-3-fomulario").hide();
-    $("#cargando-4-fomulario").show();
+  limpiar_galeria();
+  
+  $("#modal-agregar-imagen").modal("show");
+  $("#id_fase_select").val("").trigger("change"); 
+  
+  $("#cargando-3-fomulario").hide();
+  $("#cargando-4-fomulario").show();
 
-    $("#id_fase_select").val(idfase_proyecto).trigger("change"); 
+  $("#id_fase_select").val(idfase_proyecto).trigger("change"); 
 
-    $("#idgaleria_proyecto").val(idgaleria_proyecto);
-    $("#nombre_img").val(nombre_imagen);
+  $("#idgaleria_proyecto").val(idgaleria_proyecto);
+  $("#nombre_img").val(nombre_imagen);
 
-    if (imagen == "" || imagen == null  ) {
+  if (imagen == "" || imagen == null  ) {
 
-      $("#doc2_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
-      $("#doc2_nombre").html('');
-      $("#doc_old_2").val(""); $("#doc2").val("");
+    $("#doc2_ver").html('<img src="../dist/svg/doc_uploads.svg" alt="" width="50%" >');
+    $("#doc2_nombre").html('');
+    $("#doc_old_2").val(""); $("#doc2").val("");
 
-    } else {
+  } else {
 
-      $("#doc_old_2").val(imagen); 
-      $("#doc2_nombre").html(`<div class="row"> <div class="col-md-12"><i>Imagen.${extrae_extencion(imagen)}</i></div></div>`);
-      // cargamos la imagen adecuada par el archivo
-      $("#doc2_ver").html(doc_view_extencion(imagen, 'proyecto', 'img_galeria', '100%'));        
-    }  
+    $("#doc_old_2").val(imagen); 
+    $("#doc2_nombre").html(`<div class="row"> <div class="col-md-12"><i>Imagen.${extrae_extencion(imagen)}</i></div></div>`);
+    // cargamos la imagen adecuada par el archivo
+    $("#doc2_ver").html(doc_view_extencion(imagen, 'proyecto', 'img_galeria', '100%'));        
+  }  
 
-    $("#cargando-3-fomulario").show();
-    $("#cargando-4-fomulario").hide();
+  $("#cargando-3-fomulario").show();
+  $("#cargando-4-fomulario").hide();
 }
 
 function eliminar_imagen(idgaleria_proyecto) {
@@ -536,15 +524,10 @@ function modal_xl(imagen) {
   $("#modal_xl").modal("show");
   
   if (imagen == "" || imagen == null  ) {
-
-    $(".img_modal_xl_").html(`<img class="rounded-lg" src="../dist/svg/drag-n-drop.svg" style="width: 100%;"  alt="Image Description"></img>`)
-  
-   }else{
-
-    $(".img_modal_xl").html(`<img class="rounded-lg" src="../dist/img/proyecto/img_galeria/${imagen}" style="width: 100%;"  alt="Image Description"></img>`)
- 
-   }
-
+    $(".img_modal_xl_").html(`<img class="rounded-lg" src="../dist/svg/drag-n-drop.svg" style="width: 100%;"  alt="Image Description"></img>`);  
+  }else{
+    $(".img_modal_xl").html(`<img class="rounded-lg" src="../dist/img/proyecto/img_galeria/${imagen}" style="width: 100%;"  alt="Image Description" onerror="this.src='../dist/svg/drag-n-drop.svg';"></img>`); 
+  }
 }
 
 //--------------------------------------------------------------------------
@@ -555,7 +538,7 @@ function limpiar_fase(){
 
   $("idfase").val("");
   $("n_fase").val("");
-  $("nombre_fase").val("");
+  $("nombre_f").val("");
 
 }
 
@@ -728,6 +711,35 @@ $(function () {
     submitHandler: function (e) {
       $(".modal-body").animate({ scrollTop: $(document).height() }, 600); // Scrollea hasta abajo de la página
       guardaryeditar(e);      
+    },
+  });
+
+  $("#form-imagen-proyect").validate({
+    ignore: '.select2-input, .select2-focusser',
+    rules: {
+      nombre_img: {required: true},
+    },
+    messages: {
+      nombre_img: { required: "Campo requerido", },
+    },
+        
+    errorElement: "span",
+
+    errorPlacement: function (error, element) {
+      error.addClass("invalid-feedback");
+      element.closest(".form-group").append(error);
+    },
+
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass("is-invalid").removeClass("is-valid");
+    },
+
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass("is-invalid").addClass("is-valid");   
+    },
+    submitHandler: function (e) {
+      $(".modal-body").animate({ scrollTop: $(document).height() }, 600); // Scrollea hasta abajo de la página
+      guardaryeditar_imagen(e);      
     },
   });
    

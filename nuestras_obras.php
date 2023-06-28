@@ -4,7 +4,7 @@
   <head>
     <!-- Title -->
     <title>Nuestras Obras | Seven's Ingenieros</title>
-    <span class="hidden name_page" >Nuestras Obras</span>
+    
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8" />
@@ -14,6 +14,7 @@
   </head>
 
   <body>
+    <span class="name_page" style="display: none;" >Nuestras Obras</span>
     <!-- ========== HEADER ========== -->
     <?php require 'header1.php'; ?>
     <!-- ========== END HEADER ========== -->

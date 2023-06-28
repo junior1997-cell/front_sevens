@@ -80,8 +80,11 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-ghost-dark text-white" href="admin/index.php" target="_blank">
-                  <i class="fas fa-user-circle"></i>
+              <a class="nav-link media" href="admin/index.php" target="_blank">
+                  <span class="media">
+                    <span class="fas fa-user-circle mt-1 mr-2"></span>
+                    <span class="media-body">INTRANET</span>
+                  </span>
               </a>
             </li>
           </ul>
